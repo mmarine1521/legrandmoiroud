@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="pions" tilewidth="16" tileheight="16" tilecount="17375">
+  <image source="pions.png" width="2000" height="2225"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="12" height="12">
+  <data encoding="base64" compression="zlib">
+   eJylzNcOgkAQQNF5QeBzbGADC9ZEP9VExQZYsMbyU17jk6BG4yQnm53cXZH/p6uI9JTv2hPdGRdcP7xxEiJ1NNBEC210Eq/7kP0GW+ywxwHHN72litgoo4IqanDUeOux8xFggSVWWCPEJvLG0ERM5JBHAUWUYMHWnnuX+xgTTDHDHB58BJH+PkldJIU0MsjCgImc/tz29Yf7DDiHGMHV4//+OjeN3COR
+  </data>
+ </layer>
+</map>
