@@ -1,0 +1,104 @@
+% -------- Type de document ------------------
+\documentclass[12pt]{article}
+\usepackage{wrapfig}
+
+% -------- Langage ------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel} 
+
+% -------- Multiple colonnes ------------------
+\usepackage{multicol}
+
+% -------- Import de code ------------------
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    frame=shadowbox,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+}
+\usepackage[newfloat]{minted}
+\usepackage{caption}
+
+% -------- Mathématiques ------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{empheq}
+\usepackage[newfloat]{minted}
+
+% -------- Insertion de pdf ------------------
+\usepackage{pdfpages}
+
+% -------- Insertion de tex ------------------
+\usepackage{import}
+
+% -------- Référencement ------------------
+\usepackage[french,hidelinks]{hyperref}
+
+% -------- Insertion d'algorithmes ------------------
+\usepackage{algorithm2e}
+
+% -------- Sources externes ------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\graphicspath{{Images/}}
+\newcommand*{\sourcedir}{Sources/}
+
+% -------- Marges ------------------
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+
+% -------- Mise en page ------------------
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{14.5pt} 
+\fancyhf{}
+\rhead{\auteur}
+\lhead{\matiere}
+\rfoot{\thepage /\pageref{LastPage}}
+\lfoot{\classe}
+
+% -------- Information du compte rendu ---------------
+\def\auteur{Marine \textsc{Moiroud} - Kevin \textsc{Legrand}}
+\def\classe{}
+\def\matiere{Projet Logiciel Transversal}
+
+% -------- Titre ---------------
+\title{\textbf{\huge Projet Logiciel Transversal}}
+\author{Marine \textsc{Moiroud} - Kevin \textsc{Legrand}}
+
+
+\begin{document}
+    
+    \maketitle 
+     \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=15cm]{Images/risk.jpg}
+    \end{figure}
+    \newpage
+    \newpage
+    \tableofcontents
+    \newpage
+    
+    \import{\sourcedir}{1Objectif.tex}
+    \newpage
+    %\import{\sourcedir}{2Etats.tex}
+    \newpage
+    %\import{\sourcedir}{3Rendu.tex}
+    \newpage
+    %\import{\sourcedir}{4Regles.tex}
+    \newpage
+    %\import{\sourcedir}{5IA.tex}
+    \newpage
+    %\import{\sourcedir}{6Modularisation.tex}
+    
+\end{document}
+
+
+    
