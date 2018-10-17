@@ -7,8 +7,8 @@ namespace state {
   class Position;
 }
 
-#include "TypeId.h"
 #include "Position.h"
+#include "TypeId.h"
 
 namespace state {
 
@@ -21,7 +21,8 @@ namespace state {
   public:
     Element ();
     ~Element ();
-    TypeId getTypeId ();
+    virtual TypeId const getTypeId () = 0;
+    virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (int x, int y);
     // Setters and Getters
