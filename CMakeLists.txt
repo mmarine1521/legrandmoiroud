@@ -68,4 +68,3 @@ find_library(
 	DOC "microhttpd library"
 )
 #target_link_libraries(server ${MHD_LIBRARY})
-
