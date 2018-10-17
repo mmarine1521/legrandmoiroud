@@ -21,5 +21,9 @@ int main(int argc,char* argv[])
 
     cout << "It works !" << endl;
 
+    Pays EuropeNord(1,EUROPE) ;
+    int a = EuropeNord.getIdPays() ;
+    cout << "ID de l'Europe du Nord"<< a << endl ;
+
     return 0;
 }
