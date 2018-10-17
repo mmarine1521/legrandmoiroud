@@ -9,8 +9,8 @@ namespace state {
 }
 
 #include "Pays.h"
-#include "CarteId.h"
 #include "CarteForce.h"
+#include "CarteId.h"
 #include "MobileElement.h"
 
 namespace state {
@@ -27,7 +27,7 @@ namespace state {
     Pays const pays;
     // Operations
   public:
-    Carte (int numero , Pays pays);
+    Carte (int numero, Pays pays, CarteForce carteForce);
     ~Carte ();
     bool const isCarte ();
     void carteRules (CarteId carteId);
@@ -35,12 +35,12 @@ namespace state {
     CarteId getCarteId ();
     void setCarteId (CarteId carteId);
     CarteForce getCarteForce ();
-    void setCarteForce (CarteForce carteForce);
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();
     Pays getPays ();
     // Setters and Getters
+    void setCarteForce(CarteForce carteForce);
   };
 
 };

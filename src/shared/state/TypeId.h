@@ -7,7 +7,7 @@ namespace state {
 
   enum TypeId {
     PAYS     = 1,
-    OCEAN      = 2,
+    CONTINENT     = 2,
     ARMEE     = 3,
     CARTE     = 4
   };

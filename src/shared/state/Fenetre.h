@@ -2,7 +2,6 @@
 #ifndef STATE__FENETRE__H
 #define STATE__FENETRE__H
 
-#include <stdlib.h>
 
 namespace state {
   class Element;
@@ -15,20 +14,17 @@ namespace state {
   /// class Fenetre - 
   class Fenetre {
     // Associations
-    state::Element element;
     // Attributes
   private:
-    size_t width;
-    size_t height;
+    int width;
+    int height;
     // Operations
   public:
-    Fenetre (size_t width, size_t height);
-    size_t  getWidth ();
-    size_t getHeight ();
-    void resize (size_t width, size_t height);
+    Fenetre (int width, int height);
+    int getWidth ();
+    int getHeight ();
+    void resize (int width, int height);
     // Setters and Getters
-    const Element& getElement() const;
-    void setElement(const Element& element);
   };
 
 };

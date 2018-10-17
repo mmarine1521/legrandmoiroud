@@ -10,9 +10,11 @@ namespace state {
     // Attributes
   private:
     int x;
-    int  y;
+    int y;
     // Operations
   public:
+    Position ();
+    Position (int x, int y);
     int getX ();
     void setX (int x);
     int getY ();
