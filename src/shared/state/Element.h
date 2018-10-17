@@ -4,12 +4,10 @@
 
 
 namespace state {
-  class Fenetre;
   class Position;
 }
 
 #include "TypeId.h"
-#include "Fenetre.h"
 #include "Position.h"
 
 namespace state {
@@ -17,7 +15,6 @@ namespace state {
   /// class Element - 
   class Element {
     // Associations
-    state::Fenetre element;
     state::TypeId typeId;
     state::Position position;
     // Operations
@@ -25,12 +22,10 @@ namespace state {
     Element ();
     ~Element ();
     TypeId getTypeId ();
+    Position getPosition ();
     void setPosition (int x, int y);
     // Setters and Getters
-    const Fenetre& getElement() const;
-    void setElement(const Fenetre& element);
     void setTypeId(TypeId typeId);
-    const Position& getPosition() const;
   };
 
 };

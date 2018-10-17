@@ -10,9 +10,9 @@ namespace state {
 }
 
 #include "Pays.h"
+#include "ContinentId.h"
 #include "CouleurId.h"
 #include "StaticElement.h"
-#include "ContinentId.h"
 
 namespace state {
 
@@ -26,14 +26,13 @@ namespace state {
     std::vector<Pays> const listePays;
     // Operations
   public:
-    Continent (std::vector<Pays> listePays, CouleurId couleur);
+    Continent (std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId);
     TypeId const getTypeId ();
     ContinentId const getContinentId ();
-    CouleurId const getCouleur ();
+    CouleurId const getCouleurId ();
     std::vector<Pays> getListePays ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
-    CouleurId getCouleurId() const;
     void setCouleurId(CouleurId couleurId);
   };
 

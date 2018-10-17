@@ -33,15 +33,14 @@ namespace state {
     void carteRules (CarteId carteId);
     TypeId const getTypeId ();
     CarteId getCarteId ();
-    CarteForce getForce ();
+    void setCarteId (CarteId carteId);
+    CarteForce getCarteForce ();
+    void setCarteForce (CarteForce carteForce);
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();
     Pays getPays ();
     // Setters and Getters
-    CarteForce getCarteForce() const;
-    void setCarteForce(CarteForce carteForce);
-    void setCarteId(CarteId carteId);
   };
 
 };

@@ -1,6 +1,6 @@
 #include "Armee.h"
 
-#include <vector>
+namespace state {
 
 Armee::Armee (int idJoueur) : idJoueur (idJoueur){
 }
@@ -12,7 +12,7 @@ bool Armee::isCarte (){
   return false;
 }
 
-//void Armees::armeeStatus (ArmeeStatus id){}
+//void armeeRules (ArmeeStatus armeeStatus){}
 
 TypeId const Armee::getTypeId (){
   return ARMEE;
@@ -39,4 +39,13 @@ Pays Armee::getPays (){
 }
 void Armee::setPays (Pays pays){
   this->pays = pays;
+}
+
+ArmeeStatus Armee::getArmeeStatus(){
+  return this->armeeStatus;
+}
+void Armee::setArmeeStatus(ArmeeStatus armeeStatus){
+  this->armeeStatus = armeeStatus;
+}
+
 }

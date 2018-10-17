@@ -5,9 +5,17 @@
 #include <stdlib.h>
 
 namespace state {
+  class Element;
+}
+
+#include "Element.h"
+
+namespace state {
 
   /// class Fenetre - 
   class Fenetre {
+    // Associations
+    state::Element element;
     // Attributes
   private:
     size_t width;
@@ -19,6 +27,8 @@ namespace state {
     size_t getHeight ();
     void resize (size_t width, size_t height);
     // Setters and Getters
+    const Element& getElement() const;
+    void setElement(const Element& element);
   };
 
 };

@@ -36,9 +36,9 @@ namespace state {
     void setNombre (int nombre);
     Pays getPays ();
     void setPays (Pays pays);
+    ArmeeStatus getArmeeStatus ();
+    void setArmeeStatus (ArmeeStatus armeeStatus);
     // Setters and Getters
-    ArmeeStatus getArmeeStatus() const;
-    void setArmeeStatus(ArmeeStatus armeeStatus);
   };
 
 };
