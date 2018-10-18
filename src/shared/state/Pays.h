@@ -21,17 +21,18 @@ namespace state {
     // Associations
     // Attributes
   private:
-    int idPays;
+    int paysId;
+    ContinentId continentId;
     std::vector<Pays> paysFrontaliers;
-    ContinentId idContinent;
     // Operations
   public:
     Pays ();
-    Pays (int idPays, ContinentId continent);
+    Pays (int paysId, ContinentId continentId);
+    ~Pays ();
     TypeId const getTypeId ();
-    int getIdPays ();
+    int getPaysId ();
+    ContinentId getContinentId ();
     std::vector<Pays> getPaysFrontaliers ();
-    ContinentId getContinent ();
     void setPaysFrontaliers (std::vector<Pays> paysFrontaliers);
     // Setters and Getters
   };

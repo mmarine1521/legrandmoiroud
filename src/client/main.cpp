@@ -1,25 +1,21 @@
-#include <iostream>
-
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-#include <SFML/Graphics.hpp>
+/*#include <SFML/Graphics.hpp>
 
 void testSFML() {
     sf::Texture texture;
 }
-
+*/
 // Fin test SFML
 
 #include "state.h"
 
-using namespace std;
+#include <iostream>
+
 using namespace state;
 
-int main(int argc,char* argv[]) 
+int main(int argc,char* argv[])
 {
-    //Exemple exemple;
-    //exemple.setX(53);
-
-    cout << "It works !" << endl;
+    std::cout << "It works !" << std::endl;
 
     //CRÉATION DES PAYS DE L'EUROPE
     Pays EuropeNord(1,EUROPE) ;
@@ -41,8 +37,8 @@ int main(int argc,char* argv[])
 
 
     //CREATION DES PAYS DE L'OCEANIE
-    Pays Indonésie(8, OCEANIE);
-    Pays NouvelleGuinée(9, OCEANIE);
+    Pays Indonesie(8, OCEANIE);
+    Pays NouvelleGuinee(9, OCEANIE);
     Pays AustralieOuest(10, OCEANIE);
     Pays AustralieEst(11, OCEANIE);
 
@@ -53,7 +49,7 @@ int main(int argc,char* argv[])
     Pays China(15, ASIE);
     Pays Mongolie(16, ASIE);
     Pays AsieDuSud(17, ASIE);
-    Pays Sibérie(18, ASIE);
+    Pays Siberie(18, ASIE);
     Pays Oural(19, ASIE);
     Pays Siam(20, ASIE);
     Pays Inde3(21, ASIE);
@@ -63,12 +59,13 @@ int main(int argc,char* argv[])
     //CREATION DES PAYS DE L'AFRIQUE
 
     //CREATION DU CONTINENT EUROPE
-    Continent(PaysEurope, EUROPE, VERT);
-    Europe.getListePays() ;
+    Continent Europe(PaysEurope, EUROPE, VERT);
+
+    std::vector<Pays> const listePaysEurope = Europe.getListePays() ;
+    int a = EuropeNord.getPaysId() ;
+    std::cout << "ID de l'Europe du Nord"<< a << std::endl ;
 
 
-    int a = EuropeNord.getIdPays() ;
-    cout << "ID de l'Europe du Nord"<< a << endl ;
 
     return 0;
 }

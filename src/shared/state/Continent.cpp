@@ -7,6 +7,9 @@ namespace state{
 Continent::Continent(std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId) : continentId(continentId), couleurId(couleurId), listePays(listePays){
 }
 
+Continent::~Continent (){
+}
+
 TypeId const getTypeId (){
 	return CONTINENT;
 }
