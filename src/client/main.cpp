@@ -63,7 +63,8 @@ int main(int argc,char* argv[])
 
     std::vector<Pays> const listePaysEurope = Europe.getListePays() ;
     int a = EuropeNord.getPaysId() ;
-    std::cout << "ID de l'Europe du Nord"<< a << std::endl ;
+    bool mouvement = EuropeNord.isStatic();
+    std::cout << "ID de l'Europe du Nord : " << a << ". isStatic de l'Europe : " << mouvement << std::endl ;
 
 
 

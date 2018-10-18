@@ -4,7 +4,30 @@
     L'objectif du projet est de réaliser un jeu s'inspirant du jeu de stratégie Risk, avec des règles simplifiées.
     
 \subsection{Règles du jeu}
-    Au début du jeu, le joueur reçoit des territoires puis gère ses armées en les plaçant sur les pays qu'ils possèdent. A tour de rôle, les deux adversaires s'attaquent afin de gagner des territoires. Le vainqueur est celui qui conquiert tous les territoires ennemis (nous pourrons modifier cet aspect du jeu pour que les parties durent moins longtemps). Pour cela, il doit lancer des dés qui décideront de l'issue du combat sur un territoire donné. Le joueur peut perdre des armées à chaque phase de jeu et reçoit quelques unités de combat à diverses occasions. 
+    Au début du jeu, le joueur reçoit des territoires puis gère ses armées en les plaçant sur les pays qu'il possède. A tour de rôle, les deux adversaires s'attaquent afin de gagner des territoires. Le vainqueur est celui qui conquiert tous les territoires ennemis (nous pourrons modifier cet aspect du jeu pour que les parties durent moins longtemps). Pour cela, il doit lancer des dés qui décideront de l'issue du combat sur un territoire donné. Le joueur peut perdre des armées à chaque phase de jeu et reçoit quelques unités de combat à diverses occasions. Un joueur perd un territoire lorsqu'il n'y a plus d'armées dessus. 
+    \newline
+    \newline
+    Le joueur qui attaque peut décider d'attaquer avec 1, 2 ou 3 armées à condition d'avoir au moins ce nombre d'armée en poste sur le territoire. Le joueur qui défend peut défendre avec 1 ou 2 armées à condition d'avoir au moins ce nombre d'armée sur le territoire, le nombre d'armée sur un territoire n'étant pas limité.
+    \begin{itemize}
+        \item Si l'attaquant joue avec 1 armée, la défense peut défendre avec 1 ou 2 armées. Si le plus grand lancer de dé du défenseur est supérieur ou égal à celui de l'attaquant, c'est l'attaquant qui perd une armée. Sinon, le défenseur perd une armée. 
+        \item L'attaquant joue avec 2 armées. Si la défense joue avec 1 armée, la perte possible est de 1 de chaque côté. Si la défense joue avec 2 armées, la perte maximale est de 2 armées de chaque côté. 
+        \item L'attaquant joue avec 3 armées. Le cas de figure est identique au précédent bien que l'attaque ait une proportion de victoire plus importante. Le défenseur ne peut pas mettre en jeu plus de deux armées, et donc ne peut pas perdre plus de 2 armées lors d'une attaque. Vous trouverez un exemple sur la page suivante. 
+        \newline
+        \newline
+    \end{itemize}
+    
+    Tant que l'attaquant ne perd pas, celui-ci peut continuer d'attaquer. Lors d'un tour de jeu, l'attaquant ne peut attaquer que depuis un seul pays. Si il perd, son tour de jeu s'arrête. Il peut également décider de stopper lui-même son tour de jeu. 
+    \newline 
+    Un joueur ne peut attaquer qu'un pays frontalier au sien. 
+    \newline
+    A la fin de son tour, un joueur peut effectuer des déplacements stratégiques. Il peut alors déplacer des armées d'un pays qu'il possède à un autre pays qu'il possède à condition que ces deux pays soient frontaliers.
+
+\begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=11cm]{Images/des_riskk.PNG}
+        \caption{Exemple de lancé de dés}
+    \end{figure}
+\newpage 
 
 \subsection{Ressources}
     Plusieurs ressources sont nécessaires pour afficher l'état du jeu au cours de la partie. 
@@ -13,10 +36,10 @@
     \begin{figure}[!htbp]
         \centering
         \includegraphics[width=6cm]{Images/terrain.png}
-        \caption{Textures pour la plateau}
+        \caption{Textures pour le plateau}
         \label{fig:textures_plateau}
     \end{figure}
-    \newpage
+
     
     \begin{figure}[!htbp]
         \centering
@@ -31,8 +54,6 @@
         \caption{Textures pour les pions}
         \label{fig:textures_pions}
     \end{figure}
-    
-    % \includegraphics[width=4cm]{Images/soldier.png}
     
     \begin{figure}[!htbp]
         \centering
