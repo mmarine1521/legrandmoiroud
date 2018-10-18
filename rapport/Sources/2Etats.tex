@@ -51,7 +51,6 @@ Les armées pourront avoir différents statuts.
 
 Les \textbf{cartes} seront également assujetties à des modifications dans leur affichage. En effet, elles possèdent différentes fonctions selon le moment de la partie.
 \newline 
-\newline
 
 \begin{itemize}
     \item AVANT LE DEBUT DE LA PARTIE : Les cartes sont toutes distribuées aux joueurs. Les joueurs possèdent alors les territoires dont le nom figure sur les cartes. Ils peuvent ensuite affecter des armées sur ces territoires.
@@ -60,8 +59,14 @@ Les \textbf{cartes} seront également assujetties à des modifications dans leur
 \end{itemize}
 
 \subsection{Conception Logicielle}
+Le diagramme des classes pour les états est présenté sur la page suivante. Plusieurs groupes de classes commencent à se distinguer. 
+Tout d'abord, un groupe de classe qui concerne uniquement \textbf{les éléments}. Ce groupe est très avancé dans la conception puisque toutes les classes le composant ont été écrites. Elles permettent de décrire le fonctionnement des éléments qui composent notre jeu. 
+\newline 
+\newline 
+Par ailleurs, nous pouvons distinguer un groupe \textbf{conteneurs}. Celui-ci explicitera comment les éléments s'afficheront sur notre carte de jeu. Il nous reste encore à écrire toutes les méthodes dont nous aurons besoin. L'idée est que chaque élément sera repéré par ses coordonnées. Nous devrons au préalable connaître en détail les zones dont dispose chaque pays afin de savoir à quel endroit exact nous devons mettre ou enlever des armées par exemple.  
 
-
+\newpage
+Remarque : Lors de la compilation, nous avons depuis mercredi un soucis puisque de nombreuses erreurs du type : "référence indéfinie vers vtable for ......" sont apparues, que nous n'avons pas réussi à résoudre avant la dead-line 1.final. C'est pourquoi nous n'avons pas pu finir totalement l'aspect code de ce rendu. 
 \newpage
 \begin{landscape}
     \begin{figure}[!htbp]
