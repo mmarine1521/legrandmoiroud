@@ -27,7 +27,7 @@ namespace state {
     // Operations
   public:
     Continent (std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId);
-    ~Continent ();
+    virtual ~Continent ();
     TypeId const getTypeId ();
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();

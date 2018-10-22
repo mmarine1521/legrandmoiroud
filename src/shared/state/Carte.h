@@ -28,7 +28,7 @@ namespace state {
     // Operations
   public:
     Carte (int numero, Pays pays, CarteForce carteForce);
-    ~Carte ();
+    virtual ~Carte ();
     bool const isCarte ();
     void carteRules (CarteId carteId);
     TypeId const getTypeId ();

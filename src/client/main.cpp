@@ -15,8 +15,6 @@ using namespace state;
 
 int main(int argc,char* argv[])
 {
-    std::cout << "It works !" << std::endl;
-
     //CRÉATION DES PAYS DE L'EUROPE
     Pays EuropeNord(1,EUROPE) ;
     Pays GrandeBretagne(2, EUROPE);
@@ -61,11 +59,11 @@ int main(int argc,char* argv[])
     //CREATION DU CONTINENT EUROPE
     Continent Europe(PaysEurope, EUROPE, VERT);
 
-    std::vector<Pays> const listePaysEurope = Europe.getListePays() ;
-    int a = EuropeNord.getPaysId() ;
-    bool mouvement = EuropeNord.isStatic();
-    std::cout << "ID de l'Europe du Nord : " << a << ". isStatic de l'Europe : " << mouvement << std::endl ;
-
+    //TESTS
+    std::cout << "ID de l'Europe du Nord : " << EuropeNord.getPaysId() << std::endl;
+    std::cout << "isStatic de l'Europe : " << Europe.isStatic() << std::endl ;
+    std::cout << "Continent de l'Europe du Nord : " << EuropeNord.getContinentId() << std::endl;
+    std::cout << "Continent de l'Europe : " << Europe.getContinentId() << std::endl;
 
 
     return 0;

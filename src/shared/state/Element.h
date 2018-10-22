@@ -20,7 +20,7 @@ namespace state {
     // Operations
   public:
     Element ();
-    ~Element ();
+    virtual ~Element ();
     virtual TypeId const getTypeId () = 0;
     virtual bool const isStatic () = 0;
     Position getPosition ();

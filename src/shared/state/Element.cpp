@@ -8,14 +8,6 @@ Element::Element (){
 Element::~Element (){
 }
 
-TypeId const Element::getTypeId (){
-  return NON_RENSEIGNE;
-}
-
-bool const Element::isStatic (){
-  return false;
-}
-
 Position Element::getPosition (){
   return this->position;
 }

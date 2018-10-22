@@ -15,6 +15,8 @@ namespace state {
   class StaticElement : public state::Element {
     // Operations
   public:
+    StaticElement ();
+    virtual ~StaticElement ();
     bool const isStatic ();
     // Setters and Getters
   };

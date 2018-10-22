@@ -15,6 +15,8 @@ namespace state {
   class MobileElement : public state::Element {
     // Operations
   public:
+    MobileElement ();
+    virtual ~MobileElement ();
     bool const isStatic ();
     virtual bool const isCartes () = 0;
     // Setters and Getters

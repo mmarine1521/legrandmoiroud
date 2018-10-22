@@ -7,7 +7,7 @@ namespace state{
 Pays::Pays (){
 }
 
-Pays::Pays (int paysId, ContinentId continentId): paysId(paysId), continentId(continentId){
+Pays::Pays (int paysId, ContinentId continentId): continentId(continentId), paysId(paysId){
 }
 
 Pays::~Pays (){
@@ -22,7 +22,7 @@ int Pays::getPaysId (){
 }
 
 ContinentId Pays::getContinentId (){
-	return continentId;
+	return this -> continentId ;
 }
 
 std::vector<Pays> Pays::getPaysFrontaliers (){

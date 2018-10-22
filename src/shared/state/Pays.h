@@ -7,28 +7,26 @@
 namespace state {
   class Pays;
   class StaticElement;
-  class Continent;
 }
 
 #include "ContinentId.h"
 #include "StaticElement.h"
-#include "Continent.h"
 
 namespace state {
 
   /// class Pays - 
   class Pays : public state::StaticElement {
-    // Associations
     // Attributes
+  public:
+    ContinentId continentId;
   private:
     int paysId;
-    ContinentId continentId;
     std::vector<Pays> paysFrontaliers;
     // Operations
   public:
     Pays ();
     Pays (int paysId, ContinentId continentId);
-    ~Pays ();
+    virtual ~Pays ();
     TypeId const getTypeId ();
     int getPaysId ();
     ContinentId getContinentId ();

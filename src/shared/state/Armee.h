@@ -26,7 +26,7 @@ namespace state {
     // Operations
   public:
     Armee (int idJoueur);
-    ~Armee ();
+    virtual ~Armee ();
     bool isCarte ();
     void armeeRules (ArmeeStatus armeeStatus);
     TypeId const getTypeId ();

@@ -4,13 +4,16 @@
 
 namespace state{
 
-Continent::Continent(std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId) : continentId(continentId), couleurId(couleurId), listePays(listePays){
+//Continent::Continent(std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId) : continentId(continentId), couleurId(couleurId), listePays(listePays){
+//}
+Continent::Continent (std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId) {
+
 }
 
 Continent::~Continent (){
 }
 
-TypeId const getTypeId (){
+TypeId const Continent::getTypeId (){
 	return CONTINENT;
 }
 
