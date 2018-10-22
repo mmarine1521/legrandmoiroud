@@ -6,7 +6,6 @@
 namespace state {
 
   enum TypeId {
-    NON_RENSEIGNE     = 0,
     PAYS     = 1,
     CONTINENT     = 2,
     ARMEE     = 3,

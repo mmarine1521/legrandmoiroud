@@ -27,7 +27,7 @@ namespace state {
   public:
     Armee (int idJoueur);
     virtual ~Armee ();
-    bool isCarte ();
+    bool const isCarte ();
     void armeeRules (ArmeeStatus armeeStatus);
     TypeId const getTypeId ();
     int getIdJoueur ();

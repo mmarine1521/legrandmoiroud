@@ -16,7 +16,9 @@ namespace state {
   class Element {
     // Associations
     state::TypeId typeId;
-    state::Position position;
+    // Attributes
+  private:
+    Position position;
     // Operations
   public:
     Element ();

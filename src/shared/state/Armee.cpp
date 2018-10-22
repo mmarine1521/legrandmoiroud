@@ -8,7 +8,7 @@ Armee::Armee (int idJoueur) : idJoueur (idJoueur){
 Armee::~Armee (){
 }
 
-bool Armee::isCarte (){
+bool const Armee::isCarte (){
   return false;
 }
 
