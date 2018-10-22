@@ -8,8 +8,8 @@ namespace state {
   enum CouleurId {
     MARRON     = 1,
     ROUGE     = 2,
-    NOIR     = 3,
-    JAUNE     = 4,
+    JAUNE     = 3,
+    NOIR     = 4,
     VERT     = 5,
     VERT_FONCE     = 6
   };

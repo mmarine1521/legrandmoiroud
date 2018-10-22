@@ -8,8 +8,8 @@ namespace state {
   enum ContinentId {
     AFRIQUE     = 1,
     ASIE     = 2,
-    AMERIQUE_SUD     = 3,
-    AMERIQUE_NORD     = 4,
+    AMERIQUE_NORD     = 3,
+    AMERIQUE_SUD     = 4,
     EUROPE     = 5,
     OCEANIE     = 6
   };
