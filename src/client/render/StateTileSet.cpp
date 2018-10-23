@@ -1,31 +1,24 @@
-#include "StateTileSet.cpp"
+#include "StateTileSet.h"
 
 namespace render{
 
-StateTileSet ()
-{
+	StateTileSet::StateTileSet()
+	{
+		
+	}
 	
-}
-
-~StateTileSet ()
-{
+	int const StateTileSet::getCellWidth()
+	{
+		return 768 ; 
+	}
+	int const StateTileSet::getCellHeight()
+	{
+		return 864 ; 
+	}
 	
-}
-int const getCellWidth ()
-{
-
-}
-int const getCellHeight ()
-{
-	
-}
-
-const std::string const getImageFile ()
-{
-	
-}
-
-const Tile& const getCharTile (char c)
-{
+	const std::string StateTileSet::getImageFile() const 
+	{
+		return "res/tank384px.png"; 
+	}
 	
 }
