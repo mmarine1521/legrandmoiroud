@@ -16,58 +16,58 @@ using namespace state;
 int main(int argc,char* argv[])
 {
   //CREATION DES PAYS DE L'AFRIQUE
-  Pays Congo(101, AFRIQUE);
-  Pays AfriqueDeLEst(102, AFRIQUE);
-  Pays Egypte(103, AFRIQUE);
-  Pays Madagascar(104, AFRIQUE);
-  Pays AfriqueDuNord(105, AFRIQUE);
-  Pays AfriqueDuSud(106, AFRIQUE);
+  Pays Congo("Congo", 101, AFRIQUE);
+  Pays AfriqueDeLEst("Afrique De L'Est", 102, AFRIQUE);
+  Pays Egypte("Egypte", 103, AFRIQUE);
+  Pays Madagascar("Madagascar", 104, AFRIQUE);
+  Pays AfriqueDuNord("Afrique Du Nord", 105, AFRIQUE);
+  Pays AfriqueDuSud("Afrique Du Sud", 106, AFRIQUE);
 
   //CREATION DES PAYS DE L'ASIE
-  Pays Afghanistan(201, ASIE);
-  Pays Chine(202, ASIE);
-  Pays Inde(203, ASIE);
-  Pays Tchita(204, ASIE);
-  Pays Japon(205, ASIE);
-  Pays Kamtchatka(206, ASIE);
-  Pays MoyenOrient(207, ASIE);
-  Pays Mongolie(208, ASIE);
-  Pays Siam(209, ASIE);
-  Pays Siberie(210, ASIE);
-  Pays Oural(211, ASIE);
-  Pays Yakoutie(212, ASIE);
+  Pays Afghanistan("Afghanistan", 201, ASIE);
+  Pays Chine("Chine", 202, ASIE);
+  Pays Inde("Inde", 203, ASIE);
+  Pays Tchita("Tchita", 204, ASIE);
+  Pays Japon("Japon", 205, ASIE);
+  Pays Kamtchatka("Kamtchatka", 206, ASIE);
+  Pays MoyenOrient("Moyen Orient", 207, ASIE);
+  Pays Mongolie("Mongolie", 208, ASIE);
+  Pays Siam("Siam", 209, ASIE);
+  Pays Siberie("Siberie", 210, ASIE);
+  Pays Oural("Oural", 211, ASIE);
+  Pays Yakoutie("Yakoutie", 212, ASIE);
 
   //CREATION DES PAYS DE L'AMERIQUE DU NORD
-  Pays Alaska(301, AMERIQUE_NORD);
-  Pays Alberta(302, AMERIQUE_NORD);
-  Pays AmeriqueCentrale(303, AMERIQUE_NORD);
-  Pays EtatsDeLEst(304, AMERIQUE_NORD);
-  Pays Groenland(305, AMERIQUE_NORD);
-  Pays TerritoiresDuNordOuest(306, AMERIQUE_NORD);
-  Pays Ontario(307, AMERIQUE_NORD);
-  Pays Quebec(308, AMERIQUE_NORD);
-  Pays EtatsDeLOuest(309, AMERIQUE_NORD);
+  Pays Alaska("Alaska", 301, AMERIQUE_NORD);
+  Pays Alberta("Alberta", 302, AMERIQUE_NORD);
+  Pays AmeriqueCentrale("Amerique Centrale", 303, AMERIQUE_NORD);
+  Pays EtatsDeLEst("Etats De L'Est", 304, AMERIQUE_NORD);
+  Pays Groenland("Groenland", 305, AMERIQUE_NORD);
+  Pays TerritoiresDuNordOuest("Territoires Du Nord-Ouest", 306, AMERIQUE_NORD);
+  Pays Ontario("Ontario", 307, AMERIQUE_NORD);
+  Pays Quebec("Québec", 308, AMERIQUE_NORD);
+  Pays EtatsDeLOuest("Etats De L'Ouest", 309, AMERIQUE_NORD);
 
   //CREATION DES PAYS DE L'AMERIQUE DU SUD
-  Pays Argentine(401, AMERIQUE_SUD);
-  Pays Bresil(402, AMERIQUE_SUD);
-  Pays Perou(403, AMERIQUE_SUD);
-  Pays Venezuela(404, AMERIQUE_SUD);
+  Pays Argentine("Argentine", 401, AMERIQUE_SUD);
+  Pays Bresil("Brésil", 402, AMERIQUE_SUD);
+  Pays Perou("Pérou", 403, AMERIQUE_SUD);
+  Pays Venezuela("Vénézuela", 404, AMERIQUE_SUD);
 
   //CRÉATION DES PAYS DE L'EUROPE
-  Pays GrandeBretagne(501, EUROPE);
-  Pays Islande(502, EUROPE);
-  Pays EuropeDuNord(503,EUROPE) ;
-  Pays Scandinavie(504, EUROPE);
-  Pays EuropeDuSud(505, EUROPE);
-  Pays Ukraine(506, EUROPE);
-  Pays EuropeOccidentale(507, EUROPE);
+  Pays GrandeBretagne("Grande Bretagne", 501, EUROPE);
+  Pays Islande("Islande", 502, EUROPE);
+  Pays EuropeDuNord("Europe Du Nord", 503,EUROPE) ;
+  Pays Scandinavie("Scandinavie", 504, EUROPE);
+  Pays EuropeDuSud("Europe Du Sud", 505, EUROPE);
+  Pays Ukraine("Ukraine", 506, EUROPE);
+  Pays EuropeOccidentale("Europe Occidentale", 507, EUROPE);
 
   //CREATION DES PAYS DE L'OCEANIE
-  Pays AustralieOrientale(601, OCEANIE);
-  Pays Indonesie(602, OCEANIE);
-  Pays NouvelleGuinee(603, OCEANIE);
-  Pays AustralieOccidentale(604, OCEANIE);
+  Pays AustralieOrientale("Australie Orientale", 601, OCEANIE);
+  Pays Indonesie("Indonesie", 602, OCEANIE);
+  Pays NouvelleGuinee("Nouvelle Guinee", 603, OCEANIE);
+  Pays AustralieOccidentale("Australie Occidentale", 604, OCEANIE);
 
 
     //CREATION Liste de Pays frontaliers
@@ -364,6 +364,7 @@ int main(int argc,char* argv[])
     //TESTS Pays
     std::cout << "PAYS" << std::endl;
     std::cout << "isStatic : " << EuropeDuSud.isStatic() << "  //1" << std::endl;
+    std::cout << "nom de l'Europe du Sud : " << EuropeDuSud.getNomPays() << std::endl;
     std::cout << "TypeId de l'Europe du Sud : " << EuropeDuSud.getTypeId() << "  //1" << std::endl;
     std::cout << "ID de l'Europe du Sud : " << EuropeDuSud.getPaysId() << "  //505" << std::endl;
     std::cout << "Continent de l'Europe du Sud : " << EuropeDuSud.getContinentId() << "  //5" << std::endl << std::endl;
@@ -379,7 +380,7 @@ int main(int argc,char* argv[])
     PaysEurope[4] = EuropeDuSud ;
     PaysEurope[5] = Scandinavie ;
     PaysEurope[6] = Ukraine ;
-    Continent Europe(PaysEurope, EUROPE, VERT); //std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId
+    Continent Europe("Europe", EUROPE, VERT, PaysEurope);
 
 
     //CREATION Continent Afrique
@@ -391,7 +392,7 @@ int main(int argc,char* argv[])
     PaysAfrique[4] = AfriqueDuSud ;
     PaysAfrique[5] = Madagascar ;
 
-    Continent Afrique(PaysAfrique, AFRIQUE, MARRON); //std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId
+    Continent Afrique("Afrique", AFRIQUE, MARRON, PaysAfrique);
 
     //CREATION Continent Afrique
     std::vector<Pays> PaysAsie(12) ;
@@ -408,7 +409,7 @@ int main(int argc,char* argv[])
     PaysAsie[10] = Tchita ;
     PaysAsie[11] = Kamtchatka ;
 
-    Continent Asie(PaysAsie, ASIE, ROUGE); //std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId
+    Continent Asie("Asie", ASIE, ROUGE, PaysAsie);
 
     //CREATION Continent OCEANIE
     std::vector<Pays> PaysOceanie(4) ;
@@ -417,7 +418,7 @@ int main(int argc,char* argv[])
     PaysOceanie[2] = AustralieOccidentale ;
     PaysOceanie[3] = AustralieOrientale ;
 
-    Continent Oceanie(PaysOceanie, OCEANIE, VERT_FONCE); //std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId
+    Continent Oceanie("Oceanie", OCEANIE, VERT_FONCE, PaysOceanie);
 
 
     //CREATION Continent AMERIQUE DU NORD
@@ -432,7 +433,7 @@ int main(int argc,char* argv[])
     PaysAmeriqueDuNord[7] = Quebec ;
     PaysAmeriqueDuNord[8] = EtatsDeLOuest ;
 
-    Continent AmeriqueDuNord(PaysAmeriqueDuNord, AMERIQUE_NORD, JAUNE); //std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId
+    Continent AmeriqueDuNord("Amerique Du Nord", AMERIQUE_NORD, JAUNE, PaysAmeriqueDuNord);
 
 
     //CREATION Continent AMERIQUE DU SUD
@@ -442,15 +443,22 @@ int main(int argc,char* argv[])
     PaysAmeriqueDuSud[2] = Perou;
     PaysAmeriqueDuSud[3] = Venezuela ;
 
-    Continent AmeriqueDuSud(PaysAmeriqueDuSud, AMERIQUE_SUD, NOIR); //std::vector<Pays> listePays, ContinentId continentId,
+    Continent AmeriqueDuSud("Amerique Du Sud", AMERIQUE_SUD, NOIR, PaysAmeriqueDuSud);
 
     //TESTS Continent
     std::cout << "CONTINENT" << std::endl;
     std::cout << "isStatic : " << Europe.isStatic() << "  //1" << std::endl;
+    std::cout << "nom de l'Europe : " << Europe.getNomContinent() << std::endl;
     std::cout << "TypeId de l'Europe : " << Europe.getTypeId() << "  //2" << std::endl;
     std::cout << "Continent de l'Europe : " << Europe.getContinentId() << "  //5" << std::endl;
     std::cout << "Couleur de l'Europe : " << Europe.getCouleurId() << "  //5" << std::endl << std::endl;
-    //std::cout << "Pays de l'Europe : " << Europe.getListePays() << std::endl;
+
+    std::vector<Pays> liste = Europe.getListePays();
+    std::cout << "Pays de l'Europe : " << std::endl;
+    for(int i=0; i<liste.size(); ++i){
+      std::cout << liste[i];
+    }
+    std::cout << std::endl;
 
 
     // CREATION Armee
@@ -467,7 +475,7 @@ int main(int argc,char* argv[])
     std::cout << "idJoueur : " << armee1.getIdJoueur() << "  //3" << std::endl;
     std::cout << "nombre : " << armee1.getNombre() << "  //20" << std::endl;
     std::cout << "status : " << armee1.getArmeeStatus() << "  //3" << std::endl << std::endl;
-    //std::cout << "pays : " << armee1.getPays() << std::endl;
+    std::cout << "pays : " << armee1.getPays() << "  //Europe Du Sud" << std::endl;
 
     //CREATION Carte
     Carte carte1(1,GrandeBretagne,CANON);
@@ -525,7 +533,7 @@ int main(int argc,char* argv[])
     std::cout << "force : " << carte1.getCarteForce() << "  //1" << std::endl;
     std::cout << "idJoueur : " << carte1.getIdJoueur() << "  //5" << std::endl;
     std::cout << "numero : " << carte1.getNumero() << "  //1" << std::endl << std::endl;
-    //std::cout << "pays : " << armee1.getPays() << std::endl;
+    std::cout << "pays : " << carte1.getPays() << "  //Grande Bretagne" << std::endl;
 
 
     return 0;

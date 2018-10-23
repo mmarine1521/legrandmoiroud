@@ -2,7 +2,9 @@
 #ifndef STATE__PAYS__H
 #define STATE__PAYS__H
 
+#include <string>
 #include <vector>
+#include <iostream>
 
 namespace state {
   class Pays;
@@ -20,18 +22,21 @@ namespace state {
   public:
     ContinentId continentId;
   private:
+    std::string nomPays;
     int paysId;
     std::vector<Pays> paysFrontaliers;
     // Operations
   public:
     Pays ();
-    Pays (int paysId, ContinentId continentId);
+    Pays (std::string nomPays, int paysId, ContinentId continentId);
     virtual ~Pays ();
     TypeId const getTypeId ();
-    int getPaysId ();
-    ContinentId getContinentId ();
-    std::vector<Pays> getPaysFrontaliers ();
+    std::string const getNomPays ();
+    int const getPaysId ();
+    ContinentId const getContinentId ();
+    std::vector<Pays> const getPaysFrontaliers ();
     void setPaysFrontaliers (std::vector<Pays> paysFrontaliers);
+    friend std::ostream& operator<< (std::ostream& flux, Pays const& pays);
     // Setters and Getters
   };
 
