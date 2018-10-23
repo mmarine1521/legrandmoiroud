@@ -2,6 +2,7 @@
 #ifndef STATE__CONTINENT__H
 #define STATE__CONTINENT__H
 
+#include <string>
 #include <vector>
 
 namespace state {
@@ -23,15 +24,17 @@ namespace state {
     state::CouleurId couleurId;
     // Attributes
   private:
+    std::string nomContinent;
     std::vector<Pays> const listePays;
     // Operations
   public:
-    Continent (std::vector<Pays> listePays, ContinentId continentId, CouleurId couleurId);
+    Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<Pays> listePays);
     virtual ~Continent ();
     TypeId const getTypeId ();
+    std::string const getNomContinent ();
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();
-    std::vector<Pays> getListePays ();
+    std::vector<Pays> const getListePays ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
     void setCouleurId(CouleurId couleurId);

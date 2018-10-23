@@ -7,7 +7,7 @@ namespace state{
 Pays::Pays (){
 }
 
-Pays::Pays (int paysId, ContinentId continentId): continentId(continentId), paysId(paysId){
+Pays::Pays (std::string nomPays, int paysId, ContinentId continentId): continentId(continentId), nomPays(nomPays), paysId(paysId){
 }
 
 Pays::~Pays (){
@@ -17,20 +17,29 @@ TypeId const Pays::getTypeId (){
 	return PAYS;
 }
 
-int Pays::getPaysId (){
+std::string const Pays::getNomPays (){
+	return this -> nomPays ;
+}
+
+int const Pays::getPaysId (){
 	return this -> paysId ;
 }
 
-ContinentId Pays::getContinentId (){
+ContinentId const Pays::getContinentId (){
 	return this -> continentId ;
 }
 
-std::vector<Pays> Pays::getPaysFrontaliers (){
+std::vector<Pays> const Pays::getPaysFrontaliers (){
 	return this -> paysFrontaliers ;
 }
 
 void Pays::setPaysFrontaliers (std::vector<Pays> paysFrontaliers){
 	this -> paysFrontaliers = paysFrontaliers ;
+}
+
+std::ostream& operator<< (std::ostream& flux, Pays const& pays){
+	flux << pays.nomPays << " : " << pays.paysId << std::endl;
+	return flux;
 }
 
 }
