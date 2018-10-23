@@ -695,6 +695,7 @@ struct stdlib_includes {
    int random;
    int sfmlGraphics;
    int jsoncpp;
+   int iostream;
 };
 
 void print_include_stdlib(struct stdlib_includes* si,char* name) {
@@ -718,6 +719,10 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        if (!si->string && strstr(name,"std::string")) {
            print ("#include <string>\n");
            si->string = 1;
+       }
+       if(!si->iostream && strstr(name, "std::ostream")) {
+           print ("#include <iostream>\n");
+           si->iostream = 1;
        }
        if (!si->array && strstr(name,"std::array")) {
            print ("#include <array>\n");
@@ -755,7 +760,7 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
            print ("#include <thread>\n");
            si->thread = 1;
        }
-       if (!si->memory 
+       if (!si->queue 
        && (strstr(name,"std::queue")
        ||  strstr(name,"std::priority_queue"))) {
            print ("#include <queue>\n");
