@@ -6,7 +6,7 @@ namespace render {
 void Surface::loadTexture (const std::string& image_file)
 {
 	sf::Texture texture;
-	if (!texture.loadFromFile("image.png"))
+	if (!texture.loadFromFile(image_file))
 	{
 	    std::cout << "Erreur de chargement"<< std::endl ; 
 	}
@@ -17,8 +17,31 @@ void Surface::initQuads (int count)
 	quads.setPrimitiveType(sf::Quads);
 	quads.resize(4*count); //count = nombre de sprites.
 }
-void  setSpriteLocation (int i, int x, int y);
-void setSpriteTexture (int i, const Tile& tex);
-void const draw (sf::RenderTarget& target, sf::RenderStates states);
+void  Surface::setSpriteLocation (int i, int x, int y)
+{
+	//fixe les coordonnées des 4 coins du carré où la tuile est dessinée
+	//tuile 16*16
+
+	sf::Vertex* quad = &quads[4*1];
+	quad[0].position = sf::Vector2f(x*96, y*96);
+	quad[0].position = sf::Vector2f((x+1)*96, y*96);
+	quad[0].position = sf::Vector2f((x+1)*96, (y+1)*96);
+	quad[0].position = sf::Vector2f(x*96, (y+1)*96);
+}
+void Surface::setSpriteTexture (int i, const Tile& tex)
+{
+	sf::Vertex* quad = &quads[4*i];
+
+	quad[0].texCoords = sf::Vector2f(tex.getX(), tex.getY());
+	quad[1].texCoords = sf::Vector2f(tex.getX()+tex.getWidth(), tex.getY());
+	quad[2].texCoords = sf::Vector2f(tex.getX()+tex.getWidth(), tex.getY()+ tex.getHeight);
+	quad[3].texCoords = sf::Vector2f(tex.getX(), tex.getY()+tex.getHeight());
+}
+void const draw (sf::RenderTarget& target, sf::RenderStates states)
+{
+	states.transform *= getTransform();
+	states.texture = &texture ;
+	target.draw(quads, states);
+}
 
 }
