@@ -2,9 +2,8 @@
 
 namespace render {
 
-	TileSet::~TileSet(){
-	
-	}
+TileSet::~TileSet(){
+}
 
 
 }
