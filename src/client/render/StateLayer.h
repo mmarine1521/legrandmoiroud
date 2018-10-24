@@ -26,7 +26,7 @@ namespace render {
     const size_t  gumCountMaxIdx     = 2;
     // Operations
   public:
-    state:const state::State& StateLayer ();
+    StateLayer (const state::State& state);
     void initSurface ();
     // Setters and Getters
   };

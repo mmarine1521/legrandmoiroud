@@ -8,6 +8,6 @@
 #include "render/Layer.h"
 #include "render/StateLayer.h"
 #include "render/ElementTabLayer.h"
-#include "render/StateTileSet.h"
+#include "render/MapTileSet.h"
 #include "render/MobileTileSet.h"
 #endif

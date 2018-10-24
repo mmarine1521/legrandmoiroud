@@ -25,9 +25,9 @@ namespace render {
     // Operations
   public:
     Layer ();
-    virtual ~Layer ();
-    const Surface* const getSurface ();
-    void setSurface (Surface* const surfaces);
+    ~Layer ();
+    const Surface* getSurface () const;
+    void setSurface (Surface* surface);
     virtual void initSurface () = 0;
     void printText (int x, int y, const std::string& msg, size_t tileMinIdx, size_t tileMaxIdx);
     // Setters and Getters
