@@ -6,23 +6,21 @@ namespace render
 
 Layer::Layer()
 {
-	this-> surface = std::unique_ptr<Surface>(new Surface());
-	this-> tileset = nullptr; 
+	this-> surface = std::unique_ptr<Surface>(new Surface());;
+	this-> tileset = nullptr;
+}
+
+Layer::~Layer(){
 }
 
 const Surface* Layer::getSurface() const
 {
-	return &(*(this->surface)); 
+	return &(*(this->surface));
 }
+
 void Layer::setSurface(Surface* surface)
 {
 	*(this->surface)= *surface ;
 }
-
-Layer::~Layer(){
-	
-}
-
-
 
 }

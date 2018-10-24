@@ -16,5 +16,6 @@
 #include "state/Carte.h"
 #include "state/CouleurId.h"
 #include "state/Continent.h"
-#include "state/Fenetre.h"
+#include "state/ElementTab.h"
+#include "state/State.h"
 #endif

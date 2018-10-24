@@ -28,11 +28,13 @@ namespace render {
     sf::VertexArray quads;
     // Operations
   public:
+    Surface ();
+    virtual ~Surface ();
     void loadTexture (const std::string& image_file);
     void initQuads (int count);
     void  setSpriteLocation (int i, int x, int y);
     void setSpriteTexture (int i, const Tile& tex);
-    void const draw (sf::RenderTarget& target, sf::RenderStates states);
+    void draw (sf::RenderTarget& target, sf::RenderStates states) const;
     // Setters and Getters
   };
 

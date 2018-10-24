@@ -23,11 +23,9 @@ namespace render {
     // Operations
   public:
     StateTileSet ();
-    ~StateTileSet ();
     int const getCellWidth ();
     int const getCellHeight ();
-    const std::string getImageFile ();
-    const Tile& getCharTile (char c);
+    const std::string getImageFile () const;
     // Setters and Getters
   };
 

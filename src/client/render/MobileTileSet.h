@@ -34,8 +34,8 @@ namespace render {
     ~MobileTileSet ();
     int const getCellWidth ();
     int const getCellHeight ();
-    const std::string getImageFile ();
-    const Tile& getTile (const state::Element& e);
+    const std::string getImageFile () const;
+    const Tile& getTile (const state::Element& e) const;
     // Setters and Getters
   };
 
