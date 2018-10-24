@@ -3,7 +3,7 @@
 
 namespace render {
 
-void loadTexture (const std::string& image_file)
+void Surface::loadTexture (const std::string& image_file)
 {
 	sf::Texture texture;
 	if (!texture.loadFromFile("image.png"))
@@ -11,7 +11,12 @@ void loadTexture (const std::string& image_file)
 	    std::cout << "Erreur de chargement"<< std::endl ; 
 	}
 }
-void initQuads (int count);
+void Surface::initQuads (int count)
+{
+	//création d'un nombre de quads/sprites égal au nombre de cellule dans la grille
+	quads.setPrimitiveType(sf::Quads);
+	quads.resize(4*count); //count = nombre de sprites.
+}
 void  setSpriteLocation (int i, int x, int y);
 void setSpriteTexture (int i, const Tile& tex);
 void const draw (sf::RenderTarget& target, sf::RenderStates states);
