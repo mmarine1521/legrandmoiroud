@@ -1,10 +1,11 @@
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-/*#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 void testSFML() {
     sf::Texture texture;
 }
-*/
+
 // Fin test SFML
 
 #include "state.h"
@@ -535,6 +536,39 @@ int main(int argc,char* argv[])
     std::cout << "numero : " << carte1.getNumero() << "  //1" << std::endl << std::endl;
     std::cout << "pays : " << carte1.getPays() << "  //Grande Bretagne" << std::endl;
 
+
+    sf::RenderWindow window(sf::VideoMode(6000,4000), "SFML works!");
+
+    	    while (window.isOpen())
+    	    {
+    	        sf::Event event;
+    	        while (window.pollEvent(event))
+    	        {
+    	            if (event.type == sf::Event::Closed)
+    	                window.close();
+    	        }
+    	    sf::Texture texture ;
+    	    sf::Texture texture2 ;
+    	    if(!texture.loadFromFile("MapJeu2.png"))
+    	    {
+    	    //erreur
+    	    }
+    	    texture2.loadFromFile("tank384px.png");
+    	    texture.setSmooth(true);
+    	    texture2.setSmooth(true);
+    	    sf::Sprite sprite ;
+    	    sf::Sprite sprite2 ;
+    	    sprite.setTexture(texture);
+    	    sprite.setScale(sf::Vector2f(2.f, 2.f));
+    	    sprite2.setTexture(texture2);
+    	    sprite2.setScale(sf::Vector2f(0.08f, 0.08f));
+    	    sprite2.setPosition(sf::Vector2f(335.f, 659.f));
+
+    	        window.clear();
+    	        window.draw(sprite);
+    	        window.draw(sprite2);
+    	        window.display();
+    	    }
 
     return 0;
 }
