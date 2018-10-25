@@ -8,24 +8,26 @@ namespace render {
   /// class Tile - 
   class Tile {
     // Attributes
-  public:
-    int height     = 16;
   protected:
     int x     = 0;
     /// 													
     int y     = 0;
     int width     = 16;
+    int height     = 16;
     // Operations
   public:
     Tile ();
     Tile (int x, int y, int w, int h);
+    virtual ~Tile ();
+    int getHeight () const;
+    int getWidth () const;
+    int getX () const;
+    int getY () const;
+    void setHeight (int height);
+    void setWidth (int width);
+    void setX (int x);
+    void setY (int y);
     // Setters and Getters
-    int getX() const;
-    void setX(int x);
-    int getY() const;
-    void setY(int y);
-    int getWidth() const;
-    void setWidth(int width);
   };
 
 };

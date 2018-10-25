@@ -455,7 +455,7 @@ int main(int argc,char* argv[])
 
     std::vector<Pays> liste = Europe.getListePays();
     std::cout << "Pays de l'Europe : " << std::endl;
-    for(int i=0; i<liste.size(); ++i){
+    for(size_t i=0; i<liste.size(); ++i){
       std::cout << liste[i];
     }
     std::cout << std::endl;
