@@ -17,24 +17,25 @@ namespace sf {
   class Drawable;
 }
 
+#include "Tile.h"
 
 namespace render {
 
   /// class Surface - 
   class Surface : public sf::Transformable, public sf::Drawable {
+    // Associations
     // Attributes
   private:
     sf::Texture texture;
     sf::VertexArray quads;
     // Operations
   public:
-    Surface ();
     virtual ~Surface ();
     void loadTexture (const std::string& image_file);
     void initQuads (int count);
     void  setSpriteLocation (int i, int x, int y);
     void setSpriteTexture (int i, const Tile& tex);
-    void draw (sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw (sf::RenderTarget& target, sf::RenderStates states) const;
     // Setters and Getters
   };
 
