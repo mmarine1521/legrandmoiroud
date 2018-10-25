@@ -38,6 +38,9 @@ void Surface::setSpriteTexture (int i, const Tile& tex){
 	quad[3].texCoords = sf::Vector2f(tex.getX(), tex.getY()+tex.getHeight());
 }
 
-//void const draw (sf::RenderTarget& target, sf::RenderStates states){}
+void Surface::draw (sf::RenderTarget& target, sf::RenderStates states) const {
+	states.texture = &this->texture;
+	target.draw(this->quads, states);
+}
 
 }

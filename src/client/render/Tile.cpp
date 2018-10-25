@@ -16,19 +16,19 @@ Tile::~Tile (){
 }
 
 int Tile::getHeight  () const{
-	return height ;
+	return this->height ;
 }
 
 int Tile::getWidth () const{
-	return width ;
+	return this->width ;
 }
 
 int Tile::getX () const{
-  return x ;
+  return this->x ;
 }
 
 int Tile::getY () const{
-  return y ;
+  return this->y ;
 }
 
 void Tile::setHeight (int height){

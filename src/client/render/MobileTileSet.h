@@ -27,11 +27,11 @@ namespace render {
     std::vector<Tile> armee;
     std::vector<Tile> c_tank;
     std::vector<Tile> c_canon;
-    std::vector<Tile> c_fantassin;
+    std::vector<Tile> c_soldat;
     // Operations
   public:
     MobileTileSet ();
-    ~MobileTileSet ();
+    virtual ~MobileTileSet ();
     int const getCellWidth ();
     int const getCellHeight ();
     const std::string getImageFile () const;

@@ -5,6 +5,9 @@ namespace render{
 MapTileSet::MapTileSet(){
 }
 
+MapTileSet::~MapTileSet(){
+}
+
 int const MapTileSet::getCellWidth(){
 	return 768 ; //changer nombre
 }
