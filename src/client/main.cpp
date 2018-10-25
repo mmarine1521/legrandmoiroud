@@ -549,11 +549,11 @@ int main(int argc,char* argv[])
     	        }
     	    sf::Texture texture ;
     	    sf::Texture texture2 ;
-    	    if(!texture.loadFromFile("MapJeu2.png"))
+    	    if(!texture.loadFromFile("res/MapJeu2.png"))
     	    {
     	    //erreur
     	    }
-    	    texture2.loadFromFile("tank384px.png");
+    	    texture2.loadFromFile("res/tank384px.png");
     	    texture.setSmooth(true);
     	    texture2.setSmooth(true);
     	    sf::Sprite sprite ;
