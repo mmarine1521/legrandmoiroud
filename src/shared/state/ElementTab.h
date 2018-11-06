@@ -2,9 +2,11 @@
 #ifndef STATE__ELEMENTTAB__H
 #define STATE__ELEMENTTAB__H
 
+#include <vector>
 
 namespace state {
   class Element;
+  class Position;
 }
 
 #include "Element.h"
@@ -18,12 +20,18 @@ namespace state {
   private:
     int width;
     int height;
+    std::vector<Element*> elementList;
     // Operations
   public:
-    ElementTab (int width, int height);
-    int getWidth ();
+    ElementTab (int width, int height, std::vector<Element*> elementList);
+    ~ElementTab ();
     int getHeight ();
+    int getWidth ();
     void resize (int width, int height);
+    std::vector<Element*> getElementList () const;
+    void addElement (Element* e);
+    Element* getLocatedElement (Position* position) const;
+    void setElement (Position* position, Element* element_ptr);
     // Setters and Getters
   };
 

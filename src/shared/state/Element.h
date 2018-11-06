@@ -7,6 +7,7 @@ namespace state {
   class Position;
 }
 
+#include "CarteForce.h"
 #include "Position.h"
 #include "TypeId.h"
 
@@ -18,12 +19,13 @@ namespace state {
     state::TypeId typeId;
     // Attributes
   private:
-    Position position;
+    Position* position;
     // Operations
   public:
     Element ();
     virtual ~Element ();
-    virtual TypeId const getTypeId () = 0;
+    TypeId const getTypeId ();
+    CarteForce getCarteForce () const;
     virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (int x, int y);

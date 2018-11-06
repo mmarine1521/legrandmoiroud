@@ -4,11 +4,11 @@
 
 #include <string>
 
-namespace render {
-  class Tile;
-};
 namespace state {
   class Element;
+};
+namespace render {
+  class Tile;
 }
 
 #include "state/Element.h"
@@ -24,8 +24,9 @@ namespace render {
     virtual ~TileSet ();
     virtual int const getCellWidth () = 0;
     virtual int const getCellHeight () = 0;
-    virtual const std::string getImageFile () const = 0;
-    virtual const Tile& getTile (const state::Element& e) const = 0;
+    virtual std::string getImageFile (const state::Element& e) const = 0;
+    virtual const Tile& getTile (const state::Element& e) = 0;
+    virtual const Tile& getCharTile (char c) const = 0;
     // Setters and Getters
   };
 

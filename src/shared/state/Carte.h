@@ -34,7 +34,7 @@ namespace state {
     TypeId const getTypeId ();
     CarteId getCarteId ();
     void setCarteId (CarteId carteId);
-    CarteForce getCarteForce ();
+    CarteForce getCarteForce () const;
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();

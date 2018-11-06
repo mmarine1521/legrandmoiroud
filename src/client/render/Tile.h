@@ -19,7 +19,6 @@ namespace render {
   public:
     Tile ();
     Tile (int x, int y, int w, int h);
-    virtual ~Tile ();
     int getHeight  () const;
     int getWidth () const;
     int getX () const;
