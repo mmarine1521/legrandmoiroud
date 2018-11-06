@@ -16,7 +16,7 @@ using namespace std ;
 namespace render {
 
 ElementTabLayer::ElementTabLayer (const state::ElementTab& tab ) : tab(tab){
-	std::vector<state::Element*> list = tab.getElementList();
+	std::vector<std::unique_ptr<state::Element>> list = tab.getElementList();
 //	if (list[0]->getTypeId()==3)//armee
 //	{
 //		tileset.reset(new ArmeeTileSet);
@@ -29,7 +29,7 @@ ElementTabLayer::ElementTabLayer (const state::ElementTab& tab ) : tab(tab){
 
 void ElementTabLayer::initSurface()
 {
-	std::vector<state::Element*> list = tab.getElementList() ;
+	std::vector<std::unique_ptr<state::Element>> list = tab.getElementList() ;
 	surface = std::unique_ptr<Surface>(new Surface());
 	surface->initQuads(list.size());
 	surface->loadTexture(tileset->getImageFile());

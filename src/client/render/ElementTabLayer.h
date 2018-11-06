@@ -5,14 +5,18 @@
 
 namespace state {
   class ElementTab;
+};
+namespace render {
+  class Layer;
 }
 
+#include "Layer.h"
 #include "state/ElementTab.h"
 
 namespace render {
 
   /// class ElementTabLayer - 
-  class ElementTabLayer {
+  class ElementTabLayer : public render::Layer {
     // Associations
     // Attributes
   private:
