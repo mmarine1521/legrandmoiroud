@@ -3,7 +3,7 @@
 namespace state {
 
 Carte::Carte (int numero , CarteForce carteForce) : carteForce(carteForce), numero(numero){
-  carteId = 0;
+  carteId = PIOCHE;
 }
 
 Carte::~Carte (){
@@ -25,7 +25,7 @@ void Carte::setCarteId (CarteId carteId){
   this->carteId = carteId;
 }
 
-CarteForce Carte::getCarteForce (){
+CarteForce Carte::getCarteForce () const{
   return this->carteForce;
 }
 

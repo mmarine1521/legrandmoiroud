@@ -13,7 +13,7 @@ Position Element::getPosition (){
   return this->position;
 }
 
-void Element::setPosition (position){
+void Element::setPosition (Position position){
   this->position = position;
 }
 

@@ -7,7 +7,6 @@
 #include <iostream>
 
 namespace state {
-  class Pays;
   class StaticElement;
 }
 
@@ -24,7 +23,7 @@ namespace state {
   private:
     std::string nomPays;
     int paysId;
-    std::vector<Pays> paysFrontaliers;
+    std::vector<std::string> paysFrontaliers;
     // Operations
   public:
     Pays ();
@@ -34,8 +33,8 @@ namespace state {
     std::string const getNomPays ();
     int const getPaysId ();
     ContinentId const getContinentId ();
-    std::vector<Pays> const getPaysFrontaliers ();
-    void setPaysFrontaliers (std::vector<Pays> paysFrontaliers);
+    std::vector<std::string> const getPaysFrontaliers ();
+    void setPaysFrontaliers (std::vector<std::string> paysFrontaliers);
     friend std::ostream& operator<< (std::ostream& flux, Pays const& pays);
     // Setters and Getters
   };

@@ -29,11 +29,11 @@ ContinentId const Pays::getContinentId (){
 	return this -> continentId ;
 }
 
-std::vector<Pays> const Pays::getPaysFrontaliers (){
+std::vector<std::string> const Pays::getPaysFrontaliers (){
 	return this -> paysFrontaliers ;
 }
 
-void Pays::setPaysFrontaliers (std::vector<Pays> paysFrontaliers){
+void Pays::setPaysFrontaliers (std::vector<std::string> paysFrontaliers){
 	this -> paysFrontaliers = paysFrontaliers ;
 }
 

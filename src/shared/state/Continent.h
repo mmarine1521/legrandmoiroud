@@ -6,14 +6,14 @@
 #include <vector>
 
 namespace state {
-  class Pays;
   class StaticElement;
+  class Pays;
 }
 
-#include "Pays.h"
 #include "ContinentId.h"
 #include "CouleurId.h"
 #include "StaticElement.h"
+#include "Pays.h"
 
 namespace state {
 
@@ -25,16 +25,16 @@ namespace state {
     // Attributes
   private:
     std::string nomContinent;
-    std::vector<Pays> const listePays;
+    std::vector<std::string> const listePays;
     // Operations
   public:
-    Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<Pays> listePays);
+    Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<std::string> listePays);
     virtual ~Continent ();
     TypeId const getTypeId ();
     std::string const getNomContinent ();
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();
-    std::vector<Pays> const getListePays ();
+    std::vector<std::string> const getListePays ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
     void setCouleurId(CouleurId couleurId);

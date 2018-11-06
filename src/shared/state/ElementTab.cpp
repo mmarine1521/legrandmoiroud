@@ -5,8 +5,7 @@
 
 namespace state {
 
-ElementTab::ElementTab (std::vector<Element> elementList){
-		this->elementList = elementList ;
+ElementTab::ElementTab (std::vector<std::unique_ptr<Element>> elementList) : elementList(elementList){
 }
 
 ElementTab::~ElementTab(){
@@ -21,23 +20,24 @@ int ElementTab::getWidth (){
   return this->width;
 }
 
-std::vector<Element> ElementTab::getElementList () const{
+std::vector<std::unique_ptr<Element>> ElementTab::getElementList () const{
 	return elementList ;
 }
 
-void ElementTab::addElement (Element element){
-	elementList.pushback(element);
+void ElementTab::addElement (std::unique_ptr<Element> element){
+	elementList.push_back(element);
 }
 
-Position ElementTab::getElementPosition (Element element) const{
+Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const{
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i]==element){
-			return elementList[i].getPosition();
+      Element* e = elementList[i].get();
+			return e->getPosition();
 		}
 	}
 }
 
-void ElementTab::setElementPosition (Position position, Element element){
+void ElementTab::setElementPosition (Position position, std::unique_ptr<Element> element){
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i]==element){
 			elementList[i].setPosition(position);
@@ -45,7 +45,7 @@ void ElementTab::setElementPosition (Position position, Element element){
 	}
 }
 
-Element ElementTab::getLocatedElement (Position position) const{
+std::unique_ptr<Element> element ElementTab::getLocatedElement (Position position) const{
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i].getPosition() == position){
 			return elementList[i] ;

@@ -14,7 +14,7 @@ using namespace state;
 using namespace render ;
 
 int main(int argc,char* argv[])
-{
+{/*
 	//CREATION DES PAYS DE L'AFRIQUE
 		  Pays Congo("Congo", 101, AFRIQUE);
 		  Pays AfriqueDeLEst("Afrique De L'Est", 102, AFRIQUE);
@@ -533,7 +533,7 @@ int main(int argc,char* argv[])
     std::cout << "pays : " << armee1.getPays() << "  //Europe Du Sud" << std::endl;
 
 
-
+*/
 
     sf::RenderWindow window(sf::VideoMode(1300,700), "RISK");
 

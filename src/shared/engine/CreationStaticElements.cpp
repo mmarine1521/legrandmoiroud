@@ -11,7 +11,7 @@ IdCommande const CreationStaticElements::getIdCommande (){
   return CREASTATIC;
 }
 
-std::map<std::string, state::Pays> creationPays (){
+/*std::map<std::string, state::Pays> creationPays (){
   //CREATION DES PAYS DE L'AFRIQUE
   state::Pays Congo("Congo", 101, AFRIQUE);
   state::Pays AfriqueDeLEst("Afrique De L'Est", 102, AFRIQUE);
@@ -403,7 +403,7 @@ std::map<std::string, state::Pays> creationPays (){
     mapPays["Australie Occidentale"] = AustralieOccidentale;
 
     return mapPays;
-}
+}*/
 
 
 }

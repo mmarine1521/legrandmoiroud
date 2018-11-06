@@ -4,7 +4,7 @@
 
 namespace state{
 
-Continent::Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<Pays> listePays) : continentId(continentId), couleurId(couleurId), nomContinent(nomContinent), listePays(listePays){
+Continent::Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<std::string> listePays) : continentId(continentId), couleurId(couleurId), nomContinent(nomContinent), listePays(listePays){
 }
 
 Continent::~Continent (){
@@ -26,7 +26,7 @@ CouleurId const Continent::getCouleurId (){
 	return this -> couleurId ;
 }
 
-std::vector<Pays> const Continent::getListePays (){
+std::vector<std::string> const Continent::getListePays (){
 	return this -> listePays ;
 }
 

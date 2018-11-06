@@ -29,7 +29,7 @@ ElementTabLayer::ElementTabLayer (const state::ElementTab& tab ) : tab(tab){
 
 void ElementTabLayer::initSurface()
 {
-	std::vector<std::unique_ptr<state::Element>> list = tab.getElementList() ;
+	/*std::vector<std::unique_ptr<state::Element>> list = tab.getElementList() ;
 	surface = std::unique_ptr<Surface>(new Surface());
 	surface->initQuads(list.size());
 	surface->loadTexture(tileset->getImageFile());
@@ -56,7 +56,7 @@ void ElementTabLayer::initSurface()
 	        	float ord=(e.getPosition().getY()/t.getHeight())*(149/1.25);
 	        	surface->setSpriteLocation(i,e.getPosition().getX(),e.getPosition().getY(),tileSet2,tab);
 	        }
-	    }
+	    }*/
 }
 
 }
