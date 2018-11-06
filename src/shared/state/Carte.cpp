@@ -2,7 +2,8 @@
 
 namespace state {
 
-Carte::Carte (int numero , Pays pays, CarteForce carteForce) : carteForce(carteForce), numero(numero), pays(pays){
+Carte::Carte (int numero , CarteForce carteForce) : carteForce(carteForce), numero(numero){
+  carteId = 0;
 }
 
 Carte::~Carte (){
@@ -11,8 +12,6 @@ Carte::~Carte (){
 bool const Carte::isCarte (){
   return true;
 }
-
-//void Carte::carteRules (CarteId carteId){}
 
 TypeId const Carte::getTypeId (){
   return CARTE;
@@ -40,10 +39,6 @@ void Carte::setIdJoueur (int idJoueur){
 
 int Carte::getNumero (){
   return this->numero;
-}
-
-Pays Carte::getPays (){
-  return this->pays;
 }
 
 }

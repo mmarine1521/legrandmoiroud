@@ -2,7 +2,9 @@
 
 namespace state {
 
-Armee::Armee (int idJoueur) : idJoueur (idJoueur){
+Armee::Armee (std::string pays) : pays (pays){
+  idJoueur = 0;
+  nombre = 1;
 }
 
 Armee::~Armee (){
@@ -11,8 +13,6 @@ Armee::~Armee (){
 bool const Armee::isCarte (){
   return false;
 }
-
-//void armeeRules (ArmeeStatus armeeStatus){}
 
 TypeId const Armee::getTypeId (){
   return ARMEE;
@@ -34,18 +34,8 @@ void Armee::setNombre (int nombre){
   this->nombre = nombre;
 }
 
-Pays Armee::getPays (){
+std::string Armee::getPays (){
   return this->pays;
-}
-void Armee::setPays (Pays pays){
-  this->pays = pays;
-}
-
-ArmeeStatus Armee::getArmeeStatus(){
-  return this->armeeStatus;
-}
-void Armee::setArmeeStatus(ArmeeStatus armeeStatus){
-  this->armeeStatus = armeeStatus;
 }
 
 }
