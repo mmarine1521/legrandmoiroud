@@ -1,8 +1,22 @@
 #include "StateLayer.h"
+#include <SFML/Graphics.hpp>
+#include "MapTileSet.h"
+#include <iostream>
+#include "render.h"
+
+using namespace std ;
 
 namespace render {
 
-//StateLayer::StateLayer (const state::State& state){}
-//void StateLayer::initSurface (){}
+StateLayer::StateLayer(const state::State& state) : state(state){
+	this->tileset = std::unique_ptr<MapTileSet>(nullptr);
+	this->surface = std::unique_ptr<Surface>(new Surface());
+}
+
+void StateLayer::initSurface(){
+	cout << "Entrée dans StateLayer::initSurface"<<endl ;
+	//affichage du fond d'écran
+	this->surface->loadTexture("res/MapJeu2.png");
+}
 
 }

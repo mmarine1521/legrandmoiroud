@@ -1,8 +1,16 @@
+#include <stdio.h>
 #include "Tile.h"
+#include "state.h"
+#include "render.h"
+#include <SFML/Graphics.hpp>
 
 namespace render {
 
 Tile::Tile (){
+	x=0 ;
+	y=0;
+	this->width=16 ;
+	this->height=16;
 }
 
 Tile::Tile (int x, int y, int w, int h){
@@ -10,9 +18,6 @@ Tile::Tile (int x, int y, int w, int h){
 	this-> y=y ;
 	this-> width = w ;
 	this -> height = h;
-}
-
-Tile::~Tile (){
 }
 
 int Tile::getHeight  () const{

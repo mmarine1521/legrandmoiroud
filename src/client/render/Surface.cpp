@@ -1,14 +1,17 @@
 #include "Surface.h"
+#include "Tile.h"
+#include "state/TypeId.h"
+#include "state/State.h"
 #include <iostream>
 
 namespace render {
 
-Surface::~Surface(){
+Surface::Surface(){
 }
 
 void Surface::loadTexture (const std::string& image_file){
-	if (!this->texture.loadFromFile(image_file)){
-	    std::cout << "Erreur de chargement"<< std::endl ;
+	if (!this->texture.loadFromFile("./res/"+image_file)){
+	    std::cout << "Erreur de chargement texture surface"<< std::endl ;
 	}
 }
 

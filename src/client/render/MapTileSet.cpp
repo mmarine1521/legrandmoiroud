@@ -1,23 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include "render.h"
 #include "MapTileSet.h"
+#include "state.h"
+#include <SFML/Graphics.hpp>
+#include "state/Element.h"
 
 namespace render{
 
 MapTileSet::MapTileSet(){
+	map = std::vector<Tile>();
+	map.push_back(Tile(71,81,102,122));
+	map.push_back(Tile(191,81,102,122));
 }
 
-MapTileSet::~MapTileSet(){
-}
+MapTileSet::~MapTileSet()
+{
 
+}
 int const MapTileSet::getCellWidth(){
-	return 768 ; //changer nombre
+	if(map.size()!=0)
+		return this->map[0].getWidth() ; //changer nombre
+	else
+		return -1 ;
 }
 
 int const MapTileSet::getCellHeight(){
-	return 864 ; //changer nombre
+	if(map.size()!=0)
+			return this->map[0].getHeight() ; //changer nombre
+		else
+			return -1 ;
 }
 
-const std::string MapTileSet::getImageFile() const{
-	return "res/tank384px.png"; //changer image
+std::string MapTileSet::getImageFile (const state::Element& e) const{
+	return "res/MapJeu2.png"; //changer image
+}
+
+const Tile& MapTileSet::getTile (char c) const
+    {
+        //arrangé pour compilation, ne signifie rien
+        if (c=='c')
+            return *(new Tile(0,0,100,100));
+        else
+            return *(new Tile());
 }
 
 }
