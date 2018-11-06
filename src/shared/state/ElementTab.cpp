@@ -40,17 +40,30 @@ Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const
 void ElementTab::setElementPosition (Position position, std::unique_ptr<Element> element){
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i]==element){
-			elementList[i].setPosition(position);
+      Element* e = elementList[i].get();
+			return e->setPosition(position);
 		}
 	}
 }
 
-std::unique_ptr<Element> element ElementTab::getLocatedElement (Position position) const{
+Element* ElementTab::getLocatedElement (Position position) const{
+  Element* e = 0;
 	for(size_t i=0; i<elementList.size(); i++){
-		if(elementList[i].getPosition() == position){
-			return elementList[i] ;
+    e = elementList[i].get();
+		if(e->getPosition() == position){
+			return e;
 		}
 	}
 }
+
+/*std::unique_ptr<Element> ElementTab::getLocatedElement (Position position) const{
+  Element* e = 0;
+	for(size_t i=0; i<elementList.size(); i++){
+    e = elementList[i].get();
+		if(e->getPosition() == position){
+			return elementList[i] ;
+		}
+	}
+}*/
 
 }

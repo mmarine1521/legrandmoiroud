@@ -24,4 +24,13 @@ void Position::setY (int y){
   this->y = y;
 }
 
+bool operator==(Position a, Position b){
+  if (a.getX() == b.getX() && a.getY() == b.getY()){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 }

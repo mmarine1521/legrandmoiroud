@@ -4,6 +4,11 @@
 
 
 namespace state {
+  class Position;
+}
+
+
+namespace state {
 
   /// class Position - 
   class Position {
@@ -19,6 +24,7 @@ namespace state {
     void setX (int x);
     int getY ();
     void setY (int y);
+    friend bool operator== (Position a, Position b);
     // Setters and Getters
   };
 

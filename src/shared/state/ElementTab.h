@@ -31,7 +31,7 @@ namespace state {
     void addElement (std::unique_ptr<Element> element);
     Position getElementPosition (std::unique_ptr<Element> element) const;
     void setElementPosition (Position position, std::unique_ptr<Element> element);
-    std::unique_ptr<Element> getLocatedElement (Position position) const;
+    Element* getLocatedElement (Position position) const;
     // Setters and Getters
   };
 
