@@ -2,42 +2,34 @@
 #ifndef STATE__ARMEE__H
 #define STATE__ARMEE__H
 
+#include <string>
 
 namespace state {
-  class Pays;
   class MobileElement;
 }
 
-#include "Pays.h"
-#include "ArmeeStatus.h"
 #include "MobileElement.h"
 
 namespace state {
 
   /// class Armee - 
   class Armee : public state::MobileElement {
-    // Associations
-    state::ArmeeStatus armeeStatus;
     // Attributes
   private:
     int idJoueur;
     int nombre;
-    Pays pays;
+    std::string pays;
     // Operations
   public:
-    Armee (int idJoueur);
+    Armee (std::string pays);
     virtual ~Armee ();
     bool const isCarte ();
-    void armeeRules (ArmeeStatus armeeStatus);
     TypeId const getTypeId ();
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNombre ();
     void setNombre (int nombre);
-    Pays getPays ();
-    void setPays (Pays pays);
-    ArmeeStatus getArmeeStatus ();
-    void setArmeeStatus (ArmeeStatus armeeStatus);
+    std::string getPays ();
     // Setters and Getters
   };
 

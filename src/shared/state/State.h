@@ -16,12 +16,16 @@ namespace state {
     // Associations
     // Attributes
   private:
-    ElementTab map;
-    ElementTab mobile;
+    ElementTab armeeTab;
+    ElementTab carteTab;
+    ElementTab paysTab;
+    ElementTab continentTab;
     // Operations
   public:
-    ElementTab& getMap ();
-    ElementTab& getMobile ();
+    ElementTab& getArmeeTab ();
+    ElementTab& getCarteTab ();
+    ElementTab& getPaysTab ();
+    ElementTab& getContinentTab ();
     // Setters and Getters
   };
 

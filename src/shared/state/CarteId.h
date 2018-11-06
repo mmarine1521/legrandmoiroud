@@ -6,9 +6,9 @@
 namespace state {
 
   enum CarteId {
-    BEFORE     = 0,
-    TAS     = 1,
-    PIOCHE     = 2
+    PIOCHE     = 0,
+    ENJEU     = 1,
+    DEFAUSSE     = 2
   };
 
 };

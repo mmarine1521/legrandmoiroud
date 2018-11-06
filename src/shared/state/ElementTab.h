@@ -3,6 +3,7 @@
 #define STATE__ELEMENTTAB__H
 
 #include <vector>
+#include <memory>
 
 namespace state {
   class Element;
@@ -10,6 +11,7 @@ namespace state {
 }
 
 #include "Element.h"
+#include "Position.h"
 
 namespace state {
 
@@ -19,19 +21,17 @@ namespace state {
     // Attributes
   private:
     int width;
-    int height;
-    std::vector<Element*> elementList;
+    std::vector<std::unique_ptr<Element>> elementList;
     // Operations
   public:
-    ElementTab (int width, int height, std::vector<Element*> elementList);
+    ElementTab (std::vector<std::unique_ptr<Element>> elementList);
     ~ElementTab ();
-    int getHeight ();
     int getWidth ();
-    void resize (int width, int height);
-    std::vector<Element*> getElementList () const;
-    void addElement (Element* e);
-    Element* getLocatedElement (Position* position) const;
-    void setElement (Position* position, Element* element_ptr);
+    std::vector<std::unique_ptr<Element>> getElementList () const;
+    void addElement (std::unique_ptr<Element> element);
+    Position getElementPosition (std::unique_ptr<Element> element) const;
+    void setElementPosition (Position position, std::unique_ptr<Element> element);
+    std::unique_ptr<Element> getLocatedElement (Position position) const;
     // Setters and Getters
   };
 
