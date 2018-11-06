@@ -46,7 +46,7 @@ CarteTileSet::~CarteTileSet ()
 {
 
 }
-std::string CarteTileSet::getImageFile(const state::Element& e) const
+std::string CarteTileSet::getImageFile(const state::Carte& e) const
 {
 	std::string a = "" ;
 
@@ -82,7 +82,7 @@ int const CarteTileSet::getCellHeight ()
 	return 60 ;
 }
 
-const Tile& CarteTileSet::getTile(const state::Element& e)
+const Tile& CarteTileSet::getTile(const state::Carte& e)
 {
 	Tile& s = tank[0]; //initialisation
 	if(e.getCarteForce()== 0) //tank

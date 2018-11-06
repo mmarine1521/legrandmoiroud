@@ -22,7 +22,7 @@ ArmeeTileSet::~ArmeeTileSet ()
 {
 
 }
-std::string ArmeeTileSet::getImageFile(const state::Element& e) const
+std::string ArmeeTileSet::getImageFile(const state::Armee& e) const
 {
 
 	return "res/pions.png" ;
@@ -41,7 +41,7 @@ int const ArmeeTileSet::getCellHeight ()
 	return 60 ;
 }
 
-const Tile& ArmeeTileSet::getTile (const state::Element& e)
+const Tile& ArmeeTileSet::getTile (const state::Armee& e)
 {
 	Tile& s= armee[0];
 	s= armee[0];

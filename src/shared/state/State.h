@@ -26,6 +26,9 @@ namespace state {
     ElementTab& getCarteTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
+    void setArmeeTab ();
+    void setCarteTab ();
+    void setPaysContinentTab ();
     // Setters and Getters
   };
 

@@ -8,7 +8,6 @@ namespace state {
 }
 
 #include "Position.h"
-#include "CarteForce.h"
 #include "TypeId.h"
 
 namespace state {
@@ -25,7 +24,6 @@ namespace state {
     Element ();
     virtual ~Element ();
     virtual TypeId const getTypeId () = 0;
-    virtual CarteForce getCarteForce () const = 0;
     virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (Position position);
