@@ -1,17 +1,17 @@
-#include "Commande.h"
-#include "state/Armee.h"
-#include "engine.h"
+#include "PlacementArmees.h"
 
 namespace engine {
 
-IdCommande const getIdCommande ()
-{
-	return GESTCARTES ; 
-}
-static void placerNouvellesArmees (int nouvellesArmees)
-{
 
+PlacementArmees::~PlacementArmees (){
 }
-static void deplacerArmees ();
+
+IdCommande const PlacementArmees::getIdCommande (){
+	return PLACEARMEES;
+}
+
+//void PlacementArmees::placerNouvellesArmees (int nouvellesArmees){}
+
+//void PlacementArmees::deplacerArmees (){}
 
 }

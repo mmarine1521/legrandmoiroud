@@ -22,7 +22,7 @@ namespace engine {
     static bool verifNbAttaques ();
     static int nbDefenses ();
     static bool verifNbDefenses ();
-    std::vector<int> lancerDes ();
+    static std::vector<int> lancerDes (int nbDes);
     // Setters and Getters
   };
 

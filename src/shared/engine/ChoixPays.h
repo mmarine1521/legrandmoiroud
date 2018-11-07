@@ -21,7 +21,7 @@ namespace engine {
     static std::string paysAttaquant ();
     static bool verifPaysAttaquant ();
     static std::string paysAttaque ();
-    static bool verifPaysAttaquant ();
+    static bool verifPaysAttaque ();
     // Setters and Getters
   };
 
