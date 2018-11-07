@@ -2,18 +2,15 @@
 #ifndef ENGINE__ATTRIBUTIONTERRITOIRES__H
 #define ENGINE__ATTRIBUTIONTERRITOIRES__H
 
-#include <string>
-#include <map>
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Pays;
 }
 
 #include "Commande.h"
-#include "state/Pays.h"
 
 namespace engine {
 
@@ -23,7 +20,7 @@ namespace engine {
   public:
     virtual ~AttributionTerritoires ();
     IdCommande const getIdCommande ();
-    static void distribution (int nbJoueurs = 3, std::map<std::string, state::Pays> mapPays);
+    static void distribution (int nbJoueurs = 3, state::State& state);
     static bool repartitionArmees (int idJoueur);
     // Setters and Getters
   };

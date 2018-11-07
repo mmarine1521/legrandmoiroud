@@ -5,8 +5,6 @@
 #include "engine/IdCommande.h"
 #include "engine/Commande.h"
 #include "engine/Engine.h"
-#include "engine/CreationStaticElements.h"
-#include "engine/CreationMobileElements.h"
 #include "engine/GestionCartes.h"
 #include "engine/AttributionTerritoires.h"
 #include "engine/ChoixPays.h"

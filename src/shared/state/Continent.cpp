@@ -31,8 +31,7 @@ std::vector<std::string> const Continent::getListePays (){
 }
 
 Continent Continent::clone (){
-	Continent newContinent(nomContinent, continentId, couleurId, listePays);
-  return newContinent;
+  return new Continent(this);
 }
 
 }

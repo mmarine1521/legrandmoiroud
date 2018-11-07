@@ -2,18 +2,12 @@
 #ifndef ENGINE__ECHANGECARTES__H
 #define ENGINE__ECHANGECARTES__H
 
-#include <vector>
-#include <map>
 
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Carte;
 }
 
 #include "Commande.h"
-#include "state/Carte.h"
 
 namespace engine {
 
@@ -23,7 +17,6 @@ namespace engine {
   public:
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    static std::map<std::vector<state::Cartes>, int> combinaisons ();
     static int echange ();
     // Setters and Getters
   };

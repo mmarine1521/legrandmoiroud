@@ -6,16 +6,14 @@
 namespace engine {
 
   enum IdCommande {
-    CREASTATIC     = 1,
-    CREAMOBILE     = 2,
-    ATTRIBUTERR     = 3,
-    GESTCARTES     = 4,
-    CHOIXPAYS     = 5,
-    COMBAT     = 6,
-    ISSUECOMBAT     = 7,
-    GAINCOMBAT     = 8,
-    ECHANGECARTES     = 9,
-    PLACEARMEES     = 10
+    ATTRIBUTERR     = 1,
+    GESTCARTES     = 2,
+    CHOIXPAYS     = 3,
+    COMBAT     = 4,
+    ISSUECOMBAT     = 5,
+    GAINCOMBAT     = 6,
+    ECHANGECARTES     = 7,
+    PLACEARMEES     = 8
   };
 
 };

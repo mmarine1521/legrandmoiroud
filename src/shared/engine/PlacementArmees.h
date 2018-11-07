@@ -5,13 +5,9 @@
 
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Armee;
 }
 
 #include "Commande.h"
-#include "state/Armee.h"
 
 namespace engine {
 
