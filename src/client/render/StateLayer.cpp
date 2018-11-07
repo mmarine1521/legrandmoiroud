@@ -1,8 +1,7 @@
 #include "StateLayer.h"
+
 #include <SFML/Graphics.hpp>
-#include "MapTileSet.h"
 #include <iostream>
-#include "render.h"
 
 using namespace std ;
 

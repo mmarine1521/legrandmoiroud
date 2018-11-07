@@ -9,9 +9,11 @@ namespace state {
 };
 namespace render {
   class Layer;
+  class MapTileSet;
 }
 
 #include "Layer.h"
+#include "MapTileSet.h"
 #include "state/State.h"
 
 namespace render {

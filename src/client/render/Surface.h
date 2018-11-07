@@ -17,6 +17,7 @@ namespace sf {
   class Drawable;
 }
 
+#include "Tile.h"
 
 namespace render {
 
