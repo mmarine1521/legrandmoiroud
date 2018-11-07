@@ -38,8 +38,8 @@ std::string Armee::getPays (){
   return this->pays;
 }
 
-Armee* Armee::clone (){
-  return new Armee(this);
+std::unique_ptr<Element> Armee::clone (){
+  return std::unique_ptr<Element>(new Armee(*this));
 }
 
 }

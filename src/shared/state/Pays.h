@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <memory>
 
 namespace state {
-  class Pays;
   class StaticElement;
 }
 
@@ -37,7 +37,7 @@ namespace state {
     std::vector<std::string> const getPaysFrontaliers ();
     void setPaysFrontaliers (std::vector<std::string> paysFrontaliers);
     friend std::ostream& operator<< (std::ostream& flux, Pays const& pays);
-    Pays* clone ();
+    virtual std::unique_ptr<Element> clone ();
     // Setters and Getters
   };
 

@@ -2,10 +2,10 @@
 #ifndef STATE__ELEMENT__H
 #define STATE__ELEMENT__H
 
+#include <memory>
 
 namespace state {
   class Position;
-  class Element;
 }
 
 #include "Position.h"
@@ -28,7 +28,7 @@ namespace state {
     virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (Position position);
-    virtual Element* clone () = 0;
+    virtual std::unique_ptr<Element> clone () = 0;
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

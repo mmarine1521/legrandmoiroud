@@ -30,8 +30,8 @@ std::vector<std::string> const Continent::getListePays (){
 	return this -> listePays ;
 }
 
-Continent Continent::clone (){
-  return new Continent(this);
+std::unique_ptr<Element> Continent::clone (){
+  return std::unique_ptr<Element>(new Continent(*this));
 }
 
 }

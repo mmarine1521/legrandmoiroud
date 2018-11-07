@@ -4,9 +4,9 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace state {
-  class Continent;
   class StaticElement;
   class Pays;
 }
@@ -36,7 +36,7 @@ namespace state {
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();
     std::vector<std::string> const getListePays ();
-    Continent* clone ();
+    virtual std::unique_ptr<Element> clone ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
     void setCouleurId(CouleurId couleurId);

@@ -29,7 +29,7 @@ std::vector<Element*> ElementTab::getElementList () const{
 }
 
 void ElementTab::addElement (std::unique_ptr<Element> element){
-	elementList.push_back(element);
+	elementList.push_back(element->clone());
 }
 
 Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const{
@@ -39,6 +39,8 @@ Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const
 			return e->getPosition();
 		}
 	}
+  Position pos(-1, -1);
+  return pos;
 }
 
 void ElementTab::setElementPosition (Position position, std::unique_ptr<Element> element){
@@ -58,6 +60,8 @@ Element* ElementTab::getLocatedElement (Position position) const{
 			return e;
 		}
 	}
+  e = 0;
+  return e;
 }
 
 /*std::unique_ptr<Element> ElementTab::getLocatedElement (Position position) const{

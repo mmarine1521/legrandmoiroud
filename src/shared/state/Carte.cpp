@@ -41,8 +41,8 @@ int Carte::getNumero (){
   return this->numero;
 }
 
-Carte Carte::clone (){
-  return new Carte(this);
+std::unique_ptr<Element> Carte::clone (){
+  return std::unique_ptr<Element>(new Carte(*this));
 }
 
 }

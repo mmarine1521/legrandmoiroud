@@ -3,9 +3,9 @@
 #define STATE__ARMEE__H
 
 #include <string>
+#include <memory>
 
 namespace state {
-  class Armee;
   class MobileElement;
 }
 
@@ -31,7 +31,7 @@ namespace state {
     int getNombre ();
     void setNombre (int nombre);
     std::string getPays ();
-    Armee* clone ();
+    virtual std::unique_ptr<Element> clone ();
     // Setters and Getters
   };
 
