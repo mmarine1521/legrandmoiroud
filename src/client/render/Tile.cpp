@@ -1,7 +1,6 @@
-#include <stdio.h>
 #include "Tile.h"
-#include "state.h"
-#include "render.h"
+
+#include <stdio.h>
 #include <SFML/Graphics.hpp>
 
 namespace render {

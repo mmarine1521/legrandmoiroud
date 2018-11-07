@@ -1,9 +1,7 @@
-#include <stdio.h>
 #include "ArmeeTileSet.h"
-#include "state.h"
-#include "render.h"
+
+#include <stdio.h>
 #include <SFML/Graphics.hpp>
-#include "state/Element.h"
 
 namespace render {
 

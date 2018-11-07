@@ -35,7 +35,7 @@ namespace state {
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();
-    Carte clone ();
+    Carte* clone ();
     // Setters and Getters
     void setCarteForce(CarteForce carteForce);
   };

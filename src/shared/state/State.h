@@ -17,17 +17,23 @@ namespace state {
     // Attributes
   private:
     ElementTab armeeTab;
-    ElementTab carteTab;
+    ElementTab cartePiocheTab;
+    ElementTab carteEnjeuTab;
+    ElementTab carteDefausseTab;
     ElementTab paysTab;
     ElementTab continentTab;
     // Operations
   public:
     ElementTab& getArmeeTab ();
-    ElementTab& getCarteTab ();
+    ElementTab& getCartePiocheTab ();
+    ElementTab& getCarteEnjeuTab ();
+    ElementTab& getCarteDefausseTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
     void setArmeeTab ();
-    void setCarteTab ();
+    void setCartePiocheTab ();
+    void setCarteEnjeuTab ();
+    void setCarteDefausseTab ();
     void setPaysContinentTab ();
     // Setters and Getters
   };

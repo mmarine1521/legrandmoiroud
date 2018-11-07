@@ -1,15 +1,10 @@
 #include "ElementTabLayer.h"
-#include "Layer.h"
+
 #include <stdio.h>
 #include <iostream>
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
-#include "render.h"
-#include "state.h"
-#include "TileSet.h"
 #include <memory>
-#include "Surface.h"
-#include "Tile.h"
 
 using namespace std ;
 

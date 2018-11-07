@@ -2,16 +2,13 @@
 #ifndef ENGINE__CHOIXPAYS__H
 #define ENGINE__CHOIXPAYS__H
 
+#include <string>
 
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Pays;
 }
 
 #include "Commande.h"
-#include "state/Pays.h"
 
 namespace engine {
 
@@ -21,9 +18,9 @@ namespace engine {
   public:
     virtual ~ChoixPays ();
     IdCommande const getIdCommande ();
-    static state::Pays paysAttaquant ();
+    static std::string paysAttaquant ();
     static bool verifPaysAttaquant ();
-    static state::Pays paysAttaque ();
+    static std::string paysAttaque ();
     static bool verifPaysAttaquant ();
     // Setters and Getters
   };

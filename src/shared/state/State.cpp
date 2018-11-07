@@ -7,9 +7,19 @@ ElementTab& State::getArmeeTab (){
   return refArmeeTab;
 }
 
-ElementTab& State::getCarteTab (){
-  ElementTab &refCarteTab = carteTab;
-  return refCarteTab;
+ElementTab& State::getCartePiocheTab (){
+  ElementTab &refCartePiocheTab = cartePiocheTab;
+  return refCartePiocheTab;
+}
+
+ElementTab& State::getCarteEnjeuTab (){
+  ElementTab &refCarteEnjeuTab = carteEnjeuTab;
+  return refCarteEnjeuTab;
+}
+
+ElementTab& State::getCarteDefausseTab (){
+  ElementTab &refCarteDefausseTab = carteDefausseTab;
+  return refCarteDefausseTab;
 }
 
 ElementTab& State::getPaysTab (){
@@ -21,9 +31,5 @@ ElementTab& State::getContinentTab (){
   ElementTab &refContinentTab = continentTab;
   return refContinentTab;
 }
-/*
-void setArmeeTab ();
-void setCarteTab ();
-void setPaysContinentTab ();*/
 
 }

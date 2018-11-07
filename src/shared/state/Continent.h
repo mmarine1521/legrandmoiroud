@@ -36,7 +36,7 @@ namespace state {
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();
     std::vector<std::string> const getListePays ();
-    Continent clone ();
+    Continent* clone ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
     void setCouleurId(CouleurId couleurId);

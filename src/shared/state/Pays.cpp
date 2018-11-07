@@ -43,9 +43,7 @@ std::ostream& operator<< (std::ostream& flux, Pays const& pays){
 }
 
 Pays Pays::clone (){
-	Pays newPays(nomPays, paysId, continentId);
-	newPays.paysFrontaliers = paysFrontaliers;
-  return newPays;
+  return new Pays(this);
 }
 
 }

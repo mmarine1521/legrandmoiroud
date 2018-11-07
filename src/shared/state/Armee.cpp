@@ -38,11 +38,8 @@ std::string Armee::getPays (){
   return this->pays;
 }
 
-Armee Armee::clone (){
-  Armee newArmee(pays);
-  newArmee.idJoueur = idJoueur;
-  newArmee.nombre = nombre;
-  return newArmee;
+Armee* Armee::clone (){
+  return new Armee(this);
 }
 
 }

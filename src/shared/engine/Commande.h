@@ -3,6 +3,11 @@
 #define ENGINE__COMMANDE__H
 
 
+namespace state {
+  class State;
+}
+
+#include "state/State.h"
 #include "IdCommande.h"
 
 namespace engine {

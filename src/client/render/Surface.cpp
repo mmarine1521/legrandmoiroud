@@ -1,7 +1,5 @@
 #include "Surface.h"
-#include "Tile.h"
-#include "state/TypeId.h"
-#include "state/State.h"
+
 #include <iostream>
 
 namespace render {
