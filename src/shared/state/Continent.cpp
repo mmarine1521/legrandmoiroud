@@ -30,4 +30,9 @@ std::vector<std::string> const Continent::getListePays (){
 	return this -> listePays ;
 }
 
+Continent Continent::clone (){
+	Continent newContinent(nomContinent, continentId, couleurId, listePays);
+  return newContinent;
+}
+
 }

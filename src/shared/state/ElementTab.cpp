@@ -1,11 +1,10 @@
 #include "ElementTab.h"
-#include "Element.h"
-#include "state.h"
 #include <stdio.h>
 
 namespace state {
 
-ElementTab::ElementTab (std::vector<std::unique_ptr<Element>> elementList) : elementList(elementList){
+//ElementTab::ElementTab (std::vector<std::unique_ptr<Element>> elementList) : elementList(elementList){
+ElementTab::ElementTab (){
 }
 
 ElementTab::~ElementTab(){
@@ -20,8 +19,13 @@ int ElementTab::getWidth (){
   return this->width;
 }
 
-std::vector<std::unique_ptr<Element>> ElementTab::getElementList () const{
-	return elementList ;
+std::vector<Element*> ElementTab::getElementList () const{
+  std::vector<Element*> liste;
+  for(size_t i=0; i<elementList.size(); i++){
+    Element* e = elementList[i].get();
+		liste.push_back(e);
+	}
+	return liste;
 }
 
 void ElementTab::addElement (std::unique_ptr<Element> element){

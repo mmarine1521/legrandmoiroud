@@ -24,10 +24,10 @@ namespace state {
     std::vector<std::unique_ptr<Element>> elementList;
     // Operations
   public:
-    ElementTab (std::vector<std::unique_ptr<Element>> elementList);
+    ElementTab ();
     ~ElementTab ();
     int getWidth ();
-    std::vector<std::unique_ptr<Element>> getElementList () const;
+    std::vector<Element*> getElementList () const;
     void addElement (std::unique_ptr<Element> element);
     Position getElementPosition (std::unique_ptr<Element> element) const;
     void setElementPosition (Position position, std::unique_ptr<Element> element);

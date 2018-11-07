@@ -41,4 +41,11 @@ int Carte::getNumero (){
   return this->numero;
 }
 
+Carte Carte::clone (){
+  Carte newCarte(numero, carteForce);
+  newCarte.carteId = carteId;
+  newCarte.idJoueur = idJoueur;
+  return newCarte;
+}
+
 }

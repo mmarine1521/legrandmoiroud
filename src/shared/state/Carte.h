@@ -4,6 +4,7 @@
 
 
 namespace state {
+  class Carte;
   class MobileElement;
 }
 
@@ -34,6 +35,7 @@ namespace state {
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();
+    Carte clone ();
     // Setters and Getters
     void setCarteForce(CarteForce carteForce);
   };

@@ -5,6 +5,7 @@
 #include <string>
 
 namespace state {
+  class Armee;
   class MobileElement;
 }
 
@@ -30,6 +31,7 @@ namespace state {
     int getNombre ();
     void setNombre (int nombre);
     std::string getPays ();
+    Armee clone ();
     // Setters and Getters
   };
 
