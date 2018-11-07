@@ -4,10 +4,7 @@
 
 namespace state{
 
-Pays::Pays (){
-}
-
-Pays::Pays (std::string nomPays, int paysId, ContinentId continentId): continentId(continentId), nomPays(nomPays), paysId(paysId){
+Pays::Pays (std::string nomPays, int paysId, ContinentId continentId, std::vector<std::string> paysFrontaliers): nomPays(nomPays), paysId(paysId), continentId(continentId), paysFrontaliers(paysFrontaliers){
 }
 
 Pays::~Pays (){

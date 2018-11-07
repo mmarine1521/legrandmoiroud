@@ -8,10 +8,18 @@
 namespace state {
   class Element;
   class Position;
+  class Continent;
+  class Pays;
+  class Carte;
+  class Armee;
 }
 
 #include "Element.h"
 #include "Position.h"
+#include "Continent.h"
+#include "Pays.h"
+#include "Carte.h"
+#include "Armee.h"
 
 namespace state {
 
@@ -32,6 +40,10 @@ namespace state {
     Position getElementPosition (std::unique_ptr<Element> element) const;
     void setElementPosition (Position position, std::unique_ptr<Element> element);
     Element* getLocatedElement (Position position) const;
+    void setArmeeTab ();
+    void setCartePiocheTab ();
+    void setPaysTab ();
+    void setContinentTab ();
     // Setters and Getters
   };
 

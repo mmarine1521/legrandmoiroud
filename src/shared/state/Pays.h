@@ -19,16 +19,14 @@ namespace state {
   /// class Pays - 
   class Pays : public state::StaticElement {
     // Attributes
-  public:
-    ContinentId continentId;
   private:
     std::string nomPays;
     int paysId;
+    ContinentId continentId;
     std::vector<std::string> paysFrontaliers;
     // Operations
   public:
-    Pays ();
-    Pays (std::string nomPays, int paysId, ContinentId continentId);
+    Pays (std::string nomPays, int paysId, ContinentId continentId, std::vector<std::string> paysFrontaliers);
     virtual ~Pays ();
     TypeId const getTypeId ();
     std::string const getNomPays ();

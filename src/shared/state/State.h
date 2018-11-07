@@ -30,11 +30,6 @@ namespace state {
     ElementTab& getCarteDefausseTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
-    void setArmeeTab ();
-    void setCartePiocheTab ();
-    void setCarteEnjeuTab ();
-    void setCarteDefausseTab ();
-    void setPaysContinentTab ();
     // Setters and Getters
   };
 
