@@ -35,7 +35,7 @@ namespace state {
     ElementTab ();
     ~ElementTab ();
     int getWidth ();
-    std::vector<Element*> getElementList () const;
+    std::vector<std::unique_ptr<Element>> getElementList () const;
     void addElement (std::unique_ptr<Element> element);
     Position getElementPosition (std::unique_ptr<Element> element) const;
     void setElementPosition (Position position, std::unique_ptr<Element> element);

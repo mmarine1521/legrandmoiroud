@@ -13,17 +13,17 @@ int ElementTab::getWidth (){
   return this->width;
 }
 
-std::vector<Element*> ElementTab::getElementList () const{
-  std::vector<Element*> liste;
+std::vector<std::unique_ptr<Element>> ElementTab::getElementList () const{
+  std::vector<std::unique_ptr<Element>> liste;
   for(size_t i=0; i<elementList.size(); i++){
-    Element* e = elementList[i].get();
-		liste.push_back(e);
+    //Element* e = elementList[i].get();
+		liste.push_back(elementList[i]->clone());
 	}
 	return liste;
 }
 
 void ElementTab::addElement (std::unique_ptr<Element> element){
-	elementList.push_back(element->clone());
+	//elementList.push_back(element->clone());
 }
 
 Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const{
