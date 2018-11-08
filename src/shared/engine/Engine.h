@@ -3,10 +3,14 @@
 #define ENGINE__ENGINE__H
 
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
 }
 
+#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -14,7 +18,19 @@ namespace engine {
   /// class Engine - 
   class Engine {
     // Associations
+    // Attributes
+  private:
+    state::State currentState;
+  protected:
+    bool arretJeu     = false;
+    // Operations
+  public:
+    Engine ();
+    ~Engine ();
+    state::State getCurrentState ();
+    void setArretJeu (bool arretJeu);
     // Setters and Getters
+    bool getArretJeu() const;
   };
 
 };
