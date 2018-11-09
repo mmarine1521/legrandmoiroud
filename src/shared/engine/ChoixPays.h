@@ -4,10 +4,14 @@
 
 #include <string>
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
 }
 
+#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -18,10 +22,10 @@ namespace engine {
   public:
     virtual ~ChoixPays ();
     IdCommande const getIdCommande ();
-    static std::string paysAttaquant ();
-    static bool verifPaysAttaquant ();
-    static std::string paysAttaque ();
-    static bool verifPaysAttaque ();
+    static std::string choixPaysAttaquant ();
+    static bool verifPaysAttaquant (int idJoueur, std::string paysAttaquant, state::State state);
+    static std::string choixPaysAttaque ();
+    static bool verifPaysAttaque (int idJoueur, std::string paysAttaque, state::State state);
     // Setters and Getters
   };
 

@@ -8,13 +8,11 @@
 
 namespace state {
   class StaticElement;
-  class Pays;
 }
 
 #include "ContinentId.h"
 #include "CouleurId.h"
 #include "StaticElement.h"
-#include "Pays.h"
 
 namespace state {
 

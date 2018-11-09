@@ -13,8 +13,8 @@
 #include "state/StaticElement.h"
 #include "state/ContinentId.h"
 #include "state/CouleurId.h"
-#include "state/Pays.h"
 #include "state/Continent.h"
+#include "state/Pays.h"
 #include "state/ElementTab.h"
 #include "state/State.h"
 #endif

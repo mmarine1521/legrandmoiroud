@@ -32,6 +32,7 @@ namespace state {
     virtual std::unique_ptr<Element> clone () = 0;
     virtual std::string getPays () = 0;
     virtual int getNombre () = 0;
+    virtual int getIdJoueur () = 0;
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };
