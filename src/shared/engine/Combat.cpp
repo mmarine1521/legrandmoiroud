@@ -19,7 +19,7 @@ int Combat::nbDesLances (){ // Appeler pour l'attaque et la défense
   std::cin >> nbDes;
   return nbDes;
 }
-/*
+
 bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State state){
   if (nbDes<1 || nbDes>3){
     std::cout << "Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
@@ -27,8 +27,8 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
-    std::vector<std::unique_ptr<state::Armee>> listeArmee = tabArmee.getElementList();
-    state::Armee* e;
+    std::vector<std::unique_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+    state::Element* e;
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==paysAttaquant){
@@ -40,7 +40,7 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   }
   return false;
 }
-*/
+
 //bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State state){}
 
 std::vector<int> Combat::lancerDes (int nbDes){

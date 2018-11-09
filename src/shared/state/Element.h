@@ -3,6 +3,7 @@
 #define STATE__ELEMENT__H
 
 #include <memory>
+#include <string>
 
 namespace state {
   class Position;
@@ -29,6 +30,8 @@ namespace state {
     Position getPosition ();
     void setPosition (Position position);
     virtual std::unique_ptr<Element> clone () = 0;
+    virtual std::string getPays () = 0;
+    virtual int getNombre () = 0;
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

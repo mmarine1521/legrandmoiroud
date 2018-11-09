@@ -1,5 +1,4 @@
 #include "ElementTab.h"
-#include <stdio.h>
 
 namespace state {
 
@@ -23,7 +22,7 @@ std::vector<std::unique_ptr<Element>> ElementTab::getElementList () const{
 }
 
 void ElementTab::addElement (std::unique_ptr<Element> element){
-	//elementList.push_back(element->clone());
+	elementList.push_back(element->clone());
 }
 
 Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const{

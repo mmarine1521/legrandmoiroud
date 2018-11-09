@@ -294,8 +294,9 @@ int main(int argc,char* argv[])
 	        				espace = true ;
 	        				std::cout<<espace<<endl ;
 	        			}
-
-
+                break;
+              default:
+                break;
 	        	}
 	        }
 	        sf::Texture texture ;
@@ -575,4 +576,3 @@ int main(int argc,char* argv[])
 
     return 0;
 }
-
