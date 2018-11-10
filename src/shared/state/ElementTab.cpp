@@ -12,20 +12,15 @@ int ElementTab::getWidth (){
   return this->width;
 }
 
-std::vector<std::unique_ptr<Element>> ElementTab::getElementList () const{
-  std::vector<std::unique_ptr<Element>> liste;
-  for(size_t i=0; i<elementList.size(); i++){
-    //Element* e = elementList[i].get();
-		liste.push_back(elementList[i]->clone());
-	}
-	return liste;
+std::vector<std::shared_ptr<Element>> ElementTab::getElementList () const{
+  return elementList;
 }
 
-void ElementTab::addElement (std::unique_ptr<Element> element){
+void ElementTab::addElement (std::shared_ptr<Element> element){
 	elementList.push_back(element->clone());
 }
 
-Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const{
+Position ElementTab::getElementPosition (std::shared_ptr<Element> element) const{
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i]==element){
       Element* e = elementList[i].get();
@@ -36,7 +31,7 @@ Position ElementTab::getElementPosition (std::unique_ptr<Element> element) const
   return pos;
 }
 
-void ElementTab::setElementPosition (Position position, std::unique_ptr<Element> element){
+void ElementTab::setElementPosition (Position position, std::shared_ptr<Element> element){
 	for(size_t i=0; i<elementList.size(); i++){
 		if(elementList[i]==element){
       Element* e = elementList[i].get();
@@ -56,6 +51,19 @@ Element* ElementTab::getLocatedElement (Position position) const{
   e = 0;
   return e;
 }
+/*
+void ElementTab::melange (){
+  srand (time(NULL));
+  int longueur = elementList.size();
+  int e;
+  std::vector<std::shared_ptr<Element>> listeMelangee;
+  for (int i = longueur; i > 0; i--){
+    e = rand() % i;
+    listeMelangee.push_back(elementList[e]);
+    elementList.erase(e,1);
+  }
+  elementList = listeMelangee;
+}*/
 
 void ElementTab::setArmeeTab (){
   //AFRIQUE

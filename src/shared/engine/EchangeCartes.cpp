@@ -5,7 +5,9 @@ namespace engine {
 EchangeCartes::~EchangeCartes (){
 }
 
-//IdCommande const EchangeCartes::getIdCommande (){}
+IdCommande const EchangeCartes::getIdCommande (){
+  return ECHANGECARTES;
+}
 
 //int EchangeCartes::echange (){}
 

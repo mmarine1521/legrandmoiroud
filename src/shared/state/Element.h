@@ -29,10 +29,10 @@ namespace state {
     virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (Position position);
-    virtual std::unique_ptr<Element> clone () = 0;
-    virtual std::string getPays () = 0;
-    virtual int getNombre () = 0;
-    virtual int getIdJoueur () = 0;
+    virtual std::shared_ptr<Element> clone () = 0;
+    virtual int getIdJoueur ();
+    virtual int getNombre ();
+    virtual std::string getPays ();
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

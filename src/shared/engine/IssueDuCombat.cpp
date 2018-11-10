@@ -5,7 +5,9 @@ namespace engine {
 IssueDuCombat::~IssueDuCombat (){
 }
 
-//IdCommande const IssueDuCombat::getIdCommande (){}
+IdCommande const IssueDuCombat::getIdCommande (){
+  return ISSUECOMBAT;
+}
 
 //void IssueDuCombat::comparaison (){}
 

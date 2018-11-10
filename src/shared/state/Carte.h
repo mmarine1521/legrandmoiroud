@@ -35,7 +35,7 @@ namespace state {
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     int getNumero ();
-    virtual std::unique_ptr<Element> clone ();
+    virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
     void setCarteForce(CarteForce carteForce);
   };

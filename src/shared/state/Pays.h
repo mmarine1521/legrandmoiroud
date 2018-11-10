@@ -35,7 +35,7 @@ namespace state {
     std::vector<std::string> const getPaysFrontaliers ();
     void setPaysFrontaliers (std::vector<std::string> paysFrontaliers);
     friend std::ostream& operator<< (std::ostream& flux, Pays const& pays);
-    virtual std::unique_ptr<Element> clone ();
+    virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
   };
 

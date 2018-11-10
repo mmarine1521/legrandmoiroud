@@ -34,7 +34,7 @@ namespace state {
     ContinentId const getContinentId ();
     CouleurId const getCouleurId ();
     std::vector<std::string> const getListePays ();
-    virtual std::unique_ptr<Element> clone ();
+    virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
     void setContinentId(ContinentId continentId);
     void setCouleurId(CouleurId couleurId);

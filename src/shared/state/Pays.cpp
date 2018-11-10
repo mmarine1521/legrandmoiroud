@@ -39,8 +39,8 @@ std::ostream& operator<< (std::ostream& flux, Pays const& pays){
 	return flux;
 }
 
-std::unique_ptr<Element> Pays::clone (){
-  return std::unique_ptr<Element>(new Pays(*this));
+std::shared_ptr<Element> Pays::clone (){
+  return std::shared_ptr<Element>(new Pays(*this));
 }
 
 }

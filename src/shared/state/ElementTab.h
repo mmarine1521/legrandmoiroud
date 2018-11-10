@@ -29,17 +29,18 @@ namespace state {
     // Attributes
   private:
     int width;
-    std::vector<std::unique_ptr<Element>> elementList;
+    std::vector<std::shared_ptr<Element>> elementList;
     // Operations
   public:
     ElementTab ();
     ~ElementTab ();
     int getWidth ();
-    std::vector<std::unique_ptr<Element>> getElementList () const;
-    void addElement (std::unique_ptr<Element> element);
-    Position getElementPosition (std::unique_ptr<Element> element) const;
-    void setElementPosition (Position position, std::unique_ptr<Element> element);
+    std::vector<std::shared_ptr<Element>> getElementList () const;
+    void addElement (std::shared_ptr<Element> element);
+    Position getElementPosition (std::shared_ptr<Element> element) const;
+    void setElementPosition (Position position, std::shared_ptr<Element> element);
     Element* getLocatedElement (Position position) const;
+    void melange ();
     void setArmeeTab ();
     void setCartePiocheTab ();
     void setPaysTab ();

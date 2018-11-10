@@ -5,7 +5,9 @@ namespace engine {
 GainCombat::~GainCombat (){
 }
 
-//IdCommande const GainCombat::getIdCommande (){}
+IdCommande const GainCombat::getIdCommande (){
+  return GAINCOMBAT;
+}
 
 //void GainCombat::gainCartes (){}
 

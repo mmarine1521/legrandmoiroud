@@ -27,7 +27,7 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
-    std::vector<std::unique_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+    std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
     state::Element* e;
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
@@ -48,7 +48,7 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
-    std::vector<std::unique_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+    std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
     state::Element* e;
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();

@@ -26,12 +26,12 @@ namespace state {
     virtual ~Armee ();
     bool const isCarte ();
     TypeId const getTypeId ();
-    int getIdJoueur ();
+    virtual int getIdJoueur ();
     void setIdJoueur (int idJoueur);
-    int getNombre ();
+    virtual int getNombre ();
     void setNombre (int nombre);
-    std::string getPays ();
-    virtual std::unique_ptr<Element> clone ();
+    virtual std::string getPays ();
+    virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
   };
 

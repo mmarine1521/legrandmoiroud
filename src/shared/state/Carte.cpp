@@ -41,8 +41,8 @@ int Carte::getNumero (){
   return this->numero;
 }
 
-std::unique_ptr<Element> Carte::clone (){
-  return std::unique_ptr<Element>(new Carte(*this));
+std::shared_ptr<Element> Carte::clone (){
+  return std::shared_ptr<Element>(new Carte(*this));
 }
 
 }
