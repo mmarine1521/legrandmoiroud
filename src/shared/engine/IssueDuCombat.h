@@ -2,11 +2,17 @@
 #ifndef ENGINE__ISSUEDUCOMBAT__H
 #define ENGINE__ISSUEDUCOMBAT__H
 
+#include <vector>
+#include <string>
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
 }
 
+#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -17,7 +23,7 @@ namespace engine {
   public:
     virtual ~IssueDuCombat ();
     IdCommande const getIdCommande ();
-    static void comparaison ();
+    static void comparaison (std::vector<int> desRouges, std::vector<int> desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state);
     static void victoire ();
     // Setters and Getters
   };

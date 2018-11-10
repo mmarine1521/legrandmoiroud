@@ -33,6 +33,8 @@ namespace state {
     virtual int getIdJoueur ();
     virtual int getNombre ();
     virtual std::string getPays ();
+    virtual void setIdJoueur (int idJoueur);
+    virtual void setNombre (int nombre);
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };
