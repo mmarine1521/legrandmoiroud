@@ -24,12 +24,15 @@ namespace state {
     ElementTab continentTab;
     // Operations
   public:
+    State ();
+    ~State ();
     ElementTab& getArmeeTab ();
     ElementTab& getCartePiocheTab ();
     ElementTab& getCarteEnjeuTab ();
     ElementTab& getCarteDefausseTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
+    void setArmee (ElementTab armee);
     // Setters and Getters
   };
 
