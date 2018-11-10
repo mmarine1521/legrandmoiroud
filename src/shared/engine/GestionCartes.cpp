@@ -23,10 +23,16 @@ std::shared_ptr<state::Carte> GestionCartes::piocher (state::State state){
 }*/
 /*
 void GestionCartes::defausser (std::shared_ptr<state::Carte> carteDefausse, state::State state){
-  state::Element* e;
-  for(size_t i=0; i<listeArmee.size(); i++){
-    e = listeArmee[i].get();
-
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::ElementTab& tabDefausse = state.getCarteDefausseTab();
+  std::vector<std::shared_ptr<state::Element>> listeDefausse = tabDefausse.getElementList();
+  for(size_t i=0; i<listeEnjeu.size(); i++){
+    if (listeEnjeu[i] == carteDefausse){
+      listeEnjeu.erase(i);
+      listeDefausse.push_back(listeEnjeu[i]);
+    }
+  }
 }*/
 
 }
