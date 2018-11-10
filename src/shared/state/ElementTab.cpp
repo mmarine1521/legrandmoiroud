@@ -61,7 +61,7 @@ void ElementTab::melange (){
   for (int i = longueur; i > 0; i--){
     e = rand() % i;
     listeMelangee.push_back(elementList[e]);
-    elementList.erase(e,1);
+    elementList.erase(e);
   }
   elementList = listeMelangee;
 }
