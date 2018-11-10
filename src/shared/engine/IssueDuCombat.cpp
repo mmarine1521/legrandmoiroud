@@ -21,14 +21,12 @@ void IssueDuCombat::comparaison (std::vector<int> desRouges, std::vector<int> de
     eAttaquant = listeArmee[i].get();
     if(eAttaquant->getPays()==paysAttaquant){
       break;
-      //e->setNombre(e->getNombre() - 1);
     }
   }
   for(size_t i=0; i<listeArmee.size(); i++){
     eAttaque = listeArmee[i].get();
     if(eAttaque->getPays()==paysAttaque){
       break;
-      //e->setNombre(e->getNombre() - 1);
     }
   }
   for (int i = 0; i < ite; i++){
@@ -43,6 +41,6 @@ void IssueDuCombat::comparaison (std::vector<int> desRouges, std::vector<int> de
   }
 }
 
-//void IssueDuCombat::victoire (){}
+//void IssueDuCombat::victoire (std::string paysAttaquant, std::string paysAttaque, state::State state){}
 
 }
