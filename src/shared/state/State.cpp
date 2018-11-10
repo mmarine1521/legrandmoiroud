@@ -1,7 +1,19 @@
 #include "State.h"
+#include <iostream>
 
 namespace state {
 
+
+State::State ()
+{
+	
+}
+
+State::~State ()
+{
+	
+}
+    
 ElementTab& State::getArmeeTab (){
   ElementTab &refArmeeTab = armeeTab;
   return refArmeeTab;
@@ -30,6 +42,11 @@ ElementTab& State::getPaysTab (){
 ElementTab& State::getContinentTab (){
   ElementTab &refContinentTab = continentTab;
   return refContinentTab;
+}
+
+void State::setArmee (ElementTab armee)
+{
+	this->armeeTab = armee ; 
 }
 
 }

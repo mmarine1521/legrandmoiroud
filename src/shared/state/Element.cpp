@@ -17,6 +17,11 @@ void Element::setPosition (Position position){
   this->position = position;
 }
 
+void Element::setIdJoueur (int idJoueur)
+{
+	 
+}
+
 int Element::getIdJoueur (){
   return -1;
 }

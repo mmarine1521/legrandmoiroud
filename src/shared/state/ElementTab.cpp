@@ -51,6 +51,7 @@ Element* ElementTab::getLocatedElement (Position position) const{
   e = 0;
   return e;
 }
+
 /*
 void ElementTab::melange (){
   srand (time(NULL));
@@ -63,7 +64,9 @@ void ElementTab::melange (){
     elementList.erase(e,1);
   }
   elementList = listeMelangee;
-}*/
+}
+*/
+
 
 void ElementTab::setArmeeTab (){
   //AFRIQUE
