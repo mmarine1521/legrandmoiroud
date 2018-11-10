@@ -10,6 +10,7 @@ namespace engine {
   class Commande;
 }
 
+#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -20,7 +21,7 @@ namespace engine {
   public:
     virtual ~AttributionTerritoires ();
     IdCommande const getIdCommande ();
-    static void distribution (state::State& state, int nbJoueurs = 3);
+    static void distribution (state::State state, int nbJoueurs = 3);
     static bool repartitionArmees (int idJoueur);
     // Setters and Getters
   };

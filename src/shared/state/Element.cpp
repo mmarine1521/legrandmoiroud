@@ -17,11 +17,6 @@ void Element::setPosition (Position position){
   this->position = position;
 }
 
-void Element::setIdJoueur (int idJoueur)
-{
-	 
-}
-
 int Element::getIdJoueur (){
   return -1;
 }
@@ -32,6 +27,12 @@ int Element::getNombre (){
 
 std::string Element::getPays (){
   return "#pays";
+}
+
+void Element::setIdJoueur (int idJoueur){
+}
+
+void Element::setNombre (int nombre){
 }
 
 }

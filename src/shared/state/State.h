@@ -25,7 +25,7 @@ namespace state {
     // Operations
   public:
     State ();
-    ~State ();
+    virtual ~State ();
     ElementTab& getArmeeTab ();
     ElementTab& getCartePiocheTab ();
     ElementTab& getCarteEnjeuTab ();

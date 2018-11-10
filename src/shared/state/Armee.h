@@ -27,9 +27,9 @@ namespace state {
     bool const isCarte ();
     TypeId const getTypeId ();
     virtual int getIdJoueur ();
-    void setIdJoueur (int idJoueur);
+    virtual void setIdJoueur (int idJoueur);
     virtual int getNombre ();
-    void setNombre (int nombre);
+    virtual void setNombre (int nombre);
     virtual std::string getPays ();
     virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
