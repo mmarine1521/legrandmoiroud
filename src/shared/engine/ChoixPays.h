@@ -23,8 +23,9 @@ namespace engine {
     virtual ~ChoixPays ();
     IdCommande const getIdCommande ();
     static std::string choixPaysAttaquant ();
+    static bool verifPaysAttaquant (int idJoueur, std::string paysAttaquant, state::State state);
     static std::string choixPaysAttaque ();
-    static bool verifPays (int idJoueur, std::string pays, state::State state);
+    static bool verifPaysAttaque (int idJoueur, std::string paysAttaque, std::string paysAttaquant, state::State state);
     // Setters and Getters
   };
 

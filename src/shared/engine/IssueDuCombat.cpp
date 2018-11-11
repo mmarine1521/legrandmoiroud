@@ -12,7 +12,7 @@ IdCommande const IssueDuCombat::getIdCommande (){
   return ISSUECOMBAT;
 }
 
-void IssueDuCombat::comparaison (std::vector<int> desRouges, std::vector<int> desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state){
+bool IssueDuCombat::victoire (std::vector<int> desRouges, std::vector<int> desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state){//etape 7
   int ite = std::max(desRouges.size(), desBleus.size());
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -43,23 +43,17 @@ void IssueDuCombat::comparaison (std::vector<int> desRouges, std::vector<int> de
   if (eAttaquant->getNombre() <= 0){
     std::cout << "Vous avez perdu votre territoire." << std::endl;
     eAttaquant->setNombre(1);
-    if (eAttaquant->getIdJoueur() == 1){
-      eAttaquant->setIdJoueur(2);
-    }
-    else{
-      eAttaquant->setIdJoueur(1);
-    }
+    eAttaque->setNombre(eAttaque->getNombre() - 1);
+    eAttaquant->setIdJoueur(eAttaque->getIdJoueur());
   }
   if (eAttaque->getNombre() <= 0){
     std::cout << "Vous avez gagné le territoire." << std::endl;
     eAttaque->setNombre(1);
-    if (eAttaque->getIdJoueur() == 1){
-      eAttaque->setIdJoueur(2);
-    }
-    else{
-      eAttaque->setIdJoueur(1);
-    }
+    eAttaquant->setNombre(eAttaquant->getNombre() - 1);
+    eAttaque->setIdJoueur(eAttaquant->getIdJoueur());
+    return true;
   }
+  return false;
 }
 
 }

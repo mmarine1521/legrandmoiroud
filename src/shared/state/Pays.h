@@ -29,7 +29,7 @@ namespace state {
     Pays (std::string nomPays, int paysId, ContinentId continentId, std::vector<std::string> paysFrontaliers);
     virtual ~Pays ();
     TypeId const getTypeId ();
-    std::string const getNomPays ();
+    std::string getPays ();
     int const getPaysId ();
     ContinentId const getContinentId ();
     std::vector<std::string> const getPaysFrontaliers ();

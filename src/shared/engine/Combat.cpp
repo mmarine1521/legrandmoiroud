@@ -14,14 +14,14 @@ IdCommande const Combat::getIdCommande (){
   return COMBAT;
 }
 
-int Combat::nbDesLances (){ // Appeler pour l'attaque et la défense
+int Combat::nbDesLances (){ // Appeler pour l'attaque et la défense : etapes 3-4
   std::cout << "Combien de dés souhaitez-vous lancer ?" << std::endl;
   int nbDes;
   std::cin >> nbDes;
   return nbDes;
 }
 
-bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State state){
+bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State state){ //etape 3
   if (nbDes<1 || nbDes>3){
     std::cout << "Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
     return false;
@@ -33,8 +33,11 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==paysAttaquant){
-        if (e->getNombre() >= nbDes){
+        if (e->getNombre() >= nbDes + 1){
           return true;
+        }
+        else{
+          std::cout << "Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
         }
   		}
   	}
@@ -42,7 +45,7 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   return false;
 }
 
-bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State state){
+bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State state){ //etape 4
   if (nbDes<1 || nbDes>2){
     std::cout << "Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;
     return false;
@@ -57,13 +60,16 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
         if (e->getNombre() >= nbDes){
           return true;
         }
+        else{
+          std::cout << "Vous n'avez pas assez d'armées sur votre territoire pouvant défendre." << std::endl;
+        }
   		}
   	}
   }
   return false;
 }
 
-std::vector<int> Combat::lancerDes (int nbDes){
+std::vector<int> Combat::lancerDes (int nbDes){ //etapes 5-6
   std::vector<int> liste(nbDes);
   int nb;
   srand (time(NULL));

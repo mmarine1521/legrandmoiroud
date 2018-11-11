@@ -23,7 +23,7 @@ namespace engine {
   public:
     virtual ~IssueDuCombat ();
     IdCommande const getIdCommande ();
-    static void comparaison (std::vector<int> desRouges, std::vector<int> desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state);
+    static bool victoire (std::vector<int> desRouges, std::vector<int> desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state);
     // Setters and Getters
   };
 

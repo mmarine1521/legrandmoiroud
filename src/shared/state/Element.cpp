@@ -35,4 +35,10 @@ void Element::setIdJoueur (int idJoueur){
 void Element::setNombre (int nombre){
 }
 
+std::vector<std::string> const Element::getPaysFrontaliers(){
+  std::vector<std::string> liste;
+  liste.push_back("#pays");
+  return liste;
+}
+
 }
