@@ -1,3 +1,4 @@
+//etapes 1-2
 #include "ChoixPays.h"
 
 #include <iostream>
@@ -39,6 +40,6 @@ bool ChoixPays::verifPays (int idJoueur, std::string pays, state::State state){
     }
   }
   return false;
-}
+}// frontalier pour paysAttaque, mettre des cout dans les bool
 
 }

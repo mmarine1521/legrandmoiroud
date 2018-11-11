@@ -1,3 +1,4 @@
+//etape 7
 #include "IssueDuCombat.h"
 
 #include <algorithm>    // std::max

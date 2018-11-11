@@ -1,3 +1,4 @@
+//etape 10
 #include "PlacementArmees.h"
 
 namespace engine {

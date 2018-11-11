@@ -1,3 +1,4 @@
+//etape 8
 #include "GainCombat.h"
 
 namespace engine {
