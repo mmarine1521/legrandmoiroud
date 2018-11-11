@@ -7,8 +7,7 @@ IdCommande const AttributionTerritoires::getIdCommande (){
 	return ATTRIBUTERR ;
 }
 
-void AttributionTerritoires::distribution (state::State state, int nbJoueurs)
-{
+void AttributionTerritoires::distribution (state::State state, int nbJoueurs){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* e = 0;
@@ -43,6 +42,26 @@ void AttributionTerritoires::distribution (state::State state, int nbJoueurs)
 	}
 }
 
-//bool AttributionTerritoires::repartitionArmees (int idJoueur, state::State state){}
+bool AttributionTerritoires::repartitionArmees (int idJoueur, state::State state){
+	bool repartition = true;
+	PlacementArmees::placerNouvellesArmees(idJoueur, 40, state);
+	state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* e = 0;
+
+	for(size_t i=0; i<listeArmee.size(); i++){
+		e = listeArmee[i].get();
+		if(e->getIdJoueur()==idJoueur){
+			if (e->getNombre() <= 0){
+				repartition = false;
+			}
+			break;
+		}
+	}
+	if (!repartition){
+		std::cout << "Problème : Au moins un de vos territoires ne possède pas d'armée." << std::endl;
+	}
+	return repartition;
+}
 
 }

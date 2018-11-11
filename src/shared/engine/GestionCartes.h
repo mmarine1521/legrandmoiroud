@@ -2,19 +2,20 @@
 #ifndef ENGINE__GESTIONCARTES__H
 #define ENGINE__GESTIONCARTES__H
 
-#include <memory>
 
 namespace state {
   class State;
-  class Carte;
 };
 namespace engine {
   class Commande;
+};
+namespace state {
+  class Carte;
 }
 
 #include "state/State.h"
-#include "state/Carte.h"
 #include "Commande.h"
+#include "state/Carte.h"
 
 namespace engine {
 
@@ -25,7 +26,7 @@ namespace engine {
     virtual ~GestionCartes ();
     IdCommande const getIdCommande ();
     static void piocher (int idJoueur, state::State state);
-    static void defausser (std::shared_ptr<state::Carte> carteDefausse, state::State state);
+    static void defausser (int numeroCarteDefausse, state::State state);
     // Setters and Getters
   };
 

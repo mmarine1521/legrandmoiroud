@@ -34,7 +34,7 @@ void GestionCartes::piocher (int idJoueur, state::State state){
   std::cout << "Vous avez tiré la carte numéro " << ePioche->getNumero() << "." << std::endl;
 }
 
-void GestionCartes::defausser (std::shared_ptr<state::Carte> carteDefausse, state::State state){
+void GestionCartes::defausser (int numeroCarteDefausse, state::State state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::ElementTab& tabDefausse = state.getCarteDefausseTab();
@@ -42,7 +42,7 @@ void GestionCartes::defausser (std::shared_ptr<state::Carte> carteDefausse, stat
   state::Element* eEnjeu = 0;
   for(size_t i=0; i<listeEnjeu.size(); i++){
     eEnjeu = listeEnjeu[i].get();
-    if (eEnjeu->getNumero() == carteDefausse->getNumero()){
+    if (eEnjeu->getNumero() == numeroCarteDefausse){
       eEnjeu->setIdJoueur(0);
       listeDefausse.push_back(eEnjeu->clone());
       listeEnjeu.erase(listeEnjeu.begin() + i);

@@ -8,20 +8,29 @@ namespace state {
 };
 namespace engine {
   class Commande;
+};
+namespace state {
+  class Carte;
+};
+namespace engine {
+  class GestionCartes;
 }
 
 #include "state/State.h"
 #include "Commande.h"
+#include "state/Carte.h"
+#include "GestionCartes.h"
 
 namespace engine {
 
   /// class EchangeCartes - 
   class EchangeCartes : public engine::Commande {
+    // Associations
     // Operations
   public:
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    static int echange (state::State state);
+    static int echange (int idJoueur, state::State state);
     // Setters and Getters
   };
 

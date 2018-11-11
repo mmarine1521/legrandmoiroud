@@ -45,4 +45,8 @@ int Element::getNumero(){
   return -1;
 }
 
+CarteForce Element::getCarteForce() const{
+  return NONIDENTIFIE;
+}
+
 }
