@@ -12,6 +12,24 @@ IdCommande const ChoixPays::getIdCommande (){
   return CHOIXPAYS;
 }
 
+bool ChoixPays::estFrontalier(std::string pays1, std::string pays2, state::State state){
+  state::ElementTab& tabPays = state.getPaysTab();
+  std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
+  state::Element* ePays = 0;
+  for(size_t i=0; i<listePays.size(); i++){
+    ePays = listePays[i].get();
+    if(ePays->getPays() == pays1){
+      std::vector<std::string> listePaysFontaliers = ePays->getPaysFrontaliers();
+      for(size_t i=0; i<listePaysFontaliers.size(); i++){
+        if(listePaysFontaliers[i] == pays2){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
 std::string ChoixPays::choixPaysAttaquant (){//etape 1
   std::cout << "Avec quel pays souhaitez-vous attaquer ?" << std::endl;
   std::string pays;
@@ -30,8 +48,9 @@ bool ChoixPays::verifPaysAttaquant (int idJoueur, std::string paysAttaquant, sta
         return true;
       }
       else {
-        std::cout << "Ce pays ne vous appartient pas." << std::endl;
+        std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
       }
+      break;
     }
   }
   return false;
@@ -62,23 +81,10 @@ bool ChoixPays::verifPaysAttaque (int idJoueur, std::string paysAttaque, std::st
     }
   }
   if (eAttaque->getIdJoueur() != idJoueur){
-    state::ElementTab& tabPays = state.getPaysTab();
-    std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
-    state::Element* ePaysAttaquant = 0;
-    for(size_t i=0; i<listePays.size(); i++){
-      ePaysAttaquant = listeArmee[i].get();
-      if(ePaysAttaquant->getPays() == paysAttaquant){
-        std::vector<std::string> listePaysFontaliers = ePaysAttaquant->getPaysFrontaliers();
-        for(size_t i=0; i<listePaysFontaliers.size(); i++){
-          if(listePaysFontaliers[i] == paysAttaque){
-            return true;
-          }
-        }
-      }
-    }
+    return estFrontalier(paysAttaque, paysAttaquant, state);
   }
   else{
-    std::cout << "Ce territoire vous appartient." << std::endl;
+    std::cout << "Problème : Ce territoire vous appartient." << std::endl;
   }
   return false;
 }// message si pas frontalier ?

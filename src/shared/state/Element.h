@@ -37,6 +37,7 @@ namespace state {
     virtual void setIdJoueur (int idJoueur);
     virtual void setNombre (int nombre);
     virtual std::vector<std::string> const getPaysFrontaliers ();
+    virtual int getNumero ();
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

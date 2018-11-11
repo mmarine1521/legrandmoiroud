@@ -41,4 +41,8 @@ std::vector<std::string> const Element::getPaysFrontaliers(){
   return liste;
 }
 
+int Element::getNumero(){
+  return -1;
+}
+
 }

@@ -52,20 +52,23 @@ Element* ElementTab::getLocatedElement (Position position) const{
   return e;
 }
 
-/*
 void ElementTab::melange (){
   srand (time(NULL));
   int longueur = elementList.size();
   int e;
   std::vector<std::shared_ptr<Element>> listeMelangee;
+  state::Element* ptr_e = 0;
   for (int i = longueur; i > 0; i--){
     e = rand() % i;
-    listeMelangee.push_back(elementList[e]);
-    elementList.erase(e);
+    ptr_e = elementList[e].get();
+    listeMelangee.push_back(ptr_e->clone());
+    elementList.erase(elementList.begin() + e);
   }
-  elementList = listeMelangee;
+  for (size_t i = 0; i < listeMelangee.size(); i++){
+    ptr_e = listeMelangee[i].get();
+    elementList.push_back(ptr_e->clone());
+  }
 }
-*/
 
 
 void ElementTab::setArmeeTab (){

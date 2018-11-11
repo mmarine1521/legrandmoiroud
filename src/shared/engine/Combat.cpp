@@ -23,13 +23,13 @@ int Combat::nbDesLances (){ // Appeler pour l'attaque et la défense : etapes 3-
 
 bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State state){ //etape 3
   if (nbDes<1 || nbDes>3){
-    std::cout << "Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
+    std::cout << "Problème : Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
     return false;
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
     std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-    state::Element* e;
+    state::Element* e = 0;
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==paysAttaquant){
@@ -37,8 +37,9 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
           return true;
         }
         else{
-          std::cout << "Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
+          std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
         }
+        break;
   		}
   	}
   }
@@ -47,13 +48,13 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
 
 bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State state){ //etape 4
   if (nbDes<1 || nbDes>2){
-    std::cout << "Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;
+    std::cout << "Problème : Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;
     return false;
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
     std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-    state::Element* e;
+    state::Element* e = 0;
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==paysAttaque){
@@ -61,8 +62,9 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
           return true;
         }
         else{
-          std::cout << "Vous n'avez pas assez d'armées sur votre territoire pouvant défendre." << std::endl;
+          std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant défendre." << std::endl;
         }
+        break;
   		}
   	}
   }

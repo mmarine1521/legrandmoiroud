@@ -24,7 +24,7 @@ namespace engine {
   public:
     virtual ~GestionCartes ();
     IdCommande const getIdCommande ();
-    static std::shared_ptr<state::Carte> piocher (state::State state);
+    static void piocher (int idJoueur, state::State state);
     static void defausser (std::shared_ptr<state::Carte> carteDefausse, state::State state);
     // Setters and Getters
   };

@@ -9,7 +9,6 @@ namespace state {
 }
 
 #include "CarteForce.h"
-#include "CarteId.h"
 #include "MobileElement.h"
 
 namespace state {
@@ -18,7 +17,6 @@ namespace state {
   class Carte : public state::MobileElement {
     // Associations
     state::CarteForce carteForce;
-    state::CarteId carteId;
     // Attributes
   private:
     int idJoueur;
@@ -29,12 +27,10 @@ namespace state {
     virtual ~Carte ();
     bool const isCarte ();
     TypeId const getTypeId ();
-    CarteId getCarteId ();
-    void setCarteId (CarteId carteId);
     CarteForce getCarteForce () const;
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
-    int getNumero ();
+    virtual int getNumero ();
     virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
     void setCarteForce(CarteForce carteForce);

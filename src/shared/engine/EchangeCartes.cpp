@@ -10,6 +10,6 @@ IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGECARTES;
 }
 
-//int EchangeCartes::echange (){}
+//int EchangeCartes::echange (state::State state){}
 
 }

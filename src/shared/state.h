@@ -8,7 +8,6 @@
 #include "state/MobileElement.h"
 #include "state/Armee.h"
 #include "state/CarteForce.h"
-#include "state/CarteId.h"
 #include "state/Carte.h"
 #include "state/StaticElement.h"
 #include "state/ContinentId.h"

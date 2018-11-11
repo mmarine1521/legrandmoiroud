@@ -3,22 +3,29 @@
 #define ENGINE__PLACEMENTARMEES__H
 
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
+  class ChoixPays;
 }
 
+#include "state/State.h"
 #include "Commande.h"
+#include "ChoixPays.h"
 
 namespace engine {
 
   /// class PlacementArmees - 
   class PlacementArmees : public engine::Commande {
+    // Associations
     // Operations
   public:
     virtual ~PlacementArmees ();
     IdCommande const getIdCommande ();
-    static void placerNouvellesArmees (int nouvellesArmees);
-    static void deplacerArmees ();
+    static void placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
+    static void deplacerArmees (int idJoueur, state::State state);
     // Setters and Getters
   };
 
