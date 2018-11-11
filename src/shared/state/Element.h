@@ -4,6 +4,7 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 namespace state {
   class Position;
@@ -35,6 +36,8 @@ namespace state {
     virtual std::string getPays ();
     virtual void setIdJoueur (int idJoueur);
     virtual void setNombre (int nombre);
+    virtual std::vector<std::string> const getPaysFrontaliers ();
+    virtual int getNumero ();
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

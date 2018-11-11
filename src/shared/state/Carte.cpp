@@ -3,7 +3,6 @@
 namespace state {
 
 Carte::Carte (int numero , CarteForce carteForce) : carteForce(carteForce), numero(numero){
-  carteId = PIOCHE;
 }
 
 Carte::~Carte (){
@@ -15,14 +14,6 @@ bool const Carte::isCarte (){
 
 TypeId const Carte::getTypeId (){
   return CARTE;
-}
-
-CarteId Carte::getCarteId (){
-  return this->carteId;
-}
-
-void Carte::setCarteId (CarteId carteId){
-  this->carteId = carteId;
 }
 
 CarteForce Carte::getCarteForce () const{

@@ -22,7 +22,7 @@ namespace engine {
     virtual ~AttributionTerritoires ();
     IdCommande const getIdCommande ();
     static void distribution (state::State state, int nbJoueurs = 3);
-    static bool repartitionArmees (int idJoueur);
+    static bool repartitionArmees (int idJoueur, state::State state);
     // Setters and Getters
   };
 

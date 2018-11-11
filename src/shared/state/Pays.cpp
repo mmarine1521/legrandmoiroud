@@ -14,7 +14,7 @@ TypeId const Pays::getTypeId (){
 	return PAYS;
 }
 
-std::string const Pays::getNomPays (){
+std::string Pays::getPays (){
 	return this -> nomPays ;
 }
 

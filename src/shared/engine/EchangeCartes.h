@@ -3,10 +3,14 @@
 #define ENGINE__ECHANGECARTES__H
 
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
 }
 
+#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -17,7 +21,7 @@ namespace engine {
   public:
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    static int echange ();
+    static int echange (state::State state);
     // Setters and Getters
   };
 

@@ -1,3 +1,4 @@
+//etape 9
 #include "EchangeCartes.h"
 
 namespace engine {
@@ -9,6 +10,6 @@ IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGECARTES;
 }
 
-//int EchangeCartes::echange (){}
+//int EchangeCartes::echange (state::State state){}
 
 }

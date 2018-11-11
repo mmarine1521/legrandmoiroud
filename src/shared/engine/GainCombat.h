@@ -3,22 +3,29 @@
 #define ENGINE__GAINCOMBAT__H
 
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Commande;
+  class GestionCartes;
 }
 
+#include "state/State.h"
 #include "Commande.h"
+#include "GestionCartes.h"
 
 namespace engine {
 
   /// class GainCombat - 
   class GainCombat : public engine::Commande {
+    // Associations
     // Operations
   public:
     virtual ~GainCombat ();
     IdCommande const getIdCommande ();
-    static void gainCartes ();
-    static int gainArmees ();
+    static void gainCartes (int idJoueur, bool victoire, state::State state);
+    static int gainArmees (int idJoueur, state::State state);
     // Setters and Getters
   };
 
