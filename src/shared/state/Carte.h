@@ -27,7 +27,7 @@ namespace state {
     virtual ~Carte ();
     bool const isCarte ();
     TypeId const getTypeId ();
-    CarteForce getCarteForce () const;
+    virtual CarteForce getCarteForce () const;
     int getIdJoueur ();
     void setIdJoueur (int idJoueur);
     virtual int getNumero ();

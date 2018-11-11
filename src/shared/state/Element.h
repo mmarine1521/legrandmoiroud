@@ -11,6 +11,7 @@ namespace state {
 }
 
 #include "Position.h"
+#include "CarteForce.h"
 #include "TypeId.h"
 
 namespace state {
@@ -38,6 +39,7 @@ namespace state {
     virtual void setNombre (int nombre);
     virtual std::vector<std::string> const getPaysFrontaliers ();
     virtual int getNumero ();
+    virtual CarteForce getCarteForce () const;
     // Setters and Getters
     void setTypeId(TypeId typeId);
   };

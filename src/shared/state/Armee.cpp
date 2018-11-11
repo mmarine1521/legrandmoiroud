@@ -4,7 +4,7 @@ namespace state {
 
 Armee::Armee (std::string pays) : pays (pays){
   idJoueur = 0;
-  nombre = 1;
+  nombre = 0;
 }
 
 Armee::~Armee (){

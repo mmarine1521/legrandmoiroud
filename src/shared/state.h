@@ -3,11 +3,11 @@
 #define __STATE__H
 
 #include "state/Position.h"
+#include "state/CarteForce.h"
 #include "state/TypeId.h"
 #include "state/Element.h"
 #include "state/MobileElement.h"
 #include "state/Armee.h"
-#include "state/CarteForce.h"
 #include "state/Carte.h"
 #include "state/StaticElement.h"
 #include "state/ContinentId.h"

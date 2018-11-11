@@ -8,15 +8,18 @@ namespace state {
 };
 namespace engine {
   class Commande;
+  class PlacementArmees;
 }
 
 #include "state/State.h"
 #include "Commande.h"
+#include "PlacementArmees.h"
 
 namespace engine {
 
   /// class AttributionTerritoires - 
   class AttributionTerritoires : public engine::Commande {
+    // Associations
     // Operations
   public:
     virtual ~AttributionTerritoires ();

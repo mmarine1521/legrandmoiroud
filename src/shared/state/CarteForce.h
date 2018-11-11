@@ -6,9 +6,10 @@
 namespace state {
 
   enum CarteForce {
-    TANK     = 0,
-    CANON      = 1,
-    SOLDAT     = 2
+    NONIDENTIFIE     = 0,
+    TANK     = 1,
+    CANON      = 2,
+    SOLDAT     = 3
   };
 
 };

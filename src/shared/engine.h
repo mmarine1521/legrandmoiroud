@@ -6,11 +6,11 @@
 #include "engine/Commande.h"
 #include "engine/Engine.h"
 #include "engine/GestionCartes.h"
-#include "engine/AttributionTerritoires.h"
 #include "engine/ChoixPays.h"
+#include "engine/PlacementArmees.h"
+#include "engine/AttributionTerritoires.h"
 #include "engine/Combat.h"
 #include "engine/IssueDuCombat.h"
 #include "engine/GainCombat.h"
 #include "engine/EchangeCartes.h"
-#include "engine/PlacementArmees.h"
 #endif
