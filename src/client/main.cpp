@@ -1,25 +1,15 @@
-// Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-#include <SFML/Graphics.hpp>
 #include "state.h"
 #include "render.h"
 #include "engine.h"
+
+#include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
 
-void testSFML() {
-    sf::Texture texture;
-
-
-}
-
-// Fin test SFML
-
-
-
 using namespace state;
 using namespace std ;
-using namespace engine ; 
-using namespace render ; 
+using namespace engine ;
+using namespace render ;
 
 int main(int argc,char* argv[])
 {
@@ -27,45 +17,42 @@ int main(int argc,char* argv[])
 	float fa_x = 0.9;
 	float fa_y = 0.9 ;
 	std::string pays_clic = "";
-	
-	
-	ElementTab* tabArmee2 = new ElementTab() ; 
-	tabArmee2 -> ElementTab::setArmeeTab() ; 
-	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee2 -> getElementList();
-	
-	State EtatDepart = State() ;
-	EtatDepart.setArmee(*tabArmee2);
-	
-	ElementTab& tabArmee = EtatDepart.getArmeeTab() ; 
-	std::vector<std::shared_ptr<state::Element>> listeArmee2 = tabArmee.getElementList();
-	
-	state::Element* Armee; 
 
-	cout << "test" << endl ; 
-	cout<< "longueur liste Element Tab" << listeArmee.size()<<endl ;
-	cout<< "longueur liste state" << listeArmee2.size()<<endl ;
-	
-	for (size_t i = 0 ; i<listeArmee2.size(); i++)
-	{
-		Armee = listeArmee2[i].get();
-		cout << "armee1 : " << Armee->getPays() << endl ;
-		cout << "ID armee" << Armee->getIdJoueur() << endl ; 
-	}
+
+	ElementTab* tabArmee = new ElementTab() ;
+	tabArmee -> ElementTab::setArmeeTab() ;
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee -> getElementList();
+
+	State EtatDepart = State() ;
+	EtatDepart.setArmee(*tabArmee);
+
+	ElementTab& tabArmee2 = EtatDepart.getArmeeTab() ;
+	std::vector<std::shared_ptr<state::Element>> listeArmee2 = tabArmee2.getElementList();
+  state::Element* Armee;
+
+//	cout << "test" << endl ;
+//	cout<< "longueur liste Element Tab : " << listeArmee.size()<<endl ;
+//	cout<< "longueur liste state : " << listeArmee2.size()<<endl ;
+
+//	for (size_t i = 0 ; i<listeArmee2.size(); i++){
+//		Armee = listeArmee2[i].get();
+//		cout << "armee : " << Armee->getPays() << endl ;
+//		cout << "ID armee : " << Armee->getIdJoueur() << endl ;
+//	}
+
 	AttributionTerritoires::distribution (EtatDepart,3);
-	
-	for (size_t i = 0; i<listeArmee2.size(); i++)
-	{
-		Armee= listeArmee2[i].get() ; 
-		cout << "ID armee " << Armee->getIdJoueur() << endl ;
-		
-	}
-	
+
+//	for (size_t i = 0; i<listeArmee2.size(); i++){
+//		Armee= listeArmee2[i].get() ;
+//		cout << "ID armee " << Armee->getIdJoueur() << endl ;
+//	  }
+
 	sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 
 
 	    while (window.isOpen())
-	    {    	
-	    	//AttributionTerritoires::distribution (EtatDepart, 3); 
+	    {
+	    	//AttributionTerritoires::distribution (EtatDepart, 3);
 	        sf::Event event;
 	        sf::Keyboard clavier ;
 	        window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
@@ -357,13 +344,13 @@ int main(int argc,char* argv[])
 	        //affichage armée : texture
 	        sf::Texture textureArmee ;
 	        textureArmee.loadFromFile("./res/pion_blanc.png");
-	        
+
 	        //armee afrique
 	        sf::Sprite armeeCongo ;
 	        armeeCongo.setTexture(textureArmee);
 	        armeeCongo.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeCongo.setPosition(sf::Vector2f(541.f, 463.f));
-			Armee = listeArmee2[0].get() ; 
+			Armee = listeArmee2[0].get() ;
 				if(Armee -> getIdJoueur()==1)
 				{
 					armeeCongo.setColor(sf::Color(255, 0, 0));
@@ -380,7 +367,7 @@ int main(int argc,char* argv[])
 			armeeAfriqueDeLEst.setTexture(textureArmee);
 			armeeAfriqueDeLEst.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAfriqueDeLEst.setPosition(sf::Vector2f(590.f, 429.f));
-			Armee = listeArmee2[1].get() ; 
+			Armee = listeArmee2[1].get() ;
 				if(Armee -> getIdJoueur()==1)
 				{
 					armeeAfriqueDeLEst.setColor(sf::Color(255, 0, 0));
@@ -397,7 +384,7 @@ int main(int argc,char* argv[])
 			armeeEgypte.setTexture(textureArmee);
 			armeeEgypte.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEgypte.setPosition(sf::Vector2f(559.f, 361.f));
-			Armee = listeArmee2[2].get() ; 
+			Armee = listeArmee2[2].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEgypte.setColor(sf::Color(255, 0, 0));
@@ -414,7 +401,7 @@ int main(int argc,char* argv[])
 			armeeMadagascar.setTexture(textureArmee);
 			armeeMadagascar.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeMadagascar.setPosition(sf::Vector2f(631.f, 503.f));
-			Armee = listeArmee2[3].get() ; 
+			Armee = listeArmee2[3].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeMadagascar.setColor(sf::Color(255, 0, 0));
@@ -431,7 +418,7 @@ int main(int argc,char* argv[])
 			armeeAfriqueDuNord.setTexture(textureArmee);
 			armeeAfriqueDuNord.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAfriqueDuNord.setPosition(sf::Vector2f(481.f, 388.f));
-			Armee = listeArmee2[4].get() ; 
+			Armee = listeArmee2[4].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAfriqueDuNord.setColor(sf::Color(255, 0, 0));
@@ -448,7 +435,7 @@ int main(int argc,char* argv[])
 			armeeAfriqueDuSud.setTexture(textureArmee);
 			armeeAfriqueDuSud.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAfriqueDuSud.setPosition(sf::Vector2f(557.f, 521.f));
-			Armee = listeArmee2[5].get() ; 
+			Armee = listeArmee2[5].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAfriqueDuSud.setColor(sf::Color(255, 0, 0));
@@ -467,7 +454,7 @@ int main(int argc,char* argv[])
 			armeeAlberta.setTexture(textureArmee);
 			armeeAlberta.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAlberta.setPosition(sf::Vector2f(174.f, 222.f));
-			Armee = listeArmee2[19].get() ; 
+			Armee = listeArmee2[19].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAlberta.setColor(sf::Color(255, 0, 0));
@@ -484,7 +471,7 @@ int main(int argc,char* argv[])
 			armeeAmeriqueCentrale.setTexture(textureArmee);
 			armeeAmeriqueCentrale.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAmeriqueCentrale.setPosition(sf::Vector2f(207.f, 330.f));
-			Armee = listeArmee2[20].get() ; 
+			Armee = listeArmee2[20].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAmeriqueCentrale.setColor(sf::Color(255, 0, 0));
@@ -501,7 +488,7 @@ int main(int argc,char* argv[])
 			armeeEtatDeLEst.setTexture(textureArmee);
 			armeeEtatDeLEst.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEtatDeLEst.setPosition(sf::Vector2f(248.f, 286.f));
-			Armee = listeArmee2[21].get() ; 
+			Armee = listeArmee2[21].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEtatDeLEst.setColor(sf::Color(255, 0, 0));
@@ -518,7 +505,7 @@ int main(int argc,char* argv[])
 			armeeGroenland.setTexture(textureArmee);
 			armeeGroenland.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeGroenland.setPosition(sf::Vector2f(377.f, 97.f));
-			Armee = listeArmee2[22].get() ; 
+			Armee = listeArmee2[22].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeGroenland.setColor(sf::Color(255, 0, 0));
@@ -535,7 +522,7 @@ int main(int argc,char* argv[])
 			armeeTerritoireDuNordOuest.setTexture(textureArmee);
 			armeeTerritoireDuNordOuest.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeTerritoireDuNordOuest.setPosition(sf::Vector2f(171.f, 175.f));
-			Armee = listeArmee2[23].get() ; 
+			Armee = listeArmee2[23].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeTerritoireDuNordOuest.setColor(sf::Color(255, 0, 0));
@@ -552,7 +539,7 @@ int main(int argc,char* argv[])
 			armeeOntario.setTexture(textureArmee);
 			armeeOntario.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeOntario.setPosition(sf::Vector2f(241.f, 236.f));
-			Armee = listeArmee2[24].get() ; 
+			Armee = listeArmee2[24].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeOntario.setColor(sf::Color(255, 0, 0));
@@ -569,7 +556,7 @@ int main(int argc,char* argv[])
 			armeeQuebec.setTexture(textureArmee);
 			armeeQuebec.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeQuebec.setPosition(sf::Vector2f(308.f, 225.f));
-			Armee = listeArmee2[25].get() ; 
+			Armee = listeArmee2[25].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeQuebec.setColor(sf::Color(255, 0, 0));
@@ -586,7 +573,7 @@ int main(int argc,char* argv[])
 			armeeEtatDeLOuest.setTexture(textureArmee);
 			armeeEtatDeLOuest.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEtatDeLOuest.setPosition(sf::Vector2f(177.f, 274.f));
-			Armee = listeArmee2[26].get() ; 
+			Armee = listeArmee2[26].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEtatDeLOuest.setColor(sf::Color(255, 0, 0));
@@ -603,7 +590,7 @@ int main(int argc,char* argv[])
 			armeeAlaska.setTexture(textureArmee);
 			armeeAlaska.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAlaska.setPosition(sf::Vector2f(76.f, 171.f));
-			Armee = listeArmee2[18].get() ; 
+			Armee = listeArmee2[18].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAlaska.setColor(sf::Color(255, 0, 0));
@@ -622,7 +609,7 @@ int main(int argc,char* argv[])
 			armeeArgentine.setTexture(textureArmee);
 			armeeArgentine.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeArgentine.setPosition(sf::Vector2f(312.f, 530.f));
-			Armee = listeArmee2[27].get() ; 
+			Armee = listeArmee2[27].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeArgentine.setColor(sf::Color(255, 0, 0));
@@ -639,7 +626,7 @@ int main(int argc,char* argv[])
 			armeeBresil.setTexture(textureArmee);
 			armeeBresil.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeBresil.setPosition(sf::Vector2f(359.f, 456.f));
-			Armee = listeArmee2[28].get() ; 
+			Armee = listeArmee2[28].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeBresil.setColor(sf::Color(255, 0, 0));
@@ -656,7 +643,7 @@ int main(int argc,char* argv[])
 			armeePerou.setTexture(textureArmee);
 			armeePerou.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeePerou.setPosition(sf::Vector2f(305.f, 391.f));
-			Armee = listeArmee2[29].get() ; 
+			Armee = listeArmee2[29].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeePerou.setColor(sf::Color(255, 0, 0));
@@ -673,7 +660,7 @@ int main(int argc,char* argv[])
 			armeeVenezuela.setTexture(textureArmee);
 			armeeVenezuela.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeVenezuela.setPosition(sf::Vector2f(308.f, 474.f));
-			Armee = listeArmee2[30].get() ; 
+			Armee = listeArmee2[30].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeVenezuela.setColor(sf::Color(255, 0, 0));
@@ -693,7 +680,7 @@ int main(int argc,char* argv[])
 			armeeGrandeBretagne.setTexture(textureArmee);
 			armeeGrandeBretagne.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeGrandeBretagne.setPosition(sf::Vector2f(470.f, 231.f));
-			Armee = listeArmee2[31].get() ; 
+			Armee = listeArmee2[31].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeGrandeBretagne.setColor(sf::Color(255, 0, 0));
@@ -710,7 +697,7 @@ int main(int argc,char* argv[])
 			armeeIslande.setTexture(textureArmee);
 			armeeIslande.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeIslande.setPosition(sf::Vector2f(466.f, 171.f));
-			Armee = listeArmee2[32].get() ; 
+			Armee = listeArmee2[32].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeIslande.setColor(sf::Color(255, 0, 0));
@@ -727,7 +714,7 @@ int main(int argc,char* argv[])
 			armeeEuropeDuNord.setTexture(textureArmee);
 			armeeEuropeDuNord.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEuropeDuNord.setPosition(sf::Vector2f(537.f, 252.f));
-			Armee = listeArmee2[33].get() ; 
+			Armee = listeArmee2[33].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEuropeDuNord.setColor(sf::Color(255, 0, 0));
@@ -744,7 +731,7 @@ int main(int argc,char* argv[])
 			armeeScandinavie.setTexture(textureArmee);
 			armeeScandinavie.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeScandinavie.setPosition(sf::Vector2f(542.f, 200.f));
-			Armee = listeArmee2[34].get() ; 
+			Armee = listeArmee2[34].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeScandinavie.setColor(sf::Color(255, 0, 0));
@@ -761,7 +748,7 @@ int main(int argc,char* argv[])
 			armeeEuropeDuSud.setTexture(textureArmee);
 			armeeEuropeDuSud.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEuropeDuSud.setPosition(sf::Vector2f(546.f, 297.f));
-			Armee = listeArmee2[35].get() ; 
+			Armee = listeArmee2[35].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEuropeDuSud.setColor(sf::Color(255, 0, 0));
@@ -778,7 +765,7 @@ int main(int argc,char* argv[])
 			armeeUkraine.setTexture(textureArmee);
 			armeeUkraine.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeUkraine.setPosition(sf::Vector2f(604.f, 227.f));
-			Armee = listeArmee2[36].get() ; 
+			Armee = listeArmee2[36].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeUkraine.setColor(sf::Color(255, 0, 0));
@@ -795,7 +782,7 @@ int main(int argc,char* argv[])
 			armeeEuropeOccidentale.setTexture(textureArmee);
 			armeeEuropeOccidentale.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeEuropeOccidentale.setPosition(sf::Vector2f(488.f, 289.f));
-			Armee = listeArmee2[37].get() ; 
+			Armee = listeArmee2[37].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeEuropeOccidentale.setColor(sf::Color(255, 0, 0));
@@ -815,7 +802,7 @@ int main(int argc,char* argv[])
 			armeeAfghanistan.setTexture(textureArmee);
 			armeeAfghanistan.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAfghanistan.setPosition(sf::Vector2f(677.f, 293.f));
-			Armee = listeArmee2[6].get() ; 
+			Armee = listeArmee2[6].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAfghanistan.setColor(sf::Color(255, 0, 0));
@@ -832,7 +819,7 @@ int main(int argc,char* argv[])
 			armeeChine.setTexture(textureArmee);
 			armeeChine.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeChine.setPosition(sf::Vector2f(794.f, 325.f));
-			Armee = listeArmee2[7].get() ; 
+			Armee = listeArmee2[7].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeChine.setColor(sf::Color(255, 0, 0));
@@ -849,7 +836,7 @@ int main(int argc,char* argv[])
 			armeeInde.setTexture(textureArmee);
 			armeeInde.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeInde.setPosition(sf::Vector2f(716.f, 373.f));
-			Armee = listeArmee2[8].get() ; 
+			Armee = listeArmee2[8].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeInde.setColor(sf::Color(255, 0, 0));
@@ -866,7 +853,7 @@ int main(int argc,char* argv[])
 			armeeTchita.setTexture(textureArmee);
 			armeeTchita.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeTchita.setPosition(sf::Vector2f(811.f, 225.f));
-			Armee = listeArmee2[9].get() ; 
+			Armee = listeArmee2[9].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeTchita.setColor(sf::Color(255, 0, 0));
@@ -883,7 +870,7 @@ int main(int argc,char* argv[])
 			armeeJapon.setTexture(textureArmee);
 			armeeJapon.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeJapon.setPosition(sf::Vector2f(902.f, 324.f));
-			Armee = listeArmee2[10].get() ; 
+			Armee = listeArmee2[10].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeJapon.setColor(sf::Color(255, 0, 0));
@@ -900,7 +887,7 @@ int main(int argc,char* argv[])
 			armeeKamtchatka.setTexture(textureArmee);
 			armeeKamtchatka.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeKamtchatka.setPosition(sf::Vector2f(964.f, 218.f));
-			Armee = listeArmee2[11].get() ; 
+			Armee = listeArmee2[11].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeKamtchatka.setColor(sf::Color(255, 0, 0));
@@ -917,7 +904,7 @@ int main(int argc,char* argv[])
 			armeeMoyenOrient.setTexture(textureArmee);
 			armeeMoyenOrient.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeMoyenOrient.setPosition(sf::Vector2f(632.f, 351.f));
-			Armee = listeArmee2[12].get() ; 
+			Armee = listeArmee2[12].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeMoyenOrient.setColor(sf::Color(255, 0, 0));
@@ -934,7 +921,7 @@ int main(int argc,char* argv[])
 			armeeMongolie.setTexture(textureArmee);
 			armeeMongolie.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeMongolie.setPosition(sf::Vector2f(816.f, 276.f));
-			Armee = listeArmee2[13].get() ; 
+			Armee = listeArmee2[13].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeMongolie.setColor(sf::Color(255, 0, 0));
@@ -951,7 +938,7 @@ int main(int argc,char* argv[])
 			armeeSiam.setTexture(textureArmee);
 			armeeSiam.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeSiam.setPosition(sf::Vector2f(770.f, 391.f));
-			Armee = listeArmee2[14].get() ; 
+			Armee = listeArmee2[14].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeSiam.setColor(sf::Color(255, 0, 0));
@@ -968,7 +955,7 @@ int main(int argc,char* argv[])
 			armeeSiberie.setTexture(textureArmee);
 			armeeSiberie.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeSiberie.setPosition(sf::Vector2f(741.f, 197.f));
-			Armee = listeArmee2[15].get() ; 
+			Armee = listeArmee2[15].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeSiberie.setColor(sf::Color(255, 0, 0));
@@ -985,7 +972,7 @@ int main(int argc,char* argv[])
 			armeeOural.setTexture(textureArmee);
 			armeeOural.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeOural.setPosition(sf::Vector2f(674.f, 222.f));
-			Armee = listeArmee2[16].get() ; 
+			Armee = listeArmee2[16].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeOural.setColor(sf::Color(255, 0, 0));
@@ -1002,7 +989,7 @@ int main(int argc,char* argv[])
 			armeeYakoutie.setTexture(textureArmee);
 			armeeYakoutie.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeYakoutie.setPosition(sf::Vector2f(833.f, 153.f));
-			Armee = listeArmee2[17].get() ; 
+			Armee = listeArmee2[17].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeYakoutie.setColor(sf::Color(255, 0, 0));
@@ -1021,7 +1008,7 @@ int main(int argc,char* argv[])
 			armeeAustralieOrientale.setTexture(textureArmee);
 			armeeAustralieOrientale.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAustralieOrientale.setPosition(sf::Vector2f(897.f, 567.f));
-			Armee = listeArmee2[38].get() ; 
+			Armee = listeArmee2[38].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAustralieOrientale.setColor(sf::Color(255, 0, 0));
@@ -1038,7 +1025,7 @@ int main(int argc,char* argv[])
 			armeeIndonesie.setTexture(textureArmee);
 			armeeIndonesie.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeIndonesie.setPosition(sf::Vector2f(801.f, 462.f));
-			Armee = listeArmee2[39].get() ; 
+			Armee = listeArmee2[39].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeIndonesie.setColor(sf::Color(255, 0, 0));
@@ -1055,7 +1042,7 @@ int main(int argc,char* argv[])
 			armeeNouvelleGuinee.setTexture(textureArmee);
 			armeeNouvelleGuinee.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeNouvelleGuinee.setPosition(sf::Vector2f(904.f, 473.f));
-			Armee = listeArmee2[40].get() ; 
+			Armee = listeArmee2[40].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeNouvelleGuinee.setColor(sf::Color(255, 0, 0));
@@ -1072,7 +1059,7 @@ int main(int argc,char* argv[])
 			armeeAustralieOccidentale.setTexture(textureArmee);
 			armeeAustralieOccidentale.setScale(sf::Vector2f(0.2f, 0.2f));
 			armeeAustralieOccidentale.setPosition(sf::Vector2f(838.f, 552.f));
-			Armee = listeArmee2[41].get() ; 
+			Armee = listeArmee2[41].get() ;
 							if(Armee -> getIdJoueur()==1)
 							{
 								armeeAustralieOccidentale.setColor(sf::Color(255, 0, 0));
@@ -1106,7 +1093,7 @@ int main(int argc,char* argv[])
 	        				 window_attaque.clear();
 	        				 window_attaque.display();
 	        	    }
-			
+
 	        window.clear();
 	        window.draw(sprite);
 	       // window.draw(sprite2);
