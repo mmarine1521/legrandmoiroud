@@ -39,8 +39,26 @@ void IssueDuCombat::comparaison (std::vector<int> desRouges, std::vector<int> de
       eAttaquant->setNombre(eAttaquant->getNombre() - 1);
     }
   }
+  if (eAttaquant->getNombre() <= 0){
+    std::cout << "Vous avez perdu votre territoire." << std::endl;
+    eAttaquant->setNombre(1);
+    if (eAttaquant->getIdJoueur() == 1){
+      eAttaquant->setIdJoueur(2);
+    }
+    else{
+      eAttaquant->setIdJoueur(1);
+    }
+  }
+  if (eAttaque->getNombre() <= 0){
+    std::cout << "Vous avez gagné le territoire." << std::endl;
+    eAttaque->setNombre(1);
+    if (eAttaque->getIdJoueur() == 1){
+      eAttaque->setIdJoueur(2);
+    }
+    else{
+      eAttaque->setIdJoueur(1);
+    }
+  }
 }
-
-//void IssueDuCombat::victoire (std::string paysAttaquant, std::string paysAttaque, state::State state){}
 
 }
