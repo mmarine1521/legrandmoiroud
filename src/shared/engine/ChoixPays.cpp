@@ -45,6 +45,7 @@ bool ChoixPays::verifPaysAttaquant (int idJoueur, std::string paysAttaquant, sta
     e = listeArmee[i].get();
     if(e->getPays() == paysAttaquant){
       if (e->getIdJoueur() == idJoueur){
+        //verif si a des pays frontaliers qui ne lui appartiennent pas
         return true;
       }
       else {

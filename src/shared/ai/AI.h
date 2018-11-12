@@ -8,11 +8,11 @@ namespace state {
   class State;
 };
 namespace engine {
-  class Command;
+  class Commande;
 }
 
 #include "state/State.h"
-#include "engine/Command.h"
+#include "engine/Commande.h"
 
 namespace ai {
 
@@ -20,14 +20,14 @@ namespace ai {
   class AI {
     // Operations
   public:
-    virtual static void aiDistribution (state::State state, int nbJoueurs = 3) = 0;
-    virtual static bool aiRepartitionArmees (int idJoueur, state::State state) = 0;
-    virtual static std::string aiChoixPaysAttaquant () = 0;
-    virtual static std::string aiChoixPaysAttaque () = 0;
-    virtual static int aiNbDesLancers () = 0;
-    virtual static int aiEchange (int idJoueur, state::State state) = 0;
-    virtual static void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state) = 0;
-    virtual static void aiDeplacerArmees (int idJoueur, state::State state) = 0;
+    virtual bool aiRepartitionArmees (int idJoueur, state::State state) = 0;
+    virtual std::string aiChoixPaysAttaquant (int idJoueur, state::State state) = 0;
+    virtual std::string aiChoixPaysAttaque (int idJoueur, state::State state) = 0;
+    virtual int aiNbDesLancersAttaques () = 0;
+    virtual int aiNbDesLancersDefenses () = 0;
+    virtual int aiEchange (int idJoueur, state::State state) = 0;
+    virtual void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state) = 0;
+    virtual void aiDeplacerArmees (int idJoueur, state::State state) = 0;
     // Setters and Getters
   };
 

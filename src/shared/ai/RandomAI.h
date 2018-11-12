@@ -20,14 +20,14 @@ namespace ai {
   class RandomAI : public ai::AI {
     // Operations
   public:
-    virtual static void aiDistribution (state::State state, int nbJoueurs = 3);
-    virtual static bool aiRepartitionArmees (int idJoueur, state::State state);
-    virtual static std::string aiChoixPaysAttaquant ();
-    virtual static std::string aiChoixPaysAttaque ();
-    virtual static int aiNbDesLancers ();
-    virtual static int aiEchange (int idJoueur, state::State state);
-    virtual static void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
-    virtual static void aiDeplacerArmees (int idJoueur, state::State state);
+    bool aiRepartitionArmees (int idJoueur, state::State state);
+    std::string aiChoixPaysAttaquant (int idJoueur, state::State state);
+    std::string aiChoixPaysAttaque (int idJoueur, state::State state);
+    int aiNbDesLancersAttaques ();
+    int aiNbDesLancersDefenses ();
+    int aiEchange (int idJoueur, state::State state);
+    void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
+    void aiDeplacerArmees (int idJoueur, state::State state);
     // Setters and Getters
   };
 
