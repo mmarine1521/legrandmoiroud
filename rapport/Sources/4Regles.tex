@@ -3,6 +3,8 @@
 \subsection{Changements extérieurs}
 Parmi les changements extérieurs, nous allons créer une "Touche A" pour annuler et revenir au début du tour. Le joueur pourra utiliser cette touche, avant d'avoir lancé les dés, s'il veut finalement choisir d'attaquer un autre pays.
 
+Pour lancer le jeu (étape 2 de l'initialsation), le joueur doit appuyer sur la barre d'espace.
+
 %Pour arrêter le jeu définitivement, le joueur pourra également taper sur une touche.
 
 \subsection{Changements autonomes}
@@ -82,7 +84,7 @@ A la suite de toutes ces étapes (que vous pouvez retrouver figure \ref{fig:tour
 
 \newpage
 \subsection{Conception logiciel}
-Le diagramme des classes pour le moteur du jeu est présenté en figure \ref{fig:moteur}. Il comporte deux types de classes : les classes héritières de Commande (en rouge et rose) et la classe Engine.
+Le diagramme des classes pour le moteur du jeu est présenté en figure \ref{fig:moteur}. Il comporte un grand type de classe : les classes héritières de Commande.
 
 Tout d'abord, les classes Commande comporte un type de commande avec IdCommande afin d'identifier précisément la classe d’une instance. Les 8 sous classes de Commande gèrent chacune des étapes du jeu mentionnées au dessus :
 \begin{itemize}

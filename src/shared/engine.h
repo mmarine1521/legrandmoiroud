@@ -4,7 +4,6 @@
 
 #include "engine/IdCommande.h"
 #include "engine/Commande.h"
-#include "engine/Engine.h"
 #include "engine/GestionCartes.h"
 #include "engine/ChoixPays.h"
 #include "engine/PlacementArmees.h"
