@@ -18,7 +18,8 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 	int nombre;
 	while(armeesAPlacer != 0){
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-		getline(std::cin, pays);
+		std::cin >> pays ; 
+		//getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
 		if (armeesAPlacer < nombre){
