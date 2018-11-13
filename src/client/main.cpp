@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <thread>
+#include <mutex>
+
 using namespace state;
 using namespace std ;
 using namespace engine ;
@@ -15,51 +18,8 @@ using namespace render ;
 
 void testSFML() 
 	{
-		std::cout << "Pour initialiser les pays : cliquez sur 'espace'" << std::endl ; 
-		std::cout << "Pour placer ses armées : cliquez sur 'P'"<< std::endl; 
-		std::cout << "JOUEUR 1 : Rouge" <<std::endl ;
-		std::cout << "JOUEUR 2 : Vert" <<std::endl ; 
-		std::cout << "JOUEUR 3 : Bleu" <<std::endl ; 
-
-
-		sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-		//Affichage affiche = Affichage() ;
-		Affichage::AfficheMap(window) ; 
-		sf::Event event;
 		
-		State EtatDepart = state::State() ; 
-		
-
-
-		        while (window.pollEvent(event))
-		        {
-		        	switch (event.type)
-		        	{
-		        		case sf::Event::Closed :
-		        			window.close();
-		        			break ;
-		        		case sf::Event::KeyPressed  :
-		        			if(event.key.code == sf::Keyboard::Space)
-		        			{
-		        				std::cout<<"Touche espace pressée"<<std::endl ;
-		        				AttributionTerritoires::distribution (EtatDepart, 3);
-		        				Affichage::AfficheArmees(EtatDepart, window) ; 
-		        				std::cout <<"Initialisation Terminée"<<std::endl ; 
-		        			}
-		        			if(event.key.code == sf::Keyboard::P)
-							{
-								std::cout<<"Placement des armées joueur 1" << std::endl ; 
-								//AttributionTerritoires::repartitionArmees(1, EtatDepart); 
-								//AttributionTerritoires::repartitionArmees(2, EtatDepart);
-								//AttributionTerritoires::repartitionArmees(3, EtatDepart);
-								std::cout <<"Placement Terminée"<<std::endl ; 
-								
-							}
-	                break;
-	              default:
-	                break;
-		        	}
-		        }
+		  
 	}
 
 int main(int argc,char* argv[])
@@ -76,10 +36,50 @@ int main(int argc,char* argv[])
 
 	        else if (strcmp(argv[1],"engine")==0){
 	            //Test Map
-	        	testSFML();
-	            
-	        }
+	        			std::cout << "Pour initialiser les pays : cliquez sur 'espace'" << std::endl ; 
+	        			std::cout << "Pour placer ses armées : cliquez sur 'P'"<< std::endl; 
+	        			std::cout << "JOUEUR 1 : Rouge" <<std::endl ;
+	        			std::cout << "JOUEUR 2 : Vert" <<std::endl ; 
+	        			std::cout << "JOUEUR 3 : Bleu" <<std::endl ; 
 
+	        			
+	        			ElementTab tabArmee = ElementTab() ; 
+	        			tabArmee.ElementTab::setArmeeTab() ; 
+	        			
+	        			State EtatDepart = state::State() ;
+	        			EtatDepart.setArmee(tabArmee); 
+	        			
+	        			AttributionTerritoires::distribution(EtatDepart, 3); 
+	        			
+	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+//	        			window.setActive() ;
+//	        			window.setVerticalSyncEnabled(true);
+	        			//Affichage affiche = Affichage() ;
+//	        			while (window.isOpen())
+//	        			{
+	        				
+	        			Affichage::AfficheMap(EtatDepart,window) ;
+//							
+//							 
+						std:cout<<"test"<<std::endl ; 	
+//							
+//							
+//							for(sf::Event e; window.pollEvent(e);){}
+//		        			sf::Event event;
+//		        			
+//		        			
+//		        			 
+//		        			
+//	
+//	
+//							
+//							window.display() ;
+//	        			}
+//	        	
+//	            
+//	        }
+//
+    }
 	    }
  return 0;
 }
