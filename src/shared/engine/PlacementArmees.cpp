@@ -15,10 +15,10 @@ IdCommande const PlacementArmees::getIdCommande (){
 void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){
 	int armeesAPlacer = nouvellesArmees;
 	std::string pays;
-	int nombre;
+	int nombre = 0;
 	while(armeesAPlacer != 0){
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-		std::cin >> pays ; 
+		std::cin >> pays ;
 		//getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
@@ -62,19 +62,18 @@ void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
 		bool estPossible = false;
     for(size_t i=0; i<listeArmee.size(); i++){
       eDepart = listeArmee[i].get();
-  		if(eDepart->getPays()==paysDepart){
-        if (eDepart->getNombre() > nombre){
-					estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
-				}
-				else if (eDepart->getIdJoueur() != idJoueur){
-					estPossible = false;
+  		if(eDepart->getPays() == paysDepart){
+				if(eDepart->getIdJoueur() == idJoueur){
+					if (eDepart->getNombre() > nombre){
+						estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
+					}
 				}
   		}
 			break;
   	}
 		for(size_t i=0; i<listeArmee.size(); i++){
       eArrivee = listeArmee[i].get();
-  		if(eArrivee->getPays()==paysArrivee){
+  		if(eArrivee->getPays() == paysArrivee){
 				if (eArrivee->getIdJoueur() != idJoueur){
 					estPossible = false;
 				}

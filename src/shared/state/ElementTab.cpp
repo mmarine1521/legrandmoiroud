@@ -8,10 +8,6 @@ ElementTab::ElementTab (){
 ElementTab::~ElementTab(){
 }
 
-int ElementTab::getWidth (){
-  return this->width;
-}
-
 std::vector<std::shared_ptr<Element>> ElementTab::getElementList () const{
   return elementList;
 }
@@ -71,7 +67,7 @@ void ElementTab::melange (){
 }
 
 
-void ElementTab::setArmeeTab (){
+void ElementTab::remplirArmeeTab (){
   //AFRIQUE
   Armee* armeeCongo = new Armee("Congo");
   elementList.push_back(armeeCongo->clone());
@@ -169,7 +165,7 @@ void ElementTab::setArmeeTab (){
   elementList.push_back(armeeAustralieOccidentale->clone());
 }
 
-void ElementTab::setCartePiocheTab (){
+void ElementTab::remplirCartePiocheTab (){
   Carte* carte1 = new Carte(1,CANON);
   elementList.push_back(carte1->clone());
   Carte* carte2 = new Carte(2,CANON);
@@ -258,7 +254,7 @@ void ElementTab::setCartePiocheTab (){
   elementList.push_back(carte42->clone());
 }
 
-void ElementTab::setPaysTab (){
+void ElementTab::remplirPaysTab (){
   std::vector<std::string> FrontaliersCongo(3); //101 : 102, 105, 106
   FrontaliersCongo[0] = "Afrique De L'Est";
   FrontaliersCongo[1] = "Afrique Du Nord";
@@ -604,7 +600,7 @@ void ElementTab::setPaysTab (){
   elementList.push_back(AustralieOccidentale->clone());
 }
 
-void ElementTab::setContinentTab (){
+void ElementTab::remplirContinentTab (){
   //AFRIQUE
   std::vector<std::string> PaysAfrique(6) ;
   PaysAfrique[0] = "Congo" ;

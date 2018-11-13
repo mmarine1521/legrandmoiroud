@@ -4,16 +4,12 @@
 namespace state {
 
 
-State::State ()
-{
-	
+State::State (){
 }
 
-State::~State ()
-{
-	
+State::~State (){
 }
-    
+
 ElementTab& State::getArmeeTab (){
   ElementTab &refArmeeTab = armeeTab;
   return refArmeeTab;
@@ -44,9 +40,28 @@ ElementTab& State::getContinentTab (){
   return refContinentTab;
 }
 
-void State::setArmee (ElementTab armee)
-{
-	this->armeeTab = armee ; 
+void State::setArmeeTab (ElementTab armee){
+	this->armeeTab = armee ;
+}
+
+void State::setCartePiocheTab (ElementTab cartePioche){
+	this->cartePiocheTab = cartePioche;
+}
+
+void State::setCarteEnjeuTab (ElementTab carteEnjeu){
+	this->carteEnjeuTab = carteEnjeu;
+}
+
+void State::setCarteDefausseTab (ElementTab carteDefausse){
+	this->carteDefausseTab = carteDefausse;
+}
+
+void State::setPaysTab (ElementTab pays){
+	this->paysTab = pays;
+}
+
+void State::setContinentTab (ElementTab continent){
+	this->continentTab = continent;
 }
 
 }

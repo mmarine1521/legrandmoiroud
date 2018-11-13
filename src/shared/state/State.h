@@ -32,7 +32,12 @@ namespace state {
     ElementTab& getCarteDefausseTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
-    void setArmee (ElementTab armee);
+    void setArmeeTab (ElementTab armee);
+    void setCartePiocheTab (ElementTab cartePioche);
+    void setCarteEnjeuTab (ElementTab carteEnjeu);
+    void setCarteDefausseTab (ElementTab carteDefausse);
+    void setPaysTab (ElementTab pays);
+    void setContinentTab (ElementTab continent);
     // Setters and Getters
   };
 
