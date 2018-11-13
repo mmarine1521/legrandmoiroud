@@ -55,12 +55,13 @@ int main(int argc,char* argv[])
 //	        			window.setActive() ;
 //	        			window.setVerticalSyncEnabled(true);
 	        			//Affichage affiche = Affichage() ;
-//	        			while (window.isOpen())
+	        			//while (window.isOpen())
 //	        			{
 	        				
 	        			Affichage::AfficheMap(EtatDepart,window) ;
-//							
-//							 
+						
+	        			//window.display() ; 
+							 
 						std:cout<<"test"<<std::endl ; 	
 //							
 //							
