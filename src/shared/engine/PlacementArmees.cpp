@@ -18,10 +18,11 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 	int nombre = 0;
 	while(armeesAPlacer != 0){
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-		std::cin >> pays ;
-		//getline(std::cin, pays);
+	  getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
+		std::string tmp;
+		getline(std::cin,tmp);
 		if (armeesAPlacer < nombre){
 			nombre = armeesAPlacer;
 		}
@@ -31,11 +32,16 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==pays){
-        e->setNombre(e->getNombre() + nombre);
-				break;
+				if(e->getIdJoueur() == idJoueur){
+					e->setNombre(e->getNombre() + nombre);
+					armeesAPlacer -= nombre;
+					break;
+				}
+				else{
+					std::cout << "Ce pays ne vous appartient pas." << std::endl;
+				}
   		}
   	}
-		armeesAPlacer -= nombre;
 	}
 }
 

@@ -32,7 +32,7 @@ namespace engine {
     // Associations
     // Operations
   public:
-    static void jouer (int numeroTour, int idJoueur, state::State currentState);
+    static void jouer (int numeroTour, int idJoueur, state::State state);
     // Setters and Getters
   };
 
