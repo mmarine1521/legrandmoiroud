@@ -218,6 +218,7 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 		nombreArmees = rand() % armeesAPlacer + 1;
 		ptr_armee = listeArmeeJoueur[numeroPays];
 		ptr_armee->setNombre(ptr_armee->getNombre() + nombreArmees);
+		armeesAPlacer -= nombreArmees;
 	}
 
 }
@@ -371,6 +372,7 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 		std::cout << "L'échange des cartes rapporte " << echange << " armées." << std::endl;
 
 	  //etape 10 du jeu
+		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
 	  aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
 		std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
 	  aiDeplacerArmees (idJoueur, state);
