@@ -15,13 +15,14 @@ IdCommande const PlacementArmees::getIdCommande (){
 void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){
 	int armeesAPlacer = nouvellesArmees;
 	std::string pays;
-	int nombre;
+	int nombre = 0;
 	while(armeesAPlacer != 0){
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-		std::cin >> pays ; 
-		//getline(std::cin, pays);
+	  getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
+		std::string tmp;
+		getline(std::cin,tmp);
 		if (armeesAPlacer < nombre){
 			nombre = armeesAPlacer;
 		}
@@ -31,11 +32,16 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
     for(size_t i=0; i<listeArmee.size(); i++){
       e = listeArmee[i].get();
   		if(e->getPays()==pays){
-        e->setNombre(e->getNombre() + nombre);
-				break;
+				if(e->getIdJoueur() == idJoueur){
+					e->setNombre(e->getNombre() + nombre);
+					armeesAPlacer -= nombre;
+					break;
+				}
+				else{
+					std::cout << "Ce pays ne vous appartient pas." << std::endl;
+				}
   		}
   	}
-		armeesAPlacer -= nombre;
 	}
 }
 
@@ -62,19 +68,18 @@ void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
 		bool estPossible = false;
     for(size_t i=0; i<listeArmee.size(); i++){
       eDepart = listeArmee[i].get();
-  		if(eDepart->getPays()==paysDepart){
-        if (eDepart->getNombre() > nombre){
-					estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
-				}
-				else if (eDepart->getIdJoueur() != idJoueur){
-					estPossible = false;
+  		if(eDepart->getPays() == paysDepart){
+				if(eDepart->getIdJoueur() == idJoueur){
+					if (eDepart->getNombre() > nombre){
+						estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
+					}
 				}
   		}
 			break;
   	}
 		for(size_t i=0; i<listeArmee.size(); i++){
       eArrivee = listeArmee[i].get();
-  		if(eArrivee->getPays()==paysArrivee){
+  		if(eArrivee->getPays() == paysArrivee){
 				if (eArrivee->getIdJoueur() != idJoueur){
 					estPossible = false;
 				}

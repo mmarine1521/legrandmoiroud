@@ -3,6 +3,7 @@
 #define RENDER__AFFICHAGE__H
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 namespace state {
   class State;
@@ -17,8 +18,8 @@ namespace state {
   class ElementTab;
 }
 
-#include "state/State.h"
 #include "state/ElementTab.h"
+#include "state/State.h"
 
 namespace render {
 
@@ -30,12 +31,12 @@ namespace render {
     sf::RenderWindow* window;
     // Operations
   public:
-    Affichage ();
-    void static AfficheMap (sf::RenderWindow& window);
-    void static AfficheCartes (state::State state, sf::RenderWindow& window);
-    void static AfficheArmees (state::State state, sf::RenderWindow& window);
-    void const draw (sf::RenderTarget& target, sf::RenderStates states);
-    void static AfficheNombre (state::State state, sf::RenderWindow& window);
+    void static AfficheMap (state::State& state, sf::RenderWindow& window);
+    void static AfficheCartes (state::State& state, sf::RenderWindow& window);
+    void static AfficheArmees (state::State& state, sf::RenderWindow& window);
+    void draw (sf::RenderTarget& target, sf::RenderStates states);
+    void static AfficheNombre (state::State& state, sf::RenderWindow& window);
+    std::string static PaysClic (sf::RenderWindow& window);
     // Setters and Getters
   };
 

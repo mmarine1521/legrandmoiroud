@@ -36,7 +36,7 @@ int EchangeCartes::echange (int idJoueur, state::State state){
       if(ptr_carte1->getNumero() == numeroCarte1){
         if(ptr_carte1->getIdJoueur() != idJoueur){
           std::cout << "La première carte ne vous appartient pas." << std::endl;
-          return 0;
+          return -1;
         }
         break;
       }
@@ -46,7 +46,7 @@ int EchangeCartes::echange (int idJoueur, state::State state){
       if(ptr_carte2->getNumero() == numeroCarte2){
         if(ptr_carte2->getIdJoueur() != idJoueur){
           std::cout << "La deuxième carte ne vous appartient pas." << std::endl;
-          return 0;
+          return -1;
         }
         break;
       }
@@ -56,7 +56,7 @@ int EchangeCartes::echange (int idJoueur, state::State state){
       if(ptr_carte3->getNumero() == numeroCarte3){
         if(ptr_carte3->getIdJoueur() != idJoueur){
           std::cout << "La troisième carte ne vous appartient pas." << std::endl;
-          return 0;
+          return -1;
         }
         break;
       }
@@ -73,7 +73,7 @@ int EchangeCartes::echange (int idJoueur, state::State state){
         }
       }
     }
-    if (valeur == 0){
+    if (valeur == -1){
       std::cout << "Vos trois cartes n'ont pas la même force. Il faut que les trois cartes soient de type TANK, CANON ou SOLDAT." << std::endl;
     }
     else{

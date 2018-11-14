@@ -28,23 +28,21 @@ namespace state {
     // Associations
     // Attributes
   private:
-    int width;
     std::vector<std::shared_ptr<Element>> elementList;
     // Operations
   public:
     ElementTab ();
     ~ElementTab ();
-    int getWidth ();
     std::vector<std::shared_ptr<Element>> getElementList () const;
     void addElement (std::shared_ptr<Element> element);
     Position getElementPosition (std::shared_ptr<Element> element) const;
     void setElementPosition (Position position, std::shared_ptr<Element> element);
     Element* getLocatedElement (Position position) const;
     void melange ();
-    void setArmeeTab ();
-    void setCartePiocheTab ();
-    void setPaysTab ();
-    void setContinentTab ();
+    void remplirArmeeTab ();
+    void remplirCartePiocheTab ();
+    void remplirPaysTab ();
+    void remplirContinentTab ();
     // Setters and Getters
   };
 

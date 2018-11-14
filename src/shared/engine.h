@@ -12,4 +12,5 @@
 #include "engine/IssueDuCombat.h"
 #include "engine/GainCombat.h"
 #include "engine/EchangeCartes.h"
+#include "engine/TourDeJeu.h"
 #endif
