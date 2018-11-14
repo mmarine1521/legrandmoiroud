@@ -18,7 +18,26 @@ using namespace engine ;
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
 
+Affichage::Affichage() 
+{
+	//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+}
 
+Affichage::~Affichage()
+{
+	
+}
+
+sf::RenderWindow& Affichage::createWindow() 
+{
+	sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+	return window ; 
+}
+
+
+void const Affichage::draw (sf::RenderTarget& target, sf::RenderStates states)
+{	
+}
 void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 {		
 				//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);

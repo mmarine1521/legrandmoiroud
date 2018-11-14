@@ -31,12 +31,15 @@ namespace render {
     sf::RenderWindow* window;
     // Operations
   public:
-    void static AfficheMap (state::State& state, sf::RenderWindow& window);
-    void static AfficheCartes (state::State& state, sf::RenderWindow& window);
-    void static AfficheArmees (state::State& state, sf::RenderWindow& window);
-    void draw (sf::RenderTarget& target, sf::RenderStates states);
-    void static AfficheNombre (state::State& state, sf::RenderWindow& window);
-    std::string static PaysClic (sf::RenderWindow& window);
+    Affichage ();
+    ~Affichage ();
+    static void AfficheMap (state::State& state, sf::RenderWindow& window);
+    static void AfficheCartes (state::State& state, sf::RenderWindow& window);
+    static void AfficheArmees (state::State& state, sf::RenderWindow& window);
+     static void AfficheNombre (state::State& state, sf::RenderWindow& window);
+    static std::string PaysClic (sf::RenderWindow& window);
+    void draw (sf::RenderTarget& target, sf::RenderStates states) const;
+    sf::RenderWindow& createWindow ();
     // Setters and Getters
   };
 

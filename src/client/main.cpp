@@ -44,18 +44,34 @@ int main(int argc,char* argv[])
 
 	        			
 	        			ElementTab tabArmee = ElementTab() ; 
-	        			tabArmee.ElementTab::setArmeeTab() ; 
+	        			tabArmee.ElementTab::remplirArmeeTab() ; 
 	        			
 	        			State EtatDepart = state::State() ;
-	        			EtatDepart.setArmee(tabArmee); 
+	        			EtatDepart.setArmeeTab(tabArmee); 
 	        			 
-	        			
-	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+	        			Affichage* map = new Affichage() ; 
+	        			//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 
 	        			
-	        			std::thread Attribution(AttributionTerritoires::repartitionArmees,1, EtatDepart);
-	        			std::thread Clic(Affichage::PaysClic,window);
-	        			Affichage::AfficheMap(EtatDepart,window);
+	        			//std::thread Attribution(AttributionTerritoires::repartitionArmees,1, EtatDepart);
+	        			//std::thread Clic(Affichage::PaysClic,window);
+	        			//Affichage::AfficheMap(EtatDepart,window);
+	        			 
+	        			
+	        			thread th1([EtatDepart,map]{
+	        					ElementTab tabArmee = ElementTab() ; 
+								tabArmee.ElementTab::remplirArmeeTab() ; 
+								State EtatDepart = state::State() ;
+								EtatDepart.setArmeeTab(tabArmee);	
+								//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+	        				    Affichage::AfficheMap(EtatDepart,map -> createWindow());});
+	        			
+	        			thread th2([EtatDepart]{ 
+	        					AttributionTerritoires::repartitionArmees(1, EtatDepart);;});
+	        			
+	        			
+	        			
+	        			
 	        			
 	        			 
 	        			
@@ -65,8 +81,10 @@ int main(int argc,char* argv[])
 							 
 						cout<<"test"<<endl ; 	
 						//Map.join() ; 
-						Clic.join() ;
-						Attribution.join() ; 
+						//Clic.join() ;
+						//Attribution.join() ;
+						th1.join() ; 
+						th2.join() ; 
 //							
 //							
 	   
