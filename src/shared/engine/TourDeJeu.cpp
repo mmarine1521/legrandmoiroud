@@ -113,18 +113,18 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
     nbAttaquesOk = Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
   }
 
+  //etape 5 du jeu
+  std::vector<int> desRouges = Combat::lancerDes(nbAttaques); //mis avant sinon pas une seconde d'écart pour le srand
+
   //etape 4 du jeu
   std::cout << "L'adversaire se défend." << std::endl;
   int nbDefenses = Combat::nbDesLances();
-  bool nbDefensesOk = Combat::verifNbAttaques (nbDefenses, paysAttaque, state);
+  bool nbDefensesOk = Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
   while(!nbDefensesOk){
     std::cout << "Veuillez choisir un nombre de dés adéquat." << std::endl;
     nbDefenses = Combat::nbDesLances();
-    nbDefensesOk = Combat::verifNbAttaques (nbDefenses, paysAttaque, state);
+    nbDefensesOk = Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
   }
-
-  //etape 5 du jeu
-  std::vector<int> desRouges = Combat::lancerDes(nbAttaques);
 
   //etape 6 du jeu
   std::vector<int> desBleus = Combat::lancerDes(nbDefenses);
