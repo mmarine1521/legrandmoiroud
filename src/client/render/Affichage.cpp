@@ -1,5 +1,4 @@
 #include "render.h"
-#include "engine.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -13,51 +12,14 @@
 using namespace std ; 
 using namespace render ; 
 using namespace state; 
-using namespace engine ; 
 
-std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
-std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
-
-Affichage::Affichage() 
-{
-	//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-}
-
-Affichage::~Affichage()
-{
-	
-}
-
-sf::RenderWindow& Affichage::createWindow() 
-{
-	sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-	return window ; 
-}
 
 
 void Affichage::draw (sf::RenderTarget& target, sf::RenderStates states) const 
 {	
 }
 void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
-{		
-				//sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-		        			
-		        //window.setVerticalSyncEnabled(true);
-				//window.setActive() ;
-			    while (window.isOpen())
-			    {
-			    	a = std::chrono::system_clock::now();
-					std::chrono::duration<double, std::milli> work_time = a - b;
-
-//					if (work_time.count() < 20.0)
-//					{
-//						std::chrono::duration<double, std::milli> delta_ms(100.0 - work_time.count());
-//						auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
-//						std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
-//					}
-//
-//					b = std::chrono::system_clock::now();
-//			    	std::chrono::duration<double, std::milli> sleep_time = b - a;
+{
 			    	sf::Texture texture ;
 					sf::Texture texture2 ;
 					if(!texture.loadFromFile("./res/risk.jpg"))
@@ -69,49 +31,12 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 					 sprite.setTexture(texture);
 					 sprite.setScale(sf::Vector2f(0.9f, 0.9f));
 					 sprite.setPosition(sf::Vector2f(0.f, 0.f));
-					 
 					
-					 
-					 sf::Event event;
-					 while (window.pollEvent(event))
-						{
-							switch (event.type)
-							{
-								case sf::Event::Closed :
-									window.close();
-									break ;
-								case sf::Event::KeyPressed  :
-									if(event.key.code == sf::Keyboard::Space)
-									{
-										std::cout<<"Touche espace pressée"<<std::endl ;
-										AttributionTerritoires::distribution (state, 3);
-										Affichage::AfficheArmees(state, window) ; 
-										std::cout <<"Initialisation Terminée"<<std::endl ; 
-									}
-									if(event.key.code == sf::Keyboard::P)
-									{
-										std::cout<<"Placement des armées joueur 1" << std::endl ; 
-										
-										//AttributionTerritoires::repartitionArmees(2, state);
-										//AttributionTerritoires::repartitionArmees(3, state);
-										std::cout <<"Placement Terminé"<<std::endl ;
-										
-										
-									}
-							break;
-						  default:
-							break;
-							}
-						}
-					
-					
-					//Affichage::AfficheArmees(state, window) ; 
-					 
-					window.clear();
 					window.draw(sprite);
+					Affichage::AfficheArmees(state, window) ;
 					window.display() ; 
 			    }
-}
+
 
 void static AfficheNombre (state::State& state, sf::RenderWindow& window)
 		{
@@ -203,17 +128,6 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 	sf::Texture textureArmee ;
 	textureArmee.loadFromFile("./res/pion_blanc.png");
 	
-	while(window.isOpen())
-			{
-				 sf::Event event;
-				 while (window.pollEvent(event))
-				 {
-					 // évènement "fermeture demandée" : on ferme la fenêtre
-					 if (event.type == sf::Event::Closed)
-						 window.close();
-				 } 
-				
-				//armee afrique
 								sf::Sprite armeeCongo ;
 								armeeCongo.setTexture(textureArmee);
 								armeeCongo.setScale(sf::Vector2f(0.2f, 0.2f));
@@ -985,21 +899,21 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								window.draw(armeeNouvelleGuinee);
 								window.draw(armeeIndonesie);
 								window.display();
-			}
+	
 }
 
-std::string Affichage::PaysClic(sf::RenderWindow& window)
+std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 {
 	std::cout<<"test clib demarre"<<std::endl ; 
 	float fa_x = 0.9;
 	float fa_y = 0.9 ;
 	std::string pays_clic = "";
-	while (window.isOpen())
-			    {
-			        sf::Event event;
-			        sf::Keyboard clavier ;
+	
+			       
 			        window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 			       //cas où la fenêtre est redimensionnée
+			        
+			  
 			        if (event.type == sf::Event::Resized)
 			        {
 			            //std::cout << "new width: " << event.size.width << std::endl;
@@ -1245,7 +1159,7 @@ std::string Affichage::PaysClic(sf::RenderWindow& window)
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								}
-
 						}
-			    }
+		return pays_clic ; 				
+			    
 }

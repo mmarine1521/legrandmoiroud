@@ -2,29 +2,37 @@
 
 \subsection{Stratégie de rendu d'un état}
 
-Afin de pouvoir réaliser un rendu imagé de notre jeu RISK, il nous faut tout d’abord réaliser un rendu des différents éléments qui composent notre jeu. 
+Afin de pouvoir réaliser un rendu imagé de notre jeu RISK, il nous faut tout d’abord réaliser un rendu des différents éléments qui composent notre jeu. Grâce aux outils de la librairie SFML, l'affichage se fera dans une fenêtre avec laquelle le joueur pourra intéragir. 
 
 Comme pour la mise en place des différents états, nous allons différencier le rendu des éléments fixes (à savoir la map du jeu avec les pays et les continents) et le rendu des éléments mobiles amenés à se déplacer pendant le jeu (à savoir les armées et les cartes). 
 
 Pour cela, le choix s'oriente vers une stratégie assez bas niveau et relativement proche du fonctionnement des unités graphiques. Plus précisément, le découpage se fait en différents plans nommés layers. Naturellement, un plan concernera les éléments statiques et affichera donc la carte, un autre sera consacré aux armées et un dernier s'occupera des cartes.
 
 Pour la carte, le monde et la division des différents pays a été réalisé au préalable sur Tiled. Nous pouvons donc charger le fichier image comme texture et utiliser un sprite pour l'afficher dans la fenêtre du jeu. Nous pourrons ainsi redimensionner la carte principale comme nous le souhaitons.
-Le second plan contiendra deux informations de bas niveau à savoir les textures contenant les tuiles et une unique matrice avec la position des éléments et les coordonnées dans la texture. Ainsi, seuls les éléments dont les tuiles sont associées à la texture du plan seront réalisés dans notre rendu. 
+Pour les éléments mobiles, nous utiliserons là encore des textures trouvées sur internet pour mettre en place nos armées et les cartes. L'utilisation des sprites permettra de faire varier les couleurs par exemple. 
 
-Pour la réalisation de ces différentes informations, la première idée est d’observer l’état à rendre et de réagir lorsqu’une modification se produit. Si on observe un changement permanent dans le rendu, on met à jour le morceau de la matrice du plan correspondant. Pour les changements non permanents comme les éléments mobiles, il faudra modifier la matrice du plan automatiquement à chaque rendu d‘une nouvelle frame.
+Avant de commencer à afficher les éléments mobiles, nous avons déterminé dans quelle zone de la fenêtre chaque pays se trouvait. Puis, nous déterminons approximativement le centre de cette zone afin d'y placer les pions correspondant aux armées par la suite. Cela permettra également de savoir dans quel pays un joueur clique avec la souris. 
 
 
 \subsection{Conception logiciel}
 
 Le diagramme des classes pour les rendus est présenté sur la figure \ref{fig:render}.
+\newline
 
-\textbf{Layer:} Cette classe est le moteur du rendu qu’on veut réaliser. Le principal but des objets de cette classe est de former des éléments basiques qu’on pourra transmettre à notre carte graphique par l’intermédiaire d’une classe Surface. Les classes filles de cette classe permettent de définir les différents plans de notre jeu. Ainsi la classe StateLayer permettra de réaliser le plan contenant les différentes informations et la carte de jeu alors que la classe ElementTabLayer constituera par exemple un plan pour les différentes armées de notre jeu.
-La méthode initSurface() de cette classe est une méthode d'initialisation qui permet de créer une surface, de changer sa texture et d’initialiser la liste des sprites. 
+\textbf{Affichage:} Le diagramme render se veut finalement assez simple. Nous l'avons beaucoup modifié afin de ne garder que les éléments et méthodes dont nous avions besoin. 
+D'autres méthodes s'y ajouteront pour ajouter un menu où plusieurs actions et informations seront disponibles. Cela permettra de ne plus passer par le terminal ce qui n'est pas encore le cas pour le moment. 
+\newline 
 
-\textbf{Tuiles:} La classe TileSet permet de définir les tuiles des différents éléments de notre jeu. Ses classes filles regroupent toutes les définitions des tuiles d’un même plan. La classe MapTileSet pour les informations au niveau du plateau de jeu, et la classe MobileTileSet pour les éléments mobiles.
+La méthode \textbf{AfficheMap} permet tout simplement d'afficher la carte du monde permettant de joueur. La fenêtre est lancée dans le main.cpp qui appelle en premier lieu cette méthode afin d'initialiser le plateau du jeu. 
+\newline 
 
-\textbf{Surface:} Chaque surface contient une texture du plan et une liste de quadruplet de
-vecteurs permettant de définir les sprites.
+La méthode \textbf{AfficheArmées} initialise un pion "armée" dans chacun des territoires. Ce pion a pour le moment une couleur grise correspondante à l'état de l'initialisation. Par la suite, il prendra la couleur du joueur auquel le pays appartient.  
+\newline 
+
+La méthode \textbf{AfficheNombre} affichera à côté du pion "armée", le nombre d'armées présentes sur ce territoire. Cela permettra au joueur de décider avec combien d'armée, il souhaite attaquer un territoire ennemi. 
+\newline
+
+La méthode \textbf{PaysClic} permet de déterminer les clics réalisés sur la fenêtre. Ainsi, dans un second temps, le choix des pays attaquants, et du nombre d'armées se fera directement dans la fenêtre du jeu. Dans un premier temps, cela se fera dans le terminal. 
 
 
 
