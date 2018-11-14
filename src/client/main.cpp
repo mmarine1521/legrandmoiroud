@@ -39,50 +39,79 @@ int main(int argc,char* argv[])
 	        			std::cout << "Pour initialiser les pays : cliquez sur 'espace'" << std::endl ;
 	        			std::cout << "Pour placer ses armées : cliquez sur 'P'"<< std::endl;
 	        			std::cout << "JOUEUR 1 : Rouge" <<std::endl ;
-	        			std::cout << "JOUEUR 2 : Vert" <<std::endl ;
-	        			std::cout << "JOUEUR 3 : Bleu" <<std::endl ;
+	        			std::cout << "JOUEUR 2 : Vert" <<std::endl ; 
+	        			std::cout << "JOUEUR 3 : Bleu" <<std::endl ; 
 
-								//etape 2 de l'initialisation
-								ElementTab tabArmee = ElementTab();
-								tabArmee.ElementTab::remplirArmeeTab();
-						    ElementTab tabCartePioche = ElementTab();
-								tabCartePioche.ElementTab::remplirCartePiocheTab();
-						    ElementTab tabCarteEnjeu = ElementTab();
-						    ElementTab tabCarteDefausse = ElementTab();
-						    ElementTab tabPays = ElementTab();
-								tabPays.ElementTab::remplirPaysTab();
-						    ElementTab tabContinent = ElementTab();
-								tabContinent.ElementTab::remplirContinentTab();
-
-								State currentState = State() ;
-								currentState.setArmeeTab(tabArmee);
-						    currentState.setCartePiocheTab(tabCartePioche);
-						    currentState.setCarteEnjeuTab(tabCarteEnjeu);
-						    currentState.setCarteDefausseTab(tabCarteDefausse);
-						    currentState.setPaysTab(tabPays);
-						    currentState.setContinentTab(tabContinent);
-
-								TourDeJeu::jouer(0,1,currentState);
-
-
+	        			
+	        			ElementTab tabArmee = ElementTab() ; 
+	        			tabArmee.ElementTab::setArmeeTab() ; 
+	        			
+	        			State EtatDepart = state::State() ;
+	        			EtatDepart.setArmee(tabArmee); 
+	        			 
+	        			
 	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-//	        			window.setActive() ;
-//	        			window.setVerticalSyncEnabled(true);
-	        			//Affichage affiche = Affichage() ;
-	        			//while (window.isOpen())
-//	        			{
 
-	        			Affichage::AfficheMap(currentState,window) ;
-
-	        			//window.display() ;
-
-						std:cout<<"test"<<std::endl ;
+	        			
+	        			std::thread Attribution(AttributionTerritoires::repartitionArmees,1, EtatDepart);
+	        			std::thread Clic(Affichage::PaysClic,window);
+	        			Affichage::AfficheMap(EtatDepart,window);
+	        			
+	        			 
+	        			
+	        			 
+						
+	        			//window.display() ; 
+							 
+						cout<<"test"<<endl ; 	
+						//Map.join() ; 
+						Clic.join() ;
+						Attribution.join() ; 
+//							
+//							
+	   
+//
+//								//etape 2 de l'initialisation
+//								ElementTab tabArmee = ElementTab();
+//								tabArmee.ElementTab::remplirArmeeTab();
+//						    ElementTab tabCartePioche = ElementTab();
+//								tabCartePioche.ElementTab::remplirCartePiocheTab();
+//						    ElementTab tabCarteEnjeu = ElementTab();
+//						    ElementTab tabCarteDefausse = ElementTab();
+//						    ElementTab tabPays = ElementTab();
+//								tabPays.ElementTab::remplirPaysTab();
+//						    ElementTab tabContinent = ElementTab();
+//								tabContinent.ElementTab::remplirContinentTab();
+//
+//								State currentState = State() ;
+//								currentState.setArmeeTab(tabArmee);
+//						    currentState.setCartePiocheTab(tabCartePioche);
+//						    currentState.setCarteEnjeuTab(tabCarteEnjeu);
+//						    currentState.setCarteDefausseTab(tabCarteDefausse);
+//						    currentState.setPaysTab(tabPays);
+//						    currentState.setContinentTab(tabContinent);
+//
+//								TourDeJeu::jouer(0,1,currentState);
 //
 //
-//							for(sf::Event e; window.pollEvent(e);){}
-//		        			sf::Event event;
+//	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+////	        			window.setActive() ;
+////	        			window.setVerticalSyncEnabled(true);
+//	        			//Affichage affiche = Affichage() ;
+//	        			//while (window.isOpen())
+////	        			{
 //
+//	        			Affichage::AfficheMap(currentState,window) ;
 //
+//	        			//window.display() ;
+//
+//						std:cout<<"test"<<std::endl ;
+////
+////
+////							for(sf::Event e; window.pollEvent(e);){}
+////		        			sf::Event event;
+////
+////
 //
 //
 //
