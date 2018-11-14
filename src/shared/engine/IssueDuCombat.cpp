@@ -32,11 +32,11 @@ bool IssueDuCombat::victoire (std::vector<int> desRouges, std::vector<int> desBl
   }
   for (int i = 0; i < ite; i++){
     if (desRouges[i] > desBleus[i]){
-      std::cout << "Vous avez gagné le tour " << i << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
+      std::cout << "Vous avez gagné le tour " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
       eAttaque->setNombre(eAttaque->getNombre() - 1);
     }
     else{
-      std::cout << "Vous avez perdu le tour " << i << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
+      std::cout << "Vous avez perdu le tour " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
       eAttaquant->setNombre(eAttaquant->getNombre() - 1);
     }
   }

@@ -9,11 +9,12 @@ EchangeCartes::~EchangeCartes (){
 IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGECARTES;
 }
-// si ok faut mettre dans defausse
+
 int EchangeCartes::echange (int idJoueur, state::State state){
   int valeur = 0;
   std::string reponse;
   std::cout << "Souhaitez-vous échanger des cartes contre des armées ? (o/n)" << std::endl;
+  std::cin >> reponse;
 
   if (reponse == "o"){
     int numeroCarte1;
