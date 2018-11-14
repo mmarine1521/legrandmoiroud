@@ -35,7 +35,7 @@ sf::RenderWindow& Affichage::createWindow()
 }
 
 
-void const Affichage::draw (sf::RenderTarget& target, sf::RenderStates states)
+void Affichage::draw (sf::RenderTarget& target, sf::RenderStates states) const 
 {	
 }
 void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
