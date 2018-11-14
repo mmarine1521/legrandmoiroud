@@ -17,12 +17,12 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 	std::string pays;
 	int nombre = 0;
 	while(armeesAPlacer != 0){
+		std::string tmp;
+		getline(std::cin,tmp);
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
 	  getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
-		std::string tmp;
-		getline(std::cin,tmp);
 		if (armeesAPlacer < nombre){
 			nombre = armeesAPlacer;
 		}
@@ -47,13 +47,22 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 
 void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
 	std::string reponse;
-	std::cout << "Voulez-vous bouger des armées ? (o/n)" << std::endl;
+	std::cout << "Voulez-vous déplacer des armées ? (o/n)" << std::endl;
 	std::cin >> reponse;
 
+	bool estPossible = false;
 	std::string paysDepart;
 	std::string paysArrivee;
 	int nombre;
+
+	state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* eDepart = 0;
+	state::Element* eArrivee = 0;
+
 	while (reponse == "o"){
+		std::string tmp;
+		getline(std::cin,tmp);
 		std::cout << "Depuis quel pays souhaitez-vous déplacer des armées ?" << std::endl;
 		getline(std::cin, paysDepart);
 		std::cout << "Vers quel pays souhaitez-vous déplacer des armées ?" << std::endl;
@@ -61,18 +70,22 @@ void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
 		std::cout << "Combien d'armées souhaitez-vous déplacer ?" << std::endl;
 		std::cin >> nombre;
 
-		state::ElementTab& tabArmee = state.getArmeeTab();
-    std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-    state::Element* eDepart = 0;
-		state::Element* eArrivee = 0;
-		bool estPossible = false;
     for(size_t i=0; i<listeArmee.size(); i++){
       eDepart = listeArmee[i].get();
   		if(eDepart->getPays() == paysDepart){
 				if(eDepart->getIdJoueur() == idJoueur){
 					if (eDepart->getNombre() > nombre){
 						estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
+						if (estPossible == false){
+							std::cout << "Problème : Les deux pays ne sont pas frontaliers." << std::endl;
+						}
 					}
+					else{
+						std::cout << "Problème : Le pays de départ ne possède que " << eDepart->getNombre() << " armées. On ne peut dont pas en déplacer " << nombre << "." << std::endl;
+					}
+				}
+				else{
+					std::cout << "Problème : Le pays de départ ne vous appartient pas." << std::endl;
 				}
   		}
 			break;
@@ -82,19 +95,20 @@ void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
   		if(eArrivee->getPays() == paysArrivee){
 				if (eArrivee->getIdJoueur() != idJoueur){
 					estPossible = false;
+					std::cout << "Problème : Le pays d'arrivée ne vous appartient pas." << std::endl;
 				}
 			}
 			break;
 		}
 
-		if (estPossible){
+		if (estPossible == true){
 			eDepart->setNombre(eDepart->getNombre() - nombre);
 			eArrivee->setNombre(eArrivee->getNombre() + nombre);
 		}
 		else{
-			std::cout << "Problème : le déplacement n'est pass possible." << std::endl;
+			std::cout << "Problème : Le déplacement n'est pas possible." << std::endl;
 		}
-		std::cout << "Voulez-vous bouger des armées ? (o/n)" << std::endl;
+		std::cout << "Voulez-vous déplacer des armées ? (o/n)" << std::endl;
 		std::cin >> reponse;
 	}
 }

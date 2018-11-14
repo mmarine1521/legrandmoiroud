@@ -34,6 +34,7 @@ std::string ChoixPays::choixPaysAttaquant (){//etape 1
   std::cout << "Avec quel pays souhaitez-vous attaquer ?" << std::endl;
   std::string pays;
   std::cin >> pays;
+  std::cout << std::endl;
   return pays;
 }
 
@@ -86,10 +87,12 @@ std::string ChoixPays::choixPaysAttaque (){//etape 2
   std::cout << "Quel pays souhaitez-vous attaquer ?" << std::endl;
   std::string pays;
   std::cin >> pays;
+  std::cout << std::endl;
   return pays;
 }
 
 bool ChoixPays::verifPaysAttaque (int idJoueur, std::string paysAttaque, std::string paysAttaquant, state::State state){
+  bool ok = false;
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* eAttaque = 0;
@@ -107,12 +110,15 @@ bool ChoixPays::verifPaysAttaque (int idJoueur, std::string paysAttaque, std::st
     }
   }
   if (eAttaque->getIdJoueur() != idJoueur){
-    return estFrontalier(paysAttaque, paysAttaquant, state);
+    ok = estFrontalier(paysAttaque, paysAttaquant, state);
+    if (!ok){
+      std::cout << "Problème : Ce pays n'est pas un frontalier." << std::endl;
+    }
   }
   else{
     std::cout << "Problème : Ce territoire vous appartient." << std::endl;
   }
-  return false;
-}// message si pas frontalier ?
+  return ok;
+}
 
 }
