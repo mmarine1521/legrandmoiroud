@@ -1,6 +1,7 @@
 #include "state.h"
 #include "render.h"
 #include "engine.h"
+#include "ai.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -18,6 +19,7 @@ using namespace state;
 using namespace std ;
 using namespace engine ;
 using namespace render ;
+using namespace ai ; 
 
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
@@ -90,7 +92,7 @@ int main(int argc,char* argv[])
 											if(event.key.code == sf::Keyboard::Space)
 											{
 												std::cout<<"Touche espace pressée"<<std::endl ;
-												AttributionTerritoires::distribution (currentState, 3);
+												AttributionTerritoires::distribution(currentState, 3);
 												 
 												std::cout <<"Initialisation Terminée"<<std::endl ; 
 											}
