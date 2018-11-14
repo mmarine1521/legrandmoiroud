@@ -38,7 +38,7 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 					break;
 				}
 				else{
-					std::cout << "Ce pays ne vous appartient pas." << std::endl;
+					std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
 				}
   		}
   	}

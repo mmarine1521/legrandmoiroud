@@ -14,10 +14,12 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
     AttributionTerritoires::distribution(state, 3);
 
     //etape 3 de l'initialisation
+    /*
     std::cout << "Le joueur 1 place ses armées." << std::endl;
     bool distributionOk = AttributionTerritoires::repartitionArmees(1, state);
     while (!distributionOk){
       std::cout << "Le joueur 1 doit replacer ses armées." << std::endl;
+      AttributionTerritoires::undoRepartitionArmees(1, state);
       distributionOk = AttributionTerritoires::repartitionArmees(1, state);
     }
 
@@ -25,6 +27,7 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
     distributionOk = AttributionTerritoires::repartitionArmees(2, state);
     while (!distributionOk){
       std::cout << "Le joueur 2 doit replacer ses armées." << std::endl;
+      AttributionTerritoires::undoRepartitionArmees(2, state);
       distributionOk = AttributionTerritoires::repartitionArmees(2, state);
     }
 
@@ -32,8 +35,54 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
     distributionOk = AttributionTerritoires::repartitionArmees(3, state);
     while (!distributionOk){
       std::cout << "Le joueur fictif 3 doit replacer ses armées." << std::endl;
-      distributionOk = AttributionTerritoires::repartitionArmees(1, state);
-    }
+      AttributionTerritoires::undoRepartitionArmees(3, state);
+      distributionOk = AttributionTerritoires::repartitionArmees(3, state);
+    }*/
+    state::ElementTab& tabArmee = state.getArmeeTab();
+  	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  	state::Element* ptr_armee = 0;
+
+    std::vector<state::Element*> listeArmeeJoueur1;
+    std::vector<state::Element*> listeArmeeJoueur2;
+    std::vector<state::Element*> listeArmeeJoueur3;
+  	for(size_t i=0; i<listeArmee.size(); i++){
+  		ptr_armee = listeArmee[i].get();
+  		if(ptr_armee->getIdJoueur()==1){
+        listeArmeeJoueur1.push_back(ptr_armee);
+  			ptr_armee->setNombre(3);
+  		}
+      else if (ptr_armee->getIdJoueur()==2){
+        listeArmeeJoueur2.push_back(ptr_armee);
+  			ptr_armee->setNombre(3);
+      }
+      else if (ptr_armee->getIdJoueur()==3){
+        listeArmeeJoueur3.push_back(ptr_armee);
+  			ptr_armee->setNombre(3);
+      }
+  	}
+
+  	srand (time(NULL));
+  	int armeeAleatoire1 = rand() % listeArmeeJoueur1.size();
+  	int armeeAleatoire2 = -1;
+  	while(armeeAleatoire2 == -1 || armeeAleatoire2 == armeeAleatoire1){
+  		armeeAleatoire2 = rand() % listeArmeeJoueur1.size();
+  	}
+
+  	ptr_armee = listeArmeeJoueur1[armeeAleatoire1];
+  	ptr_armee->setNombre(2);
+  	ptr_armee = listeArmeeJoueur1[armeeAleatoire2];
+  	ptr_armee->setNombre(2);
+
+    ptr_armee = listeArmeeJoueur2[armeeAleatoire1];
+  	ptr_armee->setNombre(2);
+  	ptr_armee = listeArmeeJoueur2[armeeAleatoire2];
+  	ptr_armee->setNombre(2);
+
+    ptr_armee = listeArmeeJoueur3[armeeAleatoire1];
+  	ptr_armee->setNombre(2);
+  	ptr_armee = listeArmeeJoueur3[armeeAleatoire2];
+  	ptr_armee->setNombre(2);
+    std::cout << "Attribution des armées ok" << std::endl << std::endl;
   }
 
   //etape 1 du jeu

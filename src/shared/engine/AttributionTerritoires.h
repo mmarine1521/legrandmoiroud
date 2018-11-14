@@ -26,6 +26,7 @@ namespace engine {
     IdCommande const getIdCommande ();
     static void distribution (state::State state, int nbJoueurs = 3);
     static bool repartitionArmees (int idJoueur, state::State state);
+    static void undoRepartitionArmees (int idJoueur, state::State state);
     // Setters and Getters
   };
 
