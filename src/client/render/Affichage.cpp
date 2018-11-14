@@ -65,17 +65,18 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 									if(event.key.code == sf::Keyboard::Space)
 									{
 										std::cout<<"Touche espace pressée"<<std::endl ;
-										//AttributionTerritoires::distribution (state, 3);
+										AttributionTerritoires::distribution (state, 3);
 										Affichage::AfficheArmees(state, window) ; 
 										std::cout <<"Initialisation Terminée"<<std::endl ; 
 									}
 									if(event.key.code == sf::Keyboard::P)
 									{
 										std::cout<<"Placement des armées joueur 1" << std::endl ; 
-										//AttributionTerritoires::repartitionArmees(1, EtatDepart); 
-										//AttributionTerritoires::repartitionArmees(2, EtatDepart);
-										//AttributionTerritoires::repartitionArmees(3, EtatDepart);
-										std::cout <<"Placement Terminée"<<std::endl ; 
+										
+										//AttributionTerritoires::repartitionArmees(2, state);
+										//AttributionTerritoires::repartitionArmees(3, state);
+										std::cout <<"Placement Terminé"<<std::endl ;
+										
 										
 									}
 							break;
@@ -86,13 +87,79 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 					
 					
 					//Affichage::AfficheArmees(state, window) ; 
-					
+					 
 					window.clear();
 					window.draw(sprite);
 					window.display() ; 
 			    }
 }
 
+void static AfficheNombre (state::State& state, sf::RenderWindow& window)
+		{
+			state::ElementTab& tabArmee = state.getArmeeTab();
+			std::vector<std::shared_ptr<state::Element>> listeArmee2 = tabArmee.getElementList();
+			
+		
+			state::Element* Nombre;
+		
+			sf::Texture textureNombre1 ; sf::Texture textureNombre6 ; sf::Texture textureNombre11 ; sf::Texture textureNombre16 ;
+			sf::Texture textureNombre2 ; sf::Texture textureNombre7 ; sf::Texture textureNombre12 ; sf::Texture textureNombre17 ;
+			sf::Texture textureNombre3 ; sf::Texture textureNombre8 ; sf::Texture textureNombre13 ; sf::Texture textureNombre18 ;
+			sf::Texture textureNombre4 ; sf::Texture textureNombre9 ; sf::Texture textureNombre14 ; sf::Texture textureNombre19 ;
+			sf::Texture textureNombre5 ; sf::Texture textureNombre10 ; sf::Texture textureNombre15 ; sf::Texture textureNombre20 ;
+			
+			textureNombre1.loadFromFile("./res/nombres/1.png");
+			textureNombre2.loadFromFile("./res/nombres/2.png");
+			textureNombre3.loadFromFile("./res/nombres/3.png");
+			textureNombre4.loadFromFile("./res/nombres/4.png");
+			textureNombre5.loadFromFile("./res/nombres/5.png");
+			textureNombre6.loadFromFile("./res/nombres/6.png");
+			textureNombre7.loadFromFile("./res/nombres/7.png");
+			textureNombre8.loadFromFile("./res/nombres/8.png");
+			textureNombre9.loadFromFile("./res/nombres/9.png");
+			textureNombre10.loadFromFile("./res/nombres/10.png");
+			textureNombre11.loadFromFile("./res/nombres/11.png");
+			textureNombre12.loadFromFile("./res/nombres/12.png");
+			textureNombre13.loadFromFile("./res/nombres/13.png");
+			textureNombre14.loadFromFile("./res/nombres/14.png");
+			textureNombre15.loadFromFile("./res/nombres/15.png");
+			textureNombre16.loadFromFile("./res/nombres/16.png");
+			textureNombre17.loadFromFile("./res/nombres/17.png");
+			textureNombre18.loadFromFile("./res/nombres/18.png");
+			textureNombre19.loadFromFile("./res/nombres/19.png");
+			textureNombre20.loadFromFile("./res/nombres/20.png");
+			
+			sf::Sprite nombreCongo ; 
+			nombreCongo.setScale(sf::Vector2f(0.2f, 0.2f));
+			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+			Nombre = listeArmee2[0].get() ;
+			int nbrArmees = Nombre -> getNombre()==1 ; 
+			switch (nbrArmees) {
+					  case 0 : nombreCongo.setTexture(textureNombre1); break; 
+			          case 1 : nombreCongo.setTexture(textureNombre1); break;
+			          case 2 : nombreCongo.setTexture(textureNombre2); break;
+			          case 3 : nombreCongo.setTexture(textureNombre3); break;
+			          case 4 : nombreCongo.setTexture(textureNombre4); break;
+			          case 5 : nombreCongo.setTexture(textureNombre5); break;
+					  case 6 : nombreCongo.setTexture(textureNombre6); break;
+					  case 7 : nombreCongo.setTexture(textureNombre7); break;
+					  case 8 : nombreCongo.setTexture(textureNombre8); break;
+					  case 9 : nombreCongo.setTexture(textureNombre9); break;
+					  case 10 : nombreCongo.setTexture(textureNombre10); break;
+					  case 11 : nombreCongo.setTexture(textureNombre11); break;
+					  case 12 : nombreCongo.setTexture(textureNombre12); break;
+					  case 13 : nombreCongo.setTexture(textureNombre13); break;
+					  case 14 : nombreCongo.setTexture(textureNombre14); break;
+					  case 15 : nombreCongo.setTexture(textureNombre15); break;
+					  case 16 : nombreCongo.setTexture(textureNombre16); break;
+					  case 17 : nombreCongo.setTexture(textureNombre17); break;
+					  case 18 : nombreCongo.setTexture(textureNombre18); break;
+					  case 19 : nombreCongo.setTexture(textureNombre19); break;
+					  case 20 : nombreCongo.setTexture(textureNombre20); break;
+			        }
+			window.draw(nombreCongo);
+			window.display(); 
+		}
 void Affichage::AfficheCartes(state::State& state, sf::RenderWindow& window)
 {
 	while(window.isOpen())
@@ -902,12 +969,12 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 			}
 }
 
-std::string Affichage::PaysClic (sf::RenderWindow &window)
+std::string Affichage::PaysClic(sf::RenderWindow& window)
 {
+	std::cout<<"test clib demarre"<<std::endl ; 
 	float fa_x = 0.9;
 	float fa_y = 0.9 ;
 	std::string pays_clic = "";
-	
 	while (window.isOpen())
 			    {
 			        sf::Event event;

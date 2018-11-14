@@ -48,21 +48,25 @@ int main(int argc,char* argv[])
 	        			
 	        			State EtatDepart = state::State() ;
 	        			EtatDepart.setArmee(tabArmee); 
-	        			
-	        			AttributionTerritoires::distribution(EtatDepart, 3); 
+	        			 
 	        			
 	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-//	        			window.setActive() ;
-//	        			window.setVerticalSyncEnabled(true);
-	        			//Affichage affiche = Affichage() ;
-	        			//while (window.isOpen())
-//	        			{
-	        				
-	        			Affichage::AfficheMap(EtatDepart,window) ;
+
+	        			
+	        			std::thread Attribution(AttributionTerritoires::repartitionArmees,1, EtatDepart);
+	        			std::thread Clic(Affichage::PaysClic,window);
+	        			Affichage::AfficheMap(EtatDepart,window);
+	        			
+	        			 
+	        			
+	        			 
 						
 	        			//window.display() ; 
 							 
-						std:cout<<"test"<<std::endl ; 	
+						cout<<"test"<<endl ; 	
+						//Map.join() ; 
+						Clic.join() ;
+						Attribution.join() ; 
 //							
 //							
 //							for(sf::Event e; window.pollEvent(e);){}
