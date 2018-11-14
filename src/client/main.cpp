@@ -1,5 +1,6 @@
 #include "state.h"
 #include "render.h"
+#include "engine.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -15,6 +16,7 @@
 
 using namespace state;
 using namespace std ;
+using namespace engine ;
 using namespace render ;
 
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
@@ -38,7 +40,7 @@ int main(int argc,char* argv[])
 
 	        }
 
-	        else if (strcmp(argv[1],"render")==0){
+	        else if (strcmp(argv[1],"engine")==0){
 	            //Test Map
 	        			std::cout << "Pour initialiser les pays : cliquez sur 'espace'" << std::endl ;
 	        			std::cout << "Pour placer ses armées : cliquez sur 'P'"<< std::endl;
@@ -88,7 +90,19 @@ int main(int argc,char* argv[])
 											if(event.key.code == sf::Keyboard::Space)
 											{
 												std::cout<<"Touche espace pressée"<<std::endl ;
-												std::cout <<"L'initialisation se fera içi"<<std::endl ; 
+												AttributionTerritoires::distribution (currentState, 3);
+												 
+												std::cout <<"Initialisation Terminée"<<std::endl ; 
+											}
+											if(event.key.code == sf::Keyboard::P)
+											{
+												std::cout<<"Placement des armées joueur 1 - taper n'importe quoi pour démarrer" << std::endl ; 
+												
+												TourDeJeu::jouer(0,1,currentState);
+												//AttributionTerritoires::repartitionArmees(3, state);
+												std::cout <<"Placement Terminé"<<std::endl ;
+												
+												
 											}
 									break;
 										default:

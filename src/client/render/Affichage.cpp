@@ -1,4 +1,5 @@
 #include "render.h"
+#include "engine.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -12,7 +13,7 @@
 using namespace std ; 
 using namespace render ; 
 using namespace state; 
-
+using namespace engine ; 
 
 
 void Affichage::draw (sf::RenderTarget& target, sf::RenderStates states) const 
