@@ -12,7 +12,7 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
   //initialisation du jeu
   if (numeroTour == 0){
     //etape 2 de l'initialisation
-    AttributionTerritoires::distribution(state, 3);
+    //AttributionTerritoires::distribution(state, 3);
 
     //etape 3 de l'initialisation
     std::cout << "Le joueur 1 place ses armées." << std::endl;
