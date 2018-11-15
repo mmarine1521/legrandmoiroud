@@ -1,6 +1,10 @@
 //etape 10
 #include "PlacementArmees.h"
+#include "state.h"
+#include "render.h"
 
+using namespace state ;
+using namespace render ; 
 namespace engine {
 
 
@@ -20,7 +24,9 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 		std::string tmp;
 		getline(std::cin,tmp);
 		std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-	  getline(std::cin, pays);
+		//pays = Affichage::PaysClic() ; 
+		//std::cout << "test pays clic" << pays << std::endl ; 
+		getline(std::cin, pays);
 		std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
 		std::cin >> nombre;
 		if (armeesAPlacer < nombre){

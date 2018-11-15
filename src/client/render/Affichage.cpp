@@ -19,6 +19,92 @@ using namespace engine ;
 void Affichage::draw (sf::RenderTarget& target, sf::RenderStates states) const 
 {	
 }
+
+void Affichage::AfficheChoixNbrArmees(state::State& state, sf::RenderWindow& window)
+		{
+						sf::Texture texture ;
+						sf::Texture texture2 ;
+						sf::Texture texture3 ;
+						sf::Texture texture4 ;
+						sf::Texture texture5 ;
+						sf::Texture texture6 ;
+						sf::Texture texture7 ;
+						sf::Texture texture8 ;
+						sf::Texture texture9 ;
+						if(!texture.loadFromFile("./res/nombres/numbers-1.png"))
+						{
+							//erreur
+						}
+						if(!texture2.loadFromFile("./res/nombres/numbers-2.png"))
+												{
+													//erreur
+												}
+						if(!texture3.loadFromFile("./res/nombres/numbers-3.png"))
+												{
+													//erreur
+												}
+						if(!texture4.loadFromFile("./res/nombres/numbers-4.png"))
+												{
+													//erreur
+												}
+						if(!texture5.loadFromFile("./res/nombres/numbers-5.png"))
+												{
+													//erreur
+												}
+						if(!texture6.loadFromFile("./res/nombres/numbers-6.png"))
+												{
+													//erreur
+												}
+						if(!texture7.loadFromFile("./res/nombres/numbers-7.png"))
+												{
+													//erreur
+												}
+						if(!texture8.loadFromFile("./res/nombres/numbers-8.png"))
+												{
+													//erreur
+												}
+						if(!texture9.loadFromFile("./res/nombres/numbers-9.png"))
+												{
+													//erreur
+												}
+						texture.setSmooth(true); texture2.setSmooth(true); texture3.setSmooth(true); texture4.setSmooth(true); texture5.setSmooth(true);
+						texture6.setSmooth(true); texture7.setSmooth(true); texture8.setSmooth(true); texture9.setSmooth(true); 
+						 sf::Sprite sprite ; sf::Sprite sprite2 ; sf::Sprite sprite3 ; sf::Sprite sprite4 ; sf::Sprite sprite5 ; sf::Sprite sprite6 ;
+						 sf::Sprite sprite7 ; sf::Sprite sprite8 ; sf::Sprite sprite9 ;
+						 sprite.setTexture(texture);  sprite2.setTexture(texture2);  sprite3.setTexture(texture3);  sprite4.setTexture(texture4);  sprite5.setTexture(texture5);
+						 sprite6.setTexture(texture6);  sprite7.setTexture(texture7);  sprite8.setTexture(texture8);  sprite9.setTexture(texture9);
+						 
+						 sprite.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite.setPosition(sf::Vector2f(1080.f, 150.f));
+						 sprite2.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite2.setPosition(sf::Vector2f(1130.f, 150.f));
+						 sprite3.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite3.setPosition(sf::Vector2f(1180.f, 150.f));
+						 sprite4.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite4.setPosition(sf::Vector2f(1080.f, 220.f));
+						 sprite5.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite5.setPosition(sf::Vector2f(1130.f, 220.f));
+						 sprite6.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite6.setPosition(sf::Vector2f(1180.f, 220.f));
+						 sprite7.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite7.setPosition(sf::Vector2f(1080.f, 290.f));
+						 sprite8.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite8.setPosition(sf::Vector2f(1130.f, 290.f));
+						 sprite9.setScale(sf::Vector2f(0.50f, 0.50f));
+						 sprite9.setPosition(sf::Vector2f(1180.f, 290.f));
+						
+						window.draw(sprite);
+						window.draw(sprite2);
+						window.draw(sprite3);
+						window.draw(sprite4);
+						window.draw(sprite5);
+						window.draw(sprite6);
+						window.draw(sprite7);
+						window.draw(sprite8);
+						window.draw(sprite9);						
+						
+						window.display() ;
+		}
 void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 {
 			    	sf::Texture texture ;
@@ -35,52 +121,47 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 					
 					window.draw(sprite);
 					Affichage::AfficheArmees(state, window) ;
+					Affichage::AfficheNombre(state, window) ;
 					window.display() ; 
 			    }
 
 
-void static AfficheNombre (state::State& state, sf::RenderWindow& window)
+void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 		{
 			state::ElementTab& tabArmee = state.getArmeeTab();
 			std::vector<std::shared_ptr<state::Element>> listeArmee2 = tabArmee.getElementList();
 			
 		
 			state::Element* Nombre;
-		
+			sf::Texture textureNombre0 ;
 			sf::Texture textureNombre1 ; sf::Texture textureNombre6 ; sf::Texture textureNombre11 ; sf::Texture textureNombre16 ;
 			sf::Texture textureNombre2 ; sf::Texture textureNombre7 ; sf::Texture textureNombre12 ; sf::Texture textureNombre17 ;
 			sf::Texture textureNombre3 ; sf::Texture textureNombre8 ; sf::Texture textureNombre13 ; sf::Texture textureNombre18 ;
 			sf::Texture textureNombre4 ; sf::Texture textureNombre9 ; sf::Texture textureNombre14 ; sf::Texture textureNombre19 ;
 			sf::Texture textureNombre5 ; sf::Texture textureNombre10 ; sf::Texture textureNombre15 ; sf::Texture textureNombre20 ;
 			
-			textureNombre1.loadFromFile("./res/nombres/1.png");
-			textureNombre2.loadFromFile("./res/nombres/2.png");
-			textureNombre3.loadFromFile("./res/nombres/3.png");
-			textureNombre4.loadFromFile("./res/nombres/4.png");
-			textureNombre5.loadFromFile("./res/nombres/5.png");
-			textureNombre6.loadFromFile("./res/nombres/6.png");
-			textureNombre7.loadFromFile("./res/nombres/7.png");
-			textureNombre8.loadFromFile("./res/nombres/8.png");
-			textureNombre9.loadFromFile("./res/nombres/9.png");
-			textureNombre10.loadFromFile("./res/nombres/10.png");
-			textureNombre11.loadFromFile("./res/nombres/11.png");
-			textureNombre12.loadFromFile("./res/nombres/12.png");
-			textureNombre13.loadFromFile("./res/nombres/13.png");
-			textureNombre14.loadFromFile("./res/nombres/14.png");
-			textureNombre15.loadFromFile("./res/nombres/15.png");
-			textureNombre16.loadFromFile("./res/nombres/16.png");
-			textureNombre17.loadFromFile("./res/nombres/17.png");
-			textureNombre18.loadFromFile("./res/nombres/18.png");
-			textureNombre19.loadFromFile("./res/nombres/19.png");
-			textureNombre20.loadFromFile("./res/nombres/20.png");
+			textureNombre0.loadFromFile("./res/nombres/numbers-0.png");
+			textureNombre1.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre2.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre3.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre4.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre5.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre6.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre7.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre8.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre9.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre0.setSmooth(true) ; textureNombre3.setSmooth(true) ; textureNombre5.setSmooth(true) ; textureNombre7.setSmooth(true) ;
+			textureNombre1.setSmooth(true) ; textureNombre4.setSmooth(true) ; textureNombre6.setSmooth(true) ; textureNombre8.setSmooth(true) ;
+			textureNombre2.setSmooth(true) ; textureNombre9.setSmooth(true) ;
+			
 			
 			sf::Sprite nombreCongo ; 
-			nombreCongo.setScale(sf::Vector2f(0.2f, 0.2f));
+			nombreCongo.setScale(sf::Vector2f(0.6f, 0.6f));
 			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
 			Nombre = listeArmee2[0].get() ;
 			int nbrArmees = Nombre -> getNombre()==1 ; 
 			switch (nbrArmees) {
-					  case 0 : nombreCongo.setTexture(textureNombre1); break; 
+					  case 0 : nombreCongo.setTexture(textureNombre0); break; 
 			          case 1 : nombreCongo.setTexture(textureNombre1); break;
 			          case 2 : nombreCongo.setTexture(textureNombre2); break;
 			          case 3 : nombreCongo.setTexture(textureNombre3); break;
@@ -102,6 +183,146 @@ void static AfficheNombre (state::State& state, sf::RenderWindow& window)
 					  case 19 : nombreCongo.setTexture(textureNombre19); break;
 					  case 20 : nombreCongo.setTexture(textureNombre20); break;
 			        }
+			sf::Sprite nombreAfriqueDeLEst ; 
+			nombreAfriqueDeLEst.setScale(sf::Vector2f(0.6f, 0.6f));
+			nombreAfriqueDeLEst.setPosition(sf::Vector2f(541.f, 463.f));
+			Nombre = listeArmee2[1].get() ;
+			nbrArmees = Nombre -> getNombre()==1 ; 
+			switch (nbrArmees) {
+					  case 0 : nombreAfriqueDeLEst.setTexture(textureNombre0); break; 
+					  case 1 : nombreAfriqueDeLEst.setTexture(textureNombre1); break;
+					  case 2 : nombreAfriqueDeLEst.setTexture(textureNombre2); break;
+					  case 3 : nombreAfriqueDeLEst.setTexture(textureNombre3); break;
+					  case 4 : nombreAfriqueDeLEst.setTexture(textureNombre4); break;
+					  case 5 : nombreAfriqueDeLEst.setTexture(textureNombre5); break;
+					  case 6 : nombreAfriqueDeLEst.setTexture(textureNombre6); break;
+					  case 7 : nombreAfriqueDeLEst.setTexture(textureNombre7); break;
+					  case 8 : nombreAfriqueDeLEst.setTexture(textureNombre8); break;
+					  case 9 : nombreAfriqueDeLEst.setTexture(textureNombre9); break;
+					  case 10 : nombreAfriqueDeLEst.setTexture(textureNombre10); break;
+					  case 11 : nombreAfriqueDeLEst.setTexture(textureNombre11); break;
+					  case 12 : nombreAfriqueDeLEst.setTexture(textureNombre12); break;
+					  case 13 : nombreAfriqueDeLEst.setTexture(textureNombre13); break;
+					  case 14 : nombreAfriqueDeLEst.setTexture(textureNombre14); break;
+					  case 15 : nombreAfriqueDeLEst.setTexture(textureNombre15); break;
+					  case 16 : nombreAfriqueDeLEst.setTexture(textureNombre16); break;
+					  case 17 : nombreAfriqueDeLEst.setTexture(textureNombre17); break;
+					  case 18 : nombreAfriqueDeLEst.setTexture(textureNombre18); break;
+					  case 19 : nombreAfriqueDeLEst.setTexture(textureNombre19); break;
+					  case 20 : nombreAfriqueDeLEst.setTexture(textureNombre20); break;
+					}
+//			sf::Sprite nombreCongo ; 
+//			nombreCongo.setScale(sf::Vector2f(0.6f, 0.6f));
+//			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+//			Nombre = listeArmee2[0].get() ;
+//			int nbrArmees = Nombre -> getNombre()==1 ; 
+//			switch (nbrArmees) {
+//					  case 0 : nombreCongo.setTexture(textureNombre0); break; 
+//					  case 1 : nombreCongo.setTexture(textureNombre1); break;
+//					  case 2 : nombreCongo.setTexture(textureNombre2); break;
+//					  case 3 : nombreCongo.setTexture(textureNombre3); break;
+//					  case 4 : nombreCongo.setTexture(textureNombre4); break;
+//					  case 5 : nombreCongo.setTexture(textureNombre5); break;
+//					  case 6 : nombreCongo.setTexture(textureNombre6); break;
+//					  case 7 : nombreCongo.setTexture(textureNombre7); break;
+//					  case 8 : nombreCongo.setTexture(textureNombre8); break;
+//					  case 9 : nombreCongo.setTexture(textureNombre9); break;
+//					  case 10 : nombreCongo.setTexture(textureNombre10); break;
+//					  case 11 : nombreCongo.setTexture(textureNombre11); break;
+//					  case 12 : nombreCongo.setTexture(textureNombre12); break;
+//					  case 13 : nombreCongo.setTexture(textureNombre13); break;
+//					  case 14 : nombreCongo.setTexture(textureNombre14); break;
+//					  case 15 : nombreCongo.setTexture(textureNombre15); break;
+//					  case 16 : nombreCongo.setTexture(textureNombre16); break;
+//					  case 17 : nombreCongo.setTexture(textureNombre17); break;
+//					  case 18 : nombreCongo.setTexture(textureNombre18); break;
+//					  case 19 : nombreCongo.setTexture(textureNombre19); break;
+//					  case 20 : nombreCongo.setTexture(textureNombre20); break;
+//					}
+//			sf::Sprite nombreCongo ; 
+//			nombreCongo.setScale(sf::Vector2f(0.6f, 0.6f));
+//			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+//			Nombre = listeArmee2[0].get() ;
+//			int nbrArmees = Nombre -> getNombre()==1 ; 
+//			switch (nbrArmees) {
+//					  case 0 : nombreCongo.setTexture(textureNombre0); break; 
+//					  case 1 : nombreCongo.setTexture(textureNombre1); break;
+//					  case 2 : nombreCongo.setTexture(textureNombre2); break;
+//					  case 3 : nombreCongo.setTexture(textureNombre3); break;
+//					  case 4 : nombreCongo.setTexture(textureNombre4); break;
+//					  case 5 : nombreCongo.setTexture(textureNombre5); break;
+//					  case 6 : nombreCongo.setTexture(textureNombre6); break;
+//					  case 7 : nombreCongo.setTexture(textureNombre7); break;
+//					  case 8 : nombreCongo.setTexture(textureNombre8); break;
+//					  case 9 : nombreCongo.setTexture(textureNombre9); break;
+//					  case 10 : nombreCongo.setTexture(textureNombre10); break;
+//					  case 11 : nombreCongo.setTexture(textureNombre11); break;
+//					  case 12 : nombreCongo.setTexture(textureNombre12); break;
+//					  case 13 : nombreCongo.setTexture(textureNombre13); break;
+//					  case 14 : nombreCongo.setTexture(textureNombre14); break;
+//					  case 15 : nombreCongo.setTexture(textureNombre15); break;
+//					  case 16 : nombreCongo.setTexture(textureNombre16); break;
+//					  case 17 : nombreCongo.setTexture(textureNombre17); break;
+//					  case 18 : nombreCongo.setTexture(textureNombre18); break;
+//					  case 19 : nombreCongo.setTexture(textureNombre19); break;
+//					  case 20 : nombreCongo.setTexture(textureNombre20); break;
+//					}
+//			sf::Sprite nombreCongo ; 
+//			nombreCongo.setScale(sf::Vector2f(0.6f, 0.6f));
+//			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+//			Nombre = listeArmee2[0].get() ;
+//			int nbrArmees = Nombre -> getNombre()==1 ; 
+//			switch (nbrArmees) {
+//					  case 0 : nombreCongo.setTexture(textureNombre0); break; 
+//					  case 1 : nombreCongo.setTexture(textureNombre1); break;
+//					  case 2 : nombreCongo.setTexture(textureNombre2); break;
+//					  case 3 : nombreCongo.setTexture(textureNombre3); break;
+//					  case 4 : nombreCongo.setTexture(textureNombre4); break;
+//					  case 5 : nombreCongo.setTexture(textureNombre5); break;
+//					  case 6 : nombreCongo.setTexture(textureNombre6); break;
+//					  case 7 : nombreCongo.setTexture(textureNombre7); break;
+//					  case 8 : nombreCongo.setTexture(textureNombre8); break;
+//					  case 9 : nombreCongo.setTexture(textureNombre9); break;
+//					  case 10 : nombreCongo.setTexture(textureNombre10); break;
+//					  case 11 : nombreCongo.setTexture(textureNombre11); break;
+//					  case 12 : nombreCongo.setTexture(textureNombre12); break;
+//					  case 13 : nombreCongo.setTexture(textureNombre13); break;
+//					  case 14 : nombreCongo.setTexture(textureNombre14); break;
+//					  case 15 : nombreCongo.setTexture(textureNombre15); break;
+//					  case 16 : nombreCongo.setTexture(textureNombre16); break;
+//					  case 17 : nombreCongo.setTexture(textureNombre17); break;
+//					  case 18 : nombreCongo.setTexture(textureNombre18); break;
+//					  case 19 : nombreCongo.setTexture(textureNombre19); break;
+//					  case 20 : nombreCongo.setTexture(textureNombre20); break;
+//					}
+//			sf::Sprite nombreCongo ; 
+//			nombreCongo.setScale(sf::Vector2f(0.6f, 0.6f));
+//			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+//			Nombre = listeArmee2[0].get() ;
+//			int nbrArmees = Nombre -> getNombre()==1 ; 
+//			switch (nbrArmees) {
+//					  case 0 : nombreCongo.setTexture(textureNombre0); break; 
+//					  case 1 : nombreCongo.setTexture(textureNombre1); break;
+//					  case 2 : nombreCongo.setTexture(textureNombre2); break;
+//					  case 3 : nombreCongo.setTexture(textureNombre3); break;
+//					  case 4 : nombreCongo.setTexture(textureNombre4); break;
+//					  case 5 : nombreCongo.setTexture(textureNombre5); break;
+//					  case 6 : nombreCongo.setTexture(textureNombre6); break;
+//					  case 7 : nombreCongo.setTexture(textureNombre7); break;
+//					  case 8 : nombreCongo.setTexture(textureNombre8); break;
+//					  case 9 : nombreCongo.setTexture(textureNombre9); break;
+//					  case 10 : nombreCongo.setTexture(textureNombre10); break;
+//					  case 11 : nombreCongo.setTexture(textureNombre11); break;
+//					  case 12 : nombreCongo.setTexture(textureNombre12); break;
+//					  case 13 : nombreCongo.setTexture(textureNombre13); break;
+//					  case 14 : nombreCongo.setTexture(textureNombre14); break;
+//					  case 15 : nombreCongo.setTexture(textureNombre15); break;
+//					  case 16 : nombreCongo.setTexture(textureNombre16); break;
+//					  case 17 : nombreCongo.setTexture(textureNombre17); break;
+//					  case 18 : nombreCongo.setTexture(textureNombre18); break;
+//					  case 19 : nombreCongo.setTexture(textureNombre19); break;
+//					  case 20 : nombreCongo.setTexture(textureNombre20); break;
+//					}
 			window.draw(nombreCongo);
 			window.display(); 
 		}

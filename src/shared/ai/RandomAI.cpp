@@ -2,6 +2,10 @@
 
 namespace ai {
 
+RandomAI::RandomAI()
+{
+	
+}
 bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
