@@ -11,12 +11,15 @@ bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
 
-  std::vector<state::Element*> listeArmeeJoueur;
-	for(size_t i=0; i<listeArmee.size(); i++){
-		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur()==idJoueur){
-      listeArmeeJoueur.push_back(ptr_armee);
-			ptr_armee->setNombre(3);
+	std::vector<state::Element*> listeArmeeJoueur;
+	for(size_t i=0; i<listeArmee.size(); i++) //on parcourt la liste d'armée
+	{
+		ptr_armee = listeArmee[i].get(); //on récupère un à un les éléments armée 
+		if(ptr_armee->getIdJoueur()==idJoueur) //on vérifie que l'ID de joueur correspond à l'ID en argument 
+		{
+			listeArmeeJoueur.push_back(ptr_armee); //On rajoute cette armée dans la liste armée du joueur 
+			ptr_armee->setNombre(3); //on donne 3 armées à cette armée de ce joueur ; 
+			 
 		}
 	}
 
@@ -31,6 +34,12 @@ bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 	ptr_armee->setNombre(2);
 	ptr_armee = listeArmeeJoueur[armeeAleatoire2];
 	ptr_armee->setNombre(2);
+	
+	for(size_t i=0 ; i<listeArmee.size(); i++)
+	{
+		ptr_armee = listeArmee[i].get() ; 
+		std::cout<<"nombre d'armée sur"<< ptr_armee->getPays()  <<  ptr_armee->getNombre() << std::endl ;
+	}
 
   return true;
 }
@@ -315,75 +324,76 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
     std::cout << "Le joueur fictif 3 place ses armées." << std::endl;
     distributionOk = aiRepartitionArmees(3, state);
 	}
-
-		//etape 1 du jeu
-	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
-	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  while(!verifPaysAttaquantOk){
-	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
-	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  }
-		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
-
-		//etape 2 du jeu
-	  std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
-	  bool verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
-	  while(!verifPaysAttaqueOk){
-	    paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
-	    verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
-	  }
-		std::cout << "Le pays attaqué est " << paysAttaque << "." << std::endl;
-
-		//etape 3 du jeu
-	  std::cout << "C'est l'heure de l'attaque !" << std::endl;
-	  int nbAttaques = aiNbDesLancersAttaques();
-	  bool nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
-	  while(!nbAttaquesOk){
-	    nbAttaques = aiNbDesLancersAttaques();
-	    nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
-	  }
-		std::cout << "L'attaque lance " << nbAttaques << " dés." << std::endl;
-
-		//etape 5 du jeu
-	  std::vector<int> desRouges = engine::Combat::lancerDes(nbAttaques);
-
-		//etape 4 du jeu
-	  std::cout << "L'adversaire se défend." << std::endl;
-	  int nbDefenses = aiNbDesLancersDefenses();
-	  bool nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
-	  while(!nbDefensesOk){
-	    nbDefenses = aiNbDesLancersDefenses();
-	    nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
-	  }
-		std::cout << "La défense lance " << nbDefenses << " dés." << std::endl;
-
-		//etape 6 du jeu
-	  std::vector<int> desBleus = engine::Combat::lancerDes(nbDefenses);
-
-	  //etape 7 du jeu
-	  bool victoire = engine::IssueDuCombat::victoire (desRouges, desBleus, paysAttaquant,paysAttaque, state);
-
-		//etape 8 du jeu
-	  aiGainCartes (idJoueur, victoire, state);
-	  int nouvellesArmees = engine::GainCombat::gainArmees (idJoueur, state);
-
-		//etape 9 du jeu
-	  int echange = aiEchange (idJoueur, state);
-	  while (echange == -1){
-	    echange = aiEchange (idJoueur, state);
-	  }
-	  nouvellesArmees += echange;
-		std::cout << "L'échange des cartes rapporte " << echange << " armées." << std::endl;
-
-	  //etape 10 du jeu
-		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
-	  aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
-		std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
-	  aiDeplacerArmees (idJoueur, state);
-		std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
-
-	  std::cout << "Fin du tour " << numeroTour << std::endl;
-		std::cout << std::endl;
+//
+//		//etape 1 du jeu
+//	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
+//	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+//	  while(!verifPaysAttaquantOk){
+//	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
+//	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+//	  }
+//		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
+//
+//		//etape 2 du jeu
+//	  std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
+//	  bool verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
+//	  while(!verifPaysAttaqueOk){
+//	    paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
+//	    verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
+//	  }
+//		std::cout << "Le pays attaqué est " << paysAttaque << "." << std::endl;
+//
+//		//etape 3 du jeu
+//	  std::cout << "C'est l'heure de l'attaque !" << std::endl;
+//	  int nbAttaques = aiNbDesLancersAttaques();
+//	  bool nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
+//	  while(!nbAttaquesOk){
+//	    nbAttaques = aiNbDesLancersAttaques();
+//	    nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
+//	  }
+//		std::cout << "L'attaque lance " << nbAttaques << " dés." << std::endl;
+//
+//		//etape 5 du jeu
+//	  std::vector<int> desRouges = engine::Combat::lancerDes(nbAttaques);
+//
+//		//etape 4 du jeu
+//	  std::cout << "L'adversaire se défend." << std::endl;
+//	  int nbDefenses = aiNbDesLancersDefenses();
+//	  bool nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
+//	  while(!nbDefensesOk){
+//	    nbDefenses = aiNbDesLancersDefenses();
+//	    nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
+//	  }
+//		std::cout << "La défense lance " << nbDefenses << " dés." << std::endl;
+//
+//		//etape 6 du jeu
+//	  std::vector<int> desBleus = engine::Combat::lancerDes(nbDefenses);
+//
+//	  //etape 7 du jeu
+//	  bool victoire = engine::IssueDuCombat::victoire (desRouges, desBleus, paysAttaquant,paysAttaque, state);
+//
+//		//etape 8 du jeu
+//	  aiGainCartes (idJoueur, victoire, state);
+//	  int nouvellesArmees = engine::GainCombat::gainArmees (idJoueur, state);
+//
+//		//etape 9 du jeu
+//	  int echange = aiEchange (idJoueur, state);
+//	  while (echange == -1){
+//	    echange = aiEchange (idJoueur, state);
+//	  }
+//	  nouvellesArmees += echange;
+//		std::cout << "L'échange des cartes rapporte " << echange << " armées." << std::endl;
+//
+//	  //etape 10 du jeu
+//		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
+//	  aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
+//		std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
+//	  aiDeplacerArmees (idJoueur, state);
+//		std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
+//
+//	  std::cout << "Fin du tour " << numeroTour << std::endl;
+//		std::cout << std::endl;
 }
 
 }
+

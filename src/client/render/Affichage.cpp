@@ -134,7 +134,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			std::vector<std::shared_ptr<state::Element>> listeArmee2 = tabArmee.getElementList();
 			
 		
-			state::Element* Nombre;
+			state::Element* Nombre = 0 ;
 			sf::Texture textureNombre0 ;
 			sf::Texture textureNombre1 ; sf::Texture textureNombre6 ; sf::Texture textureNombre11 ; sf::Texture textureNombre16 ;
 			sf::Texture textureNombre2 ; sf::Texture textureNombre7 ; sf::Texture textureNombre12 ; sf::Texture textureNombre17 ;
@@ -144,14 +144,14 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			
 			textureNombre0.loadFromFile("./res/nombres/numbers-0.png");
 			textureNombre1.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre2.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre3.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre4.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre5.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre6.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre7.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre8.loadFromFile("./res/nombres/numbers-1.png");
-			textureNombre9.loadFromFile("./res/nombres/numbers-1.png");
+			textureNombre2.loadFromFile("./res/nombres/numbers-2.png");
+			textureNombre3.loadFromFile("./res/nombres/numbers-3.png");
+			textureNombre4.loadFromFile("./res/nombres/numbers-4.png");
+			textureNombre5.loadFromFile("./res/nombres/numbers-5.png");
+			textureNombre6.loadFromFile("./res/nombres/numbers-6.png");
+			textureNombre7.loadFromFile("./res/nombres/numbers-7.png");
+			textureNombre8.loadFromFile("./res/nombres/numbers-8.png");
+			textureNombre9.loadFromFile("./res/nombres/numbers-9.png");
 			textureNombre0.setSmooth(true) ; textureNombre3.setSmooth(true) ; textureNombre5.setSmooth(true) ; textureNombre7.setSmooth(true) ;
 			textureNombre1.setSmooth(true) ; textureNombre4.setSmooth(true) ; textureNombre6.setSmooth(true) ; textureNombre8.setSmooth(true) ;
 			textureNombre2.setSmooth(true) ; textureNombre9.setSmooth(true) ;
@@ -301,7 +301,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			nombreAfriqueDuSud.setScale(sf::Vector2f(0.5f, 0.5f));
 			nombreAfriqueDuSud.setPosition(sf::Vector2f(568.f, 521.f));
 			Nombre = listeArmee2[5].get() ;
-			nbrArmees = Nombre -> getNombre()==1 ; 
+			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
 					  case 0 : nombreAfriqueDuSud.setTexture(textureNombre0); break; 
 					  case 1 : nombreAfriqueDuSud.setTexture(textureNombre1); break;
