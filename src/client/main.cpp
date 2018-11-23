@@ -114,8 +114,9 @@ int main(int argc,char* argv[])
 											{
 												std::cout<<"taper n'importe quoi pour démarrer" << std::endl ; 
 												
-												TourDeJeu::jouer(0,1,currentState,window,event);
-												//AttributionTerritoires::repartitionArmees(3, state);
+												PlacementArmees::placerNouvellesArmees (1, 40, currentState,window,event); 
+												//TourDeJeu::jouer(0,1,currentState,window,event);
+												
 												std::cout <<"Placement Terminé"<<std::endl ;	
 											}
 									break;
@@ -201,12 +202,13 @@ int main(int argc,char* argv[])
 	        											{
 	        												std::cout<<"AI RANDOM" << std::endl ; 
 	        												
-	        												for(int i = 0 ; i<20 ; i++)
-	        												{
+	        												//for(int i = 0 ; i<20 ; i++)
+	        												//{
 	        													
-	        															intelligence->RandomAI::aiJouer(i, 1, currentState); 
+	        															intelligence->RandomAI::aiJouer(0, 1, currentState); 
+	        															intelligence->RandomAI::aiJouer(1, 1, currentState); 
 	        														
-	        												}	
+	        												//}	
 	        												//AttributionTerritoires::repartitionArmees(3, state);
 	        												//std::cout <<"Placement Terminé"<<std::endl ;	
 	        											}
