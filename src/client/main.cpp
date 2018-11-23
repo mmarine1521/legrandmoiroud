@@ -132,7 +132,7 @@ int main(int argc,char* argv[])
 										}
 	        					
 	        				}
-	        					//window.display() ; 
+	        					window.display() ; 
 	        				}  
 	        		}
 	        else if (strcmp(argv[1],"random_ai")==0){
@@ -174,9 +174,11 @@ int main(int argc,char* argv[])
 	        								window.setVerticalSyncEnabled(true);
 	        	        					window.setActive() ;	
 	        	        					 
-	        	        					
+	        	        					window.clear(); 
 	        	        					Affichage::AfficheMap(currentState,window) ;
 	        	        					Affichage::AfficheChoixNbrArmees(currentState, window) ; 
+	        	        					
+	        	        					window.display(); 
 	        	        					//Affichage::AfficheNombre(currentState, window) ;
 	        	        					
 	        	        					sf::Event event;
@@ -192,7 +194,7 @@ int main(int argc,char* argv[])
 	        											{
 	        												std::cout<<"Touche espace pressée"<<std::endl ;
 	        												AttributionTerritoires::distribution(currentState, 3);
-	        												 
+	      	        												 
 	        												std::cout <<"Initialisation Terminée"<<std::endl ; 
 	        											}
 	        											if(event.key.code == sf::Keyboard::P)
@@ -230,7 +232,7 @@ int main(int argc,char* argv[])
 	        										}
 	        	        					
 	        	        				}
-	        	        					//window.display() ; 
+	        	        					//swindow.display() ; 
 	        	        				}  
 	        	        		}
 	    
