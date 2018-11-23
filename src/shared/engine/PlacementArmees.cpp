@@ -19,7 +19,7 @@ IdCommande const PlacementArmees::getIdCommande (){
 }
 
 //verifier idJoueur
-void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state, sf::RenderWindow& window){
+void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state, sf::RenderWindow& window, sf::Event event){
 	int armeesAPlacer = nouvellesArmees;
 	std::string pays;
 	int nombre = 0;
@@ -27,7 +27,7 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 		std::string tmp;
 		
 		std::string paysClic = "";
-		//Affichage::PaysClic()
+		Affichage::PaysClic(window, event); 
 		std::cout << "test : pays_clic"<< paysClic << std::endl ; 
 		
 		getline(std::cin,tmp);
