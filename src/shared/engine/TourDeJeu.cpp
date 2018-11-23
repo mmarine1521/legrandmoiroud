@@ -8,7 +8,7 @@
 
 namespace engine {
 
-void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
+void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state, sf::RenderWindow& window){
   std::cout << "Début du tour " << numeroTour << std::endl;
   std::cout << std::endl;
 
@@ -19,27 +19,27 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
 
     //etape 3 de l'initialisation
     std::cout << "Le joueur 1 place ses armées." << std::endl;
-    bool distributionOk = AttributionTerritoires::repartitionArmees(1, state);
+    bool distributionOk = AttributionTerritoires::repartitionArmees(1, state, window);
     while (!distributionOk){
       std::cout << "Le joueur 1 doit replacer ses armées." << std::endl;
       AttributionTerritoires::undoRepartitionArmees(1, state);
-      distributionOk = AttributionTerritoires::repartitionArmees(1, state);
+      distributionOk = AttributionTerritoires::repartitionArmees(1, state, window);
     }
 
     std::cout << "Le joueur 2 place ses armées." << std::endl;
-    distributionOk = AttributionTerritoires::repartitionArmees(2, state);
+    distributionOk = AttributionTerritoires::repartitionArmees(2, state, window);
     while (!distributionOk){
       std::cout << "Le joueur 2 doit replacer ses armées." << std::endl;
       AttributionTerritoires::undoRepartitionArmees(2, state);
-      distributionOk = AttributionTerritoires::repartitionArmees(2, state);
+      distributionOk = AttributionTerritoires::repartitionArmees(2, state, window);
     }
 
     std::cout << "Le joueur fictif 3 place ses armées." << std::endl;
-    distributionOk = AttributionTerritoires::repartitionArmees(3, state);
+    distributionOk = AttributionTerritoires::repartitionArmees(3, state, window);
     while (!distributionOk){
       std::cout << "Le joueur fictif 3 doit replacer ses armées." << std::endl;
       AttributionTerritoires::undoRepartitionArmees(3, state);
-      distributionOk = AttributionTerritoires::repartitionArmees(3, state);
+      distributionOk = AttributionTerritoires::repartitionArmees(3, state, window);
     }
   }
 
@@ -103,7 +103,7 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state){
     nouvellesArmees += echange;
 
     //etape 10 du jeu
-    PlacementArmees::placerNouvellesArmees (idJoueur, nouvellesArmees, state);
+    PlacementArmees::placerNouvellesArmees (idJoueur, nouvellesArmees, state, window);
     PlacementArmees::deplacerArmees (idJoueur, state);
 
     std::cout << "Fin du tour " << numeroTour << std::endl;

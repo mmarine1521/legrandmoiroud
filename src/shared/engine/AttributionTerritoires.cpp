@@ -51,9 +51,9 @@ void AttributionTerritoires::distribution (state::State state, int nbJoueurs){
 	std::cout << std::endl;
 }
 
-bool AttributionTerritoires::repartitionArmees (int idJoueur, state::State state){
+bool AttributionTerritoires::repartitionArmees (int idJoueur, state::State state, sf::RenderWindow& window){
 	bool repartition = true;
-	PlacementArmees::placerNouvellesArmees(idJoueur, 40, state);
+	PlacementArmees::placerNouvellesArmees(idJoueur, 40, state, window);
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* e = 0;
@@ -62,7 +62,7 @@ bool AttributionTerritoires::repartitionArmees (int idJoueur, state::State state
 		e = listeArmee[i].get();
 		if(e->getIdJoueur()==idJoueur){
 			if (e->getNombre() <= 0){
-				repartition = false;
+				repartition = false; //test si nombre d'armée inférieur ou égale à 0 = problèmes dans le placement des pions. 
 			}
 			break;
 		}

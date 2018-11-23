@@ -159,7 +159,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			
 			sf::Sprite nombreCongo ; 
 			nombreCongo.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreCongo.setPosition(sf::Vector2f(541.f, 463.f));
+			nombreCongo.setPosition(sf::Vector2f(551.f, 463.f));
 			Nombre = listeArmee2[0].get() ;
 			int nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -215,7 +215,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreEgypte ; 
 			nombreEgypte.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreEgypte.setPosition(sf::Vector2f(560.f, 361.f));
+			nombreEgypte.setPosition(sf::Vector2f(570.f, 361.f));
 			Nombre = listeArmee2[2].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -299,7 +299,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreAfriqueDuSud ; 
 			nombreAfriqueDuSud.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreAfriqueDuSud.setPosition(sf::Vector2f(558.f, 521.f));
+			nombreAfriqueDuSud.setPosition(sf::Vector2f(568.f, 521.f));
 			Nombre = listeArmee2[5].get() ;
 			nbrArmees = Nombre -> getNombre()==1 ; 
 			switch (nbrArmees) {
@@ -440,7 +440,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			
 			sf::Sprite nombreJapon ; 
 			nombreJapon.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreJapon.setPosition(sf::Vector2f(902.f, 325.f));
+			nombreJapon.setPosition(sf::Vector2f(912.f, 325.f));
 			Nombre = listeArmee2[10].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -586,7 +586,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 												
 			sf::Sprite nombreSiberie ; 
 			nombreSiberie.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreSiberie.setPosition(sf::Vector2f(742.f, 197.f));
+			nombreSiberie.setPosition(sf::Vector2f(752.f, 197.f));
 			Nombre = listeArmee2[15].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -923,7 +923,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreArgentine ; 
 			nombreArgentine.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreArgentine.setPosition(sf::Vector2f(312.f, 530.f));
+			nombreArgentine.setPosition(sf::Vector2f(322.f, 530.f));
 			Nombre = listeArmee2[27].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -951,7 +951,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreBresil ; 
 			nombreBresil.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreBresil.setPosition(sf::Vector2f(359.f, 456.f));
+			nombreBresil.setPosition(sf::Vector2f(369.f, 456.f));
 			Nombre = listeArmee2[28].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -979,7 +979,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombrePerou ; 
 			nombrePerou.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombrePerou.setPosition(sf::Vector2f(306.f, 391.f));
+			nombrePerou.setPosition(sf::Vector2f(316.f, 391.f));
 			Nombre = listeArmee2[29].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1007,7 +1007,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreVenezuela ; 
 			nombreVenezuela.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreVenezuela.setPosition(sf::Vector2f(308.f, 474.f));
+			nombreVenezuela.setPosition(sf::Vector2f(318.f, 474.f));
 			Nombre = listeArmee2[30].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1035,7 +1035,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreGrandeBretagne ; 
 			nombreGrandeBretagne.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreGrandeBretagne.setPosition(sf::Vector2f(470.f, 231.f));
+			nombreGrandeBretagne.setPosition(sf::Vector2f(480.f, 231.f));
 			Nombre = listeArmee2[31].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1091,7 +1091,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreEuropeDuNord ; 
 			nombreEuropeDuNord.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreEuropeDuNord.setPosition(sf::Vector2f(537.f, 252.f));
+			nombreEuropeDuNord.setPosition(sf::Vector2f(547.f, 252.f));
 			Nombre = listeArmee2[33].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1119,7 +1119,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreScandinavie ; 
 			nombreScandinavie.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreScandinavie.setPosition(sf::Vector2f(543.f, 200.f));
+			nombreScandinavie.setPosition(sf::Vector2f(553.f, 200.f));
 			Nombre = listeArmee2[34].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1147,7 +1147,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreEuropeDuSud ; 
 			nombreEuropeDuSud.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreEuropeDuSud.setPosition(sf::Vector2f(547.f, 298.f));
+			nombreEuropeDuSud.setPosition(sf::Vector2f(556.f, 298.f));
 			Nombre = listeArmee2[35].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1203,7 +1203,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreEuropeOccidentale ; 
 			nombreEuropeOccidentale.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreEuropeOccidentale.setPosition(sf::Vector2f(488.f, 289.f));
+			nombreEuropeOccidentale.setPosition(sf::Vector2f(498.f, 289.f));
 			Nombre = listeArmee2[37].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1231,7 +1231,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreAustralieOrientale ; 
 			nombreAustralieOrientale.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreAustralieOrientale.setPosition(sf::Vector2f(898.f, 568.f));
+			nombreAustralieOrientale.setPosition(sf::Vector2f(908.f, 568.f));
 			Nombre = listeArmee2[38].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1315,7 +1315,7 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 					}
 			sf::Sprite nombreAustralieOccidentale ; 
 			nombreAustralieOccidentale.setScale(sf::Vector2f(0.5f, 0.5f));
-			nombreAustralieOccidentale.setPosition(sf::Vector2f(838.f, 552.f));
+			nombreAustralieOccidentale.setPosition(sf::Vector2f(848.f, 552.f));
 			Nombre = listeArmee2[41].get() ;
 			nbrArmees = Nombre -> getNombre() ; 
 			switch (nbrArmees) {
@@ -1414,7 +1414,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeCongo ;
 								armeeCongo.setTexture(textureArmee);
 								armeeCongo.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeCongo.setPosition(sf::Vector2f(541.f, 463.f));
+								armeeCongo.setPosition(sf::Vector2f(531.f, 463.f));
 								Armee = listeArmee2[0].get() ;
 									if(Armee -> getIdJoueur()==1)
 									{
@@ -1448,7 +1448,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeEgypte ;
 								armeeEgypte.setTexture(textureArmee);
 								armeeEgypte.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeEgypte.setPosition(sf::Vector2f(559.f, 361.f));
+								armeeEgypte.setPosition(sf::Vector2f(549.f, 361.f));
 								Armee = listeArmee2[2].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1499,7 +1499,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeAfriqueDuSud ;
 								armeeAfriqueDuSud.setTexture(textureArmee);
 								armeeAfriqueDuSud.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeAfriqueDuSud.setPosition(sf::Vector2f(557.f, 521.f));
+								armeeAfriqueDuSud.setPosition(sf::Vector2f(547.f, 521.f));
 								Armee = listeArmee2[5].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1673,7 +1673,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeArgentine ;
 								armeeArgentine.setTexture(textureArmee);
 								armeeArgentine.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeArgentine.setPosition(sf::Vector2f(312.f, 530.f));
+								armeeArgentine.setPosition(sf::Vector2f(302.f, 530.f));
 								Armee = listeArmee2[27].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1690,7 +1690,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeBresil ;
 								armeeBresil.setTexture(textureArmee);
 								armeeBresil.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeBresil.setPosition(sf::Vector2f(359.f, 456.f));
+								armeeBresil.setPosition(sf::Vector2f(349.f, 456.f));
 								Armee = listeArmee2[28].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1707,7 +1707,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeePerou ;
 								armeePerou.setTexture(textureArmee);
 								armeePerou.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeePerou.setPosition(sf::Vector2f(305.f, 391.f));
+								armeePerou.setPosition(sf::Vector2f(295.f, 391.f));
 								Armee = listeArmee2[29].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1724,7 +1724,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeVenezuela ;
 								armeeVenezuela.setTexture(textureArmee);
 								armeeVenezuela.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeVenezuela.setPosition(sf::Vector2f(308.f, 474.f));
+								armeeVenezuela.setPosition(sf::Vector2f(298.f, 474.f));
 								Armee = listeArmee2[30].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1744,7 +1744,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeGrandeBretagne ;
 								armeeGrandeBretagne.setTexture(textureArmee);
 								armeeGrandeBretagne.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeGrandeBretagne.setPosition(sf::Vector2f(470.f, 231.f));
+								armeeGrandeBretagne.setPosition(sf::Vector2f(460.f, 231.f));
 								Armee = listeArmee2[31].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1778,7 +1778,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeEuropeDuNord ;
 								armeeEuropeDuNord.setTexture(textureArmee);
 								armeeEuropeDuNord.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeEuropeDuNord.setPosition(sf::Vector2f(537.f, 252.f));
+								armeeEuropeDuNord.setPosition(sf::Vector2f(527.f, 252.f));
 								Armee = listeArmee2[33].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1795,7 +1795,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeScandinavie ;
 								armeeScandinavie.setTexture(textureArmee);
 								armeeScandinavie.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeScandinavie.setPosition(sf::Vector2f(542.f, 200.f));
+								armeeScandinavie.setPosition(sf::Vector2f(532.f, 200.f));
 								Armee = listeArmee2[34].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1812,7 +1812,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeEuropeDuSud ;
 								armeeEuropeDuSud.setTexture(textureArmee);
 								armeeEuropeDuSud.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeEuropeDuSud.setPosition(sf::Vector2f(546.f, 297.f));
+								armeeEuropeDuSud.setPosition(sf::Vector2f(536.f, 297.f));
 								Armee = listeArmee2[35].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1846,7 +1846,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeEuropeOccidentale ;
 								armeeEuropeOccidentale.setTexture(textureArmee);
 								armeeEuropeOccidentale.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeEuropeOccidentale.setPosition(sf::Vector2f(488.f, 289.f));
+								armeeEuropeOccidentale.setPosition(sf::Vector2f(478.f, 289.f));
 								Armee = listeArmee2[37].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -1934,7 +1934,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeJapon ;
 								armeeJapon.setTexture(textureArmee);
 								armeeJapon.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeJapon.setPosition(sf::Vector2f(902.f, 324.f));
+								armeeJapon.setPosition(sf::Vector2f(892.f, 324.f));
 								Armee = listeArmee2[10].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -2019,7 +2019,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeSiberie ;
 								armeeSiberie.setTexture(textureArmee);
 								armeeSiberie.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeSiberie.setPosition(sf::Vector2f(741.f, 197.f));
+								armeeSiberie.setPosition(sf::Vector2f(731.f, 197.f));
 								Armee = listeArmee2[15].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -2072,7 +2072,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeAustralieOrientale ;
 								armeeAustralieOrientale.setTexture(textureArmee);
 								armeeAustralieOrientale.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeAustralieOrientale.setPosition(sf::Vector2f(897.f, 567.f));
+								armeeAustralieOrientale.setPosition(sf::Vector2f(887.f, 567.f));
 								Armee = listeArmee2[38].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{
@@ -2123,7 +2123,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 								sf::Sprite armeeAustralieOccidentale ;
 								armeeAustralieOccidentale.setTexture(textureArmee);
 								armeeAustralieOccidentale.setScale(sf::Vector2f(0.2f, 0.2f));
-								armeeAustralieOccidentale.setPosition(sf::Vector2f(838.f, 552.f));
+								armeeAustralieOccidentale.setPosition(sf::Vector2f(828.f, 552.f));
 								Armee = listeArmee2[41].get() ;
 												if(Armee -> getIdJoueur()==1)
 												{

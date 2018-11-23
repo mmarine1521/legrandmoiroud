@@ -114,7 +114,7 @@ int main(int argc,char* argv[])
 											{
 												std::cout<<"taper n'importe quoi pour démarrer" << std::endl ; 
 												
-												TourDeJeu::jouer(0,1,currentState);
+												TourDeJeu::jouer(0,1,currentState,window);
 												//AttributionTerritoires::repartitionArmees(3, state);
 												std::cout <<"Placement Terminé"<<std::endl ;	
 											}
@@ -214,7 +214,7 @@ int main(int argc,char* argv[])
 	        											{
 	        												std::cout<<"taper n'importe quoi pour démarrer" << std::endl ; 
 	        												
-	        												TourDeJeu::jouer(0,1,currentState);
+	        												TourDeJeu::jouer(0,1,currentState, window);
 	        												//AttributionTerritoires::repartitionArmees(3, state);
 	        												std::cout <<"Placement Terminé"<<std::endl ;	
 	        											}
