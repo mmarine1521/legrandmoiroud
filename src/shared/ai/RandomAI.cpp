@@ -23,7 +23,7 @@ bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 		}
 	}
 
-	srand (time(NULL));
+	//srand (time(NULL));
 	int armeeAleatoire1 = rand() % listeArmeeJoueur.size();
 	int armeeAleatoire2 = -1;
 	while(armeeAleatoire2 == -1 || armeeAleatoire2 == armeeAleatoire1){
@@ -60,7 +60,7 @@ std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
 		}
 	}
 
-	srand (time(NULL));
+	//srand (time(NULL));
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement 
 	return ptr_armee->getPays(); //on retourne le pays attaquant ; 
@@ -81,7 +81,7 @@ std::string RandomAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquan
 		}
 	}
 
-	srand (time(NULL));
+	//srand (time(NULL));
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
 	return ptr_armee->getPays(); //idem pour le pays qui est attaqué. 
@@ -118,7 +118,7 @@ void RandomAI::aiGainCartes (int idJoueur, bool victoire, state::State state){
 				}
 			}
 
-			srand(time(NULL));
+		//	srand(time(NULL));
       int positionCarte = rand() % listeCarteJoueur.size();
 			ptr_carte = listeCarteJoueur[positionCarte];
       engine::GestionCartes::defausser (ptr_carte->getNumero(), state);
@@ -152,7 +152,7 @@ int RandomAI::aiEchange (int idJoueur, state::State state){
 		return 0;
 	}
 	else{
-		srand(time(NULL));
+		//srand(time(NULL));
 		int decision = rand() % 2;
 		if (decision == 0){
 			return 0;
@@ -229,7 +229,7 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 	int numeroPays;
 	int nombreArmees;
 	while (armeesAPlacer != 0){
-		srand(time(NULL));
+		//srand(time(NULL));
 		numeroPays = rand() % listeArmeeJoueur.size();
 		nombreArmees = rand() % armeesAPlacer + 1;
 		ptr_armee = listeArmeeJoueur[numeroPays];
@@ -240,7 +240,7 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 }
 
 void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
-	srand(time(NULL));
+	//srand(time(NULL));
 	int decision = rand() % 2;
 	while (decision == 1){
 		state::ElementTab& tabArmee = state.getArmeeTab();
@@ -282,7 +282,7 @@ void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
 			}
 		}
 
-		srand(time(NULL));
+		//srand(time(NULL));
 		int numeroPays = rand() % listePays1.size();
 
 		state::Element* ptr_armee1 = 0;
@@ -364,9 +364,10 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 	  std::cout << "L'adversaire se défend." << std::endl;
 	  int nbDefenses = aiNbDesLancersDefenses();
 	  bool nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
-	  while(!nbDefensesOk){
+	  while(!nbDefensesOk)
+	  {
 	    nbDefenses = aiNbDesLancersDefenses();
-	    nbDefensesOk = engine::Combat::verifNbDefenses (nbDefenses, paysAttaque, state);
+	    nbDefensesOk = engine::Combat::verifNbDefenses(nbDefenses, paysAttaque, state);
 	  }
 		std::cout << "La défense lance " << nbDefenses << " dés." << std::endl;
 

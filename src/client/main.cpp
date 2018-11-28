@@ -7,9 +7,11 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <chrono>
 #include <thread>
+#include <time.h>
 #include <memory>
 
 #include <thread>
@@ -33,6 +35,10 @@ void testSFML()
 int main(int argc,char* argv[])
 {
 	 //testSFML();
+		srand (time(0)); //initialisation une fois pour toute du srand ; 
+		
+		
+	
 	    if (argc>1){                 // vérifie s'il y a un argument
 	        if  (strcmp(argv[1],"hello")==0) {   // vérification que l'argument est le bon
 	            cout << "Bonjour le monde!" << endl;
@@ -201,16 +207,17 @@ int main(int argc,char* argv[])
 	        											if(event.key.code == sf::Keyboard::P)
 	        											{
 	        												std::cout<<"AI RANDOM" << std::endl ; 
+	        												 
 	        												
-	        												//for(int i = 0 ; i<20 ; i++)
-	        												//{
+	        												for(int i = 0 ; i<20 ; i++)
+	        												{
 	        													
-	        															intelligence->RandomAI::aiJouer(0, 1, currentState); 
-	        															intelligence->RandomAI::aiJouer(1, 1, currentState); 
+	        															intelligence->RandomAI::aiJouer(i, 1, currentState); 
+	        															//intelligence->RandomAI::aiJouer(1, 1, currentState); 
 	        														
-	        												//}	
+	        												}	
 	        												//AttributionTerritoires::repartitionArmees(3, state);
-	        												//std::cout <<"Placement Terminé"<<std::endl ;	
+	        												std::cout <<"Placement Terminé"<<std::endl ;	
 	        											}
 	        											if(event.key.code == sf::Keyboard::M)
 	        											{

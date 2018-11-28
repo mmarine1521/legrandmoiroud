@@ -26,19 +26,24 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
     std::cout << "Problème : Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
     return false;
   }
-  else{
+  else
+  {
     state::ElementTab& tabArmee = state.getArmeeTab();
     std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
     state::Element* e = 0;
-    for(size_t i=0; i<listeArmee.size(); i++){
-      e = listeArmee[i].get();
-  		if(e->getPays()==paysAttaquant){
-        if (e->getNombre() >= nbDes + 1){
-          return true;
-        }
-        else{
-          std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
-        }
+    for(size_t i=0; i<listeArmee.size(); i++)
+    {
+    	e = listeArmee[i].get();
+  		if(e->getPays()==paysAttaquant)
+  		{
+  			if (e->getNombre() >= nbDes + 1) //on vérifie si le nombre d'armées du pays est supérieur au nombre de dés choisi pour l'attaque
+  			{
+  				return true;
+  			}
+  			else
+  			{
+  				std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
+  			}
         break;
   		}
   	}
@@ -55,15 +60,19 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
     state::ElementTab& tabArmee = state.getArmeeTab();
     std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
     state::Element* e = 0;
-    for(size_t i=0; i<listeArmee.size(); i++){
-      e = listeArmee[i].get();
-  		if(e->getPays()==paysAttaque){
-        if (e->getNombre() >= nbDes){
-          return true;
-        }
-        else{
-          std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant défendre." << std::endl;
-        }
+    for(size_t i=0; i<listeArmee.size(); i++)
+    {
+    	e = listeArmee[i].get();
+  		if(e->getPays()==paysAttaque)
+  		{
+  			if (e->getNombre() >= nbDes)
+  			{
+  				return true;
+  			}
+  			else
+  			{
+  				std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant défendre." << std::endl;
+  			}
         break;
   		}
   	}
@@ -72,14 +81,16 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
 }
 
 std::vector<int> Combat::lancerDes (int nbDes){ //etapes 5-6
+	//srand(TIME(NULL)) appelé une unique fois dans le main
   std::vector<int> liste(nbDes);
-  int nb;
-  srand (time(NULL));
-  for (int i=0; i<nbDes; i++){
-    nb = rand() % 6 + 1; //nb aleatoire de 1 à 6
+  int nb = 0 ;
+ 
+  for (int i=0; i<nbDes; i++)
+  {
+    nb = (rand() % 6) + 1; //nb aleatoire de 1 à 6
     liste[i] = nb;
   }
-   std::sort (liste.begin(), liste.end());
+   //std::sort(liste.begin(), liste.end());
    return liste;
 }
 
