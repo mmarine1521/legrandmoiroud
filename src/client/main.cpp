@@ -213,7 +213,8 @@ int main(int argc,char* argv[])
 	        												{
 	        													
 	        															intelligence->RandomAI::aiJouer(i, 1, currentState); 
-	        															//intelligence->RandomAI::aiJouer(1, 1, currentState); 
+	        															//intelligence->RandomAI::aiJouer(i, 2, currentState);	        															
+	        															//intelligence->RandomAI::aiJouer(i, 3, currentState); 
 	        														
 	        												}	
 	        												//AttributionTerritoires::repartitionArmees(3, state);

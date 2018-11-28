@@ -56,7 +56,10 @@ std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getIdJoueur()==idJoueur) //le choix ne se fait que sur les pays du joueur "idJoueur" 
 		{
-			listeArmeeJoueur.push_back(ptr_armee);
+			if(ptr_armee->getNombre()>1) //nombre d'armées > 1 sinon impossible d'attaquer
+			{
+				listeArmeeJoueur.push_back(ptr_armee);
+			}
 		}
 	}
 
@@ -309,7 +312,7 @@ void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
 }
 
 void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
-	std::cout << "Début du tour " << numeroTour << std::endl;
+	std::cout << "Début du tour " << numeroTour << "pour le joueur"<< idJoueur << std::endl;
 	std::cout << std::endl;
 
   //initialisation du jeu : uniquement au tour 0 ; 
@@ -329,19 +332,21 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
     distributionOk = aiRepartitionArmees(3, state);
   }
 
-		//etape 1 du jeu
+		//etape 1 du jeu : Choix du pays attaquant 
 	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
 	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  while(!verifPaysAttaquantOk){
+	  while(!verifPaysAttaquantOk)
+	  {
 	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
 	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
 	  }
 		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
 
-		//etape 2 du jeu
+		//etape 2 du jeu : Choix du pays que l'on attaque
 	  std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
 	  bool verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
-	  while(!verifPaysAttaqueOk){
+	  while(!verifPaysAttaqueOk)
+	  {
 	    paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
 	    verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
 	  }
@@ -353,7 +358,7 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 	  bool nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
 	  while(!nbAttaquesOk){
 	    nbAttaques = aiNbDesLancersAttaques();
-	    nbAttaquesOk = engine::Combat::verifNbAttaques (nbAttaques, paysAttaquant, state);
+	    nbAttaquesOk = engine::Combat::verifNbAttaques(nbAttaques, paysAttaquant, state);
 	  }
 		std::cout << "L'attaque lance " << nbAttaques << " dés." << std::endl;
 

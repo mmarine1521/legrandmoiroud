@@ -43,6 +43,8 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   			else
   			{
   				std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
+  				//nbDes -= 1;  //si ce n'est pas le cas, on diminue le nombre de dés lancés de 1 ;
+  				break ; 
   			}
         break;
   		}
