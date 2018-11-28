@@ -208,13 +208,16 @@ int main(int argc,char* argv[])
 	        											{
 	        												std::cout<<"AI RANDOM" << std::endl ; 
 	        												 
-	        												
 	        												for(int i = 0 ; i<20 ; i++)
 	        												{
-	        													
-	        															intelligence->RandomAI::aiJouer(i, 1, currentState); 
-	        															//intelligence->RandomAI::aiJouer(i, 2, currentState);	        															
-	        															//intelligence->RandomAI::aiJouer(i, 3, currentState); 
+	        													if(i==0)
+	        													{
+	        														intelligence->RandomAI::aiJouer(i, 1, currentState);
+	        													}
+	        															 
+	        													else 
+	        														intelligence->RandomAI::aiJouer(i, 1, currentState);	        															
+	        														//intelligence->RandomAI::aiJouer(i, 3, currentState); 
 	        														
 	        												}	
 	        												//AttributionTerritoires::repartitionArmees(3, state);
