@@ -152,9 +152,23 @@ void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 			textureNombre7.loadFromFile("./res/nombres/numbers-7.png");
 			textureNombre8.loadFromFile("./res/nombres/numbers-8.png");
 			textureNombre9.loadFromFile("./res/nombres/numbers-9.png");
+			textureNombre10.loadFromFile("./res/nombres/numbers-10.png");
+			textureNombre11.loadFromFile("./res/nombres/numbers-11.png");
+			textureNombre12.loadFromFile("./res/nombres/numbers-12.png");
+			textureNombre13.loadFromFile("./res/nombres/numbers-13.png");
+			textureNombre14.loadFromFile("./res/nombres/numbers-14.png");
+			textureNombre15.loadFromFile("./res/nombres/numbers-15.png");
+			textureNombre16.loadFromFile("./res/nombres/numbers-16.png");
+			textureNombre17.loadFromFile("./res/nombres/numbers-17.png");
+			textureNombre18.loadFromFile("./res/nombres/numbers-18.png");
+			textureNombre19.loadFromFile("./res/nombres/numbers-19.png");
+			textureNombre20.loadFromFile("./res/nombres/numbers-20.png");
 			textureNombre0.setSmooth(true) ; textureNombre3.setSmooth(true) ; textureNombre5.setSmooth(true) ; textureNombre7.setSmooth(true) ;
 			textureNombre1.setSmooth(true) ; textureNombre4.setSmooth(true) ; textureNombre6.setSmooth(true) ; textureNombre8.setSmooth(true) ;
 			textureNombre2.setSmooth(true) ; textureNombre9.setSmooth(true) ;
+			textureNombre10.setSmooth(true) ; textureNombre13.setSmooth(true) ; textureNombre15.setSmooth(true) ; textureNombre17.setSmooth(true) ;
+			textureNombre11.setSmooth(true) ; textureNombre14.setSmooth(true) ; textureNombre16.setSmooth(true) ; textureNombre18.setSmooth(true) ;
+			textureNombre12.setSmooth(true) ; textureNombre19.setSmooth(true) ; textureNombre20.setSmooth(true); 
 			
 			
 			sf::Sprite nombreCongo ; 
