@@ -32,7 +32,7 @@ namespace ai {
   class AI {
     // Operations
   public:
-    virtual bool aiRepartitionArmees (int idJoueur, state::State state) = 0;
+    virtual void aiRepartitionArmees (int idJoueur, state::State state) = 0;
     virtual std::string aiChoixPaysAttaquant (int idJoueur, state::State state) = 0;
     virtual std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state) = 0;
     virtual int aiNbDesLancersAttaques () = 0;

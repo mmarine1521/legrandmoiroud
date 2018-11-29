@@ -20,7 +20,7 @@ namespace ai {
   class RandomAI : public ai::AI {
     // Operations
   public:
-    bool aiRepartitionArmees (int idJoueur, state::State state);
+    void aiRepartitionArmees (int idJoueur, state::State state);
     std::string aiChoixPaysAttaquant (int idJoueur, state::State state);
     std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
     int aiNbDesLancersAttaques ();

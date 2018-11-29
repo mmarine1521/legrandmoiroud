@@ -46,7 +46,7 @@ int GainCombat::gainArmees (int idJoueur, state::State state){
       compt += 1;
     }
   }
-  compt = compt / 3;
+  compt = compt / 3; //div
   return compt;
 }
 

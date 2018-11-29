@@ -20,7 +20,7 @@ namespace ai {
   class HeuristicAI : public ai::AI {
     // Operations
   public:
-    bool heuristicRepartitionArmees (int idJoueur, state::State state);
+    void heuristicRepartitionArmees (int idJoueur, state::State state);
     std::string heuristicChoixPaysAttaquant (int idJoueur, state::State state);
     std::string heuristicChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
     int heuristicNbDesLancersAttaques ();
