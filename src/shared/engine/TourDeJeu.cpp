@@ -92,7 +92,8 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state, sf::Ren
 
     //etape 8 du jeu
     GainCombat::gainCartes (idJoueur, victoire, state);
-    int nouvellesArmees = GainCombat::gainArmees (idJoueur, state);
+    //int nouvellesArmees = GainCombat::gainArmees (idJoueur, state);
+    int nouvellesArmees = 0;
 
     //etape 9 du jeu
     int echange = EchangeCartes::echange (idJoueur, state);

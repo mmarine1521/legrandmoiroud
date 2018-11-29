@@ -2,6 +2,7 @@
 #ifndef ENGINE__TOURDEJEU__H
 #define ENGINE__TOURDEJEU__H
 
+#include <SFML/Graphics.hpp>
 
 namespace state {
   class State;
@@ -32,7 +33,7 @@ namespace engine {
     // Associations
     // Operations
   public:
-    static void jouer (int numeroTour, int idJoueur, state::State state);
+    static void jouer (int numeroTour, int idJoueur, state::State state, sf::RenderWindow& window, sf::Event event);
     // Setters and Getters
   };
 

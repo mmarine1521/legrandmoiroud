@@ -43,7 +43,6 @@ bool Combat::verifNbAttaques (int nbDes, std::string paysAttaquant, state::State
   			else
   			{
   				std::cout << "Problème : Vous n'avez pas assez d'armées sur votre territoire pouvant attaquer." << std::endl;
-  				//nbDes -= 1;  //si ce n'est pas le cas, on diminue le nombre de dés lancés de 1 ;
   				break ; 
   			}
         break;
@@ -83,7 +82,6 @@ bool Combat::verifNbDefenses (int nbDes, std::string paysAttaque, state::State s
 }
 
 std::vector<int> Combat::lancerDes (int nbDes){ //etapes 5-6
-	//srand(TIME(NULL)) appelé une unique fois dans le main
   std::vector<int> liste(nbDes);
   int nb = 0 ;
  
@@ -92,7 +90,7 @@ std::vector<int> Combat::lancerDes (int nbDes){ //etapes 5-6
     nb = (rand() % 6) + 1; //nb aleatoire de 1 à 6
     liste[i] = nb;
   }
-   //std::sort(liste.begin(), liste.end());
+   std::sort(liste.begin(), liste.end());
    return liste;
 }
 

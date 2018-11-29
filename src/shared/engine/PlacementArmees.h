@@ -2,6 +2,7 @@
 #ifndef ENGINE__PLACEMENTARMEES__H
 #define ENGINE__PLACEMENTARMEES__H
 
+#include <SFML/Graphics.hpp>
 
 namespace state {
   class State;
@@ -24,7 +25,7 @@ namespace engine {
   public:
     virtual ~PlacementArmees ();
     IdCommande const getIdCommande ();
-    static void placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
+    static void placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state, sf::RenderWindow& window, sf::Event event);
     static void deplacerArmees (int idJoueur, state::State state);
     // Setters and Getters
   };

@@ -2,6 +2,7 @@
 #ifndef ENGINE__ATTRIBUTIONTERRITOIRES__H
 #define ENGINE__ATTRIBUTIONTERRITOIRES__H
 
+#include <SFML/Graphics.hpp>
 
 namespace state {
   class State;
@@ -25,7 +26,7 @@ namespace engine {
     virtual ~AttributionTerritoires ();
     IdCommande const getIdCommande ();
     static void distribution (state::State state, int nbJoueurs = 3);
-    static bool repartitionArmees (int idJoueur, state::State state);
+    static bool repartitionArmees (int idJoueur, state::State state, sf::RenderWindow& window, sf::Event event);
     static void undoRepartitionArmees (int idJoueur, state::State state);
     // Setters and Getters
   };

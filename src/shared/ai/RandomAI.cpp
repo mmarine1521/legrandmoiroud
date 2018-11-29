@@ -2,10 +2,6 @@
 
 namespace ai {
 
-RandomAI::RandomAI()
-{
-	
-}
 bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -23,7 +19,6 @@ bool RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 		}
 	}
 
-	//srand (time(NULL));
 	int armeeAleatoire1 = rand() % listeArmeeJoueur.size();
 	int armeeAleatoire2 = -1;
 	while(armeeAleatoire2 == -1 || armeeAleatoire2 == armeeAleatoire1){
@@ -63,7 +58,6 @@ std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
 		}
 	}
 
-	//srand (time(NULL));
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement 
 	return ptr_armee->getPays(); //on retourne le pays attaquant ; 
@@ -84,7 +78,6 @@ std::string RandomAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquan
 		}
 	}
 
-	//srand (time(NULL));
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
 	return ptr_armee->getPays(); //idem pour le pays qui est attaqué. 
@@ -121,7 +114,6 @@ void RandomAI::aiGainCartes (int idJoueur, bool victoire, state::State state){
 				}
 			}
 
-		//	srand(time(NULL));
       int positionCarte = rand() % listeCarteJoueur.size();
 			ptr_carte = listeCarteJoueur[positionCarte];
       engine::GestionCartes::defausser (ptr_carte->getNumero(), state);
@@ -132,87 +124,86 @@ void RandomAI::aiGainCartes (int idJoueur, bool victoire, state::State state){
 }
 
 int RandomAI::aiEchange (int idJoueur, state::State state){
-	state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
-	std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
-	state::Element* ptr_carte = 0;
+  int decision = rand() % 2;
+  if (decision == 1){
+    state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+    std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+    state::Element* ptr_carte = 0;
 
-	int comptTANK = 0;
-	int comptCANON = 0;
-	int comptSOLDAT = 0;
-	for(size_t i=0; i<listeEnjeu.size(); i++){
-		ptr_carte = listeEnjeu[i].get();
-		if (ptr_carte->getIdJoueur() == idJoueur){
-			switch (ptr_carte->getCarteForce()) {
-				case 0 : break; //NONIDENTIFIE
-				case 1 : comptTANK +=1; break; //TANK
-				case 2 : comptCANON +=1; break; //CANON
-				case 3 : comptSOLDAT +=1; break; //SOLDAT
-			}
-		}
-	}
+    int comptTANK = 0;
+    int comptCANON = 0;
+    int comptSOLDAT = 0;
+    for(size_t i=0; i<listeEnjeu.size(); i++){
+      ptr_carte = listeEnjeu[i].get();
+      if (ptr_carte->getIdJoueur() == idJoueur){
+        switch (ptr_carte->getCarteForce()) {
+          case 0 : break; //NONIDENTIFIE
+          case 1 : comptTANK +=1; break; //TANK
+          case 2 : comptCANON +=1; break; //CANON
+          case 3 : comptSOLDAT +=1; break; //SOLDAT
+        }
+      }
+    }
 
-	if (comptTANK <3 && comptCANON <3 && comptSOLDAT <3){
-		return 0;
-	}
-	else{
-		//srand(time(NULL));
-		int decision = rand() % 2;
-		if (decision == 0){
-			return 0;
-		}
-		else{
-			//5 cartes max
-			int comptDefausse = 0;
-			if (comptTANK >= 3){
-				for(size_t i=0; i<listeEnjeu.size(); i++){
-					ptr_carte = listeEnjeu[i].get();
-					if (ptr_carte->getIdJoueur() == idJoueur){
-						if (ptr_carte->getCarteForce() == 1){
-							engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-							comptDefausse += 1;
-						}
-					}
-					if (comptDefausse == 3){
-						break;
-					}
-				}
-				return 5;
-			}
+    if (comptTANK <3 && comptCANON <3 && comptSOLDAT <3){
+      return 0;
+    }
+    else{
+      //5 cartes max
+      int comptDefausse = 0;
+      if (comptTANK >= 3){
+        for(size_t i=0; i<listeEnjeu.size(); i++){
+          ptr_carte = listeEnjeu[i].get();
+          if (ptr_carte->getIdJoueur() == idJoueur){
+            if (ptr_carte->getCarteForce() == 1){
+              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
+              comptDefausse += 1;
+            }
+          }
+          if (comptDefausse == 3){
+            break;
+          }
+        }
+        return 5;
+      }
 
-			else if (comptCANON >= 3){
-				for(size_t i=0; i<listeEnjeu.size(); i++){
-					ptr_carte = listeEnjeu[i].get();
-					if (ptr_carte->getIdJoueur() == idJoueur){
-						if (ptr_carte->getCarteForce() == 2){
-							engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-							comptDefausse += 1;
-						}
-					}
-					if (comptDefausse == 3){
-						break;
-					}
-				}
-				return 8;
-			}
+      else if (comptCANON >= 3){
+        for(size_t i=0; i<listeEnjeu.size(); i++){
+          ptr_carte = listeEnjeu[i].get();
+          if (ptr_carte->getIdJoueur() == idJoueur){
+            if (ptr_carte->getCarteForce() == 2){
+              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
+              comptDefausse += 1;
+            }
+          }
+          if (comptDefausse == 3){
+            break;
+          }
+        }
+        return 8;
+      }
 
-			else if (comptSOLDAT >= 3){
-				for(size_t i=0; i<listeEnjeu.size(); i++){
-					ptr_carte = listeEnjeu[i].get();
-					if (ptr_carte->getIdJoueur() == idJoueur){
-						if (ptr_carte->getCarteForce() == 3){
-							engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-							comptDefausse += 1;
-						}
-					}
-					if (comptDefausse == 3){
-						break;
-					}
-				}
-				return 3;
-			}
-			return -1;
-		}
-	}
+      else if (comptSOLDAT >= 3){
+        for(size_t i=0; i<listeEnjeu.size(); i++){
+          ptr_carte = listeEnjeu[i].get();
+          if (ptr_carte->getIdJoueur() == idJoueur){
+            if (ptr_carte->getCarteForce() == 3){
+              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
+              comptDefausse += 1;
+            }
+          }
+          if (comptDefausse == 3){
+            break;
+          }
+        }
+        return 3;
+      }
+    }
+  }
+  else{
+    return 0;
+  }
+	return -1;
 }
 
 void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){
@@ -232,7 +223,6 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 	int numeroPays;
 	int nombreArmees;
 	while (armeesAPlacer != 0){
-		//srand(time(NULL));
 		numeroPays = rand() % listeArmeeJoueur.size();
 		nombreArmees = rand() % armeesAPlacer + 1;
 		ptr_armee = listeArmeeJoueur[numeroPays];
@@ -243,7 +233,6 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 }
 
 void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
-	//srand(time(NULL));
 	int decision = rand() % 2;
 	while (decision == 1){
 		state::ElementTab& tabArmee = state.getArmeeTab();
@@ -285,7 +274,6 @@ void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
 			}
 		}
 
-		//srand(time(NULL));
 		int numeroPays = rand() % listePays1.size();
 
 		state::Element* ptr_armee1 = 0;
@@ -384,7 +372,8 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 
 		//etape 8 du jeu
 	  aiGainCartes (idJoueur, victoire, state);
-	  int nouvellesArmees = engine::GainCombat::gainArmees (idJoueur, state);
+	  //int nouvellesArmees = engine::GainCombat::gainArmees (idJoueur, state);
+		int nouvellesArmees = 0;
 
 		//etape 9 du jeu
 	  int echange = aiEchange (idJoueur, state);
