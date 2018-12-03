@@ -77,7 +77,20 @@ int main(int argc,char* argv[])
 						currentState.setPaysTab(tabPays);
 						currentState.setContinentTab(tabContinent);
 						
-						//RandomAI *intelligence = new RandomAI::RandomAI();
+						
+						std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+						state::Element* e1 = 0;
+						state::Element* e2 = 0;
+						state::Element* e3 = 0;
+						state::Element* e4 = 0;
+						
+						e1 = listeArmee[32].get(); //test islande
+						e2 = listeArmee[35].get(); //test europe du sud
+						e3 = listeArmee[33].get(); //test europe du nord
+						e4 = listeArmee[37].get(); //test europe occidentale
+						
+						
+						
 						RandomAI* intelligence  = new ai::RandomAI() ; 
 	        			
 	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
@@ -95,6 +108,7 @@ int main(int argc,char* argv[])
 	        					sf::Event event;
 	        					while (window.pollEvent(event))
 	        					{
+	        						int i = 0 ; 
 									switch (event.type)
 									{
 										case sf::Event::Closed :
@@ -124,6 +138,21 @@ int main(int argc,char* argv[])
 												//TourDeJeu::jouer(0,1,currentState,window,event);
 												
 												std::cout <<"Placement Terminé"<<std::endl ;	
+											}
+											
+											if(event.key.code == sf::Keyboard::C)
+											{
+												std::cout<<"AI RANDOM" << std::endl ; 
+												i+= 1 ;  
+												intelligence->RandomAI::aiJouer(i, 1, currentState);
+												std::cout << "test" << std::endl ; 
+												//std::cout << e1 -> getNombre() << std::endl ; 
+												//std::cout << e2 -> getNombre() << std::endl ; 
+												//std::cout << e2 -> getNombre() << std::endl ; 
+												//std::cout << e2 -> getNombre() << std::endl ; 
+												
+												//AttributionTerritoires::repartitionArmees(3, state);
+												//std::cout <<"Placement Terminé"<<std::endl ;	
 											}
 									break;
 										default:
@@ -208,7 +237,7 @@ int main(int argc,char* argv[])
 	        											{
 	        												std::cout<<"AI RANDOM" << std::endl ; 
 	        												 
-	        												for(int i = 0 ; i<20 ; i++)
+	        												for(int i = 0 ; i<40 ; i++)
 	        												{
 	        													if(i==0)
 	        													{
@@ -217,7 +246,7 @@ int main(int argc,char* argv[])
 	        															 
 	        													else 
 	        														intelligence->RandomAI::aiJouer(i, 1, currentState);	        															
-	        														//intelligence->RandomAI::aiJouer(i, 3, currentState); 
+	        														intelligence->RandomAI::aiJouer(i, 3, currentState); 
 	        														
 	        												}	
 	        												//AttributionTerritoires::repartitionArmees(3, state);
