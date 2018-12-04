@@ -75,23 +75,23 @@ void Affichage::AfficheChoixNbrArmees(state::State& state, sf::RenderWindow& win
 						 sprite6.setTexture(texture6);  sprite7.setTexture(texture7);  sprite8.setTexture(texture8);  sprite9.setTexture(texture9);
 						 
 						 sprite.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite.setPosition(sf::Vector2f(1080.f, 150.f));
+						 sprite.setPosition(sf::Vector2f(1100.f, 150.f));
 						 sprite2.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite2.setPosition(sf::Vector2f(1130.f, 150.f));
+						 sprite2.setPosition(sf::Vector2f(1150.f, 150.f));
 						 sprite3.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite3.setPosition(sf::Vector2f(1180.f, 150.f));
+						 sprite3.setPosition(sf::Vector2f(1200.f, 150.f));
 						 sprite4.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite4.setPosition(sf::Vector2f(1080.f, 220.f));
+						 sprite4.setPosition(sf::Vector2f(1100.f, 220.f));
 						 sprite5.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite5.setPosition(sf::Vector2f(1130.f, 220.f));
+						 sprite5.setPosition(sf::Vector2f(1150.f, 220.f));
 						 sprite6.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite6.setPosition(sf::Vector2f(1180.f, 220.f));
+						 sprite6.setPosition(sf::Vector2f(1200.f, 220.f));
 						 sprite7.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite7.setPosition(sf::Vector2f(1080.f, 290.f));
+						 sprite7.setPosition(sf::Vector2f(1100.f, 290.f));
 						 sprite8.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite8.setPosition(sf::Vector2f(1130.f, 290.f));
+						 sprite8.setPosition(sf::Vector2f(1150.f, 290.f));
 						 sprite9.setScale(sf::Vector2f(0.50f, 0.50f));
-						 sprite9.setPosition(sf::Vector2f(1180.f, 290.f));
+						 sprite9.setPosition(sf::Vector2f(1200.f, 290.f));
 						
 						window.draw(sprite);
 						window.draw(sprite2);
@@ -2201,7 +2201,7 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 
 std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 {
-	std::cout<<"test clib demarre"<<std::endl ; 
+	std::cout<<"test clic demarre"<<std::endl ; 
 	float fa_x = 0.9;
 	float fa_y = 0.9 ;
 	std::string pays_clic = "";
@@ -2459,4 +2459,88 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 						}
 		return pays_clic ; 				
 			    
+}
+
+
+int Affichage::NombreClic(sf::RenderWindow& window, sf::Event event)
+{
+	std::cout<<"test clic demarre"<<std::endl ; 
+	float fa_x = 1.0;
+	float fa_y = 1.0 ;
+	int nombreArmees = 0;
+	
+			       
+			        window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			       //cas où la fenêtre est redimensionnée
+			        
+			  
+			        if (event.type == sf::Event::Resized)
+			        {
+			            //std::cout << "new width: " << event.size.width << std::endl;
+			            //std::cout << "new height: " << event.size.height << std::endl;
+			            fa_x = float(1.0*(event.size.width/1280));
+			            fa_y = float(1.0*(event.size.width/720));
+			        }
+			        
+			        if (event.type == sf::Event::MouseButtonPressed)
+						{
+							if(event.mouseButton.button ==sf::Mouse::Left)
+							{
+								std::cout << "Bouton droit pressé" <<std::endl ;
+								std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
+								std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
+
+
+							}
+							if(event.mouseButton.button ==sf::Mouse::Right)
+							{
+								if(event.mouseButton.x>(1100*fa_x) && event.mouseButton.x <(1140*fa_x) && event.mouseButton.y >(150*fa_y) && event.mouseButton.y<(218*fa_y))
+								{
+									nombreArmees = 1;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1150*fa_x) && event.mouseButton.x <(1190*fa_x) && event.mouseButton.y >(150*fa_y) && event.mouseButton.y<(218*fa_y))
+								{
+									nombreArmees = 2;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1200*fa_x) && event.mouseButton.x <(1260*fa_x) && event.mouseButton.y >(150*fa_y) && event.mouseButton.y<(218*fa_y))
+								{
+									nombreArmees = 3;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1100*fa_x) && event.mouseButton.x <(1140*fa_x) && event.mouseButton.y >(220*fa_y) && event.mouseButton.y<(280*fa_y))
+								{
+									nombreArmees = 4;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1150*fa_x) && event.mouseButton.x <(1190*fa_x) && event.mouseButton.y >(220*fa_y) && event.mouseButton.y<(280*fa_y))
+								{
+									nombreArmees = 5;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1200*fa_x) && event.mouseButton.x <(1260*fa_x) && event.mouseButton.y >(220*fa_y) && event.mouseButton.y<(280*fa_y))
+								{
+									nombreArmees = 6;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1100*fa_x) && event.mouseButton.x <(1140*fa_x) && event.mouseButton.y >(290*fa_y) && event.mouseButton.y<(350*fa_y))
+								{
+									nombreArmees = 7;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1150*fa_x) && event.mouseButton.x <(1190*fa_x) && event.mouseButton.y >(290*fa_y) && event.mouseButton.y<(350*fa_y))
+								{
+									nombreArmees = 8;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								if(event.mouseButton.x>(1200*fa_x) && event.mouseButton.x <(1260*fa_x) && event.mouseButton.y >(290*fa_y) && event.mouseButton.y<(350*fa_y))
+								{
+									nombreArmees = 9;
+									std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+								}
+								
+							}
+						}
+			        return nombreArmees ; 
 }

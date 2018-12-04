@@ -36,6 +36,7 @@ namespace render {
     static void AfficheArmees (state::State& state, sf::RenderWindow& window);
      static void AfficheNombre (state::State& state, sf::RenderWindow& window);
     static std::string PaysClic (sf::RenderWindow& window, sf::Event event);
+    static int NombreClic (sf::RenderWindow& window, sf::Event event);
     void draw (sf::RenderTarget& target, sf::RenderStates states) const;
     static void AfficheChoixNbrArmees (state::State& state, sf::RenderWindow& window);
     // Setters and Getters
