@@ -48,16 +48,14 @@ bool ChoixPays::verifPaysAttaquant (int idJoueur, std::string paysAttaquant, sta
   for(size_t i=0; i<listeArmee.size(); i++)
   {
     ptr_armee = listeArmee[i].get();
-//    if(ptr_armee->getNombre() > 1)
-//        {
-//        	break ; //on a le bon nombre de pions
-//        }
+    
     if(ptr_armee->getPays() == paysAttaquant)
     {
       break; // on a la bonne Armee
-    }
-    
+    } 
   }
+  std::cout<<"début verifPaysAttaquant - armee" << ptr_armee->getPays()<< std::endl ;
+  
   if(ptr_armee->getIdJoueur() == idJoueur)
   {
     state::ElementTab& tabPays = state.getPaysTab();
@@ -71,32 +69,55 @@ bool ChoixPays::verifPaysAttaquant (int idJoueur, std::string paysAttaquant, sta
         break; // on a le bon Pays
       }
     }
+    std::cout<<"début verifPaysAttaquant - pays" << ptr_armee->getPays()<< std::endl ;
     
 
     std::vector<std::string> listePaysFontaliers = ptr_pays->getPaysFrontaliers(); //on vérifie dans les pays frontaliers qu'il n'y ait pas que des pays du joueur qui attaque
     state::Element* ptr_frontalier = 0;
+    std::cout<<"suite verifPaysAttaquant"<< std::endl ;
+    
+    std::cout<<"recup pays Frontaliers"<< std::endl ;
     for(size_t i=0; i<listePaysFontaliers.size(); i++)
     {
       std::string paysFrontalier = listePaysFontaliers[i];
+      
+      std::cout<<"pays Frontaliers :" << paysFrontalier<<std::endl ;
+      
       for(size_t j=0; j<listeArmee.size(); j++)
       {
         ptr_frontalier = listeArmee[j].get();
+         
         if(ptr_frontalier->getPays() == paysFrontalier)
         {
-          if(ptr_frontalier->getIdJoueur() != idJoueur)
-          {
-            ok = true;
-          }
-          break;
+        	std::cout<< "les pays frontaliers 2 sont " << ptr_frontalier->getPays()<<"ID joueur" <<ptr_frontalier->getIdJoueur() <<std::endl ;
+        	if(ptr_frontalier->getIdJoueur() != idJoueur)
+				  {
+					ok = true;
+					std::cout<< "les pays frontaliers 2 sont " << ptr_frontalier->getPays() <<"l'id du joueur de ce pays est " << ptr_frontalier->getIdJoueur()<<std::endl ;
+					std::cout<<"début verifPaysAttaquant - frontalier d'autre joueur OK" << std::endl ;
+					break ; 
+					
+				  }
+        	else 
+        	{
+        		break ; 
+        		std::cout<< "impossible d'attaquer dans l'état - faites des déplacements"<<std::endl ; 
+        		
+        	}
+        	break;
         }
+        
       }
+     
     }
+    
 
   }
   else {
     std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
+  
   }
-
+  std::cout<<"resultat de la fonction" << ok<<std::endl ; 
   return ok;
 }
 
