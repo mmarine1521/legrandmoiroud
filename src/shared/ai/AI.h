@@ -35,8 +35,6 @@ namespace ai {
     virtual void aiRepartitionArmees (int idJoueur, state::State state) = 0;
     virtual std::string aiChoixPaysAttaquant (int idJoueur, state::State state) = 0;
     virtual std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state) = 0;
-    virtual int aiNbDesLancersAttaques () = 0;
-    virtual int aiNbDesLancersDefenses () = 0;
     virtual void aiGainCartes (int idJoueur, bool victoire, state::State state) = 0;
     virtual int aiEchange (int idJoueur, state::State state) = 0;
     virtual void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state) = 0;

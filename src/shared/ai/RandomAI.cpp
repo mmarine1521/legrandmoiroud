@@ -2,41 +2,6 @@
 
 namespace ai {
 
-void RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
-	state::ElementTab& tabArmee = state.getArmeeTab();
-	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-	state::Element* ptr_armee = 0;
-
-	std::vector<state::Element*> listeArmeeJoueur;
-	for(size_t i=0; i<listeArmee.size(); i++) //on parcourt la liste d'armée
-	{
-		ptr_armee = listeArmee[i].get(); //on récupère un à un les éléments armée
-		if(ptr_armee->getIdJoueur()==idJoueur) //on vérifie que l'ID de joueur correspond à l'ID en argument
-		{
-			listeArmeeJoueur.push_back(ptr_armee); //On rajoute cette armée dans la liste armée du joueur
-			ptr_armee->setNombre(3); //on donne 3 armées à cette armée de ce joueur ;
-		}
-	}
-
-	/*int armeeAleatoire1 = rand() % listeArmeeJoueur.size();
-	int armeeAleatoire2 = -1;
-	while(armeeAleatoire2 == -1 || armeeAleatoire2 == armeeAleatoire1){
-		armeeAleatoire2 = rand() % listeArmeeJoueur.size();
-	}
-
-	ptr_armee = listeArmeeJoueur[armeeAleatoire1];
-	ptr_armee->setNombre(2);
-	ptr_armee = listeArmeeJoueur[armeeAleatoire2];
-	ptr_armee->setNombre(2);*/
-
-	//test de verification nombre d'armées par territoires
-	for(size_t i=0 ; i<listeArmee.size(); i++)
-	{
-		ptr_armee = listeArmee[i].get() ;
-		std::cout<<"nombre d'armée sur"<< ptr_armee->getPays()  <<  ptr_armee->getNombre() << std::endl ;
-	}
-}
-
 std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -226,7 +191,20 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 		ptr_armee->setNombre(ptr_armee->getNombre() + nombreArmees);
 		armeesAPlacer -= nombreArmees;
 	}
+}
 
+void RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
+	state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* ptr_armee = 0;
+
+	for(size_t i=0; i<listeArmee.size(); i++){ //on parcourt la liste d'armée
+		ptr_armee = listeArmee[i].get(); //on récupère un à un les éléments armée
+		if(ptr_armee->getIdJoueur()==idJoueur){ //on vérifie que l'ID de joueur correspond à l'ID en argument
+			ptr_armee->setNombre(1); //on donne 1 armée à chaque territoire du joueur
+		}
+	}
+	RandomAI::aiPlacerNouvellesArmees(idJoueur, 28, state);
 }
 
 void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){

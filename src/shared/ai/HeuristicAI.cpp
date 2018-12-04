@@ -7,7 +7,7 @@
 
 namespace ai {
 
-void HeuristicAI::heuristicRepartitionArmees (int idJoueur, state::State state){
+void HeuristicAI::aiRepartitionArmees (int idJoueur, state::State state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -95,7 +95,7 @@ void HeuristicAI::heuristicRepartitionArmees (int idJoueur, state::State state){
   }
 }
 
-std::string HeuristicAI::heuristicChoixPaysAttaquant (int idJoueur, state::State state){
+std::string HeuristicAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -168,8 +168,7 @@ std::string HeuristicAI::heuristicChoixPaysAttaquant (int idJoueur, state::State
   }
 } //si jamais le pays est entouré de frontaliers et ne va donc pas !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state){
-///////////////////////////////////////////////////
+std::string HeuristicAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;
@@ -180,13 +179,13 @@ std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string pa
       break;
     }
   }
-  std::vector<std::string> paysFrontaliers = ptr_pays->getPaysFrontaliers();
+  std::vector<std::string> paysFrontaliers = ptr_pays->getPaysFrontaliers(); // pays frontaliers du paysAttaquant
 
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
   std::map<std::string, int> nbArmee;
-  std::vector<std::string> listePaysJoueur;
+  std::vector<std::string> listePaysJoueurAdversaire;
 
   for(size_t i=0; i<listeArmee.size(); i++){
     ptr_armee = listeArmee[i].get();
@@ -194,13 +193,13 @@ std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string pa
     if (result != paysFrontaliers.end()){
       if (ptr_armee->getIdJoueur() != idJoueur){
         nbArmee[ptr_armee->getPays()] = ptr_armee->getNombre(); // remplit map armeePaysFrontaliersPasALui / nbArmee
-        listePaysJoueur.push_back(ptr_armee->getPays());
+        listePaysJoueurAdversaire.push_back(ptr_armee->getPays());
       }
     }
   }
 
   int mini = 100;
-  std::list<std::string> armeeMini;
+  std::list<std::string> armeeMini; //liste des pays ayant le moins d'armées
   for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
     if (it->second < mini){
       armeeMini.clear();
@@ -216,30 +215,18 @@ std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string pa
     return armeeMini.front();
   }
   else{
-    std::vector<state::Element*> listePaysFrontaliersMaxi;
-
-    for (std::string armee : armeeMini) {
-      for(size_t i=0; i<listePays.size(); i++){
-        ptr_pays = listePays[i].get();
-        if (ptr_pays->getPays() == armee){
-          listePaysFrontaliersMaxi.push_back(ptr_pays); // remplit la liste des pays ayant le plus d'armees
-        }
-      }
-    }
-
     std::map<std::string, int> nbFrontaliers;
     int compt;
-    for(size_t i=0; i<listePaysFrontaliersMaxi.size(); i++){
-      ptr_pays = listePaysFrontaliersMaxi[i];
+    for(std::string armee : armeeMini){
       compt = 0;
-      for(size_t j=0; j<listePaysJoueur.size(); j++){
-        if (ptr_pays->getPays() != listePaysJoueur[j]){
-          if (engine::ChoixPays::estFrontalier(ptr_pays->getPays(), listePaysJoueur[j], state)){
-            compt ++;
+      for(size_t j=0; j<listePaysJoueurAdversaire.size(); j++){
+        if (armee != listePaysJoueurAdversaire[j]){
+          if (engine::ChoixPays::estFrontalier(armee, listePaysJoueurAdversaire[j], state)){
+            compt ++; // On compte combien de pays frontaliers adversaires compte le pays qu'on veut attaquer
           }
         }
       }
-      nbFrontaliers[ptr_pays->getPays()] = compt;
+      nbFrontaliers[armee] = compt;
     }
 
     int maxi = 0;
@@ -247,7 +234,7 @@ std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string pa
     for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
       if (it->second > maxi){
         maxi = it->second;
-        paysOpti = it->first;
+        paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
       }
     }
     return paysOpti;
@@ -255,11 +242,70 @@ std::string HeuristicAI::heuristicChoixPaysAttaque (int idJoueur, std::string pa
 
 }
 
-//int HeuristicAI::heuristicNbDesLancersAttaques (){}
+int HeuristicAI::aiNbDesLancersAttaques (std::string paysAttaquant, std::string paysAttaque, state::State state){
+  state::ElementTab& tabArmee = state.getArmeeTab();
+  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  state::Element* ptr_armee = 0;
 
-//int HeuristicAI::heuristicNbDesLancersDefenses (){}
+  int nbArmeeAttaquant = 0;
+  int nbArmeeAttaque = 0;
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_armee = listeArmee[i].get();
+    if (ptr_armee->getPays() == paysAttaquant){
+      nbArmeeAttaquant = ptr_armee->getNombre();
+    }
+    if (ptr_armee->getPays() == paysAttaque){
+      nbArmeeAttaque = ptr_armee->getNombre();
+    }
+  }
 
-void HeuristicAI::heuristicGainCartes (int idJoueur, bool victoire, state::State state){
+  if (nbArmeeAttaquant >= 4){
+    return 3;
+  }
+  else if (nbArmeeAttaquant == 3){
+    if (nbArmeeAttaque <=2){
+      return 3;
+    }
+    else{
+      return 2;
+    }
+  }
+  else if (nbArmeeAttaquant == 2){
+    if (nbArmeeAttaque >= 2){
+      return 1;
+    }
+    else{
+      return 2;
+    }
+  }
+  else{
+    return 0;
+  }
+}
+
+int HeuristicAI::aiNbDesLancersDefenses (std::string paysAttaque, state::State state){
+  state::ElementTab& tabArmee = state.getArmeeTab();
+  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  state::Element* ptr_armee = 0;
+
+  int nbArmee = 0;
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_armee = listeArmee[i].get();
+    if (ptr_armee->getPays() == paysAttaque){
+      nbArmee = ptr_armee->getNombre();
+      break;
+    }
+  }
+
+  if (nbArmee > 2){
+    return 2;
+  }
+  else{
+    return 1;
+  }
+}
+
+void HeuristicAI::aiGainCartes (int idJoueur, bool victoire, state::State state){
   if(victoire){
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
@@ -342,7 +388,7 @@ void HeuristicAI::heuristicGainCartes (int idJoueur, bool victoire, state::State
   }
 }
 
-int HeuristicAI::heuristicEchange (int idJoueur, state::State state){
+int HeuristicAI::aiEchange (int idJoueur, state::State state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -419,10 +465,44 @@ int HeuristicAI::heuristicEchange (int idJoueur, state::State state){
   return -1;
 }
 
-//void HeuristicAI::heuristicPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){}
+void HeuristicAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){
+  int APlacer = nouvellesArmees;
+  state::ElementTab& tabArmee = state.getArmeeTab();
+  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  state::Element* ptr_armee = 0;
 
-//void HeuristicAI::heuristicDeplacerArmees (int idJoueur, state::State state){}
+  std::map<std::string, int> nbArmee;
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_armee = listeArmee[i].get();
+    if (ptr_armee->getIdJoueur() == idJoueur){
+      nbArmee[ptr_armee->getPays()] = ptr_armee->getNombre();
+    }
+  }
 
-//void HeuristicAI::heuristicJouer (int numeroTour, int idJoueur, state::State state){}
+  while(APlacer != 0){
+    int mini = 100;
+    std::string paysMini;
+    for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
+      if (it->second < mini){
+        mini = it->second;
+        paysMini = it->first;
+      }
+    }
+
+    for(size_t i=0; i<listeArmee.size(); i++){
+      ptr_armee = listeArmee[i].get();
+      if (ptr_armee->getPays() == paysMini){
+        ptr_armee->setNombre(ptr_armee->getNombre() + 1);
+        break;
+      }
+    }
+
+    APlacer -= 1;
+  }
+}
+
+//void HeuristicAI::aiDeplacerArmees (int idJoueur, state::State state){}
+
+//void HeuristicAI::aiJouer (int numeroTour, int idJoueur, state::State state){}
 
 }

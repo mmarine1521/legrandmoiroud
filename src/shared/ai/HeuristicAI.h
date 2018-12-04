@@ -20,16 +20,16 @@ namespace ai {
   class HeuristicAI : public ai::AI {
     // Operations
   public:
-    void heuristicRepartitionArmees (int idJoueur, state::State state);
-    std::string heuristicChoixPaysAttaquant (int idJoueur, state::State state);
-    std::string heuristicChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
-    int heuristicNbDesLancersAttaques ();
-    int heuristicNbDesLancersDefenses ();
-    void heuristicGainCartes (int idJoueur, bool victoire, state::State state);
-    int heuristicEchange (int idJoueur, state::State state);
-    void heuristicPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
-    void heuristicDeplacerArmees (int idJoueur, state::State state);
-    void heuristicJouer (int numeroTour, int idJoueur, state::State state);
+    void aiRepartitionArmees (int idJoueur, state::State state);
+    std::string aiChoixPaysAttaquant (int idJoueur, state::State state);
+    std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
+    int aiNbDesLancersAttaques (std::string paysAttaquant, std::string paysAttaque, state::State state);
+    int aiNbDesLancersDefenses (std::string paysAttaque, state::State state);
+    void aiGainCartes (int idJoueur, bool victoire, state::State state);
+    int aiEchange (int idJoueur, state::State state);
+    void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
+    void aiDeplacerArmees (int idJoueur, state::State state);
+    void aiJouer (int numeroTour, int idJoueur, state::State state);
     // Setters and Getters
   };
 
