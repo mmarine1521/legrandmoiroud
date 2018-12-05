@@ -10,8 +10,8 @@ IdCommande const GainCombat::getIdCommande (){
   return GAINCOMBAT;
 }
 
-void GainCombat::gainCartes (int idJoueur, bool victoire, state::State state){
-  if(victoire){
+void GainCombat::gainCartes (int idJoueur, int victoire, state::State state){
+  if(victoire != 0){
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
     state::Element* ptr_carte = 0;

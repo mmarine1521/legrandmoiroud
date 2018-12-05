@@ -51,4 +51,31 @@ void GestionCartes::defausser (int numeroCarteDefausse, state::State state){
   }
 }
 
+void GestionCartes::undoPiocher (state::State state){
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::ElementTab& tabPioche = state.getCartePiocheTab();
+  std::vector<std::shared_ptr<state::Element>> listePioche = tabPioche.getElementList();
+  state::Element* ptr_carte;
+
+  ptr_carte = (listeEnjeu.back()).get();
+  ptr_carte->setIdJoueur(0);
+  listeEnjeu.erase(listeEnjeu.end());
+  listePioche.push_back(ptr_carte->clone());
+  tabPioche.melange();
+}
+
+void GestionCartes::undoDefausser (int idJoueur, state::State state){
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::ElementTab& tabDefausse = state.getCarteDefausseTab();
+  std::vector<std::shared_ptr<state::Element>> listeDefausse = tabDefausse.getElementList();
+  state::Element* ptr_carte;
+
+  ptr_carte = (listeDefausse.back()).get();
+  ptr_carte->setIdJoueur(idJoueur);
+  listeDefausse.erase(listeDefausse.end());
+  listeEnjeu.push_back(ptr_carte->clone());
+}
+
 }

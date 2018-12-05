@@ -24,7 +24,7 @@ namespace engine {
   public:
     virtual ~GainCombat ();
     IdCommande const getIdCommande ();
-    static void gainCartes (int idJoueur, bool victoire, state::State state);
+    static void gainCartes (int idJoueur, int victoire, state::State state);
     static int gainArmees (int idJoueur, state::State state);
     // Setters and Getters
   };

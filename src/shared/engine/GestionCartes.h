@@ -27,6 +27,8 @@ namespace engine {
     IdCommande const getIdCommande ();
     static void piocher (int idJoueur, state::State state);
     static void defausser (int numeroCarteDefausse, state::State state);
+    static void undoPiocher (state::State state);
+    static void undoDefausser (int idJoueur, state::State state);
     // Setters and Getters
   };
 

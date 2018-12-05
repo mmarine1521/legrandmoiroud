@@ -305,8 +305,8 @@ int HeuristicAI::aiNbDesLancersDefenses (std::string paysAttaque, state::State s
   }
 }
 
-void HeuristicAI::aiGainCartes (int idJoueur, bool victoire, state::State state){
-  if(victoire){
+void HeuristicAI::aiGainCartes (int idJoueur, int victoire, state::State state){
+  if(victoire != 0){
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
     state::Element* ptr_carte = 0;
@@ -643,7 +643,7 @@ void HeuristicAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 	  std::vector<int> desBleus = engine::Combat::lancerDes(nbDefenses);
 
 	  //etape 7 du jeu
-	  bool victoire = engine::IssueDuCombat::victoire(desRouges, desBleus, paysAttaquant,paysAttaque, state);
+	  int victoire = engine::IssueDuCombat::victoire(desRouges, desBleus, paysAttaquant,paysAttaque, state);
 
 		//etape 8 du jeu
 	  aiGainCartes (idJoueur, victoire, state);

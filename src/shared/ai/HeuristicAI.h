@@ -25,7 +25,7 @@ namespace ai {
     std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
     int aiNbDesLancersAttaques (std::string paysAttaquant, std::string paysAttaque, state::State state);
     int aiNbDesLancersDefenses (std::string paysAttaque, state::State state);
-    void aiGainCartes (int idJoueur, bool victoire, state::State state);
+    void aiGainCartes (int idJoueur, int victoire, state::State state);
     int aiEchange (int idJoueur, state::State state);
     void aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state);
     void aiDeplacerArmees (int idJoueur, state::State state);

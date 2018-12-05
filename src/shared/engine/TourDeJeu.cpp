@@ -88,7 +88,7 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state, sf::Ren
     std::vector<int> desBleus = Combat::lancerDes(nbDefenses);
 
     //etape 7 du jeu
-    bool victoire = IssueDuCombat::victoire (desRouges, desBleus, paysAttaquant,paysAttaque, state);
+    int victoire = IssueDuCombat::victoire (desRouges, desBleus, paysAttaquant,paysAttaque, state);
 
     //etape 8 du jeu
     GainCombat::gainCartes (idJoueur, victoire, state);
