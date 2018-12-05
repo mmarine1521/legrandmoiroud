@@ -132,9 +132,10 @@ int main(int argc,char* argv[])
 											}
 											if(event.key.code == sf::Keyboard::M)
 											{
-												std::cout<<"taper n'importe quoi pour démarrer" << std::endl ; 
-												
-												PlacementArmees::placerNouvellesArmees (1, 40, currentState,window,event); 
+												std::cout<<"pour sélectionner un pays : clic gauche, pour lui affecter un nombre d'armées clic droit" << std::endl ; 
+															PlacementArmees::placerNouvellesArmees (1, 40, currentState,window,event); 
+														//}
+												//}
 												//TourDeJeu::jouer(0,1,currentState,window,event);
 												
 												std::cout <<"Placement Terminé"<<std::endl ;	
@@ -163,7 +164,7 @@ int main(int argc,char* argv[])
 										{
 											if(event.mouseButton.button ==sf::Mouse::Left)
 												{
-													Affichage::PaysClic(window, event); 
+													Affichage::NombreClic(window, event); 
 												}
 										}
 	        					
@@ -254,7 +255,7 @@ int main(int argc,char* argv[])
 	        											}
 	        											if(event.key.code == sf::Keyboard::M)
 	        											{
-	        												std::cout<<"taper n'importe quoi pour démarrer" << std::endl ; 
+	        												std::cout<<"pour sélectionner un pays : clic gauche, pour lui affecter un nombre d'armées clic droit" << std::endl ; 
 	        												
 	        												TourDeJeu::jouer(0,1,currentState, window,event);
 	        												//AttributionTerritoires::repartitionArmees(3, state);
