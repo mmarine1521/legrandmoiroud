@@ -86,4 +86,10 @@ int EchangeCartes::echange (int idJoueur, state::State state){
   return valeur;
 }
 
+void EchangeCartes::undoEchange (int idJoueur, state::State state){
+  for (size_t i=0; i<3; i++){
+    GestionCartes::undoDefausser (idJoueur, state);
+  }
+}
+
 }

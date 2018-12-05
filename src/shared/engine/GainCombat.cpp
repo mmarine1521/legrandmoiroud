@@ -10,7 +10,8 @@ IdCommande const GainCombat::getIdCommande (){
   return GAINCOMBAT;
 }
 
-void GainCombat::gainCartes (int idJoueur, int victoire, state::State state){
+bool GainCombat::gainCartes (int idJoueur, int victoire, state::State state){
+  bool valeur = false;
   if(victoire != 0){
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
@@ -29,9 +30,19 @@ void GainCombat::gainCartes (int idJoueur, int victoire, state::State state){
       std::cout << "Vous devez défausser une carte. Laquelle choisissez-vous ?" << std::endl;
       std::cin >> numeroCarte;
       GestionCartes::defausser (numeroCarte, state);
+      valeur = true;
     }
 
     GestionCartes::piocher(idJoueur, state);
+  }
+  return valeur;
+}
+
+void GainCombat::undoGainCartes (int idJoueur, bool defausse, state::State state){
+  GestionCartes::undoPiocher (state);
+
+  if (defausse){
+    GestionCartes::undoDefausser (idJoueur, state);
   }
 }
 
