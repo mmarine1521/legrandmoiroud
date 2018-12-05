@@ -34,6 +34,7 @@ namespace engine {
     // Operations
   public:
     static void jouer (int numeroTour, int idJoueur, state::State state, sf::RenderWindow& window, sf::Event event);
+    static void undoJouer (int numeroTour, int idJoueur, state::State state);
     // Setters and Getters
   };
 

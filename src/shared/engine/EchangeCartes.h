@@ -31,6 +31,7 @@ namespace engine {
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
     static int echange (int idJoueur, state::State state);
+    static void undoEchange (int idJoueur, state::State state);
     // Setters and Getters
   };
 
