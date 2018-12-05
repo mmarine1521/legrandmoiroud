@@ -95,7 +95,7 @@ void HeuristicAI::aiRepartitionArmees (int idJoueur, state::State state){
   }
 }
 
-std::string HeuristicAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
+std::string HeuristicAI::aiChoixPaysAttaquant (int idJoueur, std::vector<std::string> blackList, state::State state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -104,10 +104,20 @@ std::string HeuristicAI::aiChoixPaysAttaquant (int idJoueur, state::State state)
 
   for(size_t i=0; i<listeArmee.size(); i++){
     ptr_armee = listeArmee[i].get();
-    if (ptr_armee->getIdJoueur() == idJoueur){
-      nbArmee[ptr_armee->getPays()] = ptr_armee->getNombre(); // remplit map armeePays / nbArmee
+    if(ptr_armee->getIdJoueur() == idJoueur){ //le choix ne se fait que sur les pays du joueur "idJoueur"
       listePaysJoueur.push_back(ptr_armee->getPays());
-    }
+      std::vector<std::string>::iterator result = find(blackList.begin(), blackList.end(), ptr_armee->getPays()); // renvoie le dernier element si faux
+			if (result == blackList.end()){
+				if(ptr_armee->getNombre() > 1){ //nombre d'armées > 1 sinon impossible d'attaquer
+					nbArmee[ptr_armee->getPays()] = ptr_armee->getNombre(); // remplit map armeePays / nbArmee
+				}
+			}
+		}
+  }
+
+  if (nbArmee.size() == 0){
+    std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
+		return "PROBLEME";
   }
 
   int maxi = 0;
@@ -166,7 +176,7 @@ std::string HeuristicAI::aiChoixPaysAttaquant (int idJoueur, state::State state)
     }
     return paysOpti;
   }
-} //si jamais le pays est entouré de frontaliers et ne va donc pas !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
 
 std::string HeuristicAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state){
   state::ElementTab& tabPays = state.getPaysTab();
@@ -408,7 +418,7 @@ int HeuristicAI::aiEchange (int idJoueur, state::State state){
     }
   }
 
-  if (comptTANK <3 && comptCANON <3 && comptSOLDAT <3){
+  if (comptTANK < 3 && comptCANON < 3 && comptSOLDAT < 3){
     return 0;
   }
   else{
@@ -446,7 +456,7 @@ int HeuristicAI::aiEchange (int idJoueur, state::State state){
       return 8;
     }
 
-    else if (comptSOLDAT >= 3){
+    else{ // if (comptSOLDAT >= 3)
       for(size_t i=0; i<listeEnjeu.size(); i++){
         ptr_carte = listeEnjeu[i].get();
         if (ptr_carte->getIdJoueur() == idJoueur){
@@ -462,7 +472,6 @@ int HeuristicAI::aiEchange (int idJoueur, state::State state){
       return 3;
     }
   }
-  return -1;
 }
 
 void HeuristicAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state){
@@ -619,7 +628,14 @@ void HeuristicAI::aiJouer (int numeroTour, int idJoueur, state::State state){
   }
 
 		//etape 1 du jeu : Choix du pays attaquant
-	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
+    std::vector<std::string> blackListPays;
+	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+	  while(!verifPaysAttaquantOk){
+			blackListPays.push_back(paysAttaquant);
+	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+	  }
 		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
 
 		//etape 2 du jeu : Choix du pays que l'on attaque
@@ -650,9 +666,6 @@ void HeuristicAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 
 		//etape 9 du jeu
 	  int nouvellesArmees = aiEchange (idJoueur, state);
-	  while (nouvellesArmees == -1){
-	    nouvellesArmees = aiEchange (idJoueur, state);
-	  }
 		std::cout << "L'échange des cartes rapporte " << nouvellesArmees << " armées." << std::endl;
 
 	  //etape 10 du jeu

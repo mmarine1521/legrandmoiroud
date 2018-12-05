@@ -3,6 +3,7 @@
 #define AI__RANDOMAI__H
 
 #include <string>
+#include <vector>
 
 namespace state {
   class State;
@@ -21,7 +22,7 @@ namespace ai {
     // Operations
   public:
     void aiRepartitionArmees (int idJoueur, state::State state);
-    std::string aiChoixPaysAttaquant (int idJoueur, state::State state);
+    std::string aiChoixPaysAttaquant (int idJoueur, std::vector<std::string> blackList, state::State state);
     std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state);
     int aiNbDesLancersAttaques ();
     int aiNbDesLancersDefenses ();

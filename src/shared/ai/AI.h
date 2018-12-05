@@ -3,6 +3,7 @@
 #define AI__AI__H
 
 #include <string>
+#include <vector>
 
 namespace state {
   class State;
@@ -33,7 +34,7 @@ namespace ai {
     // Operations
   public:
     virtual void aiRepartitionArmees (int idJoueur, state::State state) = 0;
-    virtual std::string aiChoixPaysAttaquant (int idJoueur, state::State state) = 0;
+    virtual std::string aiChoixPaysAttaquant (int idJoueur, std::vector<std::string> blackList, state::State state) = 0;
     virtual std::string aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state) = 0;
     virtual void aiGainCartes (int idJoueur, int victoire, state::State state) = 0;
     virtual int aiEchange (int idJoueur, state::State state) = 0;

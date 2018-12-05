@@ -2,27 +2,33 @@
 
 namespace ai {
 
-std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, state::State state){
+std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, std::vector<std::string> blackList, state::State state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
 
 	std::vector<state::Element*> listeArmeeJoueur;
-	for(size_t i=0; i<listeArmee.size(); i++)
-	{
+	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur()==idJoueur) //le choix ne se fait que sur les pays du joueur "idJoueur"
-		{
-			if(ptr_armee->getNombre()>1) //nombre d'armées > 1 sinon impossible d'attaquer
-			{
-				listeArmeeJoueur.push_back(ptr_armee);
+		if(ptr_armee->getIdJoueur() == idJoueur){ //le choix ne se fait que sur les pays du joueur "idJoueur"
+			std::vector<std::string>::iterator result = find(blackList.begin(), blackList.end(), ptr_armee->getPays()); // renvoie le dernier element si faux
+			if (result == blackList.end()){
+				if(ptr_armee->getNombre()>1){ //nombre d'armées > 1 sinon impossible d'attaquer
+					listeArmeeJoueur.push_back(ptr_armee);
+				}
 			}
 		}
 	}
 
-	int armeeAleatoire = rand() % listeArmeeJoueur.size();
-	ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement
-	return ptr_armee->getPays(); //on retourne le pays attaquant ;
+	if (listeArmeeJoueur.size() == 0){
+		std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
+		return "PROBLEME";
+	}
+	else{
+		int armeeAleatoire = rand() % listeArmeeJoueur.size();
+		ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement
+		return ptr_armee->getPays(); //on retourne le pays attaquant ;
+	}
 }
 
 std::string RandomAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquant, state::State state){
@@ -33,7 +39,7 @@ std::string RandomAI::aiChoixPaysAttaque (int idJoueur, std::string paysAttaquan
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur()!=idJoueur){
+		if(ptr_armee->getIdJoueur() != idJoueur){
 			if (engine::ChoixPays::estFrontalier(ptr_armee->getPays(), paysAttaquant, state)){
 				listeArmeeJoueur.push_back(ptr_armee); //on vérifie que le pays est bien frontalier de pays attaquant.
 			}
@@ -71,7 +77,7 @@ void RandomAI::aiGainCartes (int idJoueur, int victoire, state::State state){
 			std::vector<state::Element*> listeCarteJoueur;
 			for(size_t i=0; i<listeEnjeu.size(); i++){
 				ptr_carte = listeEnjeu[i].get();
-				if(ptr_carte->getIdJoueur()==idJoueur){
+				if(ptr_carte->getIdJoueur() == idJoueur){
 		      listeCarteJoueur.push_back(ptr_carte);
 				}
 			}
@@ -177,7 +183,7 @@ void RandomAI::aiPlacerNouvellesArmees (int idJoueur, int nouvellesArmees, state
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur()==idJoueur){
+		if(ptr_armee->getIdJoueur() == idJoueur){
       listeArmeeJoueur.push_back(ptr_armee);
 		}
 	}
@@ -200,7 +206,7 @@ void RandomAI::aiRepartitionArmees (int idJoueur, state::State state){
 
 	for(size_t i=0; i<listeArmee.size(); i++){ //on parcourt la liste d'armée
 		ptr_armee = listeArmee[i].get(); //on récupère un à un les éléments armée
-		if(ptr_armee->getIdJoueur()==idJoueur){ //on vérifie que l'ID de joueur correspond à l'ID en argument
+		if(ptr_armee->getIdJoueur() == idJoueur){ //on vérifie que l'ID de joueur correspond à l'ID en argument
 			ptr_armee->setNombre(1); //on donne 1 armée à chaque territoire du joueur
 		}
 	}
@@ -217,7 +223,7 @@ void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
 		std::vector<state::Element*> listeArmeeJoueur;
 	  for(size_t i=0; i<listeArmee.size(); i++){
 	    ptr_armee = listeArmee[i].get();
-			if(ptr_armee->getIdJoueur()!=idJoueur){
+			if(ptr_armee->getIdJoueur() != idJoueur){
 	      listeArmeeJoueur.push_back(ptr_armee);
 			}
 		}
@@ -255,13 +261,13 @@ void RandomAI::aiDeplacerArmees (int idJoueur, state::State state){
 		state::Element* ptr_armee2 = 0;
 		for(size_t i=0; i<listeArmee.size(); i++){
 	    ptr_armee1 = listeArmee[i].get();
-			if(ptr_armee1->getPays()==listePays1[numeroPays]){
+			if(ptr_armee1->getPays() == listePays1[numeroPays]){
 	      break;
 			}
 		}
 		for(size_t i=0; i<listeArmee.size(); i++){
 	    ptr_armee2 = listeArmee[i].get();
-			if(ptr_armee2->getPays()==listePays2[numeroPays]){
+			if(ptr_armee2->getPays() == listePays2[numeroPays]){
 	      break;
 			}
 		}
@@ -296,11 +302,12 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
   }
 
 		//etape 1 du jeu : Choix du pays attaquant
-	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
+		std::vector<std::string> blackListPays;
+	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
 	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  while(!verifPaysAttaquantOk)
-	  {
-	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, state);
+	  while(!verifPaysAttaquantOk){
+			blackListPays.push_back(paysAttaquant);
+	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
 	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
 	  }
 		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
@@ -308,8 +315,7 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 		//etape 2 du jeu : Choix du pays que l'on attaque
 	  std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
 	  bool verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
-	  while(!verifPaysAttaqueOk)
-	  {
+	  while(!verifPaysAttaqueOk){
 	    paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
 	    verifPaysAttaqueOk = engine::ChoixPays::verifPaysAttaque(idJoueur, paysAttaque, paysAttaquant, state);
 	  }
