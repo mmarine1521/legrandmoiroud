@@ -133,7 +133,8 @@ int main(int argc,char* argv[])
 											if(event.key.code == sf::Keyboard::M)
 											{
 												std::cout<<"pour sélectionner un pays : clic gauche, pour lui affecter un nombre d'armées clic droit" << std::endl ; 
-															PlacementArmees::placerNouvellesArmees (1, 40, currentState,window,event); 
+															//PlacementArmees::placerNouvellesArmees (1, 40, currentState,window,event); 
+															AttributionTerritoires::repartitionArmees(1, currentState, window, event); 
 														//}
 												//}
 												//TourDeJeu::jouer(0,1,currentState,window,event);
@@ -221,6 +222,7 @@ int main(int argc,char* argv[])
 	        	        					sf::Event event;
 	        	        					while (window.pollEvent(event))
 	        	        					{
+	        	        						int j=0 ; 
 	        									switch (event.type)
 	        									{
 	        										case sf::Event::Closed :
@@ -261,6 +263,142 @@ int main(int argc,char* argv[])
 	        												//AttributionTerritoires::repartitionArmees(3, state);
 	        												std::cout <<"Placement Terminé"<<std::endl ;	
 	        											}
+	        										
+	        											if(event.key.code == sf::Keyboard::C)
+														{
+															std::cout<<"AI RANDOM" << std::endl ; 
+															intelligence->RandomAI::aiJouer(0, 1, currentState);
+														}
+
+	        											if(event.key.code == sf::Keyboard::V)
+														{
+															j+= 1 ; 
+															intelligence->RandomAI::aiJouer(j, 1, currentState);
+															
+															std::cout << "test" << std::endl ; 
+															//std::cout << e1 -> getNombre() << std::endl ; 
+															//std::cout << e2 -> getNombre() << std::endl ; 
+															//std::cout << e2 -> getNombre() << std::endl ; 
+															//std::cout << e2 -> getNombre() << std::endl ; 
+															
+															//AttributionTerritoires::repartitionArmees(3, state);
+															//std::cout <<"Placement Terminé"<<std::endl ;	
+														}
+	        									break;
+	        										default:
+	        									break;
+	        									}
+	        									
+	        									if (event.type == sf::Event::MouseButtonPressed)
+	        										{
+	        											if(event.mouseButton.button ==sf::Mouse::Left)
+	        												{
+	        													Affichage::PaysClic(window, event); 
+	        												}
+	        										}
+	        	        					
+	        	        				}
+	        	        					//swindow.display() ; 
+	        	        				}  
+	        	        		}
+	        else if (strcmp(argv[1],"heuristic_ai")==0){
+	        	            //Test Map
+	        	        			std::cout << "Pour initialiser les pays : cliquez sur 'espace'" << std::endl ;
+	        	        			std::cout << "Pour l'AI HEURISTIC : cliquez sur 'P'"<< std::endl;
+	        	        			std::cout << "Pour jouer seul : cliquez sur 'M'"<< std::endl;
+	        	        			std::cout << "JOUEUR 1 : Rouge" <<std::endl ;
+	        	        			std::cout << "JOUEUR 2 : Vert" <<std::endl ; 
+	        	        			std::cout << "JOUEUR 3 : Bleu" <<std::endl ; 
+
+	        	        			
+	        	        			ElementTab tabArmee = ElementTab() ; 
+	        	        			tabArmee.ElementTab::remplirArmeeTab() ; 
+	        						ElementTab tabCartePioche = ElementTab();
+	        						tabCartePioche.ElementTab::remplirCartePiocheTab();
+	        						ElementTab tabCarteEnjeu = ElementTab();
+	        						ElementTab tabCarteDefausse = ElementTab();
+	        						ElementTab tabPays = ElementTab();
+	        						tabPays.ElementTab::remplirPaysTab();
+	        						ElementTab tabContinent = ElementTab();
+	        						tabContinent.ElementTab::remplirContinentTab();
+	        	        			
+	        	        			State currentState = state::State() ;
+	        	        			currentState.setArmeeTab(tabArmee); 
+	        						currentState.setCartePiocheTab(tabCartePioche);
+	        						currentState.setCarteEnjeuTab(tabCarteEnjeu);
+	        						currentState.setCarteDefausseTab(tabCarteDefausse);
+	        						currentState.setPaysTab(tabPays);
+	        						currentState.setContinentTab(tabContinent);
+	        						
+	        						//RandomAI *intelligence = new RandomAI::RandomAI();
+	        						HeuristicAI* intelligence  = new ai::HeuristicAI() ; 
+	        	        			
+	        	        			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+	        	        			
+	        	        			while (window.isOpen())
+	        	        				{
+	        								window.setVerticalSyncEnabled(true);
+	        	        					window.setActive() ;	
+	        	        					 
+	        	        					window.clear(); 
+	        	        					Affichage::AfficheMap(currentState,window) ;
+	        	        					Affichage::AfficheChoixNbrArmees(currentState, window) ; 
+	        	        					
+	        	        					window.display(); 
+	        	        					//Affichage::AfficheNombre(currentState, window) ;
+	        	        					
+	        	        					sf::Event event;
+	        	        					while (window.pollEvent(event))
+	        	        					{
+	        	        						int j = 0; 
+	        	        						switch (event.type)
+	        									{	        									
+	        										case sf::Event::Closed :
+	        											window.close();
+	        											break ;
+	        										case sf::Event::KeyPressed  :
+	        											if(event.key.code == sf::Keyboard::Space)
+	        											{
+	        												std::cout<<"Touche espace pressée"<<std::endl ;
+	        												AttributionTerritoires::distribution(currentState, 3);
+	      	        												 
+	        												std::cout <<"Initialisation Terminée"<<std::endl ; 
+	        											}
+	        											if(event.key.code == sf::Keyboard::P)
+	        											{
+	        												std::cout<<"AI HEURISTIC" << std::endl ; 
+	        							        			
+	        												intelligence->HeuristicAI::aiJouer(0, 1, currentState);
+	        												for(int i = 1 ; i<40 ; i++)
+	        												{
+	        													intelligence->HeuristicAI::aiJouer(i,1,currentState); 
+	        												        														
+	        												}	
+	        												//AttributionTerritoires::repartitionArmees(3, state);
+	        												std::cout <<"40 tours terminés"<<std::endl ;	
+	        											}
+	        											if(event.key.code == sf::Keyboard::M)
+	        											{
+	        												std::cout<<"pour sélectionner un pays : clic gauche, pour lui affecter un nombre d'armées clic droit" << std::endl ; 
+	        												
+	        												TourDeJeu::jouer(0,1,currentState, window,event);
+	        												//AttributionTerritoires::repartitionArmees(3, state);
+	        												std::cout <<"Placement Terminé"<<std::endl ;	
+	        											}
+	        											if(event.key.code == sf::Keyboard::C)
+														{
+															std::cout<<"AI HEURISTIC" << std::endl ; 
+															intelligence->HeuristicAI::aiJouer(0, 1, currentState);
+														}
+
+														if(event.key.code == sf::Keyboard::V)
+														{
+															j+= 1 ; 
+															intelligence->HeuristicAI::aiJouer(j, 1, currentState);
+															
+															std::cout << "test" << std::endl ;
+																
+														}
 	        									break;
 	        										default:
 	        									break;
