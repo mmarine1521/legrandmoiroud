@@ -21,7 +21,7 @@ std::string RandomAI::aiChoixPaysAttaquant (int idJoueur, std::vector<std::strin
 	}
 
 	if (listeArmeeJoueur.size() == 0){
-		std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
+		std::cout << "Problème : Le joueur ne peut engagé aucun de vos territoires dans un combat." << std::endl;
 		return "PROBLEME";
 	}
 	else{
@@ -302,14 +302,22 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
   }
 
 		//etape 1 du jeu : Choix du pays attaquant
-		std::vector<std::string> blackListPays;
-	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
-	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  while(!verifPaysAttaquantOk){
-			blackListPays.push_back(paysAttaquant);
-	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
-	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  }
+	std::vector<std::string> blackListPays;
+	std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+	bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+	if (paysAttaquant == "PROBLEME"){
+		verifPaysAttaquantOk = true;
+	}
+	while(!verifPaysAttaquantOk){
+		blackListPays.push_back(paysAttaquant);
+	  paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+	  verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+		if (paysAttaquant == "PROBLEME"){
+		  verifPaysAttaquantOk = true;
+		}
+	}
+
+	if (paysAttaquant != "PROBLEME"){
 		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
 
 		//etape 2 du jeu : Choix du pays que l'on attaque
@@ -365,11 +373,13 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
 	  aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
 		std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
-	  aiDeplacerArmees (idJoueur, state);
-		std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
+	}
 
-	  std::cout << "Fin du tour " << numeroTour << std::endl;
-		std::cout << std::endl;
+	aiDeplacerArmees (idJoueur, state);
+	std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
+
+	std::cout << "Fin du tour " << numeroTour << std::endl;
+	std::cout << std::endl;
 }
 
 }

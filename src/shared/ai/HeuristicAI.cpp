@@ -627,56 +627,66 @@ void HeuristicAI::aiJouer (int numeroTour, int idJoueur, state::State state){
     aiRepartitionArmees(3, state);
   }
 
-		//etape 1 du jeu : Choix du pays attaquant
-    std::vector<std::string> blackListPays;
-	  std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
-	  bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  while(!verifPaysAttaquantOk){
-			blackListPays.push_back(paysAttaquant);
-	    paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
-	    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
-	  }
-		std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
+	//etape 1 du jeu : Choix du pays attaquant
+  std::vector<std::string> blackListPays;
+	std::string paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+	bool verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+  if (paysAttaquant == "PROBLEME"){
+    verifPaysAttaquantOk = true;
+  }
+	while(!verifPaysAttaquantOk){
+    blackListPays.push_back(paysAttaquant);
+	  paysAttaquant = aiChoixPaysAttaquant(idJoueur, blackListPays, state);
+    verifPaysAttaquantOk = engine::ChoixPays::verifPaysAttaquant(idJoueur, paysAttaquant, state);
+    if (paysAttaquant == "PROBLEME"){
+      verifPaysAttaquantOk = true;
+    }
+  }
 
-		//etape 2 du jeu : Choix du pays que l'on attaque
-	  std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
-		std::cout << "Le pays attaqué est " << paysAttaque << "." << std::endl;
+  if (paysAttaquant != "PROBLEME"){
+    std::cout << "Le pays attaquant est " << paysAttaquant << "." << std::endl;
 
-		//etape 3 du jeu
-	  std::cout << "C'est l'heure de l'attaque !" << std::endl;
-	  int nbAttaques = aiNbDesLancersAttaques(paysAttaquant, paysAttaque, state);
-		std::cout << "L'attaque lance " << nbAttaques << " dés." << std::endl;
+    //etape 2 du jeu : Choix du pays que l'on attaque
+    std::string paysAttaque = aiChoixPaysAttaque(idJoueur, paysAttaquant, state);
+    std::cout << "Le pays attaqué est " << paysAttaque << "." << std::endl;
 
-		//etape 5 du jeu
-	  std::vector<int> desRouges = engine::Combat::lancerDes(nbAttaques);
+    //etape 3 du jeu
+    std::cout << "C'est l'heure de l'attaque !" << std::endl;
+    int nbAttaques = aiNbDesLancersAttaques(paysAttaquant, paysAttaque, state);
+    std::cout << "L'attaque lance " << nbAttaques << " dés." << std::endl;
 
-		//etape 4 du jeu
-	  std::cout << "L'adversaire se défend." << std::endl;
-	  int nbDefenses = aiNbDesLancersDefenses(paysAttaque, state);
-		std::cout << "La défense lance " << nbDefenses << " dés." << std::endl;
+    //etape 5 du jeu
+    std::vector<int> desRouges = engine::Combat::lancerDes(nbAttaques);
 
-		//etape 6 du jeu
-	  std::vector<int> desBleus = engine::Combat::lancerDes(nbDefenses);
+    //etape 4 du jeu
+    std::cout << "L'adversaire se défend." << std::endl;
+    int nbDefenses = aiNbDesLancersDefenses(paysAttaque, state);
+    std::cout << "La défense lance " << nbDefenses << " dés." << std::endl;
 
-	  //etape 7 du jeu
-	  int victoire = engine::IssueDuCombat::victoire(desRouges, desBleus, paysAttaquant,paysAttaque, state);
+    //etape 6 du jeu
+    std::vector<int> desBleus = engine::Combat::lancerDes(nbDefenses);
 
-		//etape 8 du jeu
-	  aiGainCartes (idJoueur, victoire, state);
+    //etape 7 du jeu
+    int victoire = engine::IssueDuCombat::victoire(desRouges, desBleus, paysAttaquant,paysAttaque, state);
 
-		//etape 9 du jeu
-	  int nouvellesArmees = aiEchange (idJoueur, state);
-		std::cout << "L'échange des cartes rapporte " << nouvellesArmees << " armées." << std::endl;
+    //etape 8 du jeu
+    aiGainCartes (idJoueur, victoire, state);
 
-	  //etape 10 du jeu
-		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
-	  aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
-		std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
-	  aiDeplacerArmees (idJoueur, state);
-		std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
+    //etape 9 du jeu
+    int nouvellesArmees = aiEchange (idJoueur, state);
+    std::cout << "L'échange des cartes rapporte " << nouvellesArmees << " armées." << std::endl;
 
-	  std::cout << "Fin du tour " << numeroTour << std::endl;
-		std::cout << std::endl;
+    //etape 10 du jeu
+    std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;
+    aiPlacerNouvellesArmees (idJoueur, nouvellesArmees, state);
+    std::cout << "Les " << nouvellesArmees << " nouvelles armées ont été placées." << std::endl;
+  }
+
+	aiDeplacerArmees (idJoueur, state);
+	std::cout << "Le joueur a réalisé les déplacements qu'il souhaitait." << std::endl << std::endl;
+
+	std::cout << "Fin du tour " << numeroTour << std::endl;
+  std::cout << std::endl;
 }
 
 }
