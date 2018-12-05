@@ -43,6 +43,7 @@ void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, 
 									if(event.mouseButton.button ==sf::Mouse::Left)
 										{
 											std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
+											Affichage::AfficheQuestion1(state, window); 
 											pays = Affichage::PaysClic(window, event);
 											std::cout << "Vous allez placer des armées sur "<< pays << std::endl ;
 											std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;

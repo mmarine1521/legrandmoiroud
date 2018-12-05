@@ -109,6 +109,7 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 {
 			    	sf::Texture texture ;
 					sf::Texture texture2 ;
+					 
 					if(!texture.loadFromFile("./res/risk.jpg"))
 					{
 						//erreur
@@ -118,15 +119,54 @@ void Affichage::AfficheMap(state::State& state, sf::RenderWindow& window)
 					 sprite.setTexture(texture);
 					 sprite.setScale(sf::Vector2f(0.9f, 0.9f));
 					 sprite.setPosition(sf::Vector2f(0.f, 0.f));
+					 
 					
 					window.draw(sprite);
 					
 					Affichage::AfficheArmees(state, window) ;
 					Affichage::AfficheNombre(state, window) ;
+					Affichage::AfficheTitre(state, window); 
 					
 					//window.display() ; 
 			    }
 
+void Affichage::AfficheTitre(state::State& state, sf::RenderWindow& window)
+{
+	sf::Font font ; 
+
+	if(!font.loadFromFile("./res/cambria.ttc"))
+	{
+	}
+	
+	 sf::Text text ;
+	 text.setFont(font); 
+	 text.setString("RISK"); 
+	 text.setCharacterSize(24); 
+	 text.setColor(sf::Color::Red); 
+	 text.setStyle(sf::Text::Bold); 
+	 text.setPosition(sf::Vector2f(1100.f, 50.f));
+						 
+	window.draw(text); 
+}
+
+void Affichage::AfficheQuestion1(state::State& state, sf::RenderWindow& window)
+{
+	sf::Font font ; 
+
+	if(!font.loadFromFile("./res/cambria.ttc"))
+	{
+	}
+	
+	 sf::Text text ;
+	 text.setFont(font); 
+	 text.setString("Quel pays souhaitez-vous attaquer ? (clic gauche)"); 
+	 text.setCharacterSize(18); 
+	 text.setColor(sf::Color::Green); 
+	 text.setStyle(sf::Text::Bold); 
+	 text.setPosition(sf::Vector2f(1100.f, 200.f));
+						 
+	window.draw(text); 
+}
 
 void Affichage::AfficheNombre (state::State& state, sf::RenderWindow& window)
 		{
