@@ -347,16 +347,13 @@ void RandomAI::aiJouer (int numeroTour, int idJoueur, state::State state){
 
 		//etape 8 du jeu
 	  aiGainCartes (idJoueur, victoire, state);
-	  //int nouvellesArmees = engine::GainCombat::gainArmees (idJoueur, state);
-		int nouvellesArmees = 0;
 
 		//etape 9 du jeu
-	  int echange = aiEchange (idJoueur, state);
-	  while (echange == -1){
-	    echange = aiEchange (idJoueur, state);
+	  int nouvellesArmees = aiEchange (idJoueur, state);
+	  while (nouvellesArmees == -1){
+	    nouvellesArmees = aiEchange (idJoueur, state);
 	  }
-	  nouvellesArmees += echange;
-		std::cout << "L'échange des cartes rapporte " << echange << " armées." << std::endl;
+		std::cout << "L'échange des cartes rapporte " << nouvellesArmees << " armées." << std::endl;
 
 	  //etape 10 du jeu
 		std::cout << "Il y a " << nouvellesArmees << " nouvelles armées à placer." << std::endl;

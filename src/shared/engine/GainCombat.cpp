@@ -35,19 +35,4 @@ void GainCombat::gainCartes (int idJoueur, int victoire, state::State state){
   }
 }
 
-int GainCombat::gainArmees (int idJoueur, state::State state){
-  state::ElementTab& tabArmee = state.getArmeeTab();
-  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-  state::Element* e = 0;
-  int compt = 0;
-  for(size_t i=0; i<listeArmee.size(); i++){
-    e = listeArmee[i].get();
-    if(e->getIdJoueur()==idJoueur){
-      compt += 1;
-    }
-  }
-  compt = compt / 3; //div
-  return compt;
-}
-
 }

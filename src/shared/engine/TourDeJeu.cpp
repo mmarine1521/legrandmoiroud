@@ -15,7 +15,7 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state, sf::Ren
   //initialisation du jeu
   if (numeroTour == 0){
     //etape 2 de l'initialisation
-    //AttributionTerritoires::distribution(state, 3);
+    AttributionTerritoires::distribution(state, 3);
 
     //etape 3 de l'initialisation
     std::cout << "Le joueur 1 place ses armées." << std::endl;
@@ -92,16 +92,13 @@ void TourDeJeu::jouer (int numeroTour, int idJoueur, state::State state, sf::Ren
 
     //etape 8 du jeu
     GainCombat::gainCartes (idJoueur, victoire, state);
-    //int nouvellesArmees = GainCombat::gainArmees (idJoueur, state);
-    int nouvellesArmees = 0;
 
     //etape 9 du jeu
-    int echange = EchangeCartes::echange (idJoueur, state);
-    while (echange == -1){
+    int nouvellesArmees = EchangeCartes::echange (idJoueur, state);
+    while (nouvellesArmees == -1){
       std::cout << "L'échange n'a pas pu être réalisé." << std::endl;
-      echange = EchangeCartes::echange (idJoueur, state);
+      nouvellesArmees = EchangeCartes::echange (idJoueur, state);
     }
-    nouvellesArmees += echange;
 
     //etape 10 du jeu
     PlacementArmees::placerNouvellesArmees (idJoueur, nouvellesArmees, state, window,event);
