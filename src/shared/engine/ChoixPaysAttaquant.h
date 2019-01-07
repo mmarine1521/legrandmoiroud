@@ -11,7 +11,6 @@ namespace engine {
   class ChoixPays;
 }
 
-#include "state/State.h"
 #include "ChoixPays.h"
 
 namespace engine {
@@ -22,9 +21,9 @@ namespace engine {
   public:
     ChoixPaysAttaquant (std::string pays);
     virtual ~ChoixPaysAttaquant ();
-    bool verif (state::State state);
-    void exec (state::State state);
-    void undo (state::State state);
+    bool verif (state::State& state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

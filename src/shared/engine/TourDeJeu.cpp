@@ -2,7 +2,6 @@
 
 #include <memory>
 #include <iostream>
-#include <list>
 
 namespace engine {
 
@@ -10,6 +9,9 @@ std::list<Commande*> TourDeJeu::commandes;
 std::list<Commande*> TourDeJeu::undos;
 std::list<state::StepId> TourDeJeu::steps;
 
+TourDeJeu::TourDeJeu()
+{
+}
 TourDeJeu::~TourDeJeu (){
 }
 
@@ -17,7 +19,7 @@ void TourDeJeu::pushCommande (Commande* commande){
   commandes.push_back(commande);
 }
 
-void TourDeJeu::run (state::State state){
+void TourDeJeu::run (state::State& state){
   state.setStepId(state::DISTRIBUTION_s);
   steps.push_back(state::DISTRIBUTION_s);
   state.setArmeesPlacer(28);

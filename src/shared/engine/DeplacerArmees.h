@@ -12,7 +12,6 @@ namespace engine {
   class ChoixPaysAttaque;
 }
 
-#include "state/State.h"
 #include "Commande.h"
 #include "ChoixPaysAttaque.h"
 
@@ -28,12 +27,13 @@ namespace engine {
     int nbArmees;
     // Operations
   public:
+    DeplacerArmees ();
     DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees);
     virtual ~DeplacerArmees ();
     IdCommande const getIdCommande ();
-    bool verif (state::State state);
-    void exec (state::State state);
-    void undo (state::State state);
+    bool verif (state::State& state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

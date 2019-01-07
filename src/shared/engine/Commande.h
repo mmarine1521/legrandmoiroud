@@ -9,8 +9,8 @@ namespace state {
   class ElementTab;
 }
 
-#include "state/State.h"
 #include "state/ElementTab.h"
+#include "state/State.h"
 #include "IdCommande.h"
 
 namespace engine {
@@ -21,11 +21,12 @@ namespace engine {
     engine::IdCommande idCommande;
     // Operations
   public:
+    Commande ();
     virtual ~Commande ();
     virtual IdCommande const getIdCommande ();
-    virtual bool verif (state::State state);
-    virtual void exec (state::State state) = 0;
-    virtual void undo (state::State state) = 0;
+    virtual bool verif (state::State& state);
+    virtual void exec (state::State& state);
+    virtual void undo (state::State& state);
     virtual int getNumeroCarte ();
     virtual int getNbArmees ();
     virtual void setNbArmees (int nbArmees);

@@ -2,6 +2,9 @@
 
 namespace engine {
 
+ChoixPays::ChoixPays()
+{
+}
 ChoixPays::ChoixPays (std::string pays) : pays(pays){
 }
 
@@ -16,5 +19,5 @@ IdCommande const ChoixPays::getIdCommande (){
 std::string ChoixPays::getPays(){
   return this->pays;
 }
-
 }
+

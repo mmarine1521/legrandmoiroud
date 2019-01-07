@@ -2,6 +2,10 @@
 
 namespace engine {
 
+Commande::Commande()
+{
+}
+
 Commande::~Commande (){
 }
 
@@ -9,7 +13,7 @@ IdCommande const Commande::getIdCommande (){
   return COMMANDE_c;
 }
 
-bool Commande::verif (state::State state){
+bool Commande::verif (state::State& state){
   return 0;
 }
 
@@ -31,6 +35,12 @@ std::string Commande::getPays(){
 
 int Commande::getNbDes (){
   return -1;
+}
+
+void Commande::exec(state::State& state){
+}
+
+void Commande::undo(state::State& state){
 }
 
 }

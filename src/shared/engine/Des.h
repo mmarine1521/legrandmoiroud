@@ -25,6 +25,7 @@ namespace engine {
     int nbDes;
     // Operations
   public:
+    Des ();
     Des (int nbDes);
     virtual ~Des ();
     IdCommande const getIdCommande ();

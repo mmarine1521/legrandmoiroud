@@ -4,13 +4,17 @@
 
 namespace engine {
 
+IssueDuCombat::IssueDuCombat() 
+{
+}
+
 IssueDuCombat::IssueDuCombat (int victoire) : victoire(victoire){
 }
 
 IssueDuCombat::~IssueDuCombat (){
 }
 
-int IssueDuCombat::nbCartesJoueur (state::State state){
+int IssueDuCombat::nbCartesJoueur (state::State& state){
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
@@ -30,7 +34,7 @@ int IssueDuCombat::nbCartesJoueur (state::State state){
 //10x => victoire
 //11x => victoire avec -1 armée sur le territoire battu
 //le dernier chiffre x représente le joueur qui a perdu son territoire
-void IssueDuCombat::exec (state::State state){
+void IssueDuCombat::exec (state::State& state){
   std::vector<int> desRouges = state.getDesRouges();
   std::vector<int> desBleus = state.getDesBleus();
   std::string paysAttaquant = state.getPaysAttaquant();
@@ -87,7 +91,7 @@ void IssueDuCombat::exec (state::State state){
   state.setVictoire(this->victoire);
 }
 
-void IssueDuCombat::undo (state::State state){
+void IssueDuCombat::undo (state::State& state){
   std::vector<int> desRouges = state.getDesRouges();
   std::vector<int> desBleus = state.getDesBleus();
   std::string paysAttaquant = state.getPaysAttaquant();

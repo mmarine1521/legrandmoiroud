@@ -3,6 +3,9 @@
 
 namespace engine {
 
+Piocher::Piocher()
+{
+}
 Piocher::Piocher (int numeroCarte) : Cartes(numeroCarte){
 }
 
@@ -13,7 +16,7 @@ IdCommande const Piocher::getIdCommande (){
   return PIOCHER_c;
 }
 
-void Piocher::exec (state::State state){
+void Piocher::exec (state::State& state){
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabPioche = state.getCartePiocheTab();
   std::vector<std::shared_ptr<state::Element>> listePioche = tabPioche.getElementList();
@@ -37,7 +40,7 @@ void Piocher::exec (state::State state){
   std::cout << "Vous avez tiré la carte numéro " << this->numeroCarte << "." << std::endl;
 }
 
-void Piocher::undo (state::State state){
+void Piocher::undo (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::ElementTab& tabPioche = state.getCartePiocheTab();

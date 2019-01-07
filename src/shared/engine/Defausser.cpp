@@ -2,6 +2,10 @@
 
 namespace engine {
 
+Defausser::Defausser()
+{
+}
+
 Defausser::Defausser (int numeroCarte) : Cartes(numeroCarte){
 }
 
@@ -12,7 +16,7 @@ IdCommande const Defausser::getIdCommande (){
   return DEFAUSSER_c;
 }
 
-void Defausser::exec (state::State state){
+void Defausser::exec (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::ElementTab& tabDefausse = state.getCarteDefausseTab();
@@ -30,7 +34,7 @@ void Defausser::exec (state::State state){
   }
 }
 
-void Defausser::undo (state::State state){
+void Defausser::undo (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::ElementTab& tabDefausse = state.getCarteDefausseTab();

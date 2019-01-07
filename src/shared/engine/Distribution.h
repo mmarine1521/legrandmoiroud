@@ -10,7 +10,6 @@ namespace engine {
   class Commande;
 }
 
-#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -19,10 +18,11 @@ namespace engine {
   class Distribution : public engine::Commande {
     // Operations
   public:
+    Distribution ();
     virtual ~Distribution ();
     IdCommande const getIdCommande ();
-    void exec (state::State state);
-    void undo (state::State state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 
