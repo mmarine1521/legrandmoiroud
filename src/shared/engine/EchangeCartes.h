@@ -34,7 +34,7 @@ namespace engine {
     EchangeCartes (int numeroCarte);
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    bool verif (int numeroCarte, state::State state);
+    bool verif (state::State state);
     static int gain (state::State state);
     void exec (state::State state);
     void undo (state::State state);

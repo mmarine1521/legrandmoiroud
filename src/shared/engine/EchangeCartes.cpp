@@ -12,7 +12,7 @@ IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGE_c;
 }
 
-bool EchangeCartes::verif(int numeroCarte, state::State state){// verifie que le joueur possède la carte
+bool EchangeCartes::verif(state::State state){// verifie que le joueur possède la carte
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
