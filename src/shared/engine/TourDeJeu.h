@@ -47,6 +47,8 @@ namespace engine {
   class TourDeJeu {
     // Associations
     // Attributes
+  public:
+    std::list<StepId> steps;
   private:
     static std::list<Commande*> commandes;
     static std::list<Commande*> undos;
@@ -54,7 +56,6 @@ namespace engine {
   public:
     virtual ~TourDeJeu ();
     static void pushCommande (Commande* commande);
-    static void pushUndo (Commande* commande);
     static void run (state::State state);
     // Setters and Getters
   };

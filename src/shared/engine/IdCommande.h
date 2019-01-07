@@ -15,9 +15,8 @@ namespace engine {
     ECHANGE_c     = 9,
     PLACER_ARMEES_c     = 10,
     DEPLACER_ARMEES_c     = 11,
-    FIN_c     = 12,
-    UNDO_c     = 13,
-    PASSER_c     = 14
+    PASSER_c     = 12,
+    UNDO_c     = 13
   };
 
 };
