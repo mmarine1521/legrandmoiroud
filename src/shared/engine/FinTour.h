@@ -10,7 +10,6 @@ namespace engine {
   class Commande;
 }
 
-#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -19,9 +18,10 @@ namespace engine {
   class FinTour : public engine::Commande {
     // Operations
   public:
+    FinTour ();
     virtual ~FinTour ();
-    void exec (state::State state);
-    void undo (state::State state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

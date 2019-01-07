@@ -26,7 +26,6 @@ namespace engine {
   class IssueDuCombat;
 }
 
-#include "state/State.h"
 #include "Passer.h"
 #include "FinTour.h"
 #include "Defausser.h"
@@ -47,16 +46,16 @@ namespace engine {
   class TourDeJeu {
     // Associations
     // Attributes
-  public:
-    static std::list<state::StepId> steps;
   private:
     static std::list<Commande*> commandes;
     static std::list<Commande*> undos;
+    static std::list<state::StepId> steps;
     // Operations
   public:
+    TourDeJeu ();
     virtual ~TourDeJeu ();
     static void pushCommande (Commande* commande);
-    static void run (state::State state);
+    static void run (state::State& state);
     // Setters and Getters
   };
 

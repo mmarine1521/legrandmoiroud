@@ -2,10 +2,13 @@
 
 namespace engine {
 
+FinTour::FinTour()
+{
+}
 FinTour::~FinTour (){
 }
 
-void FinTour::exec (state::State state){
+void FinTour::exec(state::State& state){
   if (state.getIdJoueur() == 1){
     state.setIdJoueur(2);
   }
@@ -15,7 +18,7 @@ void FinTour::exec (state::State state){
   state.setTourId(state.getTourId() + 1);
 }
 
-void FinTour::undo (state::State state){
+void FinTour::undo (state::State& state){
   if (state.getIdJoueur() == 1){
     state.setIdJoueur(2);
   }

@@ -4,13 +4,14 @@
 
 namespace engine {
 
+
 ChoixPaysAttaque::ChoixPaysAttaque (std::string pays) : ChoixPays(pays){
 }
 
 ChoixPaysAttaque::~ChoixPaysAttaque (){
 }
 
-bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state::State state){
+bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ePays = 0;
@@ -28,7 +29,7 @@ bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state
   return false;
 }
 
-bool ChoixPaysAttaque::verif (state::State state){
+bool ChoixPaysAttaque::verif (state::State& state){
   bool ok = false;
 
   std::string paysAttaquant = state.getPaysAttaquant();
@@ -67,11 +68,11 @@ bool ChoixPaysAttaque::verif (state::State state){
   return ok;
 }
 
-void ChoixPaysAttaque::exec (state::State state){
+void ChoixPaysAttaque::exec (state::State& state){
   state.setPaysAttaque(this->pays);
 }
 
-void ChoixPaysAttaque::undo (state::State state){
+void ChoixPaysAttaque::undo (state::State& state){
   state.setPaysAttaque(this->pays);
 }
 

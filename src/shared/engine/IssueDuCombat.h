@@ -10,7 +10,6 @@ namespace engine {
   class Commande;
 }
 
-#include "state/State.h"
 #include "Commande.h"
 
 namespace engine {
@@ -22,11 +21,12 @@ namespace engine {
     int victoire;
     // Operations
   public:
+    IssueDuCombat ();
     IssueDuCombat (int victoire);
     virtual ~IssueDuCombat ();
-    static int nbCartesJoueur (state::State state);
-    void exec (state::State state);
-    void undo (state::State state);
+    static int nbCartesJoueur (state::State& state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

@@ -8,6 +8,9 @@
 namespace state {
   class State;
 };
+namespace render {
+  class Controller;
+};
 namespace sf {
   class Transformable;
   class Drawable;
@@ -18,13 +21,14 @@ namespace state {
   class ElementTab;
 }
 
+#include "Controller.h"
 #include "state/ElementTab.h"
 #include "state/State.h"
 
 namespace render {
 
   /// class Affichage - 
-  class Affichage : public sf::Transformable, public sf::Drawable {
+  class Affichage : public render::Controller, public sf::Transformable, public sf::Drawable {
     // Associations
     // Attributes
   public:

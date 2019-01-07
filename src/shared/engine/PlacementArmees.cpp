@@ -2,6 +2,9 @@
 
 namespace engine {
 
+PlacementArmees::PlacementArmees()
+{
+}
 PlacementArmees::PlacementArmees (std::string pays, int nbArmees) : pays(pays), nbArmees(nbArmees){
 }
 
@@ -20,7 +23,7 @@ void PlacementArmees::setNbArmees (int nbArmees){
 	this->nbArmees = nbArmees;
 }
 
-bool PlacementArmees::verif(state::State state){
+bool PlacementArmees::verif(state::State& state){
 	int idJoueur = state.getIdJoueur();
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -47,7 +50,7 @@ bool PlacementArmees::verif(state::State state){
 	return false;
 }
 
-void PlacementArmees::exec (state::State state){
+void PlacementArmees::exec (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
@@ -62,7 +65,7 @@ void PlacementArmees::exec (state::State state){
 	}
 }
 
-void PlacementArmees::undo (state::State state){
+void PlacementArmees::undo (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;

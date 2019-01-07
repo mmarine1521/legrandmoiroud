@@ -12,7 +12,7 @@ IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGE_c;
 }
 
-bool EchangeCartes::verif(state::State state){// verifie que le joueur possède la carte
+bool EchangeCartes::verif(state::State& state){// verifie que le joueur possède la carte
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
@@ -35,7 +35,7 @@ bool EchangeCartes::verif(state::State state){// verifie que le joueur possède 
   return false;
 }
 
-int EchangeCartes::gain (state::State state){
+int EchangeCartes::gain (state::State& state){
   std::vector<state::CarteForce> forceCartes = state.getTypesCartes();
   state::CarteForce forceCarte1 = forceCartes[0];
   state::CarteForce forceCarte2 = forceCartes[1];
@@ -56,7 +56,7 @@ int EchangeCartes::gain (state::State state){
   }
 }
 
-void EchangeCartes::exec (state::State state){
+void EchangeCartes::exec (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -73,7 +73,7 @@ void EchangeCartes::exec (state::State state){
   state.setNbCartes(state.getNbCartes() - 1);
 }
 
-void EchangeCartes::undo (state::State state){
+void EchangeCartes::undo (state::State& state){
   state.deleteTypeCarte();
   Commande* defausse = new Defausser(numeroCarte);
   defausse->undo(state);

@@ -13,7 +13,6 @@ namespace state {
   class Carte;
 }
 
-#include "state/State.h"
 #include "Cartes.h"
 #include "state/Carte.h"
 
@@ -23,11 +22,12 @@ namespace engine {
   class Piocher : public engine::Cartes {
     // Operations
   public:
+    Piocher ();
     Piocher (int numeroCarte);
     virtual ~Piocher ();
     IdCommande const getIdCommande ();
-    void exec (state::State state);
-    void undo (state::State state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

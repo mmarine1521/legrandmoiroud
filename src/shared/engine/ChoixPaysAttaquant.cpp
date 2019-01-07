@@ -10,7 +10,7 @@ ChoixPaysAttaquant::ChoixPaysAttaquant (std::string pays) : ChoixPays(pays){
 ChoixPaysAttaquant::~ChoixPaysAttaquant (){
 }
 
-bool ChoixPaysAttaquant::verif (state::State state){
+bool ChoixPaysAttaquant::verif (state::State& state){
   std::string paysAttaquant = state.getPaysAttaquant();
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabArmee = state.getArmeeTab();
@@ -67,11 +67,11 @@ bool ChoixPaysAttaquant::verif (state::State state){
   }
 }
 
-void ChoixPaysAttaquant::exec (state::State state){
+void ChoixPaysAttaquant::exec (state::State& state){
   state.setPaysAttaquant(this->pays);
 }
 
-void ChoixPaysAttaquant::undo (state::State state){
+void ChoixPaysAttaquant::undo (state::State& state){
   state.setPaysAttaquant(this->pays);
 }
 

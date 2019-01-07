@@ -2,5 +2,6 @@
 #ifndef __RENDER__H
 #define __RENDER__H
 
+#include "render/Controller.h"
 #include "render/Affichage.h"
 #endif

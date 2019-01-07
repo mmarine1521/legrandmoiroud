@@ -2,6 +2,9 @@
 
 namespace engine {
 
+Distribution::Distribution() 
+{
+}
 Distribution::~Distribution (){
 }
 
@@ -9,7 +12,7 @@ IdCommande const Distribution::getIdCommande (){
 	return DISTRIBUTION_c;
 }
 
-void Distribution::exec (state::State state){
+void Distribution::exec (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
@@ -56,7 +59,7 @@ void Distribution::exec (state::State state){
 	std::cout << std::endl;
 }
 
-void Distribution::undo (state::State state){
+void Distribution::undo (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;

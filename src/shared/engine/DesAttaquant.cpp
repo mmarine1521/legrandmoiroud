@@ -13,7 +13,7 @@ DesAttaquant::DesAttaquant (int nbDes, std::vector<int> desRouges) : Des(nbDes),
 DesAttaquant::~DesAttaquant (){
 }
 
-bool DesAttaquant::verif (state::State state){
+bool DesAttaquant::verif (state::State& state){
   if (nbDes < 1 || nbDes > 3){
     std::cout << "Problème : Vous ne pouvez lancer que 1, 2 ou 3 dés." << std::endl;
     return false;
@@ -41,13 +41,13 @@ bool DesAttaquant::verif (state::State state){
   return false;
 }
 
-void DesAttaquant::exec (state::State state){
+void DesAttaquant::exec (state::State& state){
   state.setNbDesAttaquant(this->nbDes);
   this->desRouges = Des::lancerDes(this->nbDes);
   state.setDesRouges(this->desRouges);
 }
 
-void DesAttaquant::undo (state::State state){
+void DesAttaquant::undo (state::State& state){
   state.setNbDesAttaquant(this->nbDes);
   state.setDesRouges(this->desRouges);
 }

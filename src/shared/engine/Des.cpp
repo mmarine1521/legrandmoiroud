@@ -6,6 +6,9 @@
 
 namespace engine {
 
+Des::Des()
+{
+}
 Des::Des (int nbDes) : nbDes(nbDes){
 }
 

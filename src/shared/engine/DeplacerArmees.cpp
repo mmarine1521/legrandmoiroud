@@ -2,6 +2,9 @@
 
 namespace engine {
 
+DeplacerArmees::DeplacerArmees() 
+{
+}
 DeplacerArmees::DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees) : paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
 }
 
@@ -12,7 +15,7 @@ IdCommande const DeplacerArmees::getIdCommande (){
 	return DEPLACER_ARMEES_c;
 }
 
-bool DeplacerArmees::verif (state::State state){
+bool DeplacerArmees::verif (state::State& state){
 	int idJoueur = state.getIdJoueur();
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -54,7 +57,7 @@ bool DeplacerArmees::verif (state::State state){
 	return ok;
 }
 
-void DeplacerArmees::exec (state::State state){
+void DeplacerArmees::exec (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_depart = 0;
@@ -77,7 +80,7 @@ void DeplacerArmees::exec (state::State state){
 	}
 }
 
-void DeplacerArmees::undo (state::State state){
+void DeplacerArmees::undo (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_depart = 0;

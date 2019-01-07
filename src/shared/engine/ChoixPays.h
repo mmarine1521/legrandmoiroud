@@ -20,6 +20,7 @@ namespace engine {
     std::string pays;
     // Operations
   public:
+    ChoixPays ();
     ChoixPays (std::string pays);
     virtual ~ChoixPays ();
     IdCommande const getIdCommande ();

@@ -2,6 +2,10 @@
 
 namespace engine {
 
+Undo::Undo()
+{
+}
+
 Undo::~Undo (){
 }
 

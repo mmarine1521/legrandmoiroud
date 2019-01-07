@@ -10,7 +10,6 @@ namespace engine {
   class Cartes;
 }
 
-#include "state/State.h"
 #include "Cartes.h"
 
 namespace engine {
@@ -19,11 +18,12 @@ namespace engine {
   class Defausser : public engine::Cartes {
     // Operations
   public:
+    Defausser ();
     Defausser (int numeroCarte);
     virtual ~Defausser ();
     IdCommande const getIdCommande ();
-    void exec (state::State state);
-    void undo (state::State state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

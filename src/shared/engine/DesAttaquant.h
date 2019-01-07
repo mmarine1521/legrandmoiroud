@@ -11,7 +11,6 @@ namespace engine {
   class Des;
 }
 
-#include "state/State.h"
 #include "Des.h"
 
 namespace engine {
@@ -25,10 +24,10 @@ namespace engine {
   public:
     DesAttaquant (int nbDes);
     DesAttaquant (int nbDes, std::vector<int> desRouges);
-    ~DesAttaquant ();
-    bool verif (state::State state);
-    void exec (state::State state);
-    void undo (state::State state);
+    virtual ~DesAttaquant ();
+    bool verif (state::State& state);
+    void exec (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
   };
 

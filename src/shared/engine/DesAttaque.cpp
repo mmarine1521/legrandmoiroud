@@ -6,6 +6,7 @@
 
 namespace engine {
 
+
 DesAttaque::DesAttaque (int nbDes) : Des(nbDes){
 }
 
@@ -15,7 +16,7 @@ DesAttaque::DesAttaque (int nbDes, std::vector<int> desBleus) : Des(nbDes), desB
 DesAttaque::~DesAttaque (){
 }
 
-bool DesAttaque::verif (state::State state){
+bool DesAttaque::verif (state::State& state){
   if (nbDes < 1 || nbDes > 2){
     std::cout << "Problème : Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;
     return false;
@@ -43,13 +44,13 @@ bool DesAttaque::verif (state::State state){
   return false;
 }
 
-void DesAttaque::exec (state::State state){
+void DesAttaque::exec (state::State& state){
   state.setNbDesAttaque(this->nbDes);
   this->desBleus = Des::lancerDes(this->nbDes);
   state.setDesBleus(this->desBleus);
 }
 
-void DesAttaque::undo (state::State state){
+void DesAttaque::undo (state::State& state){
   state.setNbDesAttaquant(this->nbDes);
   state.setDesRouges(this->desBleus);
 }
