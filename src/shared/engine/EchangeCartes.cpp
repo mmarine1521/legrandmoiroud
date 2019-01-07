@@ -70,6 +70,7 @@ void EchangeCartes::exec (state::State state){
   }
   Commande* defausse = new Defausser(numeroCarte);
   defausse->exec(state);
+  state.setNbCartes(state.getNbCartes() - 1);
 }
 
 void EchangeCartes::undo (state::State state){

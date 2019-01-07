@@ -36,6 +36,8 @@ namespace state {
     std::vector<int> desRouges;
     std::vector<int> desBleus;
     int victoire;
+    int nbCartes;
+    int armeesPlacer;
     std::vector<CarteForce> typeCartes;
     // Operations
   public:
@@ -57,6 +59,8 @@ namespace state {
     std::vector<int> getDesRouges ();
     std::vector<int> getDesBleus ();
     int getVictoire ();
+    int getNbCartes ();
+    int getArmeesPlacer ();
     std::vector<CarteForce> getTypesCartes ();
     void setArmeeTab (ElementTab armee);
     void setCartePiocheTab (ElementTab cartePioche);
@@ -76,6 +80,8 @@ namespace state {
     void setDesRouges (std::vector<int> desRouges);
     void setDesBleus (std::vector<int> desBleus);
     void setVictoire (int victoire);
+    void setNbCartes (int nbCartes);
+    void setArmeesPlacer (int armeesPlacer);
     void setTypeCarte (CarteForce type);
     void deleteTypeCarte ();
     // Setters and Getters

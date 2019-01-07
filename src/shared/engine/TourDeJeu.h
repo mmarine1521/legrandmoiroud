@@ -48,7 +48,7 @@ namespace engine {
     // Associations
     // Attributes
   public:
-    std::list<StepId> steps;
+    static std::list<state::StepId> steps;
   private:
     static std::list<Commande*> commandes;
     static std::list<Commande*> undos;

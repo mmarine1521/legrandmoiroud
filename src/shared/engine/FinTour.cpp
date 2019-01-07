@@ -5,10 +5,6 @@ namespace engine {
 FinTour::~FinTour (){
 }
 
-IdCommande const FinTour::getIdCommande (){
-  return FIN_c;
-}
-
 void FinTour::exec (state::State state){
   if (state.getIdJoueur() == 1){
     state.setIdJoueur(2);

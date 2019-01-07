@@ -18,12 +18,10 @@ void TourDeJeu::pushCommande (Commande* commande){
 }
 
 void TourDeJeu::run (state::State state){
-  state.setStepId(DISTRIBUTION_s);
-  steps.push_back(DISTRIBUTION_s);
-
-  state.setArmeesRepartition(28);
+  state.setStepId(state::DISTRIBUTION_s);
+  steps.push_back(state::DISTRIBUTION_s);
+  state.setArmeesPlacer(28);
   state.setNbCartes(3);
-  state.setArmeesPlacer(0);
 
   while(!commandes.empty()){
     Commande* c = commandes.front();
@@ -53,13 +51,9 @@ void TourDeJeu::run (state::State state){
         case state::REPARTITION_ARMEES_s :
           if(c->getIdCommande() == PLACER_ARMEES_c){
             if(c->verif(state)){
-              if (c->getNbArmees() > armees_repartition){
-                c->setNbArmees(armees_repartition);
-              }
               c->exec(state);
               undos.push_back(c);
-              armees_repartition -= c->getNbArmees();
-              if (armees_repartition == 0){
+              if (state.getArmeesPlacer() == 0){
                 state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
                 steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
                 std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
@@ -124,6 +118,7 @@ void TourDeJeu::run (state::State state){
               if (state.getVictoire() == 0){
                 state.setStepId(state::ECHANGE_s);
                 steps.push_back(state::ECHANGE_s);
+                state.setNbCartes(3);
                 std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
               }
               else{
@@ -163,6 +158,7 @@ void TourDeJeu::run (state::State state){
             if(IssueDuCombat::nbCartesJoueur(state) >= 3){
               state.setStepId(state::ECHANGE_s);
               steps.push_back(state::ECHANGE_s);
+              state.setNbCartes(3);
               std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
               std::cout << "3 soldats = 3 armées" << std::endl;
               std::cout << "3 tanks = 5 armées" << std::endl;
@@ -178,7 +174,6 @@ void TourDeJeu::run (state::State state){
 
         case state::ECHANGE_s :
           if(c->getIdCommande() == PASSER_c){
-            armees_placer = 0;
             state.setStepId(state::DEPLACER_ARMEES_s);
             steps.push_back(state::DEPLACER_ARMEES_s);
             std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
@@ -187,13 +182,12 @@ void TourDeJeu::run (state::State state){
             if(c->verif(state)){
               c->exec(state);
               undos.push_back(c);
-              nbCartes -= 1;
 
-              if (nbCartes == 0){
-                armees_placer = EchangeCartes::gain(state);
+              if (state.getNbCartes() == 0){
+                state.setArmeesPlacer(EchangeCartes::gain(state));
               }
 
-              if (armees_placer == 0){
+              if (state.getArmeesPlacer() == 0){
                 state.setStepId(state::DEPLACER_ARMEES_s);
                 steps.push_back(state::DEPLACER_ARMEES_s);
                 std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
@@ -210,13 +204,9 @@ void TourDeJeu::run (state::State state){
         case state::PLACER_NOUVELLES_ARMEES_s :
           if(c->getIdCommande() == PLACER_ARMEES_c){
             if(c->verif(state)){
-              if (c->getNbArmees() > armees_placer){
-                c->setNbArmees(armees_placer);
-              }
               c->exec(state);
               undos.push_back(c);
-              armees_placer -= c->getNbArmees();
-              if (armees_placer == 0){
+              if (state.getArmeesPlacer() == 0){
                 state.setStepId(state::DEPLACER_ARMEES_s);
                 steps.push_back(state::DEPLACER_ARMEES_s);
                 std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
@@ -240,7 +230,6 @@ void TourDeJeu::run (state::State state){
             steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
             std::cout << "Fin du tour. Début du tour " << state.getTourId() << "." << std::endl;
             std::cout << "C'est au joueur " << state.getIdJoueur() << " de jouer." << std::endl;
-            nbCartes = 3;
           }
           break;
       }

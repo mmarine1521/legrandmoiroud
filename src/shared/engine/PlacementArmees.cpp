@@ -26,11 +26,10 @@ bool PlacementArmees::verif(state::State state){
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
 
-/*
-	if (armeesAPlacer < this->nbArmees){
-		std::cout << "Vous ne pouvez placer que " << armeesAPlacer << " armees sur le territoires." << std::endl;
-		this->nbArmees = armeesAPlacer;
-	}*/
+	if (state.getArmeesPlacer() < this->nbArmees){
+		std::cout << "Vous ne pouvez placer que " << state.getArmeesPlacer() << " armees sur le territoires." << std::endl;
+		this->nbArmees = state.getArmeesPlacer();
+	}
 
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
@@ -57,6 +56,7 @@ void PlacementArmees::exec (state::State state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() + this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
+			state.setArmeesPlacer(state.getArmeesPlacer() - this->nbArmees);
 			break;
 		}
 	}
@@ -71,6 +71,7 @@ void PlacementArmees::undo (state::State state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() - this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
+			state.setArmeesPlacer(state.getArmeesPlacer() + this->nbArmees);
 			break;
 		}
 	}

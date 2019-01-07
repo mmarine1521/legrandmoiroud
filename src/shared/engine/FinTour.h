@@ -20,7 +20,6 @@ namespace engine {
     // Operations
   public:
     virtual ~FinTour ();
-    IdCommande const getIdCommande ();
     void exec (state::State state);
     void undo (state::State state);
     // Setters and Getters

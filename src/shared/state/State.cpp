@@ -80,6 +80,14 @@ int State::getVictoire (){
   return this->victoire;
 }
 
+int State::getNbCartes (){
+  return this->nbCartes;
+}
+
+int State::getArmeesPlacer (){
+  return this->armeesPlacer;
+}
+
 std::vector<CarteForce> State::getTypesCartes (){
   return this->typeCartes;
 }
@@ -146,6 +154,14 @@ void State::setDesBleus (std::vector<int> desBleus){
 
 void State::setVictoire (int victoire){
   this->victoire = victoire;
+}
+
+void State::setNbCartes (int nbCartes){
+  this->nbCartes = nbCartes;
+}
+
+void State::setArmeesPlacer (int armeesPlacer){
+  this->armeesPlacer = armeesPlacer;
 }
 
 void State::setTypeCarte (CarteForce type){
