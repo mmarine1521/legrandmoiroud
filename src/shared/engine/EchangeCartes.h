@@ -13,25 +13,31 @@ namespace state {
   class Carte;
 };
 namespace engine {
-  class GestionCartes;
+  class Defausser;
 }
 
 #include "state/State.h"
 #include "Commande.h"
 #include "state/Carte.h"
-#include "GestionCartes.h"
+#include "Defausser.h"
 
 namespace engine {
 
   /// class EchangeCartes - 
   class EchangeCartes : public engine::Commande {
     // Associations
+    // Attributes
+  private:
+    int numeroCarte;
     // Operations
   public:
+    EchangeCartes (int numeroCarte);
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    static int echange (int idJoueur, state::State state);
-    static void undoEchange (int idJoueur, state::State state);
+    bool verif (int numeroCarte, state::State state);
+    static int gain (state::State state);
+    void exec (state::State state);
+    void undo (state::State state);
     // Setters and Getters
   };
 

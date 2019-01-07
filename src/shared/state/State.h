@@ -2,18 +2,23 @@
 #ifndef STATE__STATE__H
 #define STATE__STATE__H
 
+#include <string>
+#include <vector>
 
 namespace state {
   class ElementTab;
 }
 
 #include "ElementTab.h"
+#include "CarteForce.h"
+#include "StepId.h"
 
 namespace state {
 
   /// class State - 
   class State {
     // Associations
+    state::StepId stepId;
     // Attributes
   private:
     ElementTab armeeTab;
@@ -22,6 +27,16 @@ namespace state {
     ElementTab carteDefausseTab;
     ElementTab paysTab;
     ElementTab continentTab;
+    int tourId;
+    int idJoueur;
+    std::string paysAttaquant;
+    std::string paysAttaque;
+    int nbDesAttaquant;
+    int nbDesAttaque;
+    std::vector<int> desRouges;
+    std::vector<int> desBleus;
+    int victoire;
+    std::vector<CarteForce> typeCartes;
     // Operations
   public:
     State ();
@@ -32,12 +47,37 @@ namespace state {
     ElementTab& getCarteDefausseTab ();
     ElementTab& getPaysTab ();
     ElementTab& getContinentTab ();
+    int getTourId ();
+    int getIdJoueur ();
+    StepId getStepId ();
+    std::string getPaysAttaquant ();
+    std::string getPaysAttaque ();
+    int getNbDesAttaquant ();
+    int getNbDesAttaque ();
+    std::vector<int> getDesRouges ();
+    std::vector<int> getDesBleus ();
+    int getVictoire ();
+    std::vector<CarteForce> getTypesCartes ();
     void setArmeeTab (ElementTab armee);
     void setCartePiocheTab (ElementTab cartePioche);
     void setCarteEnjeuTab (ElementTab carteEnjeu);
     void setCarteDefausseTab (ElementTab carteDefausse);
     void setPaysTab (ElementTab pays);
     void setContinentTab (ElementTab continent);
+    void setTourId (int tourId);
+    void setIdJoueur (int idJoueur);
+    void setStepId (StepId stepId);
+    void setPaysAttaquant (std::string paysAttaquant);
+    void setPaysAttaque (std::string paysAttaque);
+    void setNbDesAttaquant (int nbDesAttaquant);
+    void setNbDesAttaque (int nbDesAttaque);
+    /// 	
+    /// @param desRouges		(???) 
+    void setDesRouges (std::vector<int> desRouges);
+    void setDesBleus (std::vector<int> desBleus);
+    void setVictoire (int victoire);
+    void setTypeCarte (CarteForce type);
+    void deleteTypeCarte ();
     // Setters and Getters
   };
 

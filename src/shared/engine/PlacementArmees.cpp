@@ -1,171 +1,79 @@
-//etape 10
 #include "PlacementArmees.h"
-#include "state.h"
-#include "render.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-
-using namespace state ;
-using namespace render ; 
 namespace engine {
 
+PlacementArmees::PlacementArmees (std::string pays, int nbArmees) : pays(pays), nbArmees(nbArmees){
+}
 
 PlacementArmees::~PlacementArmees (){
 }
 
 IdCommande const PlacementArmees::getIdCommande (){
-	return PLACEARMEES;
+	return PLACER_ARMEES_c;
 }
 
-//verifier idJoueur
-void PlacementArmees::placerNouvellesArmees (int idJoueur, int nouvellesArmees, state::State state, sf::RenderWindow& window, sf::Event event){
-	int armeesAPlacer = nouvellesArmees;
-	std::string pays = "";
-	int nombre = 0;
-	
-	
-		while(armeesAPlacer != 0)
-	
-	{		
-			while (window.pollEvent(event))
-				{
-							std::string tmp;
-							
-							
-							//std::cout<<"cliquez sur un de vos pays pour y placer des armées"<<std::endl ; 
-							
-								
-							
-								
-								if (event.type == sf::Event::MouseButtonPressed)
-								{
-									if(event.mouseButton.button ==sf::Mouse::Left)
-										{
-											std::cout << "Il vous reste " << armeesAPlacer << " nouvelles armées à placer. Sur quel pays souhaitez-vous en placer ?" << std::endl;
-											Affichage::AfficheQuestion1(state, window); 
-											pays = Affichage::PaysClic(window, event);
-											std::cout << "Vous allez placer des armées sur "<< pays << std::endl ;
-											std::cout << "Combien d'armées souhaitez-vous placer sur ce territoire ?" << std::endl;
-											
-										}
-								}
-								if(event.mouseButton.button ==sf::Mouse::Right)
-										{
-											nombre = Affichage::NombreClic(window, event) ; 
-											std::cout << "Vous allez placer" <<nombre<< " armées sur "<< pays << std::endl ;
-											if (armeesAPlacer < nombre)
-											{
-												nombre = armeesAPlacer;
-											}
-											state::ElementTab& tabArmee = state.getArmeeTab();
-											std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-											state::Element* e = 0;
-											for(size_t i=0; i<listeArmee.size(); i++)
-											{
-											  e = listeArmee[i].get();
-												if(e->getPays()==pays)
-												{ //on cherche le pays choisi dans la liste
-														if(e->getIdJoueur() == idJoueur)
-														{ //si l'ID du joueur correspond bien 
-															e->setNombre(e->getNombre() + nombre); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre. 
-															armeesAPlacer -= nombre; //on décrémente le compteur du nombre d'armée
-															break;
-														}
-														else
-														{
-															std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
-														}
-												}
-											}	
-										}
-										
-							}
-								
-								
-								
-								
-								
-							}
-										
-							
-							
-							
-						
-	//}
-//}
-				
-		
+int PlacementArmees::getNbArmees (){
+	return this->nbArmees;
 }
 
+void PlacementArmees::setNbArmees (int nbArmees){
+	this->nbArmees = nbArmees;
+}
 
-void PlacementArmees::deplacerArmees (int idJoueur, state::State state){
-	std::string reponse;
-	std::cout << "Voulez-vous déplacer des armées ? (o/n)" << std::endl;
-	std::cin >> reponse;
-
-	bool estPossible = false;
-	std::string paysDepart;
-	std::string paysArrivee;
-	int nombre;
-
+bool PlacementArmees::verif(state::State state){
+	int idJoueur = state.getIdJoueur();
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-	state::Element* eDepart = 0;
-	state::Element* eArrivee = 0;
+	state::Element* ptr_armee = 0;
 
-	while (reponse == "o"){
-		std::string tmp;
-		getline(std::cin,tmp);
-		std::cout << "Depuis quel pays souhaitez-vous déplacer des armées ?" << std::endl;
-		getline(std::cin, paysDepart);
-		std::cout << "Vers quel pays souhaitez-vous déplacer des armées ?" << std::endl;
-		getline(std::cin, paysArrivee);
-		std::cout << "Combien d'armées souhaitez-vous déplacer ?" << std::endl;
-		std::cin >> nombre;
+/*
+	if (armeesAPlacer < this->nbArmees){
+		std::cout << "Vous ne pouvez placer que " << armeesAPlacer << " armees sur le territoires." << std::endl;
+		this->nbArmees = armeesAPlacer;
+	}*/
 
-    for(size_t i=0; i<listeArmee.size(); i++){
-      eDepart = listeArmee[i].get();
-  		if(eDepart->getPays() == paysDepart){
-				if(eDepart->getIdJoueur() == idJoueur){
-					if (eDepart->getNombre() > nombre){
-						estPossible = ChoixPays::estFrontalier(paysDepart, paysArrivee, state);
-						if (estPossible == false){
-							std::cout << "Problème : Les deux pays ne sont pas frontaliers." << std::endl;
-						}
-					}
-					else{
-						std::cout << "Problème : Le pays de départ ne possède que " << eDepart->getNombre() << " armées. On ne peut dont pas en déplacer " << nombre << "." << std::endl;
-					}
-				}
-				else{
-					std::cout << "Problème : Le pays de départ ne vous appartient pas." << std::endl;
-				}
-  		}
-			break;
-  	}
-		for(size_t i=0; i<listeArmee.size(); i++){
-      eArrivee = listeArmee[i].get();
-  		if(eArrivee->getPays() == paysArrivee){
-				if (eArrivee->getIdJoueur() != idJoueur){
-					estPossible = false;
-					std::cout << "Problème : Le pays d'arrivée ne vous appartient pas." << std::endl;
-				}
+	for(size_t i=0; i<listeArmee.size(); i++){
+		ptr_armee = listeArmee[i].get();
+		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
+			if(ptr_armee->getIdJoueur() == idJoueur){ //si l'ID du joueur correspond bien
+				return true; //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
+			}
+			else{
+				std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
+				return false;
 			}
 			break;
 		}
-
-		if (estPossible == true){
-			eDepart->setNombre(eDepart->getNombre() - nombre);
-			eArrivee->setNombre(eArrivee->getNombre() + nombre);
-		}
-		else{
-			std::cout << "Problème : Le déplacement n'est pas possible." << std::endl;
-		}
-		std::cout << "Voulez-vous déplacer des armées ? (o/n)" << std::endl;
-		std::cin >> reponse;
 	}
+	return false;
+}
 
+void PlacementArmees::exec (state::State state){
+	state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* ptr_armee = 0;
+
+	for(size_t i=0; i<listeArmee.size(); i++){
+		ptr_armee = listeArmee[i].get();
+		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
+			ptr_armee->setNombre(ptr_armee->getNombre() + this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
+			break;
+		}
+	}
+}
+
+void PlacementArmees::undo (state::State state){
+	state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* ptr_armee = 0;
+
+	for(size_t i=0; i<listeArmee.size(); i++){
+		ptr_armee = listeArmee[i].get();
+		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
+			ptr_armee->setNombre(ptr_armee->getNombre() - this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
+			break;
+		}
+	}
 }
 
 }

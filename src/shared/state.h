@@ -15,5 +15,6 @@
 #include "state/Continent.h"
 #include "state/Pays.h"
 #include "state/ElementTab.h"
+#include "state/StepId.h"
 #include "state/State.h"
 #endif

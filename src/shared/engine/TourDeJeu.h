@@ -2,39 +2,58 @@
 #ifndef ENGINE__TOURDEJEU__H
 #define ENGINE__TOURDEJEU__H
 
-#include <SFML/Graphics.hpp>
+#include <list>
 
+namespace engine {
+  class Commande;
+};
 namespace state {
   class State;
 };
 namespace engine {
+  class FinTour;
+  class Defausser;
+  class Piocher;
+  class DesAttaquant;
+  class DesAttaque;
+  class Distribution;
+  class DeplacerArmees;
+  class ChoixPaysAttaquant;
   class PlacementArmees;
-  class AttributionTerritoires;
-  class ChoixPays;
+  class ChoixPaysAttaque;
   class EchangeCartes;
-  class GainCombat;
   class IssueDuCombat;
-  class Combat;
 }
 
 #include "state/State.h"
+#include "FinTour.h"
+#include "Defausser.h"
+#include "Piocher.h"
+#include "DesAttaquant.h"
+#include "DesAttaque.h"
+#include "Distribution.h"
+#include "DeplacerArmees.h"
+#include "ChoixPaysAttaquant.h"
 #include "PlacementArmees.h"
-#include "AttributionTerritoires.h"
-#include "ChoixPays.h"
+#include "ChoixPaysAttaque.h"
 #include "EchangeCartes.h"
-#include "GainCombat.h"
 #include "IssueDuCombat.h"
-#include "Combat.h"
 
 namespace engine {
 
   /// class TourDeJeu - 
   class TourDeJeu {
     // Associations
+    // Attributes
+  private:
+    static std::list<Commande*> commandes;
+    static std::list<Commande*> undos;
     // Operations
   public:
-    static void jouer (int numeroTour, int idJoueur, state::State state, sf::RenderWindow& window, sf::Event event);
-    static void undoJouer (int numeroTour, int idJoueur, state::State state);
+    virtual ~TourDeJeu ();
+    static void pushCommande (Commande* commande);
+    static void pushUndo (Commande* commande);
+    static void run (state::State state);
     // Setters and Getters
   };
 

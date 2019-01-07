@@ -1,95 +1,81 @@
-//etape 9
 #include "EchangeCartes.h"
 
 namespace engine {
+
+EchangeCartes::EchangeCartes (int numeroCarte) : numeroCarte(numeroCarte){
+}
 
 EchangeCartes::~EchangeCartes (){
 }
 
 IdCommande const EchangeCartes::getIdCommande (){
-  return ECHANGECARTES;
+  return ECHANGE_c;
 }
 
-int EchangeCartes::echange (int idJoueur, state::State state){
-  int valeur = 0;
-  std::string reponse;
-  std::cout << "Souhaitez-vous échanger des cartes contre des armées ? (o/n)" << std::endl;
-  std::cin >> reponse;
+bool EchangeCartes::verif(int numeroCarte, state::State state){// verifie que le joueur possède la carte
+  int idJoueur = state.getIdJoueur();
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::Element* ptr_carte = 0;
 
-  if (reponse == "o"){
-    int numeroCarte1;
-    int numeroCarte2;
-    int numeroCarte3;
-    std::cout << "Quel est le numéro de la première carte que vous souhaitez échanger ?" << std::endl;
-    std::cin >> numeroCarte1;
-    std::cout << "Quel est le numéro de la deuxième carte que vous souhaitez échanger ?" << std::endl;
-    std::cin >> numeroCarte2;
-    std::cout << "Quel est le numéro de la troisième carte que vous souhaitez échanger ?" << std::endl;
-    std::cin >> numeroCarte3;
-
-    state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
-    std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
-    state::Element* ptr_carte1 = 0;
-    state::Element* ptr_carte2 = 0;
-    state::Element* ptr_carte3 = 0;
-    for(size_t i=0; i<listeEnjeu.size(); i++){
-      ptr_carte1 = listeEnjeu[i].get();
-      if(ptr_carte1->getNumero() == numeroCarte1){
-        if(ptr_carte1->getIdJoueur() != idJoueur){
-          std::cout << "La première carte ne vous appartient pas." << std::endl;
-          return -1;
-        }
-        break;
+  for(size_t i=0; i<listeEnjeu.size(); i++){
+    ptr_carte = listeEnjeu[i].get();
+    if(ptr_carte->getNumero() == numeroCarte){
+      if(ptr_carte->getIdJoueur() == idJoueur){
+        return true;
       }
-    }
-    for(size_t i=0; i<listeEnjeu.size(); i++){
-      ptr_carte2 = listeEnjeu[i].get();
-      if(ptr_carte2->getNumero() == numeroCarte2){
-        if(ptr_carte2->getIdJoueur() != idJoueur){
-          std::cout << "La deuxième carte ne vous appartient pas." << std::endl;
-          return -1;
-        }
-        break;
+      else{
+        std::cout << "Cette carte ne vous appartient pas." << std::endl;
+        return false;
       }
-    }
-    for(size_t i=0; i<listeEnjeu.size(); i++){
-      ptr_carte3 = listeEnjeu[i].get();
-      if(ptr_carte3->getNumero() == numeroCarte3){
-        if(ptr_carte3->getIdJoueur() != idJoueur){
-          std::cout << "La troisième carte ne vous appartient pas." << std::endl;
-          return -1;
-        }
-        break;
-      }
-    }
-
-    state::CarteForce typeCarte = ptr_carte1->getCarteForce();
-    if (ptr_carte2->getCarteForce() == typeCarte){
-      if (ptr_carte3->getCarteForce() == typeCarte){
-        switch (typeCarte) {
-          case 0 : valeur = -1; break;
-          case 1 : valeur = 5; break;
-          case 2 : valeur = 8; break;
-          case 3 : valeur = 3; break;
-        }
-      }
-    }
-    if (valeur == -1){
-      std::cout << "Vos trois cartes n'ont pas la même force. Il faut que les trois cartes soient de type TANK, CANON ou SOLDAT." << std::endl;
-    }
-    else{
-      GestionCartes::defausser(numeroCarte1, state);
-      GestionCartes::defausser(numeroCarte2, state);
-      GestionCartes::defausser(numeroCarte3, state);
+      break;
     }
   }
-  return valeur;
+  std::cout << "Cette carte n'est pas en jeu." << std::endl;
+  return false;
 }
 
-void EchangeCartes::undoEchange (int idJoueur, state::State state){
-  for (size_t i=0; i<3; i++){
-    GestionCartes::undoDefausser (idJoueur, state);
+int EchangeCartes::gain (state::State state){
+  std::vector<state::CarteForce> forceCartes = state.getTypesCartes();
+  state::CarteForce forceCarte1 = forceCartes[0];
+  state::CarteForce forceCarte2 = forceCartes[1];
+  state::CarteForce forceCarte3 = forceCartes[2];
+
+  if(forceCarte1 == 1 && forceCarte2 == 1 && forceCarte3 == 1){ //TANK
+    return 5;
   }
+  else if (forceCarte1 == 2 && forceCarte2 == 2 && forceCarte3 == 2) { //CANON
+    return 8;
+  }
+  else if (forceCarte1 == 3 && forceCarte2 == 3 && forceCarte3 == 3) { //SOLDAT
+    return 3;
+  }
+  else {
+    std::cout << "Vos trois cartes n'ont pas la même force. Il faut que les trois cartes soient de type TANK, CANON ou SOLDAT." << std::endl;
+    return 0;
+  }
+}
+
+void EchangeCartes::exec (state::State state){
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::Element* ptr_carte = 0;
+
+  for(size_t i=0; i<listeEnjeu.size(); i++){
+    ptr_carte = listeEnjeu[i].get();
+    if(ptr_carte->getNumero() == numeroCarte){
+      state.setTypeCarte(ptr_carte->getCarteForce());
+      break;
+    }
+  }
+  Commande* defausse = new Defausser(numeroCarte);
+  defausse->exec(state);
+}
+
+void EchangeCartes::undo (state::State state){
+  state.deleteTypeCarte();
+  Commande* defausse = new Defausser(numeroCarte);
+  defausse->undo(state);
 }
 
 }

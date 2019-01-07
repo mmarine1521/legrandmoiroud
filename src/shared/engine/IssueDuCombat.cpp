@@ -1,22 +1,41 @@
-//etape 7
 #include "IssueDuCombat.h"
 
 #include <algorithm>    // std::max
 
 namespace engine {
 
+IssueDuCombat::IssueDuCombat (int victoire) : victoire(victoire){
+}
+
 IssueDuCombat::~IssueDuCombat (){
 }
 
-IdCommande const IssueDuCombat::getIdCommande (){
-  return ISSUECOMBAT;
+int IssueDuCombat::nbCartesJoueur (state::State state){
+  int idJoueur = state.getIdJoueur();
+  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+  state::Element* ptr_carte = 0;
+
+  int compt = 0;
+  for(size_t i=0; i<listeEnjeu.size(); i++){
+    ptr_carte = listeEnjeu[i].get();
+    if(ptr_carte->getIdJoueur() == idJoueur){
+      compt += 1;
+    }
+  }
+  return compt;
 }
 
 //0 => pas de victoire/défaite
 //10x => victoire
 //11x => victoire avec -1 armée sur le territoire battu
 //le dernier chiffre x représente le joueur qui a perdu son territoire
-int IssueDuCombat::victoire (std::vector<int>& desRouges, std::vector<int>& desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state){//etape 7
+void IssueDuCombat::exec (state::State state){
+  std::vector<int> desRouges = state.getDesRouges();
+  std::vector<int> desBleus = state.getDesBleus();
+  std::string paysAttaquant = state.getPaysAttaquant();
+  std::string paysAttaque = state.getPaysAttaque();
+
   int ite = std::min(desRouges.size(), desBleus.size());
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -48,29 +67,33 @@ int IssueDuCombat::victoire (std::vector<int>& desRouges, std::vector<int>& desB
     }
   }
 
-  int valeur;
   if (ptr_Attaque->getNombre() < 0){
-    valeur = 110 + ptr_Attaque->getIdJoueur();
+    this->victoire = 110 + ptr_Attaque->getIdJoueur();
     std::cout << "Vous avez gagné le territoire." << std::endl;
     ptr_Attaque->setNombre(1);
     ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() - 1);
     ptr_Attaque->setIdJoueur(ptr_Attaquant->getIdJoueur());
   }
   else if (ptr_Attaque->getNombre() == 0){
-    valeur = 100 + ptr_Attaque->getIdJoueur();
+    this->victoire = 100 + ptr_Attaque->getIdJoueur();
     std::cout << "Vous avez gagné le territoire." << std::endl;
     ptr_Attaque->setNombre(1);
     ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() - 1);
     ptr_Attaque->setIdJoueur(ptr_Attaquant->getIdJoueur());
   }
   else{
-    return valeur = 0;
+    this->victoire = 0;
   }
-
-  return valeur;
+  state.setVictoire(this->victoire);
 }
 
-void IssueDuCombat::undoVictoire (int victoire, std::vector<int>& desRouges, std::vector<int>& desBleus, std::string paysAttaquant, std::string paysAttaque, state::State state){
+void IssueDuCombat::undo (state::State state){
+  std::vector<int> desRouges = state.getDesRouges();
+  std::vector<int> desBleus = state.getDesBleus();
+  std::string paysAttaquant = state.getPaysAttaquant();
+  std::string paysAttaque = state.getPaysAttaque();
+  int victoire = state.getVictoire();
+
   int ite = std::min(desRouges.size(), desBleus.size());
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -91,35 +114,16 @@ void IssueDuCombat::undoVictoire (int victoire, std::vector<int>& desRouges, std
     }
   }
 
-  if (victoire == 101){
+  if (victoire != 0){
     ptr_Attaque->setIdJoueur(victoire % 10);
     ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(0);
-  }
-  else if (victoire == 102){
-    ptr_Attaque->setIdJoueur(victoire % 10);
-    ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(0);
-  }
-  else if (victoire == 103){
-    ptr_Attaque->setIdJoueur(victoire % 10);
-    ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(0);
-  }
-  else if (victoire == 111){
-    ptr_Attaque->setIdJoueur(victoire % 10);
-    ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(-1);
-  }
-  else if (victoire == 111){
-    ptr_Attaque->setIdJoueur(victoire % 10);
-    ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(-1);
-  }
-  else if (victoire == 111){
-    ptr_Attaque->setIdJoueur(victoire % 10);
-    ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
-    ptr_Attaque->setNombre(-1);
+
+    if (victoire == 101 || victoire == 102 || victoire == 103){
+      ptr_Attaque->setNombre(0);
+    }
+    else{
+        ptr_Attaque->setNombre(-1);
+    }
   }
 
   for (int i = 0; i < ite; i++){
@@ -130,6 +134,8 @@ void IssueDuCombat::undoVictoire (int victoire, std::vector<int>& desRouges, std
       ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() + 1);
     }
   }
+
+  state.setVictoire(this->victoire);
 }
 
 }
