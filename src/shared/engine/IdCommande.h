@@ -8,17 +8,16 @@ namespace engine {
   enum IdCommande {
     COMMANDE_c     = 0,
     DISTRIBUTION_c     = 1,
-    CHOIX_PAYS_ATTAQUANT_c     = 3,
-    CHOIX_PAYS_ATTAQUE_c     = 4,
-    NB_DES_ATTAQUANT_c     = 5,
-    NB_DES_ATTAQUE_c     = 6,
+    CHOIX_PAYS_c     = 3,
+    NB_DES_c     = 5,
     DEFAUSSER_c     = 7,
     PIOCHER_c     = 8,
     ECHANGE_c     = 9,
     PLACER_ARMEES_c     = 10,
     DEPLACER_ARMEES_c     = 11,
     FIN_c     = 12,
-    UNDO_c     = 13
+    UNDO_c     = 13,
+    PASSER_c     = 14
   };
 
 };

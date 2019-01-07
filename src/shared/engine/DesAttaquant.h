@@ -23,9 +23,9 @@ namespace engine {
     std::vector<int> desRouges;
     // Operations
   public:
+    DesAttaquant (int nbDes);
     DesAttaquant (int nbDes, std::vector<int> desRouges);
     ~DesAttaquant ();
-    IdCommande const getIdCommande ();
     bool verif (state::State state);
     void exec (state::State state);
     void undo (state::State state);

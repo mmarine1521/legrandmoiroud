@@ -12,6 +12,14 @@ Des::Des (int nbDes) : nbDes(nbDes){
 Des::~Des (){
 }
 
+IdCommande const Des::getIdCommande (){
+  return NB_DES_c;
+}
+
+int Des::getNbDes(){
+  return this->nbDes;
+}
+
 std::vector<int> Des::lancerDes (int nbDes){
   std::vector<int> liste(nbDes);
   int nb = 0;

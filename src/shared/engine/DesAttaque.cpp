@@ -6,14 +6,13 @@
 
 namespace engine {
 
+DesAttaque::DesAttaque (int nbDes) : Des(nbDes){
+}
+
 DesAttaque::DesAttaque (int nbDes, std::vector<int> desBleus) : Des(nbDes), desBleus(desBleus){
 }
 
 DesAttaque::~DesAttaque (){
-}
-
-IdCommande const DesAttaque::getIdCommande (){
-  return NB_DES_ATTAQUE_c;
 }
 
 bool DesAttaque::verif (state::State state){

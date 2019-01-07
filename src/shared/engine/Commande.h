@@ -2,6 +2,7 @@
 #ifndef ENGINE__COMMANDE__H
 #define ENGINE__COMMANDE__H
 
+#include <string>
 
 namespace state {
   class State;
@@ -28,6 +29,8 @@ namespace engine {
     virtual int getNumeroCarte ();
     virtual int getNbArmees ();
     virtual void setNbArmees (int nbArmees);
+    virtual std::string getPays ();
+    virtual int getNbDes ();
     // Setters and Getters
     void setIdCommande(IdCommande idCommande);
   };

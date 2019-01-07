@@ -6,6 +6,10 @@
 
 namespace engine {
 
+
+std::list<Commande*> TourDeJeu::commandes;
+std::list<Commande*> TourDeJeu::undos;
+
 TourDeJeu::~TourDeJeu (){
 }
 
@@ -63,11 +67,12 @@ void TourDeJeu::run (state::State state){
         break;
 
       case state::CHOIX_PAYS_ATTAQUANT_s :
-        if(c->getIdCommande() == CHOIX_PAYS_ATTAQUANT_c){
-          if(c->verif(state)){
+        if(c->getIdCommande() == CHOIX_PAYS_c){
+          Commande* pays_attaquant = new ChoixPaysAttaquant(c->getPays());
+          if(pays_attaquant->verif(state)){
             Commande* c_avant = new ChoixPaysAttaquant(state.getPaysAttaquant());
             pushUndo(c_avant);
-            c->exec(state);
+            pays_attaquant->exec(state);
             state.setStepId(state::CHOIX_PAYS_ATTAQUE_s);
             std::cout << "Veuillez choisir le pays que vous souhaitez attaquer." << std::endl;
           }
@@ -75,11 +80,12 @@ void TourDeJeu::run (state::State state){
         break;
 
       case state::CHOIX_PAYS_ATTAQUE_s :
-        if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
-          if(c->verif(state)){
+        if(c->getIdCommande() == CHOIX_PAYS_c){
+          Commande* pays_attaque = new ChoixPaysAttaque(c->getPays());
+          if(pays_attaque->verif(state)){
             Commande* c_avant = new ChoixPaysAttaque(state.getPaysAttaque());
             pushUndo(c_avant);
-            c->exec(state);
+            pays_attaque->exec(state);
             state.setStepId(state::NB_DES_ATTAQUANT_s);
             std::cout << "Avec combien d'armées souhaitez vous attaquer ?" << std::endl;
           }
@@ -87,11 +93,12 @@ void TourDeJeu::run (state::State state){
         break;
 
       case state::NB_DES_ATTAQUANT_s :
-        if(c->getIdCommande() == NB_DES_ATTAQUANT_c){
-          if(c->verif(state)){
+        if(c->getIdCommande() == NB_DES_c){
+          Commande* des_attaquant = new DesAttaquant(c->getNbDes());
+          if(des_attaquant->verif(state)){
             Commande* c_avant = new DesAttaquant(state.getNbDesAttaquant(), state.getDesRouges());
             pushUndo(c_avant);
-            c->exec(state);
+            des_attaquant->exec(state);
             state.setStepId(state::NB_DES_ATTAQUE_s);
             std::cout << "Avec combien d'armées souhaitez vous défendre ?" << std::endl;
           }
@@ -99,11 +106,12 @@ void TourDeJeu::run (state::State state){
         break;
 
       case state::NB_DES_ATTAQUE_s :
-        if(c->getIdCommande() == NB_DES_ATTAQUE_c){
-          if(c->verif(state)){
+        if(c->getIdCommande() == NB_DES_c){
+          Commande* des_attaque = new DesAttaque(c->getNbDes());
+          if(des_attaque->verif(state)){
             Commande* c_avant = new DesAttaque(state.getNbDesAttaque(), state.getDesBleus());
             pushUndo(c_avant);
-            c->exec(state);
+            des_attaque->exec(state);
             //Issue du combat
             Commande* c_suivant = new IssueDuCombat(state.getVictoire());
             pushUndo(c_suivant);

@@ -4,14 +4,10 @@
 
 namespace engine {
 
-ChoixPaysAttaquant::ChoixPaysAttaquant (std::string pays) : pays(pays){
+ChoixPaysAttaquant::ChoixPaysAttaquant (std::string pays) : ChoixPays(pays){
 }
 
 ChoixPaysAttaquant::~ChoixPaysAttaquant (){
-}
-
-IdCommande const ChoixPaysAttaquant::getIdCommande (){
-  return CHOIX_PAYS_ATTAQUANT_c;
 }
 
 bool ChoixPaysAttaquant::verif (state::State state){

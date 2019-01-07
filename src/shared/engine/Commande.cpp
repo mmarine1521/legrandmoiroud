@@ -25,4 +25,12 @@ void Commande::setNbArmees (int nbArmees){
   return;
 }
 
+std::string Commande::getPays(){
+  return "#pays";
+}
+
+int Commande::getNbDes (){
+  return -1;
+}
+
 }

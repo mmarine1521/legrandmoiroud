@@ -8,24 +8,20 @@ namespace state {
   class State;
 };
 namespace engine {
-  class Commande;
+  class ChoixPays;
 }
 
 #include "state/State.h"
-#include "Commande.h"
+#include "ChoixPays.h"
 
 namespace engine {
 
   /// class ChoixPaysAttaque - 
-  class ChoixPaysAttaque : public engine::Commande {
-    // Attributes
-  public:
-    std::string pays;
+  class ChoixPaysAttaque : public engine::ChoixPays {
     // Operations
   public:
     ChoixPaysAttaque (std::string pays);
     virtual ~ChoixPaysAttaque ();
-    IdCommande const getIdCommande ();
     static bool estFrontalier (std::string pays1, std::string pays2, state::State state);
     bool verif (state::State state);
     void exec (state::State state);

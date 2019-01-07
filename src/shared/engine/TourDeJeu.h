@@ -11,6 +11,7 @@ namespace state {
   class State;
 };
 namespace engine {
+  class Passer;
   class FinTour;
   class Defausser;
   class Piocher;
@@ -26,6 +27,7 @@ namespace engine {
 }
 
 #include "state/State.h"
+#include "Passer.h"
 #include "FinTour.h"
 #include "Defausser.h"
 #include "Piocher.h"

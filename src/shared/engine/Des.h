@@ -27,9 +27,10 @@ namespace engine {
   public:
     Des (int nbDes);
     virtual ~Des ();
+    IdCommande const getIdCommande ();
+    int getNbDes ();
     static std::vector<int> lancerDes (int nbDes);
     // Setters and Getters
-    int getNbDes() const;
     void setNbDes(int nbDes);
   };
 
