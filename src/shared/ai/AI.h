@@ -11,6 +11,19 @@ namespace engine {
 };
 namespace state {
   class State;
+};
+namespace engine {
+  class DeplacerArmees;
+  class EchangeCartes;
+  class Defausser;
+  class IssueDuCombat;
+  class DesAttaque;
+  class DesAttaquant;
+  class ChoixPaysAttaque;
+  class ChoixPaysAttaquant;
+  class PlacementArmees;
+};
+namespace state {
   class Carte;
 };
 namespace engine {
@@ -22,6 +35,15 @@ namespace engine {
 }
 
 #include "state/State.h"
+#include "engine/DeplacerArmees.h"
+#include "engine/EchangeCartes.h"
+#include "engine/Defausser.h"
+#include "engine/IssueDuCombat.h"
+#include "engine/DesAttaque.h"
+#include "engine/DesAttaquant.h"
+#include "engine/ChoixPaysAttaque.h"
+#include "engine/ChoixPaysAttaquant.h"
+#include "engine/PlacementArmees.h"
 #include "state/Carte.h"
 #include "engine/FinTour.h"
 #include "engine/Undo.h"
@@ -48,10 +70,8 @@ namespace ai {
     virtual void aiDesAttaquant (state::State state) = 0;
     virtual void aiDesAttaque (state::State state) = 0;
     virtual void aiDefausser (state::State state) = 0;
-    state::CarteForce aiChoixEchange (state::State state);
     virtual void aiEchange (state::State state) = 0;
     virtual void aiDeplacerArmees (state::State state) = 0;
-    virtual void aiTourDeJeu (state::State state) = 0;
     // Setters and Getters
   };
 

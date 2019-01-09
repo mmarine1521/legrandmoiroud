@@ -1,6 +1,8 @@
 #include "RandomAI.h"
 
-namespace ai {
+#include <algorithm>    // std::find
+
+namespace ai{
 
 void RandomAI::aiPlacementArmees (state::State state){
   state::ElementTab& tabArmee = state.getArmeeTab();
@@ -19,7 +21,7 @@ void RandomAI::aiPlacementArmees (state::State state){
 	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
-  pushCommande(new state::PlacementArmees(ptr_armee->getPays(), nombreArmees));
+  pushCommande(new engine::PlacementArmees(ptr_armee->getPays(), nombreArmees));
 }
 
 void RandomAI::aiChoixPaysAttaquant (std::vector<std::string> blackList, state::State state){
@@ -43,14 +45,13 @@ void RandomAI::aiChoixPaysAttaquant (std::vector<std::string> blackList, state::
   std::string pays;
 	if (listeArmeeJoueur.size() == 0){
 		std::cout << "Problème : Le joueur ne peut engagé aucun de vos territoires dans un combat." << std::endl;
-		pays = "PROBLEME";
+		pushCommande(new engine::Passer());
 	}
 	else{
 		int armeeAleatoire = rand() % listeArmeeJoueur.size();
 		ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement
-		pays = ptr_armee->getPays();
+    pushCommande(new engine::ChoixPaysAttaquant(ptr_armee->getPays()));
 	}
-  pushCommande(new state::ChoixPaysAttaquant(pays));
 }
 
 void RandomAI::aiChoixPaysAttaque (state::State state){
@@ -71,15 +72,15 @@ void RandomAI::aiChoixPaysAttaque (state::State state){
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
 
-	pushCommande(new state::ChoixPaysAttaque(ptr_armee->getPays()));
+	pushCommande(new engine::ChoixPaysAttaque(ptr_armee->getPays()));
 }
 
 void RandomAI::aiDesAttaquant (state::State state){
-  pushCommande(new state::DesAttaquant(rand() % 3 + 1));
+  pushCommande(new engine::DesAttaquant(rand() % 3 + 1));
 }
 
 void RandomAI::aiDesAttaque (state::State state){
-  pushCommande(new state::DesAttaque(rand() % 2 + 1));
+  pushCommande(new engine::DesAttaque(rand() % 2 + 1));
 }
 
 void RandomAI::aiDefausser (state::State state){
@@ -97,94 +98,92 @@ void RandomAI::aiDefausser (state::State state){
 
   int positionCarte = rand() % listeCarteJoueur.size();
   ptr_carte = listeCarteJoueur[positionCarte];
-  pushCommande(new state::Defausser(ptr_carte->getNumero()));
+  pushCommande(new engine::Defausser(ptr_carte->getNumero()));
 }
-/*
+
 void RandomAI::aiEchange (state::State state){
   int decision = rand() % 2;
   if (decision == 0){
-    commandes.push_back(new state::Passer());
+    pushCommande(new engine::Passer());
   }
   if (decision == 1){
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
     state::Element* ptr_carte = 0;
+    std::vector<state::Element*> listeCarteJoueur;
 
-    int comptTANK = 0;
-    int comptCANON = 0;
-    int comptSOLDAT = 0;
     for(size_t i=0; i<listeEnjeu.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getIdJoueur() == state.getIdJoueur()){
-        switch (ptr_carte->getCarteForce()) {
-          case 0 : break; //NONIDENTIFIE
-          case 1 : comptTANK +=1; break; //TANK
-          case 2 : comptCANON +=1; break; //CANON
-          case 3 : comptSOLDAT +=1; break; //SOLDAT
-        }
+        listeCarteJoueur.push_back(ptr_carte);
       }
     }
 
-    if (comptTANK < 3 && comptCANON < 3 && comptSOLDAT < 3){
-      commandes.push_back(new state::Passer());
-    }
-    else{
-      int comptDefausse = 0;
-      if (comptTANK >= 3){
-        for(size_t i=0; i<listeEnjeu.size(); i++){
-          ptr_carte = listeEnjeu[i].get();
-          if (ptr_carte->getIdJoueur() == idJoueur){
-            if (ptr_carte->getCarteForce() == 1){
-              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-              comptDefausse += 1;
-            }
-          }
-          if (comptDefausse == 3){
-            break;
-          }
-        }
-        return 5;
-      }
-
-      else if (comptCANON >= 3){
-        for(size_t i=0; i<listeEnjeu.size(); i++){
-          ptr_carte = listeEnjeu[i].get();
-          if (ptr_carte->getIdJoueur() == idJoueur){
-            if (ptr_carte->getCarteForce() == 2){
-              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-              comptDefausse += 1;
-            }
-          }
-          if (comptDefausse == 3){
-            break;
-          }
-        }
-        return 8;
-      }
-
-      else if (comptSOLDAT >= 3){
-        for(size_t i=0; i<listeEnjeu.size(); i++){
-          ptr_carte = listeEnjeu[i].get();
-          if (ptr_carte->getIdJoueur() == idJoueur){
-            if (ptr_carte->getCarteForce() == 3){
-              engine::GestionCartes::defausser(ptr_carte->getNumero(), state);
-              comptDefausse += 1;
-            }
-          }
-          if (comptDefausse == 3){
-            break;
-          }
-        }
-        return 3;
-      }
-    }
+    int positionCarte = rand() % listeCarteJoueur.size();
+    ptr_carte = listeCarteJoueur[positionCarte];
+    pushCommande(new engine::EchangeCartes(ptr_carte->getNumero()));
   }
-  else{
-    return 0;
+}
+
+void RandomAI::aiDeplacerArmees (state::State state){
+  int decision = rand() % 2;
+  if (decision == 0){
+    pushCommande(new engine::Passer());
   }
-	return -1;
-}*/
-//void RandomAI::aiDeplacerArmees (state::State state);
-//void RandomAI::aiTourDeJeu (state::State state);
+  if (decision == 1){
+    state::ElementTab& tabArmee = state.getArmeeTab();
+    std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+    state::Element* ptr_armee = 0;
+
+    std::vector<state::Element*> listeArmeeJoueur;
+    for(size_t i=0; i<listeArmee.size(); i++){
+      ptr_armee = listeArmee[i].get();
+      if(ptr_armee->getIdJoueur() != state.getIdJoueur()){
+        listeArmeeJoueur.push_back(ptr_armee);
+      }
+    }
+
+    state::ElementTab& tabPays = state.getPaysTab();
+    std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
+    state::Element* ptr_pays1 = 0;
+    state::Element* ptr_pays2 = 0;
+    std::vector<state::Element*> listePaysJoueur;
+
+    for(size_t j=0; j<listeArmeeJoueur.size(); j++){//pour chaque armee du joueur
+      for(size_t i=0; i<listePays.size(); i++){//on cherche dans tous les pays le bon
+        ptr_pays1 = listePays[i].get();
+        if(ptr_pays1->getPays() == listeArmeeJoueur[j]->getPays()){
+          listePaysJoueur.push_back(ptr_pays1);
+          break;
+        }
+      }
+    }
+
+    std::vector<std::string> listePays1;
+    std::vector<std::string> listePays2;
+    for(size_t i=0; i<listePaysJoueur.size(); i++){
+      ptr_pays1 = listePaysJoueur[i];
+      for(size_t j=0; j<listePaysJoueur.size(); j++){
+        ptr_pays2 = listePaysJoueur[j];
+        bool frontiere = engine::ChoixPaysAttaque::estFrontalier(ptr_pays1->getPays(), ptr_pays2->getPays(), state);
+        if(frontiere){
+          listePays1.push_back(ptr_pays1->getPays());
+          listePays2.push_back(ptr_pays2->getPays());
+        }
+      }
+    }
+
+    int numeroPays = rand() % listePays1.size();
+    for(size_t i=0; i<listeArmee.size(); i++){
+      ptr_armee = listeArmee[i].get();
+      if(ptr_armee->getPays() == listePays1[numeroPays]){
+        break;
+      }
+    }
+
+    int nombreArmees = rand() % ptr_armee->getNombre();
+    pushCommande(new engine::DeplacerArmees(listePays1[numeroPays], listePays2[numeroPays], nombreArmees));
+  }
+}
 
 }

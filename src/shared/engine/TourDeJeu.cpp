@@ -9,9 +9,9 @@ std::list<Commande*> TourDeJeu::commandes;
 std::list<Commande*> TourDeJeu::undos;
 std::list<state::StepId> TourDeJeu::steps;
 
-TourDeJeu::TourDeJeu()
-{
+TourDeJeu::TourDeJeu(){
 }
+
 TourDeJeu::~TourDeJeu (){
 }
 
@@ -75,6 +75,11 @@ void TourDeJeu::run (state::State& state){
               steps.push_back(state::CHOIX_PAYS_ATTAQUE_s);
               std::cout << "Veuillez choisir le pays que vous souhaitez attaquer." << std::endl;
             }
+          }
+          if(c->getIdCommande() == PASSER_c){
+            state.setStepId(state::DEPLACER_ARMEES_s);
+            steps.push_back(state::DEPLACER_ARMEES_s);
+            std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
           }
           break;
 

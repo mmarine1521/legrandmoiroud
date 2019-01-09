@@ -29,7 +29,6 @@ namespace ai {
     void aiDefausser (state::State state);
     void aiEchange (state::State state);
     void aiDeplacerArmees (state::State state);
-    void aiTourDeJeu (state::State state);
     // Setters and Getters
   };
 
