@@ -21,7 +21,6 @@ namespace engine {
     int victoire;
     // Operations
   public:
-    IssueDuCombat ();
     IssueDuCombat (int victoire);
     virtual ~IssueDuCombat ();
     static int nbCartesJoueur (state::State& state);

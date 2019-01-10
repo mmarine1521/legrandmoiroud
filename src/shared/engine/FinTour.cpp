@@ -2,9 +2,9 @@
 
 namespace engine {
 
-FinTour::FinTour()
-{
+FinTour::FinTour(){
 }
+
 FinTour::~FinTour (){
 }
 

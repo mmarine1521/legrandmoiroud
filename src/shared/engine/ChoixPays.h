@@ -23,7 +23,6 @@ namespace engine {
     ChoixPays ();
     ChoixPays (std::string pays);
     virtual ~ChoixPays ();
-    IdCommande const getIdCommande ();
     std::string getPays ();
     // Setters and Getters
     void setPays(const std::string& pays);

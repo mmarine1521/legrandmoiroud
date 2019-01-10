@@ -22,9 +22,10 @@ namespace engine {
     std::vector<int> desBleus;
     // Operations
   public:
-    DesAttaque (int nbDes);
-    DesAttaque (int nbDes, std::vector<int> desBleus);
+    DesAttaque (int idJoueur, int nbDes);
+    DesAttaque (int idJoueur, int nbDes, std::vector<int> desBleus);
     virtual ~DesAttaque ();
+    IdCommande const getIdCommande ();
     bool verif (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);

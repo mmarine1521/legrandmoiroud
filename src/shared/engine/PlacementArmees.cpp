@@ -2,9 +2,6 @@
 
 namespace engine {
 
-PlacementArmees::PlacementArmees()
-{
-}
 PlacementArmees::PlacementArmees (std::string pays, int nbArmees) : pays(pays), nbArmees(nbArmees){
 }
 

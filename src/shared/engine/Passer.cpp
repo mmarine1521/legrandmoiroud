@@ -2,9 +2,9 @@
 
 namespace engine {
 
-Passer::Passer()
-{
+Passer::Passer(){
 }
+
 Passer::~Passer (){
 }
 

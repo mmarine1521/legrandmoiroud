@@ -21,6 +21,7 @@ namespace engine {
   public:
     ChoixPaysAttaque (std::string pays);
     virtual ~ChoixPaysAttaque ();
+    IdCommande const getIdCommande ();
     static bool estFrontalier (std::string pays1, std::string pays2, state::State& state);
     bool verif (state::State& state);
     void exec (state::State& state);

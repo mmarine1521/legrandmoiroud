@@ -65,12 +65,11 @@ void TourDeJeu::run (state::State& state){
           break;
 
         case state::CHOIX_PAYS_ATTAQUANT_s :
-          if(c->getIdCommande() == CHOIX_PAYS_c){
-            Commande* pays_attaquant = new ChoixPaysAttaquant(c->getPays());
-            if(pays_attaquant->verif(state)){
+          if(c->getIdCommande() == CHOIX_PAYS_ATTAQUANT_c){
+            if(c->verif(state)){
               Commande* c_avant = new ChoixPaysAttaquant(state.getPaysAttaquant());
               undos.push_back(c_avant);
-              pays_attaquant->exec(state);
+              c->exec(state);
               state.setStepId(state::CHOIX_PAYS_ATTAQUE_s);
               steps.push_back(state::CHOIX_PAYS_ATTAQUE_s);
               std::cout << "Veuillez choisir le pays que vous souhaitez attaquer." << std::endl;
@@ -84,12 +83,11 @@ void TourDeJeu::run (state::State& state){
           break;
 
         case state::CHOIX_PAYS_ATTAQUE_s :
-          if(c->getIdCommande() == CHOIX_PAYS_c){
-            Commande* pays_attaque = new ChoixPaysAttaque(c->getPays());
-            if(pays_attaque->verif(state)){
+          if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
+            if(c->verif(state)){
               Commande* c_avant = new ChoixPaysAttaque(state.getPaysAttaque());
               undos.push_back(c_avant);
-              pays_attaque->exec(state);
+              c->exec(state);
               state.setStepId(state::NB_DES_ATTAQUANT_s);
               steps.push_back(state::NB_DES_ATTAQUANT_s);
               std::cout << "Avec combien d'armées souhaitez vous attaquer ?" << std::endl;
@@ -98,12 +96,11 @@ void TourDeJeu::run (state::State& state){
           break;
 
         case state::NB_DES_ATTAQUANT_s :
-          if(c->getIdCommande() == NB_DES_c){
-            Commande* des_attaquant = new DesAttaquant(c->getNbDes());
-            if(des_attaquant->verif(state)){
-              Commande* c_avant = new DesAttaquant(state.getNbDesAttaquant(), state.getDesRouges());
+          if(c->getIdCommande() == NB_DES_ATTAQUANT_c){
+            if(c->verif(state)){
+              Commande* c_avant = new DesAttaquant(state.getIdJoueur(), state.getNbDesAttaquant(), state.getDesRouges());
               undos.push_back(c_avant);
-              des_attaquant->exec(state);
+              c->exec(state);
               state.setStepId(state::NB_DES_ATTAQUE_s);
               steps.push_back(state::NB_DES_ATTAQUE_s);
               std::cout << "Avec combien d'armées souhaitez vous défendre ?" << std::endl;
@@ -112,12 +109,11 @@ void TourDeJeu::run (state::State& state){
           break;
 
         case state::NB_DES_ATTAQUE_s :
-          if(c->getIdCommande() == NB_DES_c){
-            Commande* des_attaque = new DesAttaque(c->getNbDes());
-            if(des_attaque->verif(state)){
-              Commande* c_avant = new DesAttaque(state.getNbDesAttaque(), state.getDesBleus());
+          if(c->getIdCommande() == NB_DES_ATTAQUE_c){
+            if(c->verif(state)){
+              Commande* c_avant = new DesAttaque(c->getIdJoueur(), state.getNbDesAttaque(), state.getDesBleus());
               undos.push_back(c_avant);
-              des_attaque->exec(state);
+              c->exec(state);
               //Issue du combat
               Commande* c_suivant = new IssueDuCombat(state.getVictoire());
               undos.push_back(c_suivant);
@@ -148,8 +144,7 @@ void TourDeJeu::run (state::State& state){
         case state::DEFAUSSER_s :
           if(c->getIdCommande() == DEFAUSSER_c){
             c->exec(state);
-            Commande* c_avant = new Defausser(c->getNumeroCarte());
-            undos.push_back(c_avant);
+            undos.push_back(c);
             state.setStepId(state::PIOCHER_s);
             steps.push_back(state::PIOCHER_s);
             std::cout << "Veuillez piocher une carte." << std::endl;
@@ -159,7 +154,7 @@ void TourDeJeu::run (state::State& state){
         case state::PIOCHER_s :
           if(c->getIdCommande() == PIOCHER_c){
             c->exec(state);
-            Commande* c_avant = new Piocher(c->getNumeroCarte());
+            Commande* c_avant = new Piocher(c->getIdJoueur(), c->getNumeroCarte());
             undos.push_back(c_avant);
 
             if(IssueDuCombat::nbCartesJoueur(state) >= 3){

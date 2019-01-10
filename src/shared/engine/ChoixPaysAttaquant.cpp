@@ -10,6 +10,10 @@ ChoixPaysAttaquant::ChoixPaysAttaquant (std::string pays) : ChoixPays(pays){
 ChoixPaysAttaquant::~ChoixPaysAttaquant (){
 }
 
+IdCommande const ChoixPaysAttaquant::getIdCommande (){
+  return CHOIX_PAYS_ATTAQUANT_c;
+}
+
 bool ChoixPaysAttaquant::verif (state::State& state){
   std::string paysAttaquant = state.getPaysAttaquant();
   int idJoueur = state.getIdJoueur();

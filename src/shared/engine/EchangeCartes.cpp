@@ -68,14 +68,14 @@ void EchangeCartes::exec (state::State& state){
       break;
     }
   }
-  Commande* defausse = new Defausser(numeroCarte);
+  Commande* defausse = new Defausser(state.getIdJoueur(), numeroCarte);
   defausse->exec(state);
   state.setNbCartes(state.getNbCartes() - 1);
 }
 
 void EchangeCartes::undo (state::State& state){
   state.deleteTypeCarte();
-  Commande* defausse = new Defausser(numeroCarte);
+  Commande* defausse = new Defausser(state.getIdJoueur(), numeroCarte);
   defausse->undo(state);
 }
 

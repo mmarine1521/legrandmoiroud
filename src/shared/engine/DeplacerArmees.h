@@ -27,7 +27,6 @@ namespace engine {
     int nbArmees;
     // Operations
   public:
-    DeplacerArmees ();
     DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees);
     virtual ~DeplacerArmees ();
     IdCommande const getIdCommande ();

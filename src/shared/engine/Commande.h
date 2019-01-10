@@ -19,10 +19,14 @@ namespace engine {
   class Commande {
     // Associations
     engine::IdCommande idCommande;
+    // Attributes
+  private:
+    int idJoueur;
     // Operations
   public:
-    Commande ();
+    Commande (int idJoueur);
     virtual ~Commande ();
+    int getIdJoueur ();
     virtual IdCommande const getIdCommande ();
     virtual bool verif (state::State& state);
     virtual void exec (state::State& state);

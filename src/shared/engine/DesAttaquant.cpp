@@ -4,11 +4,11 @@
 
 namespace engine {
 
-DesAttaquant::DesAttaquant (int nbDes) : Des(nbDes){
-}
+DesAttaquant::DesAttaquant (int idJoueur, int nbDes) :Des(idJoueur, nbDes){
+} //commandes
 
-DesAttaquant::DesAttaquant (int nbDes, std::vector<int> desRouges) : Des(nbDes), desRouges(desRouges){
-}
+DesAttaquant::DesAttaquant (int idJoueur, int nbDes, std::vector<int> desRouges) : Des(idJoueur, nbDes), desRouges(desRouges){
+} //undos
 
 DesAttaquant::~DesAttaquant (){
 }

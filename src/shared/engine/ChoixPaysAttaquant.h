@@ -21,6 +21,7 @@ namespace engine {
   public:
     ChoixPaysAttaquant (std::string pays);
     virtual ~ChoixPaysAttaquant ();
+    IdCommande const getIdCommande ();
     bool verif (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);

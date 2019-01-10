@@ -2,9 +2,9 @@
 
 namespace engine {
 
-Distribution::Distribution() 
-{
+Distribution::Distribution() {
 }
+
 Distribution::~Distribution (){
 }
 

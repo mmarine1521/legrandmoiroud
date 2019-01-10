@@ -58,11 +58,13 @@ namespace ai {
   class AI {
     // Attributes
   private:
+    int idJoueur;
     static std::list<engine::Commande*> commandes;
     static std::list<engine::Commande*> undos;
     static std::list<state::StepId> steps;
     // Operations
   public:
+    int getIdJoueur ();
     static void pushCommande (engine::Commande* commande);
     virtual void aiPlacementArmees (state::State state) = 0;
     virtual void aiChoixPaysAttaquant (std::vector<std::string> blackList, state::State state) = 0;
@@ -72,6 +74,7 @@ namespace ai {
     virtual void aiDefausser (state::State state) = 0;
     virtual void aiEchange (state::State state) = 0;
     virtual void aiDeplacerArmees (state::State state) = 0;
+    void aiRemplirCommandes (state::State state);
     // Setters and Getters
   };
 

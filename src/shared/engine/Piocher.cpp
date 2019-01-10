@@ -3,11 +3,11 @@
 
 namespace engine {
 
-Piocher::Piocher()
-{
-}
+Piocher::Piocher(){
+} //commandes
+
 Piocher::Piocher (int numeroCarte) : Cartes(numeroCarte){
-}
+} //undos
 
 Piocher::~Piocher (){
 }

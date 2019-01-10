@@ -2,9 +2,6 @@
 
 namespace engine {
 
-DeplacerArmees::DeplacerArmees() 
-{
-}
 DeplacerArmees::DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees) : paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
 }
 

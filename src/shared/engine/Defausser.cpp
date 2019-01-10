@@ -2,11 +2,7 @@
 
 namespace engine {
 
-Defausser::Defausser()
-{
-}
-
-Defausser::Defausser (int numeroCarte) : Cartes(numeroCarte){
+Defausser::Defausser (int idJoueur, int numeroCarte) : Commande(idJoueur), Cartes(numeroCarte){
 }
 
 Defausser::~Defausser (){

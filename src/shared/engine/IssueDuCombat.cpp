@@ -4,10 +4,6 @@
 
 namespace engine {
 
-IssueDuCombat::IssueDuCombat() 
-{
-}
-
 IssueDuCombat::IssueDuCombat (int victoire) : victoire(victoire){
 }
 

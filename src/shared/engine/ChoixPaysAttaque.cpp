@@ -4,11 +4,14 @@
 
 namespace engine {
 
-
 ChoixPaysAttaque::ChoixPaysAttaque (std::string pays) : ChoixPays(pays){
 }
 
 ChoixPaysAttaque::~ChoixPaysAttaque (){
+}
+
+IdCommande const ChoixPaysAttaque::getIdCommande (){
+  return CHOIX_PAYS_ATTAQUE_c;
 }
 
 bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state::State& state){
