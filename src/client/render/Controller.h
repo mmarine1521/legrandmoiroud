@@ -25,8 +25,10 @@ namespace render {
     Controller ();
     void  Handle (state::State& state, sf::RenderWindow& window);
     void  HandleDistribution (sf::Event event );
-    void  HandleChoixPays (sf::Event event , sf::RenderWindow& window);
-    void HandleNbDes (sf::Event event, sf::RenderWindow& window);
+    void  HandleChoixPaysAttaquant (sf::Event event , sf::RenderWindow& window);
+    void  HandleChoixPaysAttaque (sf::Event event , sf::RenderWindow& window);
+    void HandleNbDesAttaquant (sf::Event event, sf::RenderWindow& window);
+    void HandleNbDesAttaque (sf::Event event, sf::RenderWindow& window);
      void HandleDefausser (sf::Event event );
     void  HandlePiocher (sf::Event event );
     void  HandleEchange (sf::Event event );

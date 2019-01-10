@@ -2288,12 +2288,12 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 													}
 								if(event.mouseButton.x>(239*fa_x) && event.mouseButton.x <(258*fa_x) && event.mouseButton.y >(374*fa_y) && event.mouseButton.y<(396*fa_y))
 													{
-														pays_clic = "Amerique Centrale";
+														pays_clic = "Amérique Centrale";
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								if(event.mouseButton.x>(271*fa_x) && event.mouseButton.x <(317*fa_x) && event.mouseButton.y >(317*fa_y) && event.mouseButton.y<(355*fa_y))
 													{
-														pays_clic = "Etat De L'Est";
+														pays_clic = "Etats De L'Est";
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								if(event.mouseButton.x>(395*fa_x) && event.mouseButton.x <(480*fa_x) && event.mouseButton.y >(81*fa_x) && event.mouseButton.y<(171*fa_y))
@@ -2313,12 +2313,12 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 													}
 								if(event.mouseButton.x>(335*fa_x) && event.mouseButton.x <(386*fa_x) && event.mouseButton.y >(256*fa_y) && event.mouseButton.y<(281*fa_y))
 													{
-														pays_clic = "Quebec";
+														pays_clic = "Québec";
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								if(event.mouseButton.x>(186*fa_x) && event.mouseButton.x <(244*fa_x) && event.mouseButton.y >(304*fa_y) && event.mouseButton.y<(341*fa_y))
 													{
-														pays_clic = "Etat De L'Ouest";
+														pays_clic = "Etats De L'Ouest";
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								if(event.mouseButton.x>(350*fa_x) && event.mouseButton.x <(379*fa_x) && event.mouseButton.y >(587*fa_y) && event.mouseButton.y<(627*fa_y))
@@ -2505,7 +2505,7 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 
 int Affichage::NombreClic(sf::RenderWindow& window, sf::Event event)
 {
-	std::cout<<"test clic demarre"<<std::endl ; 
+	//std::cout<<"test clic demarre"<<std::endl ; 
 	float fa_x = 1.0;
 	float fa_y = 1.0 ;
 	int nombreArmees = 0;

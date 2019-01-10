@@ -26,20 +26,36 @@ void  Controller::HandleDistribution (sf::Event event )
 			TourDeJeu::pushCommande(Commande) ;
 		}
 }
-void  Controller::HandleChoixPays(sf::Event event, sf::RenderWindow& window)
+void  Controller::HandleChoixPaysAttaquant(sf::Event event, sf::RenderWindow& window)
 {
 			//std::string pays_select ;
 			std::cout<< "ok HandleChoixPays"<<std::endl ;
 
 			pays_select = Affichage::PaysClic(window, event) ;
-			TourDeJeu::pushCommande(new ChoixPays(1, pays_select)) ;
+			TourDeJeu::pushCommande(new ChoixPaysAttaquant(1, pays_select)) ;
 }
 
-void Controller::HandleNbDes(sf::Event event, sf::RenderWindow& window)
+void  Controller::HandleChoixPaysAttaque(sf::Event event, sf::RenderWindow& window)
+{
+			//std::string pays_select ;
+			std::cout<< "ok HandleChoixPays"<<std::endl ;
+
+			pays_select = Affichage::PaysClic(window, event) ;
+			TourDeJeu::pushCommande(new ChoixPaysAttaque(1, pays_select)) ;
+}
+
+void Controller::HandleNbDesAttaquant(sf::Event event, sf::RenderWindow& window)
 {
 	int nombreDesSelect ;
 	nombreDesSelect = Affichage::NombreClic(window, event) ;
-	TourDeJeu::pushCommande(new  Des(1, nombreDesSelect)) ;
+	TourDeJeu::pushCommande(new  DesAttaquant(1, nombreDesSelect)) ;
+
+}
+void Controller::HandleNbDesAttaque(sf::Event event, sf::RenderWindow& window)
+{
+	int nombreDesSelect ;
+	nombreDesSelect = Affichage::NombreClic(window, event) ;
+	TourDeJeu::pushCommande(new  DesAttaque(1, nombreDesSelect)) ;
 
 }
 
@@ -119,16 +135,16 @@ void  Controller::Handle (state::State& state, sf::RenderWindow& window)
 					HandlePlacerArmees(event, window);
 					break ;
 				case CHOIX_PAYS_ATTAQUANT_s :
-					HandleChoixPays(event, window);
+					HandleChoixPaysAttaquant(event, window);
 					break ;
 				case CHOIX_PAYS_ATTAQUE_s :
-					HandleChoixPays(event, window);
+					HandleChoixPaysAttaque(event, window);
 					break ;
 				case NB_DES_ATTAQUANT_s :
-					HandleNbDes(event, window);
+					HandleNbDesAttaquant(event, window);
 					break ;
 				case NB_DES_ATTAQUE_s :
-					HandleNbDes(event, window);
+					HandleNbDesAttaque(event, window);
 					break ;
 				case DEFAUSSER_s :
 					HandleDefausser(event);
