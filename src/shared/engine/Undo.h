@@ -15,7 +15,7 @@ namespace engine {
   class Undo : public engine::Commande {
     // Operations
   public:
-    Undo ();
+    Undo (int idJoueur);
     virtual ~Undo ();
     IdCommande const getIdCommande ();
     // Setters and Getters

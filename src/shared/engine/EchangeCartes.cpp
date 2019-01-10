@@ -2,7 +2,7 @@
 
 namespace engine {
 
-EchangeCartes::EchangeCartes (int numeroCarte) : numeroCarte(numeroCarte){
+EchangeCartes::EchangeCartes (int idJoueur, int numeroCarte) : Commande(idJoueur), numeroCarte(numeroCarte){
 }
 
 EchangeCartes::~EchangeCartes (){

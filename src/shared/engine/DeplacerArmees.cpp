@@ -2,7 +2,7 @@
 
 namespace engine {
 
-DeplacerArmees::DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees) : paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
+DeplacerArmees::DeplacerArmees (int idJoueur, std::string paysDepart, std::string paysArrivee, int nbArmees) : Commande(idJoueur), paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
 }
 
 DeplacerArmees::~DeplacerArmees (){

@@ -2,7 +2,7 @@
 
 namespace engine {
 
-FinTour::FinTour(){
+FinTour::FinTour(int idJoueur) : Commande(idJoueur){
 }
 
 FinTour::~FinTour (){

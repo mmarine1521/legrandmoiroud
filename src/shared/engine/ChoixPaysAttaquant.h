@@ -19,7 +19,7 @@ namespace engine {
   class ChoixPaysAttaquant : public engine::ChoixPays {
     // Operations
   public:
-    ChoixPaysAttaquant (std::string pays);
+    ChoixPaysAttaquant (int idJoueur, std::string pays);
     virtual ~ChoixPaysAttaquant ();
     IdCommande const getIdCommande ();
     bool verif (state::State& state);

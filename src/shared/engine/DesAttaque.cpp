@@ -15,6 +15,10 @@ DesAttaque::DesAttaque (int idJoueur, int nbDes, std::vector<int> desBleus) : De
 DesAttaque::~DesAttaque (){
 }
 
+IdCommande const DesAttaque::getIdCommande (){
+	return NB_DES_ATTAQUE_c;
+}
+
 bool DesAttaque::verif (state::State& state){
   if (nbDes < 1 || nbDes > 2){
     std::cout << "Problème : Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;

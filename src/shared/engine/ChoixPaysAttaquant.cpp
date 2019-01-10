@@ -4,7 +4,7 @@
 
 namespace engine {
 
-ChoixPaysAttaquant::ChoixPaysAttaquant (std::string pays) : ChoixPays(pays){
+ChoixPaysAttaquant::ChoixPaysAttaquant (int idJoueur, std::string pays) : ChoixPays(idJoueur, pays){
 }
 
 ChoixPaysAttaquant::~ChoixPaysAttaquant (){

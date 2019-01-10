@@ -3,10 +3,10 @@
 
 namespace engine {
 
-Piocher::Piocher(){
+Piocher::Piocher(int idJoueur) : Cartes(idJoueur){
 } //commandes
 
-Piocher::Piocher (int numeroCarte) : Cartes(numeroCarte){
+Piocher::Piocher (int idJoueur, int numeroCarte) : Cartes(idJoueur, numeroCarte){
 } //undos
 
 Piocher::~Piocher (){

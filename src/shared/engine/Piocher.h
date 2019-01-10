@@ -22,7 +22,7 @@ namespace engine {
   class Piocher : public engine::Cartes {
     // Operations
   public:
-    Piocher ();
+    Piocher (int idJoueur);
     Piocher (int idJoueur, int numeroCarte);
     virtual ~Piocher ();
     IdCommande const getIdCommande ();

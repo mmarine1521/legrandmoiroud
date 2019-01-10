@@ -6,6 +6,10 @@ std::list<engine::Commande*> AI::commandes;
 std::list<engine::Commande*> AI::undos;
 std::list<state::StepId> AI::steps;
 
+int AI::getIdJoueur(){
+  return this->idJoueur;
+}
+
 void AI::pushCommande(engine::Commande* commande){
   commandes.push_back(commande);
 }
@@ -14,37 +18,37 @@ void AI::aiRemplirCommandes(state::State state){
   state::StepId etape = state.getStepId();
   switch (etape) {
     case state::DISTRIBUTION_s :
-      this.pushCommande(new engine::Distribution());
+      this->pushCommande(new engine::Distribution(this->getIdJoueur()));
       break;
     case state::REPARTITION_ARMEES_s :
-      this.aiPlacementArmees(state);
+      this->aiPlacementArmees(state);
       break;
     case state::CHOIX_PAYS_ATTAQUANT_s :
-      this.aiChoixPaysAttaquant(state);
+      this->aiChoixPaysAttaquant(state);
       break;
     case state::CHOIX_PAYS_ATTAQUE_s :
-      this.aiChoixPaysAttaquant(state);
+      this->aiChoixPaysAttaque(state);
       break;
     case state::NB_DES_ATTAQUANT_s :
-      this.aiDesAttaquant(state);
+      this->aiDesAttaquant(state);
       break;
     case state::NB_DES_ATTAQUE_s :
-      this.aiDesAttaque(state);
+      this->aiDesAttaque(state);
       break;
     case state::DEFAUSSER_s :
-      this.aiDefausser(state);
+      this->aiDefausser(state);
       break;
     case state::PIOCHER_s :
-      this.pushCommande(new Piocher());
+      this->pushCommande(new engine::Piocher(this->getIdJoueur()));
       break;
     case state::ECHANGE_s :
-      this.aiEchange(state);
+      this->aiEchange(state);
       break;
     case state::PLACER_NOUVELLES_ARMEES_s :
-      this.aiPlacementArmees(state);
+      this->aiPlacementArmees(state);
       break;
     case state::DEPLACER_ARMEES_s :
-      this.aiDeplacerArmees(state);
+      this->aiDeplacerArmees(state);
       break;
   }
 }

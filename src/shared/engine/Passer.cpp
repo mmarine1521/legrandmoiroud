@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Passer::Passer(){
+Passer::Passer(int idJoueur) : Commande(idJoueur){
 }
 
 Passer::~Passer (){

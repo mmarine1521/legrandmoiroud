@@ -2,7 +2,7 @@
 
 namespace engine {
 
-ChoixPays::ChoixPays (std::string pays) : pays(pays){
+ChoixPays::ChoixPays (int idJoueur, std::string pays) : Commande(idJoueur), pays(pays){
 }
 
 ChoixPays::~ChoixPays (){

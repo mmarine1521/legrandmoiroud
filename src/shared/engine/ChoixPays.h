@@ -20,8 +20,7 @@ namespace engine {
     std::string pays;
     // Operations
   public:
-    ChoixPays ();
-    ChoixPays (std::string pays);
+    ChoixPays (int idJoueur, std::string pays);
     virtual ~ChoixPays ();
     std::string getPays ();
     // Setters and Getters

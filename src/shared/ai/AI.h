@@ -3,8 +3,6 @@
 #define AI__AI__H
 
 #include <list>
-#include <string>
-#include <vector>
 
 namespace engine {
   class Commande;
@@ -67,7 +65,7 @@ namespace ai {
     int getIdJoueur ();
     static void pushCommande (engine::Commande* commande);
     virtual void aiPlacementArmees (state::State state) = 0;
-    virtual void aiChoixPaysAttaquant (std::vector<std::string> blackList, state::State state) = 0;
+    virtual void aiChoixPaysAttaquant (state::State state) = 0;
     virtual void aiChoixPaysAttaque (state::State state) = 0;
     virtual void aiDesAttaquant (state::State state) = 0;
     virtual void aiDesAttaque (state::State state) = 0;

@@ -20,7 +20,6 @@ void TourDeJeu::pushCommande (Commande* commande){
 }
 
 void TourDeJeu::run (state::State& state){
-
   while(!commandes.empty()){
     Commande* c = commandes.front();
     commandes.pop_front();
@@ -63,7 +62,7 @@ void TourDeJeu::run (state::State& state){
         case state::CHOIX_PAYS_ATTAQUANT_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUANT_c){
             if(c->verif(state)){
-              Commande* c_avant = new ChoixPaysAttaquant(state.getPaysAttaquant());
+              Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueur(), state.getPaysAttaquant());
               undos.push_back(c_avant);
               c->exec(state);
               state.setStepId(state::CHOIX_PAYS_ATTAQUE_s);
@@ -81,7 +80,7 @@ void TourDeJeu::run (state::State& state){
         case state::CHOIX_PAYS_ATTAQUE_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
             if(c->verif(state)){
-              Commande* c_avant = new ChoixPaysAttaque(state.getPaysAttaque());
+              Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueur(), state.getPaysAttaque());
               undos.push_back(c_avant);
               c->exec(state);
               state.setStepId(state::NB_DES_ATTAQUANT_s);
@@ -94,7 +93,7 @@ void TourDeJeu::run (state::State& state){
         case state::NB_DES_ATTAQUANT_s :
           if(c->getIdCommande() == NB_DES_ATTAQUANT_c){
             if(c->verif(state)){
-              Commande* c_avant = new DesAttaquant(state.getIdJoueur(), state.getNbDesAttaquant(), state.getDesRouges());
+              Commande* c_avant = new DesAttaquant(c->getIdJoueur(), state.getNbDesAttaquant(), state.getDesRouges());
               undos.push_back(c_avant);
               c->exec(state);
               state.setStepId(state::NB_DES_ATTAQUE_s);
@@ -111,7 +110,7 @@ void TourDeJeu::run (state::State& state){
               undos.push_back(c_avant);
               c->exec(state);
               //Issue du combat
-              Commande* c_suivant = new IssueDuCombat(state.getVictoire());
+              Commande* c_suivant = new IssueDuCombat(c->getIdJoueur(), state.getVictoire());
               undos.push_back(c_suivant);
               c_suivant->exec(state);
               if (state.getVictoire() == 0){
@@ -221,7 +220,7 @@ void TourDeJeu::run (state::State& state){
             }
           }
           if(c->getIdCommande() == PASSER_c){
-            Commande* fin = new FinTour();
+            Commande* fin = new FinTour(c->getIdJoueur());
             fin->exec(state);
             undos.push_back(fin);
             state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);

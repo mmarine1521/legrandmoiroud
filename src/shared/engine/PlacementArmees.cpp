@@ -2,7 +2,7 @@
 
 namespace engine {
 
-PlacementArmees::PlacementArmees (std::string pays, int nbArmees) : pays(pays), nbArmees(nbArmees){
+PlacementArmees::PlacementArmees (int idJoueur, std::string pays, int nbArmees) : Commande(idJoueur), pays(pays), nbArmees(nbArmees){
 }
 
 PlacementArmees::~PlacementArmees (){

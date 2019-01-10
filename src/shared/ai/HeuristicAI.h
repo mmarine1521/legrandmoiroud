@@ -2,8 +2,6 @@
 #ifndef AI__HEURISTICAI__H
 #define AI__HEURISTICAI__H
 
-#include <string>
-#include <vector>
 
 namespace state {
   class State;
@@ -22,7 +20,7 @@ namespace ai {
     // Operations
   public:
     void aiPlacementArmees (state::State state);
-    void aiChoixPaysAttaquant (std::vector<std::string> blackList, state::State state);
+    void aiChoixPaysAttaquant (state::State state);
     void aiChoixPaysAttaque (state::State state);
     void aiDesAttaquant (state::State state);
     void aiDesAttaque (state::State state);

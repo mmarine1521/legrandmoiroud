@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Commande::Commande(int idJoueur) idJoueur(idJoueur){
+Commande::Commande(int idJoueur) : idJoueur(idJoueur){
 }
 
 Commande::~Commande (){

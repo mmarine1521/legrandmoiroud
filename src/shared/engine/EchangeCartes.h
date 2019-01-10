@@ -30,8 +30,7 @@ namespace engine {
     int numeroCarte;
     // Operations
   public:
-    EchangeCartes ();
-    EchangeCartes (int numeroCarte);
+    EchangeCartes (int idJoueur, int numeroCarte);
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
     bool verif (state::State& state);

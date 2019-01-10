@@ -23,7 +23,7 @@ namespace engine {
     int nbArmees;
     // Operations
   public:
-    PlacementArmees (std::string pays, int nbArmees);
+    PlacementArmees (int idJoueur, std::string pays, int nbArmees);
     virtual ~PlacementArmees ();
     IdCommande const getIdCommande ();
     int getNbArmees ();

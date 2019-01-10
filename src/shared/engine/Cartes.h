@@ -18,8 +18,8 @@ namespace engine {
     int numeroCarte;
     // Operations
   public:
-    Cartes ();
-    Cartes (int numeroCarte);
+    Cartes (int idJoueur);
+    Cartes (int idJoueur, int numeroCarte);
     int getNumeroCarte ();
     // Setters and Getters
     void setNumeroCarte(int numeroCarte);

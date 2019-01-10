@@ -18,7 +18,7 @@ namespace engine {
   class Distribution : public engine::Commande {
     // Operations
   public:
-    Distribution ();
+    Distribution (int idJoueur);
     virtual ~Distribution ();
     IdCommande const getIdCommande ();
     void exec (state::State& state);

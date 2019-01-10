@@ -18,7 +18,7 @@ namespace engine {
   class FinTour : public engine::Commande {
     // Operations
   public:
-    FinTour ();
+    FinTour (int idJoueur);
     virtual ~FinTour ();
     void exec (state::State& state);
     void undo (state::State& state);

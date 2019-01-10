@@ -12,10 +12,6 @@ Des::Des (int idJoueur, int nbDes) : Commande(idJoueur), nbDes(nbDes){
 Des::~Des (){
 }
 
-IdCommande const Des::getIdCommande (){
-  return NB_DES_c;
-}
-
 int Des::getNbDes(){
   return this->nbDes;
 }

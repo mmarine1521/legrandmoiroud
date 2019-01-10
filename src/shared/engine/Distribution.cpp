@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Distribution::Distribution() {
+Distribution::Distribution(int idJoueur) : Commande(idJoueur){
 }
 
 Distribution::~Distribution (){

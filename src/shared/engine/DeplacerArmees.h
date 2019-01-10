@@ -27,7 +27,7 @@ namespace engine {
     int nbArmees;
     // Operations
   public:
-    DeplacerArmees (std::string paysDepart, std::string paysArrivee, int nbArmees);
+    DeplacerArmees (int idJoueur, std::string paysDepart, std::string paysArrivee, int nbArmees);
     virtual ~DeplacerArmees ();
     IdCommande const getIdCommande ();
     bool verif (state::State& state);
