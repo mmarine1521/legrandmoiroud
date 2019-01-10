@@ -25,8 +25,7 @@ void RandomAI::aiPlacementArmees (state::State state){
 }
 
 void RandomAI::aiChoixPaysAttaquant (state::State state){
-//////////////////////////////////////////////////////////////////////////////////
-  std::vector<std::string> blackList;
+  std::vector<std::string> blackList = state.getBlackList();
   state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;

@@ -3,7 +3,6 @@
 
 namespace state {
 
-
 State::State (){
 }
 
@@ -92,6 +91,10 @@ int State::getArmeesRepartition(int idJoueur){
   return this->armeesRepartition[idJoueur - 1];
 }
 
+std::vector<std::string> State::getBlackList (){
+  return this->blackList;
+}
+
 std::vector<CarteForce> State::getTypesCartes (){
   return this->typeCartes;
 }
@@ -172,9 +175,14 @@ void State::setArmeesRepartition (int idJoueur, int armeesRepartition){
   this->armeesRepartition[idJoueur - 1] = armeesRepartition;
 }
 
+void State::setBlackList (std::string pays){
+  this->blackList.push_back(pays);
+}
+
 void State::setTypeCarte (CarteForce type){
   this->typeCartes.push_back(type);
 }
+
 void State::deleteTypeCarte (){
   this->typeCartes.pop_back();
 }

@@ -14,6 +14,10 @@ IdCommande const ChoixPaysAttaquant::getIdCommande (){
   return CHOIX_PAYS_ATTAQUANT_c;
 }
 
+std::string ChoixPaysAttaquant::getPays(){
+  return this->pays;
+}
+
 bool ChoixPaysAttaquant::verif (state::State& state){
   std::string paysAttaquant = state.getPaysAttaquant();
   int idJoueur = state.getIdJoueur();

@@ -87,6 +87,9 @@ void TourDeJeu::run (state::State& state){
                 steps.push_back(state::CHOIX_PAYS_ATTAQUE_s);
                 std::cout << "Veuillez choisir le pays que vous souhaitez attaquer." << std::endl;
               }
+              else{
+                state.setBlackList(c->getPays());
+              }
             }
           }
           if(c->getIdCommande() == PASSER_c){
