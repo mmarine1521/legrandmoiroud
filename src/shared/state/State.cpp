@@ -95,7 +95,7 @@ std::vector<std::string> State::getBlackList (){
   return this->blackList;
 }
 
-std::vector<CarteForce> State::getTypesCartes (){
+std::vector<CarteForce> State::getTypeCartes (){
   return this->typeCartes;
 }
 
@@ -179,8 +179,16 @@ void State::setBlackList (std::string pays){
   this->blackList.push_back(pays);
 }
 
+void State::clearBlackList(){
+  this->blackList.clear();
+}
+
 void State::setTypeCarte (CarteForce type){
   this->typeCartes.push_back(type);
+}
+
+void State::clearTypeCarte(){
+  this->typeCartes.clear();
 }
 
 void State::deleteTypeCarte (){

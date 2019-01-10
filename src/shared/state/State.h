@@ -65,7 +65,7 @@ namespace state {
     int getArmeesPlacer ();
     int getArmeesRepartition (int idJoueur);
     std::vector<std::string> getBlackList ();
-    std::vector<CarteForce> getTypesCartes ();
+    std::vector<CarteForce> getTypeCartes ();
     void setArmeeTab (ElementTab armee);
     void setCartePiocheTab (ElementTab cartePioche);
     void setCarteEnjeuTab (ElementTab carteEnjeu);
@@ -88,7 +88,9 @@ namespace state {
     void setArmeesPlacer (int armeesPlacer);
     void setArmeesRepartition (int idJoueur, int armeesRepartition);
     void setBlackList (std::string pays);
+    void clearBlackList ();
     void setTypeCarte (CarteForce type);
+    void clearTypeCarte ();
     void deleteTypeCarte ();
     // Setters and Getters
   };

@@ -83,6 +83,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueur(), state.getPaysAttaquant());
                 undos.push_back(c_avant);
                 c->exec(state);
+                state.clearBlackList();
                 state.setStepId(state::CHOIX_PAYS_ATTAQUE_s);
                 steps.push_back(state::CHOIX_PAYS_ATTAQUE_s);
                 std::cout << "Veuillez choisir le pays que vous souhaitez attaquer." << std::endl;
@@ -94,6 +95,7 @@ void TourDeJeu::run (state::State& state){
           }
           if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueur() == joueur){
+              state.clearBlackList();
               state.setStepId(state::DEPLACER_ARMEES_s);
               steps.push_back(state::DEPLACER_ARMEES_s);
               std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
@@ -146,6 +148,7 @@ void TourDeJeu::run (state::State& state){
                   state.setStepId(state::ECHANGE_s);
                   steps.push_back(state::ECHANGE_s);
                   state.setNbCartes(3);
+                  state.clearTypeCarte();
                   std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
                 }
                 else{
@@ -189,6 +192,7 @@ void TourDeJeu::run (state::State& state){
                 state.setStepId(state::ECHANGE_s);
                 steps.push_back(state::ECHANGE_s);
                 state.setNbCartes(3);
+                state.clearTypeCarte();
                 std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
                 std::cout << "3 soldats = 3 armées" << std::endl;
                 std::cout << "3 tanks = 5 armées" << std::endl;
@@ -219,17 +223,16 @@ void TourDeJeu::run (state::State& state){
 
                 if (state.getNbCartes() == 0){
                   state.setArmeesPlacer(EchangeCartes::gain(state));
-                }
-
-                if (state.getArmeesPlacer() == 0){
-                  state.setStepId(state::DEPLACER_ARMEES_s);
-                  steps.push_back(state::DEPLACER_ARMEES_s);
-                  std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
-                }
-                else{
-                  state.setStepId(state::PLACER_NOUVELLES_ARMEES_s);
-                  steps.push_back(state::PLACER_NOUVELLES_ARMEES_s);
-                  std::cout << "Vous pouvez maintenant placer vos nouvelles armées." << std::endl;
+                  if (state.getArmeesPlacer() == 0){
+                    state.setStepId(state::DEPLACER_ARMEES_s);
+                    steps.push_back(state::DEPLACER_ARMEES_s);
+                    std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+                  }
+                  else{
+                    state.setStepId(state::PLACER_NOUVELLES_ARMEES_s);
+                    steps.push_back(state::PLACER_NOUVELLES_ARMEES_s);
+                    std::cout << "Vous pouvez maintenant placer vos nouvelles armées." << std::endl;
+                  }
                 }
               }
             }

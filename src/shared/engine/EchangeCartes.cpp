@@ -36,7 +36,7 @@ bool EchangeCartes::verif(state::State& state){// verifie que le joueur possède
 }
 
 int EchangeCartes::gain (state::State& state){
-  std::vector<state::CarteForce> forceCartes = state.getTypesCartes();
+  std::vector<state::CarteForce> forceCartes = state.getTypeCartes();
   state::CarteForce forceCarte1 = forceCartes[0];
   state::CarteForce forceCarte2 = forceCartes[1];
   state::CarteForce forceCarte3 = forceCartes[2];

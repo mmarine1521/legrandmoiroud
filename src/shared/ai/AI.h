@@ -64,13 +64,14 @@ namespace ai {
   public:
     int getIdJoueur ();
     static void pushCommande (engine::Commande* commande);
-    virtual void aiPlacementArmees (state::State state) = 0;
+    virtual void aiRepartitionArmees (state::State state) = 0;
     virtual void aiChoixPaysAttaquant (state::State state) = 0;
     virtual void aiChoixPaysAttaque (state::State state) = 0;
     virtual void aiDesAttaquant (state::State state) = 0;
     virtual void aiDesAttaque (state::State state) = 0;
     virtual void aiDefausser (state::State state) = 0;
     virtual void aiEchange (state::State state) = 0;
+    virtual void aiPlacementArmees (state::State state) = 0;
     virtual void aiDeplacerArmees (state::State state) = 0;
     void aiRemplirCommandes (state::State state);
     // Setters and Getters

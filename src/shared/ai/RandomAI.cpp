@@ -72,7 +72,6 @@ void RandomAI::aiChoixPaysAttaque (state::State state){
 
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
-
 	pushCommande(new engine::ChoixPaysAttaque(this->getIdJoueur(), ptr_armee->getPays()));
 }
 
