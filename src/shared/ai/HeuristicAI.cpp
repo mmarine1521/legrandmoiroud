@@ -1,4 +1,4 @@
-#include "HeuristicAI.h"
+/*#include "HeuristicAI.h"
 
 namespace ai{
 
@@ -14,3 +14,4 @@ void aiPlacementArmees (state::State state){
 //void aiDeplacerArmees (state::State state);
 
 }
+*/

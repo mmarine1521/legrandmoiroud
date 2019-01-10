@@ -46,6 +46,7 @@ int main(int argc,char* argv[])
 				State currentState = state::State() ;
 				currentState.setStepId(state::DISTRIBUTION_s);
 				//steps.push_back(state::DISTRIBUTION_s);
+				currentState.setIdJoueur(1) ; 
 				currentState.setArmeesPlacer(28);
 				currentState.setNbCartes(3);
 				currentState.setArmeeTab(tabArmee);
@@ -54,6 +55,7 @@ int main(int argc,char* argv[])
 				currentState.setCarteDefausseTab(tabCarteDefausse);
 				currentState.setPaysTab(tabPays);
 				currentState.setContinentTab(tabContinent);
+				currentState.setTourId(0) ; 
 				
 				Controller controller = Controller() ; 
 				
