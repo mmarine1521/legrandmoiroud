@@ -2,6 +2,7 @@
 #ifndef RENDER__CONTROLLER__H
 #define RENDER__CONTROLLER__H
 
+#include <string>
 #include <SFML/Graphics.hpp>
 
 namespace state {
@@ -14,20 +15,23 @@ namespace render {
   class Controller {
     // Attributes
   public:
-    int SelectPays;
+    std::string pays_select;
+    std::string pays_depart;
+    std::string pays_arrivee;
     sf::RenderWindow* window;
-    int SelectArmees;
+    int armees_select;
     // Operations
   public:
-    static void  Handle (state::State& state, sf::RenderWindow& window);
-    static void  HandleDistribution (sf::Event event );
-    static void  HandleChoixPays (sf::Event event , sf::RenderWindow& window);
-    static void HandleNbDes (sf::Event event, sf::RenderWindow& window);
-    static void HandleDefausser (sf::Event event );
-    static void  HandlePiocher (sf::Event event );
-    static void  HandleEchange (sf::Event event );
-    static void  HandlePlacerArmees (sf::Event event , sf::RenderWindow& window);
-    static void HandleDeplacerArmees (sf::Event event , sf::RenderWindow& window);
+    Controller ();
+    void  Handle (state::State& state, sf::RenderWindow& window);
+    void  HandleDistribution (sf::Event event );
+    void  HandleChoixPays (sf::Event event , sf::RenderWindow& window);
+    void HandleNbDes (sf::Event event, sf::RenderWindow& window);
+     void HandleDefausser (sf::Event event );
+    void  HandlePiocher (sf::Event event );
+    void  HandleEchange (sf::Event event );
+    void  HandlePlacerArmees (sf::Event event , sf::RenderWindow& window);
+    void HandleDeplacerArmees (sf::Event event , sf::RenderWindow& window);
     // Setters and Getters
   };
 

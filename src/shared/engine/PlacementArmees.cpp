@@ -38,7 +38,7 @@ bool PlacementArmees::verif(state::State& state){
 				return true; //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
 			}
 			else{
-				std::cout << "Problème : Ce pays ne vous appartient pas." << std::endl;
+				std::cout << "Problème : Ce pays ne vous appartient pas. " <<ptr_armee->getIdJoueur() << " != " << idJoueur<< std::endl;
 				return false;
 			}
 			break;

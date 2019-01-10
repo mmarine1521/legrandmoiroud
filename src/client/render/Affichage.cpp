@@ -2241,13 +2241,13 @@ void Affichage::AfficheArmees(state::State& state, sf::RenderWindow& window)
 
 std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 {
-	std::cout<<"test clic demarre"<<std::endl ; 
+	//std::cout<<"test clic demarre"<<std::endl ; 
 	float fa_x = 0.9;
 	float fa_y = 0.9 ;
-	std::string pays_clic = "";
+	std::string pays_clic = "not selected";
 	
 			       
-			        window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			       
 			       //cas où la fenêtre est redimensionnée
 			        
 			  
@@ -2261,6 +2261,7 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 			        
 			        if (event.type == sf::Event::MouseButtonPressed)
 						{
+							std::cout << "Bouton pressé " << event.type << std::endl ;
 							if(event.mouseButton.button ==sf::Mouse::Right)
 							{
 								std::cout << "Bouton droit pressé" <<std::endl ;
@@ -2510,7 +2511,7 @@ int Affichage::NombreClic(sf::RenderWindow& window, sf::Event event)
 	int nombreArmees = 0;
 	
 			       
-			        window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			         //annule la répétition des clics
 			       //cas où la fenêtre est redimensionnée
 			        
 			  
@@ -2526,7 +2527,7 @@ int Affichage::NombreClic(sf::RenderWindow& window, sf::Event event)
 						{
 							if(event.mouseButton.button ==sf::Mouse::Left)
 							{
-								std::cout << "Bouton droit pressé" <<std::endl ;
+								std::cout << "Bouton gauche pressé" <<std::endl ;
 								std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
 								std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
 

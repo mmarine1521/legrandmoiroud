@@ -20,10 +20,6 @@ void TourDeJeu::pushCommande (Commande* commande){
 }
 
 void TourDeJeu::run (state::State& state){
-  state.setStepId(state::DISTRIBUTION_s);
-  steps.push_back(state::DISTRIBUTION_s);
-  state.setArmeesPlacer(28);
-  state.setNbCartes(3);
 
   while(!commandes.empty()){
     Commande* c = commandes.front();
