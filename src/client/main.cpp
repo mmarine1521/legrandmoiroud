@@ -27,10 +27,31 @@ std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
 
 
+
 int main(int argc,char* argv[])
 {
 	 //testSFML();
 	 srand (time(0)); //initialisation une fois pour toute du srand ;
+	 ElementTab tabArmee = ElementTab() ;
+				tabArmee.ElementTab::remplirArmeeTab() ;
+				ElementTab tabCartePioche = ElementTab();
+				tabCartePioche.ElementTab::remplirCartePiocheTab();
+				ElementTab tabCarteEnjeu = ElementTab();
+				ElementTab tabCarteDefausse = ElementTab();
+				ElementTab tabPays = ElementTab();
+				tabPays.ElementTab::remplirPaysTab();
+				ElementTab tabContinent = ElementTab();
+				tabContinent.ElementTab::remplirContinentTab();
+
+				State currentState = state::State() ;
+				currentState.setArmeeTab(tabArmee);
+				currentState.setCartePiocheTab(tabCartePioche);
+				currentState.setCarteEnjeuTab(tabCarteEnjeu);
+				currentState.setCarteDefausseTab(tabCarteDefausse);
+				currentState.setPaysTab(tabPays);
+				currentState.setContinentTab(tabContinent);
+				
+			
 
 	    if (argc>1){                 // vérifie s'il y a un argument
 	        if  (strcmp(argv[1],"hello")==0) {   // vérification que l'argument est le bon
@@ -42,6 +63,28 @@ int main(int argc,char* argv[])
 	        }
 
 	        else if (strcmp(argv[1],"engine")==0){
+				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);	
+				while (window.isOpen())
+					{
+						window.setVerticalSyncEnabled(true);
+						window.setActive() ;
+						window.clear();
+
+						Affichage::AfficheMap(currentState,window) ;
+						Affichage::AfficheChoixNbrArmees(currentState, window) ;
+						Affichage::AfficheNombre(currentState, window) ;
+						
+						
+						TourDeJeu::run(currentState) ; 
+						
+						window.display() ;
+						
+						sf::Event event;
+						while (window.pollEvent(event))
+						{
+	        			}
+	        			
+	        		}
 			}
 			else if (strcmp(argv[1],"render")==0){
 			}
@@ -52,4 +95,5 @@ int main(int argc,char* argv[])
 			else if (strcmp(argv[1],"deep_ai")==0){
 			}
 		}
+		
 }
