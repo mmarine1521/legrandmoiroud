@@ -88,6 +88,10 @@ int State::getArmeesPlacer (){
   return this->armeesPlacer;
 }
 
+int State::getArmeesRepartition(int idJoueur){
+  return this->armeesRepartition[idJoueur - 1];
+}
+
 std::vector<CarteForce> State::getTypesCartes (){
   return this->typeCartes;
 }
@@ -162,6 +166,10 @@ void State::setNbCartes (int nbCartes){
 
 void State::setArmeesPlacer (int armeesPlacer){
   this->armeesPlacer = armeesPlacer;
+}
+
+void State::setArmeesRepartition (int idJoueur, int armeesRepartition){
+  this->armeesRepartition[idJoueur - 1] = armeesRepartition;
 }
 
 void State::setTypeCarte (CarteForce type){

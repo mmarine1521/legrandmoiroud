@@ -21,14 +21,14 @@ void PlacementArmees::setNbArmees (int nbArmees){
 }
 
 bool PlacementArmees::verif(state::State& state){
-	int idJoueur = state.getIdJoueur();
+	int idJoueur = this->getIdJoueur();
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
 
-	if (state.getArmeesPlacer() < this->nbArmees){
+	if (state.getArmeesRepartition(idJoueur) < this->nbArmees){
 		std::cout << "Vous ne pouvez placer que " << state.getArmeesPlacer() << " armees sur le territoires." << std::endl;
-		this->nbArmees = state.getArmeesPlacer();
+		this->nbArmees = state.getArmeesRepartition(idJoueur);
 	}
 
 	for(size_t i=0; i<listeArmee.size(); i++){
@@ -38,7 +38,7 @@ bool PlacementArmees::verif(state::State& state){
 				return true; //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
 			}
 			else{
-				std::cout << "Problème : Ce pays ne vous appartient pas. " <<ptr_armee->getIdJoueur() << " != " << idJoueur<< std::endl;
+				std::cout << "Problème : Ce pays ne vous appartient pas. " << ptr_armee->getIdJoueur() << " != " << idJoueur<< std::endl;
 				return false;
 			}
 			break;
@@ -56,7 +56,7 @@ void PlacementArmees::exec (state::State& state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() + this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
-			state.setArmeesPlacer(state.getArmeesPlacer() - this->nbArmees);
+			state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) - this->nbArmees);
 			break;
 		}
 	}
@@ -71,7 +71,7 @@ void PlacementArmees::undo (state::State& state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() - this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
-			state.setArmeesPlacer(state.getArmeesPlacer() + this->nbArmees);
+			state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) + this->nbArmees);
 			break;
 		}
 	}

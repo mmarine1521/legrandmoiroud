@@ -46,19 +46,22 @@ int main(int argc,char* argv[])
 				State currentState = state::State() ;
 				currentState.setStepId(state::DISTRIBUTION_s);
 				//steps.push_back(state::DISTRIBUTION_s);
-				currentState.setIdJoueur(1) ; 
-				currentState.setArmeesPlacer(28);
-				currentState.setNbCartes(3);
+
 				currentState.setArmeeTab(tabArmee);
 				currentState.setCartePiocheTab(tabCartePioche);
 				currentState.setCarteEnjeuTab(tabCarteEnjeu);
 				currentState.setCarteDefausseTab(tabCarteDefausse);
 				currentState.setPaysTab(tabPays);
 				currentState.setContinentTab(tabContinent);
-				currentState.setTourId(0) ; 
-				
-				Controller controller = Controller() ; 
-				
+				currentState.setTourId(0) ;
+				currentState.setIdJoueur(1);
+				currentState.setNbCartes(3);
+				currentState.setArmeesPlacer(0);
+				currentState.setArmeesRepartition(1, 28);
+				currentState.setArmeesRepartition(2, 28);
+
+				Controller controller = Controller() ;
+
 
 	    if (argc>1){                 // vérifie s'il y a un argument
 	        if  (strcmp(argv[1],"hello")==0) {   // vérification que l'argument est le bon
@@ -71,7 +74,7 @@ int main(int argc,char* argv[])
 
 	        else if (strcmp(argv[1],"engine")==0){
 				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-				 window.setKeyRepeatEnabled(false) ; //annule la répétition des clics	
+				 window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 				while (window.isOpen())
 					{
 						window.setVerticalSyncEnabled(true);
@@ -81,12 +84,12 @@ int main(int argc,char* argv[])
 						Affichage::AfficheMap(currentState,window) ;
 						Affichage::AfficheChoixNbrArmees(currentState, window) ;
 						Affichage::AfficheNombre(currentState, window) ;
-						
+
 						//std::cout << "state : " << currentState.getStepId() << std::endl;
-						
-						controller.Handle(currentState, window) ; 
-						TourDeJeu::run(currentState) ; 
-						
+
+						controller.Handle(currentState, window) ;
+						TourDeJeu::run(currentState) ;
+
 						window.display() ;
 						/*
 						sf::Event event;
@@ -95,7 +98,7 @@ int main(int argc,char* argv[])
 							Affichage::PaysClic(window, event);
 	        			}
 	        			*/
-	        			
+
 	        		}
 			}
 			else if (strcmp(argv[1],"render")==0){
@@ -107,5 +110,5 @@ int main(int argc,char* argv[])
 			else if (strcmp(argv[1],"deep_ai")==0){
 			}
 		}
-		
+
 }
