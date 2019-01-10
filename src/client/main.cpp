@@ -33,17 +33,21 @@ int main(int argc,char* argv[])
 	 //testSFML();
 	 srand (time(0)); //initialisation une fois pour toute du srand ;
 	 ElementTab tabArmee = ElementTab() ;
-				tabArmee.ElementTab::remplirArmeeTab() ;
-				ElementTab tabCartePioche = ElementTab();
-				tabCartePioche.ElementTab::remplirCartePiocheTab();
-				ElementTab tabCarteEnjeu = ElementTab();
-				ElementTab tabCarteDefausse = ElementTab();
-				ElementTab tabPays = ElementTab();
-				tabPays.ElementTab::remplirPaysTab();
-				ElementTab tabContinent = ElementTab();
-				tabContinent.ElementTab::remplirContinentTab();
+	tabArmee.ElementTab::remplirArmeeTab() ;
+	ElementTab tabCartePioche = ElementTab();
+	tabCartePioche.ElementTab::remplirCartePiocheTab();
+	ElementTab tabCarteEnjeu = ElementTab();
+	ElementTab tabCarteDefausse = ElementTab();
+	ElementTab tabPays = ElementTab();
+	tabPays.ElementTab::remplirPaysTab();
+	ElementTab tabContinent = ElementTab();
+	tabContinent.ElementTab::remplirContinentTab();
 
 				State currentState = state::State() ;
+				currentState.setStepId(state::DISTRIBUTION_s);
+				//steps.push_back(state::DISTRIBUTION_s);
+				currentState.setArmeesPlacer(28);
+				currentState.setNbCartes(3);
 				currentState.setArmeeTab(tabArmee);
 				currentState.setCartePiocheTab(tabCartePioche);
 				currentState.setCarteEnjeuTab(tabCarteEnjeu);
@@ -51,7 +55,8 @@ int main(int argc,char* argv[])
 				currentState.setPaysTab(tabPays);
 				currentState.setContinentTab(tabContinent);
 				
-			
+				Controller controller = Controller() ; 
+				
 
 	    if (argc>1){                 // vérifie s'il y a un argument
 	        if  (strcmp(argv[1],"hello")==0) {   // vérification que l'argument est le bon
@@ -63,7 +68,8 @@ int main(int argc,char* argv[])
 	        }
 
 	        else if (strcmp(argv[1],"engine")==0){
-				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);	
+				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+				 window.setKeyRepeatEnabled(false) ; //annule la répétition des clics	
 				while (window.isOpen())
 					{
 						window.setVerticalSyncEnabled(true);
@@ -74,15 +80,19 @@ int main(int argc,char* argv[])
 						Affichage::AfficheChoixNbrArmees(currentState, window) ;
 						Affichage::AfficheNombre(currentState, window) ;
 						
+						//std::cout << "state : " << currentState.getStepId() << std::endl;
 						
+						controller.Handle(currentState, window) ; 
 						TourDeJeu::run(currentState) ; 
 						
 						window.display() ;
-						
+						/*
 						sf::Event event;
 						while (window.pollEvent(event))
 						{
+							Affichage::PaysClic(window, event);
 	        			}
+	        			*/
 	        			
 	        		}
 			}
