@@ -86,6 +86,7 @@ namespace state {
     void setVictoire (int victoire);
     void setNbCartes (int nbCartes);
     void setArmeesPlacer (int armeesPlacer);
+    void initializeArmeesRepartition ();
     void setArmeesRepartition (int idJoueur, int armeesRepartition);
     void setBlackList (std::string pays);
     void clearBlackList ();
