@@ -54,25 +54,20 @@ void TourDeJeu::run (state::State& state){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
-                if (state.getArmeesRepartition(1) == 0){
-                  state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
-                  steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
-                  std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
-                }
               }
             }
             if(c->getIdJoueur() == 2){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
-                if (state.getArmeesRepartition(2) == 0){
-                  state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
-                  steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
-                  std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
-                }
               }
             }
             //joueur 3
+            if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
+              state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
+              steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
+              std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
+            }
           }
           break;
 
