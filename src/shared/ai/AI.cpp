@@ -21,7 +21,7 @@ void AI::aiRemplirCommandes(state::State state){
       this->pushCommande(new engine::Distribution(this->getIdJoueur()));
       break;
     case state::REPARTITION_ARMEES_s :
-      this->aiPlacementArmees(state);
+      this->aiRepartitionArmees(state);
       break;
     case state::CHOIX_PAYS_ATTAQUANT_s :
       this->aiChoixPaysAttaquant(state);

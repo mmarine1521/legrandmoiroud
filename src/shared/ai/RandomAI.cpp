@@ -4,24 +4,8 @@
 
 namespace ai{
 
-void RandomAI::aiPlacementArmees (state::State state){
-  state::ElementTab& tabArmee = state.getArmeeTab();
-	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
-	state::Element* ptr_armee = 0;
-
-	std::vector<state::Element*> listeArmeeJoueur;
-	for(size_t i=0; i<listeArmee.size(); i++){
-		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur() == state.getIdJoueur()){
-      listeArmeeJoueur.push_back(ptr_armee);
-		}
-	}
-
-	int numeroPays = rand() % listeArmeeJoueur.size();
-	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
-	ptr_armee = listeArmeeJoueur[numeroPays];
-
-  pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
+void RandomAI::aiRepartitionArmees (state::State state){
+  aiPlacementArmees(state);
 }
 
 void RandomAI::aiChoixPaysAttaquant (state::State state){
@@ -123,6 +107,26 @@ void RandomAI::aiEchange (state::State state){
     ptr_carte = listeCarteJoueur[positionCarte];
     pushCommande(new engine::EchangeCartes(this->getIdJoueur(), ptr_carte->getNumero()));
   }
+}
+
+void RandomAI::aiPlacementArmees (state::State state){
+  state::ElementTab& tabArmee = state.getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* ptr_armee = 0;
+
+	std::vector<state::Element*> listeArmeeJoueur;
+	for(size_t i=0; i<listeArmee.size(); i++){
+		ptr_armee = listeArmee[i].get();
+		if(ptr_armee->getIdJoueur() == state.getIdJoueur()){
+      listeArmeeJoueur.push_back(ptr_armee);
+		}
+	}
+
+	int numeroPays = rand() % listeArmeeJoueur.size();
+	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
+	ptr_armee = listeArmeeJoueur[numeroPays];
+
+  pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
 }
 
 void RandomAI::aiDeplacerArmees (state::State state){

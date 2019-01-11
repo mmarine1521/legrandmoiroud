@@ -6,7 +6,83 @@
 namespace ai{
 
 void HeuristicAI::aiRepartitionArmees (state::State state){
+  state::ElementTab& tabArmee = state.getArmeeTab();
+  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  state::Element* ptr_armee = 0;
+  std::vector<state::Element*> listeArmeeJoueur;
 
+  state::ElementTab& tabPays = state.getPaysTab();
+  std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
+  state::Element* ptr_pays = 0;
+  state::Element* ptr_paysFrontalier = 0;
+  std::vector<state::Element*> listePaysJoueur;
+
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_armee = listeArmee[i].get();
+    if (ptr_armee->getIdJoueur() == this->getIdJoueur()){
+      listeArmeeJoueur.push_back(ptr_armee); // remplit la liste des armees appartenant au joueur
+    }
+  }
+
+  for(size_t j=0; j<listeArmeeJoueur.size(); j++){
+    ptr_armee = listeArmeeJoueur[j];
+    for(size_t i=0; i<listePays.size(); i++){
+      ptr_pays = listePays[i].get();
+      if (ptr_pays->getPays() == ptr_armee->getPays()){
+        listePaysJoueur.push_back(ptr_pays); // remplit la liste des pays appartenant au joueur
+        break;
+      }
+    }
+  }
+
+  std::map<std::string, int> nbFrontaliers;
+  int compt;
+  for(size_t i=0; i<listePaysJoueur.size(); i++){
+    ptr_pays = listePaysJoueur[i];
+    compt = 0;
+    for(size_t j=0; j<listePaysJoueur.size(); j++){
+      if (i != j){
+        ptr_paysFrontalier = listePaysJoueur[j];
+        if (engine::ChoixPaysAttaque::estFrontalier(ptr_pays->getPays(), ptr_paysFrontalier->getPays(), state)){
+          compt ++;
+        }
+      }
+    }
+    nbFrontaliers[ptr_pays->getPays()] = compt; // remplit la map nomPays / nbDeSesFrontaliers
+  }
+
+  int maxi = 0;
+  for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+    if (it->second > maxi){
+      maxi = it->second;
+    }
+  }
+
+  int mini = 100;
+  std::string paysMini;
+  for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+    it->second = maxi - it->second + 1;
+    if (it->second < mini){
+      mini = it->second;
+      paysMini = it->first;
+    }
+  }
+
+  while(state.getArmeesRepartition(this->getIdJoueur()) != 0){
+    nbFrontaliers[paysMini] += 1;
+    state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) - 1);
+    mini = 100;
+    for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+      if (it->second < mini){
+        mini = it->second;
+        paysMini = it->first;
+      }
+    }
+  }
+
+  for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+    pushCommande(new engine::PlacementArmees(this->getIdJoueur(), it->first, it->second));
+  }
 }
 
 void HeuristicAI::aiChoixPaysAttaquant (state::State state){
