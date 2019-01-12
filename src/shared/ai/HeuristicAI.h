@@ -19,6 +19,7 @@ namespace ai {
   class HeuristicAI : public ai::AI {
     // Operations
   public:
+    HeuristicAI (int idJoueur);
     void aiRepartitionArmees (state::State state);
     void aiChoixPaysAttaquant (state::State state);
     void aiChoixPaysAttaque (state::State state);
@@ -28,7 +29,6 @@ namespace ai {
     void aiEchange (state::State state);
     void aiPlacementArmees (state::State state);
     void aiDeplacerArmees (state::State state);
-    HeuristicAI (int idJoueur);
     // Setters and Getters
   };
 

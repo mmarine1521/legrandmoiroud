@@ -10,9 +10,6 @@ namespace engine {
 namespace state {
   class State;
 };
-namespace ai {
-  class HeuristicAI;
-};
 namespace engine {
   class Passer;
   class FinTour;
@@ -29,7 +26,6 @@ namespace engine {
   class IssueDuCombat;
 }
 
-#include "ai/HeuristicAI.h"
 #include "Passer.h"
 #include "FinTour.h"
 #include "Defausser.h"
@@ -59,6 +55,7 @@ namespace engine {
     TourDeJeu ();
     virtual ~TourDeJeu ();
     static void pushCommande (Commande* commande);
+    static void placementJoueur3 (state::State& state);
     static void run (state::State& state);
     // Setters and Getters
   };
