@@ -10,6 +10,9 @@ namespace engine {
 namespace state {
   class State;
 };
+namespace ai {
+  class HeuristicAI;
+};
 namespace engine {
   class Passer;
   class FinTour;
@@ -26,6 +29,7 @@ namespace engine {
   class IssueDuCombat;
 }
 
+#include "ai/HeuristicAI.h"
 #include "Passer.h"
 #include "FinTour.h"
 #include "Defausser.h"

@@ -28,6 +28,7 @@ namespace ai {
     void aiEchange (state::State state);
     void aiPlacementArmees (state::State state);
     void aiDeplacerArmees (state::State state);
+    HeuristicAI (int idJoueur);
     // Setters and Getters
   };
 

@@ -2,15 +2,12 @@
 #ifndef AI__AI__H
 #define AI__AI__H
 
-#include <list>
 
-namespace engine {
-  class Commande;
-};
 namespace state {
   class State;
 };
 namespace engine {
+  class TourDeJeu;
   class DeplacerArmees;
   class EchangeCartes;
   class Defausser;
@@ -30,9 +27,11 @@ namespace engine {
   class Piocher;
   class Passer;
   class Distribution;
+  class Commande;
 }
 
 #include "state/State.h"
+#include "engine/TourDeJeu.h"
 #include "engine/DeplacerArmees.h"
 #include "engine/EchangeCartes.h"
 #include "engine/Defausser.h"
@@ -57,13 +56,11 @@ namespace ai {
     // Attributes
   private:
     int idJoueur;
-    static std::list<engine::Commande*> commandes;
-    static std::list<engine::Commande*> undos;
-    static std::list<state::StepId> steps;
     // Operations
   public:
+    AI (int idJoueur);
     int getIdJoueur ();
-    static void pushCommande (engine::Commande* commande);
+    void aiRemplirCommandes (state::State state);
     virtual void aiRepartitionArmees (state::State state) = 0;
     virtual void aiChoixPaysAttaquant (state::State state) = 0;
     virtual void aiChoixPaysAttaque (state::State state) = 0;
@@ -73,7 +70,6 @@ namespace ai {
     virtual void aiEchange (state::State state) = 0;
     virtual void aiPlacementArmees (state::State state) = 0;
     virtual void aiDeplacerArmees (state::State state) = 0;
-    void aiRemplirCommandes (state::State state);
     // Setters and Getters
   };
 

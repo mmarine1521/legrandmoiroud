@@ -19,6 +19,7 @@ namespace ai {
   class RandomAI : public ai::AI {
     // Operations
   public:
+    RandomAI (int idJoueur);
     void aiRepartitionArmees (state::State state);
     void aiChoixPaysAttaquant (state::State state);
     void aiChoixPaysAttaque (state::State state);

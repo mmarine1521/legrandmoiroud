@@ -2,23 +2,18 @@
 
 namespace ai {
 
-std::list<engine::Commande*> AI::commandes;
-std::list<engine::Commande*> AI::undos;
-std::list<state::StepId> AI::steps;
+AI::AI(int idJoueur) : idJoueur(idJoueur){
+}
 
 int AI::getIdJoueur(){
   return this->idJoueur;
-}
-
-void AI::pushCommande(engine::Commande* commande){
-  commandes.push_back(commande);
 }
 
 void AI::aiRemplirCommandes(state::State state){
   state::StepId etape = state.getStepId();
   switch (etape) {
     case state::DISTRIBUTION_s :
-      this->pushCommande(new engine::Distribution(this->getIdJoueur()));
+      engine::TourDeJeu::pushCommande(new engine::Distribution(this->getIdJoueur()));
       break;
     case state::REPARTITION_ARMEES_s :
       this->aiRepartitionArmees(state);
@@ -39,7 +34,7 @@ void AI::aiRemplirCommandes(state::State state){
       this->aiDefausser(state);
       break;
     case state::PIOCHER_s :
-      this->pushCommande(new engine::Piocher(this->getIdJoueur()));
+      engine::TourDeJeu::pushCommande(new engine::Piocher(this->getIdJoueur()));
       break;
     case state::ECHANGE_s :
       this->aiEchange(state);

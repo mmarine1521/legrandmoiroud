@@ -174,6 +174,7 @@ void State::setArmeesPlacer (int armeesPlacer){
 void State::initializeArmeesRepartition(){
   this->armeesRepartition.push_back(28);
   this->armeesRepartition.push_back(28);
+  this->armeesRepartition.push_back(28);
 }
 
 void State::setArmeesRepartition (int idJoueur, int armeesRepartition){

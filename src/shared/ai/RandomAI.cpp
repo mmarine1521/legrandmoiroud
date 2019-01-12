@@ -4,6 +4,9 @@
 
 namespace ai{
 
+RandomAI::RandomAI(int idJoueur) : AI(idJoueur){
+}
+
 void RandomAI::aiRepartitionArmees (state::State state){
   aiPlacementArmees(state);
 }
@@ -30,12 +33,12 @@ void RandomAI::aiChoixPaysAttaquant (state::State state){
   std::string pays;
 	if (listeArmeeJoueur.size() == 0){
 		std::cout << "Problème : Le joueur ne peut engagé aucun de vos territoires dans un combat." << std::endl;
-		pushCommande(new engine::Passer(this->getIdJoueur()));
+		engine::TourDeJeu::pushCommande(new engine::Passer(this->getIdJoueur()));
 	}
 	else{
 		int armeeAleatoire = rand() % listeArmeeJoueur.size();
 		ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement
-    pushCommande(new engine::ChoixPaysAttaquant(this->getIdJoueur(), ptr_armee->getPays()));
+    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->getIdJoueur(), ptr_armee->getPays()));
 	}
 }
 
@@ -56,15 +59,15 @@ void RandomAI::aiChoixPaysAttaque (state::State state){
 
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
-	pushCommande(new engine::ChoixPaysAttaque(this->getIdJoueur(), ptr_armee->getPays()));
+	engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->getIdJoueur(), ptr_armee->getPays()));
 }
 
 void RandomAI::aiDesAttaquant (state::State state){
-  pushCommande(new engine::DesAttaquant(this->getIdJoueur(), rand() % 3 + 1));
+  engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->getIdJoueur(), rand() % 3 + 1));
 }
 
 void RandomAI::aiDesAttaque (state::State state){
-  pushCommande(new engine::DesAttaque(this->getIdJoueur(), rand() % 2 + 1));
+  engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->getIdJoueur(), rand() % 2 + 1));
 }
 
 void RandomAI::aiDefausser (state::State state){
@@ -82,15 +85,15 @@ void RandomAI::aiDefausser (state::State state){
 
   int positionCarte = rand() % listeCarteJoueur.size();
   ptr_carte = listeCarteJoueur[positionCarte];
-  pushCommande(new engine::Defausser(this->getIdJoueur(), ptr_carte->getNumero()));
+  engine::TourDeJeu::pushCommande(new engine::Defausser(this->getIdJoueur(), ptr_carte->getNumero()));
 }
 
 void RandomAI::aiEchange (state::State state){
   int decision = rand() % 2;
   if (decision == 0){
-    pushCommande(new engine::Passer(this->getIdJoueur()));
+    engine::TourDeJeu::pushCommande(new engine::Passer(this->getIdJoueur()));
   }
-  if (decision == 1){
+  else{
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
     std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
     state::Element* ptr_carte = 0;
@@ -105,7 +108,7 @@ void RandomAI::aiEchange (state::State state){
 
     int positionCarte = rand() % listeCarteJoueur.size();
     ptr_carte = listeCarteJoueur[positionCarte];
-    pushCommande(new engine::EchangeCartes(this->getIdJoueur(), ptr_carte->getNumero()));
+    engine::TourDeJeu::pushCommande(new engine::EchangeCartes(this->getIdJoueur(), ptr_carte->getNumero()));
   }
 }
 
@@ -126,15 +129,15 @@ void RandomAI::aiPlacementArmees (state::State state){
 	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
-  pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
+  engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
 }
 
 void RandomAI::aiDeplacerArmees (state::State state){
   int decision = rand() % 2;
   if (decision == 0){
-    pushCommande(new engine::Passer(state.getIdJoueur()));
+    engine::TourDeJeu::pushCommande(new engine::Passer(state.getIdJoueur()));
   }
-  if (decision == 1){
+  else{
     state::ElementTab& tabArmee = state.getArmeeTab();
     std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
     state::Element* ptr_armee = 0;
@@ -186,7 +189,7 @@ void RandomAI::aiDeplacerArmees (state::State state){
     }
 
     int nombreArmees = rand() % ptr_armee->getNombre();
-    pushCommande(new engine::DeplacerArmees(this->getIdJoueur(), listePays1[numeroPays], listePays2[numeroPays], nombreArmees));
+    engine::TourDeJeu::pushCommande(new engine::DeplacerArmees(this->getIdJoueur(), listePays1[numeroPays], listePays2[numeroPays], nombreArmees));
   }
 }
 
