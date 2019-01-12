@@ -8,7 +8,8 @@ namespace ai{
 HeuristicAI::HeuristicAI(int idJoueur) : AI(idJoueur){
 }
 
-void HeuristicAI::aiRepartitionArmees (state::State state){
+
+void HeuristicAI::aiRepartitionArmees (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -88,7 +89,7 @@ void HeuristicAI::aiRepartitionArmees (state::State state){
   }
 }
 
-void HeuristicAI::aiChoixPaysAttaquant (state::State state){
+void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
   std::vector<std::string> blackList = state.getBlackList();
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -172,7 +173,7 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State state){
   }
 }
 
-void HeuristicAI::aiChoixPaysAttaque (state::State state){
+void HeuristicAI::aiChoixPaysAttaque (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;
@@ -245,7 +246,7 @@ void HeuristicAI::aiChoixPaysAttaque (state::State state){
   }
 }
 
-void HeuristicAI::aiDesAttaquant (state::State state){
+void HeuristicAI::aiDesAttaquant (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -286,7 +287,7 @@ void HeuristicAI::aiDesAttaquant (state::State state){
   }
 }
 
-void HeuristicAI::aiDesAttaque (state::State state){
+void HeuristicAI::aiDesAttaque (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -308,7 +309,7 @@ void HeuristicAI::aiDesAttaque (state::State state){
   }
 }
 
-void HeuristicAI::aiDefausser (state::State state){
+void HeuristicAI::aiDefausser (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -385,7 +386,7 @@ void HeuristicAI::aiDefausser (state::State state){
   }
 }
 
-void HeuristicAI::aiEchange (state::State state){
+void HeuristicAI::aiEchange (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -461,7 +462,7 @@ void HeuristicAI::aiEchange (state::State state){
   }
 }
 
-void HeuristicAI::aiPlacementArmees (state::State state){
+void HeuristicAI::aiPlacementArmees (state::State& state){
   int APlacer = state.getArmeesPlacer();
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -490,7 +491,7 @@ void HeuristicAI::aiPlacementArmees (state::State state){
   }
 }
 
-void HeuristicAI::aiDeplacerArmees (state::State state){
+void HeuristicAI::aiDeplacerArmees (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;

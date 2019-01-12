@@ -10,7 +10,6 @@ namespace ai {
   class AI;
 }
 
-#include "state/State.h"
 #include "AI.h"
 
 namespace ai {
@@ -20,15 +19,15 @@ namespace ai {
     // Operations
   public:
     RandomAI (int idJoueur);
-    void aiRepartitionArmees (state::State state);
-    void aiChoixPaysAttaquant (state::State state);
-    void aiChoixPaysAttaque (state::State state);
-    void aiDesAttaquant (state::State state);
-    void aiDesAttaque (state::State state);
-    void aiDefausser (state::State state);
-    void aiEchange (state::State state);
-    void aiPlacementArmees (state::State state);
-    void aiDeplacerArmees (state::State state);
+    void aiRepartitionArmees (state::State& state);
+    void aiChoixPaysAttaquant (state::State& state);
+    void aiChoixPaysAttaque (state::State& state);
+    void aiDesAttaquant (state::State& state);
+    void aiDesAttaque (state::State& state);
+    void aiDefausser (state::State& state);
+    void aiEchange (state::State& state);
+    void aiPlacementArmees (state::State& state);
+    void aiDeplacerArmees (state::State& state);
     // Setters and Getters
   };
 

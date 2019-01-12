@@ -84,7 +84,8 @@ int State::getNbCartes (){
 }
 
 int State::getArmeesPlacer (){
-  return this->armeesPlacer;
+	std::cout<<"test acces getArmeesPlacer"<<std::endl ; 
+	return this->armeesPlacer;
 }
 
 int State::getArmeesRepartition(int idJoueur){

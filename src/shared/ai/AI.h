@@ -2,6 +2,7 @@
 #ifndef AI__AI__H
 #define AI__AI__H
 
+#include <SFML/Graphics.hpp>
 
 namespace state {
   class State;
@@ -30,7 +31,6 @@ namespace engine {
   class Commande;
 }
 
-#include "state/State.h"
 #include "engine/TourDeJeu.h"
 #include "engine/DeplacerArmees.h"
 #include "engine/EchangeCartes.h"
@@ -48,6 +48,7 @@ namespace engine {
 #include "engine/Passer.h"
 #include "engine/Distribution.h"
 #include "engine/Commande.h"
+#include "state/State.h"
 
 namespace ai {
 
@@ -60,16 +61,16 @@ namespace ai {
   public:
     AI (int idJoueur);
     int getIdJoueur ();
-    void aiRemplirCommandes (state::State state);
-    virtual void aiRepartitionArmees (state::State state) = 0;
-    virtual void aiChoixPaysAttaquant (state::State state) = 0;
-    virtual void aiChoixPaysAttaque (state::State state) = 0;
-    virtual void aiDesAttaquant (state::State state) = 0;
-    virtual void aiDesAttaque (state::State state) = 0;
-    virtual void aiDefausser (state::State state) = 0;
-    virtual void aiEchange (state::State state) = 0;
-    virtual void aiPlacementArmees (state::State state) = 0;
-    virtual void aiDeplacerArmees (state::State state) = 0;
+    void aiRemplirCommandes (state::State& state, sf::RenderWindow& window);
+    virtual void aiRepartitionArmees (state::State& state);
+    virtual void aiChoixPaysAttaquant (state::State& state);
+    virtual void aiChoixPaysAttaque (state::State& state);
+    virtual void aiDesAttaquant (state::State& state);
+    virtual void aiDesAttaque (state::State& state);
+    virtual void aiDefausser (state::State& state);
+    virtual void aiEchange (state::State& state);
+    virtual void aiPlacementArmees (state::State& state);
+    virtual void aiDeplacerArmees (state::State& state);
     // Setters and Getters
   };
 

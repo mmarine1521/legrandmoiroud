@@ -1,4 +1,6 @@
 #include "RandomAI.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <algorithm>    // std::find
 
@@ -7,11 +9,11 @@ namespace ai{
 RandomAI::RandomAI(int idJoueur) : AI(idJoueur){
 }
 
-void RandomAI::aiRepartitionArmees (state::State state){
+void RandomAI::aiRepartitionArmees (state::State& state){
   aiPlacementArmees(state);
 }
 
-void RandomAI::aiChoixPaysAttaquant (state::State state){
+void RandomAI::aiChoixPaysAttaquant (state::State& state){
   std::vector<std::string> blackList = state.getBlackList();
   state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -42,7 +44,7 @@ void RandomAI::aiChoixPaysAttaquant (state::State state){
 	}
 }
 
-void RandomAI::aiChoixPaysAttaque (state::State state){
+void RandomAI::aiChoixPaysAttaque (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
@@ -62,15 +64,15 @@ void RandomAI::aiChoixPaysAttaque (state::State state){
 	engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->getIdJoueur(), ptr_armee->getPays()));
 }
 
-void RandomAI::aiDesAttaquant (state::State state){
+void RandomAI::aiDesAttaquant (state::State& state){
   engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->getIdJoueur(), rand() % 3 + 1));
 }
 
-void RandomAI::aiDesAttaque (state::State state){
+void RandomAI::aiDesAttaque (state::State& state){
   engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->getIdJoueur(), rand() % 2 + 1));
 }
 
-void RandomAI::aiDefausser (state::State state){
+void RandomAI::aiDefausser (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -88,7 +90,7 @@ void RandomAI::aiDefausser (state::State state){
   engine::TourDeJeu::pushCommande(new engine::Defausser(this->getIdJoueur(), ptr_carte->getNumero()));
 }
 
-void RandomAI::aiEchange (state::State state){
+void RandomAI::aiEchange (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
     engine::TourDeJeu::pushCommande(new engine::Passer(this->getIdJoueur()));
@@ -112,11 +114,12 @@ void RandomAI::aiEchange (state::State state){
   }
 }
 
-void RandomAI::aiPlacementArmees (state::State state){
+void RandomAI::aiPlacementArmees (state::State& state){
+	std::cout<<"entree Placement arméees"<<std::endl ; 
   state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
-
+	std::cout<<"entree Placement arméees_step2"<<std::endl ;
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
@@ -124,15 +127,19 @@ void RandomAI::aiPlacementArmees (state::State state){
       listeArmeeJoueur.push_back(ptr_armee);
 		}
 	}
+	std::cout<<"entree Placement arméees_step3"<<std::endl ;
 
 	int numeroPays = rand() % listeArmeeJoueur.size();
+	std::cout<<"entree Placement arméees_step3_bis"<<std::endl ;
 	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
+	std::cout<<"entree Placement arméees_step3_ter"<<std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
-
+	
+	std::cout<<"entree Placement arméees_step4"<<std::endl ;
   engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
 }
 
-void RandomAI::aiDeplacerArmees (state::State state){
+void RandomAI::aiDeplacerArmees (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
     engine::TourDeJeu::pushCommande(new engine::Passer(state.getIdJoueur()));

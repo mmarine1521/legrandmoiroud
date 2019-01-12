@@ -1,7 +1,7 @@
 #include "state.h"
 #include "render.h"
 #include "engine.h"
-//#include "ai.h"
+#include "ai.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -21,7 +21,7 @@ using namespace state;
 using namespace std ;
 using namespace engine ;
 using namespace render ;
-//using namespace ai ;
+using namespace ai ;
 
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
@@ -60,6 +60,10 @@ int main(int argc,char* argv[])
 				currentState.initializeArmeesRepartition();
 
 				Controller controller = Controller() ;
+				RandomAI CtrlAI = RandomAI(1) ;
+				RandomAI CtrlAI2 = RandomAI(2) ; 
+				HeuristicAI CtrlAI3 = HeuristicAI(1) ;
+				HeuristicAI CtrlAI4 = HeuristicAI(2) ; 
 
 
 	    if (argc>1){                 // vérifie s'il y a un argument
@@ -103,9 +107,50 @@ int main(int argc,char* argv[])
 			else if (strcmp(argv[1],"render")==0){
 			}
 			else if (strcmp(argv[1],"random_ai")==0){
+					sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+					window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+					while (window.isOpen())
+					{
+						window.setVerticalSyncEnabled(true);
+						window.setActive() ;
+						window.clear();
+
+						Affichage::AfficheMap(currentState,window) ;
+						Affichage::AfficheChoixNbrArmees(currentState, window) ;
+						Affichage::AfficheNombre(currentState, window) ;
+
+						//std::cout << "state : " << currentState.getStepId() << std::endl;
+
+						CtrlAI.aiRemplirCommandes(currentState, window) ;
+						CtrlAI2.aiRemplirCommandes(currentState, window) ; 
+						TourDeJeu::run(currentState) ;
+
+						window.display() ;
 			}
+		}
 			else if (strcmp(argv[1],"heuristic_ai")==0){
+				
+				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+					window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+					while (window.isOpen())
+					{
+						window.setVerticalSyncEnabled(true);
+						window.setActive() ;
+						window.clear();
+
+						Affichage::AfficheMap(currentState,window) ;
+						Affichage::AfficheChoixNbrArmees(currentState, window) ;
+						Affichage::AfficheNombre(currentState, window) ;
+
+						//std::cout << "state : " << currentState.getStepId() << std::endl;
+
+						CtrlAI3.aiRemplirCommandes(currentState, window) ;
+						CtrlAI4.aiRemplirCommandes(currentState, window) ; 
+						TourDeJeu::run(currentState) ;
+
+						window.display() ;
 			}
+		}
 			else if (strcmp(argv[1],"deep_ai")==0){
 			}
 		}

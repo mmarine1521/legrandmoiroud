@@ -1,6 +1,12 @@
-#include "AI.h"
 
-namespace ai {
+#include "AI.h" 
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <string>
+
+
+using namespace ai ; 
+
 
 AI::AI(int idJoueur) : idJoueur(idJoueur){
 }
@@ -9,7 +15,45 @@ int AI::getIdJoueur(){
   return this->idJoueur;
 }
 
-void AI::aiRemplirCommandes(state::State state){
+void AI::aiRepartitionArmees(state::State& state) 
+{
+}
+
+void AI::aiChoixPaysAttaquant(state::State& state)
+{
+}
+
+void AI::aiChoixPaysAttaque(state::State& state) 
+{
+}
+
+void AI::aiDesAttaquant(state::State& state)
+{
+}
+
+void AI::aiDesAttaque(state::State& state) 
+{
+}
+
+void AI::aiDefausser(state::State& state) 
+{
+}
+
+void AI::aiEchange(state::State& state) 
+{
+}
+
+void AI::aiPlacementArmees(state::State& state) 
+{
+}
+
+void AI::aiDeplacerArmees(state::State& state) 
+{
+}
+
+	
+
+void AI::aiRemplirCommandes(state::State& state, sf::RenderWindow& window){
   state::StepId etape = state.getStepId();
   switch (etape) {
     case state::DISTRIBUTION_s :
@@ -48,4 +92,4 @@ void AI::aiRemplirCommandes(state::State state){
   }
 }
 
-}
+
