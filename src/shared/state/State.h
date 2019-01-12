@@ -37,7 +37,6 @@ namespace state {
     std::vector<int> desBleus;
     int victoire;
     int nbCartes;
-    int armeesPlacer;
     std::vector<int> armeesRepartition;
     std::vector<std::string> blackList;
     std::vector<CarteForce> typeCartes;
@@ -62,7 +61,6 @@ namespace state {
     std::vector<int> getDesBleus ();
     int getVictoire ();
     int getNbCartes ();
-    int getArmeesPlacer ();
     int getArmeesRepartition (int idJoueur);
     std::vector<std::string> getBlackList ();
     std::vector<CarteForce> getTypeCartes ();
@@ -85,7 +83,6 @@ namespace state {
     void setDesBleus (std::vector<int> desBleus);
     void setVictoire (int victoire);
     void setNbCartes (int nbCartes);
-    void setArmeesPlacer (int armeesPlacer);
     void initializeArmeesRepartition ();
     void setArmeesRepartition (int idJoueur, int armeesRepartition);
     void setBlackList (std::string pays);

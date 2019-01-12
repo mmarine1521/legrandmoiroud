@@ -83,10 +83,6 @@ int State::getNbCartes (){
   return this->nbCartes;
 }
 
-int State::getArmeesPlacer (){ 
-	return this->armeesPlacer;
-}
-
 int State::getArmeesRepartition(int idJoueur){
   return this->armeesRepartition[idJoueur - 1];
 }
@@ -165,10 +161,6 @@ void State::setVictoire (int victoire){
 
 void State::setNbCartes (int nbCartes){
   this->nbCartes = nbCartes;
-}
-
-void State::setArmeesPlacer (int armeesPlacer){
-  this->armeesPlacer = armeesPlacer;
 }
 
 void State::initializeArmeesRepartition(){

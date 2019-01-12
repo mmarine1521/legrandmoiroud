@@ -56,14 +56,13 @@ int main(int argc,char* argv[])
 				currentState.setTourId(0) ;
 				currentState.setIdJoueur(1);
 				currentState.setNbCartes(3);
-				currentState.setArmeesPlacer(42);
 				currentState.initializeArmeesRepartition();
 
 				Controller controller = Controller() ;
 				RandomAI CtrlAI = RandomAI(1) ;
-				RandomAI CtrlAI2 = RandomAI(2) ; 
+				RandomAI CtrlAI2 = RandomAI(2) ;
 				HeuristicAI CtrlAI3 = HeuristicAI(1) ;
-				HeuristicAI CtrlAI4 = HeuristicAI(2) ; 
+				HeuristicAI CtrlAI4 = HeuristicAI(2) ;
 
 
 	    if (argc>1){                 // vérifie s'il y a un argument
@@ -122,14 +121,14 @@ int main(int argc,char* argv[])
 						//std::cout << "state : " << currentState.getStepId() << std::endl;
 
 						CtrlAI.aiRemplirCommandes(currentState, window) ;
-						//CtrlAI2.aiRemplirCommandes(currentState, window) ; 
+						//CtrlAI2.aiRemplirCommandes(currentState, window) ;
 						TourDeJeu::run(currentState) ;
 
 						window.display() ;
 			}
 		}
 			else if (strcmp(argv[1],"heuristic_ai")==0){
-				
+
 				sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 					window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 					while (window.isOpen())
@@ -145,7 +144,7 @@ int main(int argc,char* argv[])
 						//std::cout << "state : " << currentState.getStepId() << std::endl;
 
 						CtrlAI3.aiRemplirCommandes(currentState, window) ;
-						//CtrlAI4.aiRemplirCommandes(currentState, window) ; 
+						//CtrlAI4.aiRemplirCommandes(currentState, window) ;
 						TourDeJeu::run(currentState) ;
 
 						window.display() ;
