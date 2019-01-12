@@ -56,7 +56,7 @@ int main(int argc,char* argv[])
 				currentState.setTourId(0) ;
 				currentState.setIdJoueur(1);
 				currentState.setNbCartes(3);
-				currentState.setArmeesPlacer(0);
+				currentState.setArmeesPlacer(42);
 				currentState.initializeArmeesRepartition();
 
 				Controller controller = Controller() ;
