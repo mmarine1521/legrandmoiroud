@@ -22,7 +22,7 @@ void RandomAI::aiRepartitionArmees (state::State& state){
 		}
 	}
 	int numeroPays = rand() % listeArmeeJoueur.size();
-	int nombreArmees = rand() % (state.getArmeesRepartition(this->getIdJoueur())) + 1;
+	int nombreArmees = rand() % 4 + 1;
 	std::cout<< "nombreArmees rand : " << nombreArmees << std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 

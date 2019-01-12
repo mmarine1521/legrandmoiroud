@@ -121,7 +121,7 @@ int main(int argc,char* argv[])
 						//std::cout << "state : " << currentState.getStepId() << std::endl;
 
 						CtrlAI.aiRemplirCommandes(currentState, window) ;
-						//CtrlAI2.aiRemplirCommandes(currentState, window) ;
+						CtrlAI2.aiRemplirCommandes(currentState, window) ;
 						TourDeJeu::run(currentState) ;
 
 						window.display() ;
