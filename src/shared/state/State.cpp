@@ -83,8 +83,7 @@ int State::getNbCartes (){
   return this->nbCartes;
 }
 
-int State::getArmeesPlacer (){
-	std::cout<<"test acces getArmeesPlacer"<<std::endl ; 
+int State::getArmeesPlacer (){ 
 	return this->armeesPlacer;
 }
 

@@ -115,11 +115,11 @@ void RandomAI::aiEchange (state::State& state){
 }
 
 void RandomAI::aiPlacementArmees (state::State& state){
-	std::cout<<"entree Placement arméees"<<std::endl ; 
+	
   state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
-	std::cout<<"entree Placement arméees_step2"<<std::endl ;
+	
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
@@ -127,15 +127,11 @@ void RandomAI::aiPlacementArmees (state::State& state){
       listeArmeeJoueur.push_back(ptr_armee);
 		}
 	}
-	std::cout<<"entree Placement arméees_step3"<<std::endl ;
-
-	int numeroPays = rand() % listeArmeeJoueur.size();
-	std::cout<<"entree Placement arméees_step3_bis"<<std::endl ;
-	int nombreArmees = rand() % state.getArmeesPlacer() + 1;
-	std::cout<<"entree Placement arméees_step3_ter"<<std::endl ;
+	int numeroPays = rand() % listeArmeeJoueur.size();	
+	int nombreArmees = rand() % (state.getArmeesPlacer()) + 1;
+	std::cout<< "nombreArmees rand" << nombreArmees << std::endl ; 	
 	ptr_armee = listeArmeeJoueur[numeroPays];
 	
-	std::cout<<"entree Placement arméees_step4"<<std::endl ;
   engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
 }
 

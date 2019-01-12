@@ -142,6 +142,7 @@ void TourDeJeu::run (state::State& state){
               }
             }
             if(c->getIdJoueur() == 2){
+			state.setIdJoueur(1); //test
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
