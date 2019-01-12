@@ -27,9 +27,8 @@ bool PlacementArmees::verif(state::State& state){
 	state::Element* ptr_armee = 0;
 
 	if (state.getArmeesRepartition(idJoueur) < this->nbArmees){
-		std::cout << "Vous ne pouvez placer que " << state.getArmeesPlacer() << " armees sur le territoires." << std::endl;
+		std::cout << "Vous ne pouvez placer que " << state.getArmeesRepartition(idJoueur) << " armees sur le territoire. (< " << this->nbArmees << ")" << std::endl;
 		this->nbArmees = state.getArmeesRepartition(idJoueur);
-		std::cout<<"getArmeesPlacer"<<state.getArmeesPlacer()<<"armees à placer"<<nbArmees<<std::endl ; 
 	}
 
 	for(size_t i=0; i<listeArmee.size(); i++){

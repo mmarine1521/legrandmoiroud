@@ -136,16 +136,19 @@ void TourDeJeu::run (state::State& state){
         case state::REPARTITION_ARMEES_s :
           if(c->getIdCommande() == PLACER_ARMEES_c){
             if(c->getIdJoueur() == 1){
-              if(c->verif(state)){
-                c->exec(state);
-                undos.push_back(c);
+              if (state.getArmeesRepartition(1) != 0){
+                if(c->verif(state)){
+                  c->exec(state);
+                  undos.push_back(c);
+                }
               }
             }
             if(c->getIdJoueur() == 2){
-			state.setIdJoueur(1); //test
-              if(c->verif(state)){
-                c->exec(state);
-                undos.push_back(c);
+              if (state.getArmeesRepartition(2) != 0){
+                if(c->verif(state)){
+                  c->exec(state);
+                  undos.push_back(c);
+                }
               }
             }
             //joueur 3
@@ -303,8 +306,8 @@ void TourDeJeu::run (state::State& state){
                 undos.push_back(c);
 
                 if (state.getNbCartes() == 0){
-                  state.setArmeesPlacer(EchangeCartes::gain(state));
-                  if (state.getArmeesPlacer() == 0){
+                  state.setArmeesRepartition(joueur, EchangeCartes::gain(state));
+                  if (state.getArmeesRepartition(joueur) == 0){
                     state.setStepId(state::DEPLACER_ARMEES_s);
                     steps.push_back(state::DEPLACER_ARMEES_s);
                     std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
@@ -326,7 +329,7 @@ void TourDeJeu::run (state::State& state){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
-                if (state.getArmeesPlacer() == 0){
+                if (state.getArmeesRepartition(joueur) == 0){
                   state.setStepId(state::DEPLACER_ARMEES_s);
                   steps.push_back(state::DEPLACER_ARMEES_s);
                   std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;

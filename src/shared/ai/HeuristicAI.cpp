@@ -463,7 +463,6 @@ void HeuristicAI::aiEchange (state::State& state){
 }
 
 void HeuristicAI::aiPlacementArmees (state::State& state){
-  int APlacer = state.getArmeesPlacer();
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -476,7 +475,7 @@ void HeuristicAI::aiPlacementArmees (state::State& state){
     }
   }
 
-  while(APlacer != 0){
+  while(state.getArmeesRepartition(this->getIdJoueur()) != 0){
     int mini = 100;
     std::string paysMini;
     for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
@@ -487,7 +486,7 @@ void HeuristicAI::aiPlacementArmees (state::State& state){
     }
 
     engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), paysMini, 1));
-    APlacer -= 1;
+    state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) - 1);
   }
 }
 
