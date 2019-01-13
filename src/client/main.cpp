@@ -48,7 +48,7 @@ int main(int argc,char* argv[]){
 	currentState.setCarteDefausseTab(tabCarteDefausse);
 	currentState.setPaysTab(tabPays);
 	currentState.setContinentTab(tabContinent);
-	currentState.setTourId(0) ;
+	currentState.setTourId(1);
 	currentState.setIdJoueur(1);
 	currentState.setNbCartes(3);
 	currentState.initializeArmeesRepartition();

@@ -58,11 +58,11 @@ void IssueDuCombat::exec (state::State& state){
 
   for (int i = 0; i < ite; i++){
     if (desRouges[i] > desBleus[i]){
-      std::cout << "Vous avez gagné le tour " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
+      std::cout << "Vous avez gagné le lancé " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
       ptr_Attaque->setNombre(ptr_Attaque->getNombre() - 1);
     }
     else{
-      std::cout << "Vous avez perdu le tour " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
+      std::cout << "Vous avez perdu le lancé " << i+1 << ". Vous avez fait " << desRouges[i] << " et votre adversaire " << desBleus[i] << "." << std::endl;
       ptr_Attaquant->setNombre(ptr_Attaquant->getNombre() - 1);
     }
   }
