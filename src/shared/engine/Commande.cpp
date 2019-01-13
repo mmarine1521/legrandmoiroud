@@ -2,14 +2,14 @@
 
 namespace engine {
 
-Commande::Commande(int idJoueur) : idJoueur(idJoueur){
+Commande::Commande(int idJoueurCommande) : idJoueurCommande(idJoueurCommande){
 }
 
 Commande::~Commande (){
 }
 
-int Commande::getIdJoueur(){
-  return this->idJoueur;
+int Commande::getIdJoueurCommande(){
+  return this->idJoueurCommande;
 }
 
 IdCommande const Commande::getIdCommande (){
@@ -29,7 +29,6 @@ int Commande::getNbArmees (){
 }
 
 void Commande::setNbArmees (int nbArmees){
-  return;
 }
 
 std::string Commande::getPays(){

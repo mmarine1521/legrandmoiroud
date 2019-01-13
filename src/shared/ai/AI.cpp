@@ -1,63 +1,25 @@
 
-#include "AI.h" 
+#include "AI.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <string>
 
 
-using namespace ai ; 
+using namespace ai ;
 
 
-AI::AI(int idJoueur) : idJoueur(idJoueur){
+AI::AI(int idJoueurAI) : idJoueurAI(idJoueurAI){
 }
 
-int AI::getIdJoueur(){
-  return this->idJoueur;
+int AI::getIdJoueurAI(){
+  return this->idJoueurAI;
 }
 
-void AI::aiRepartitionArmees(state::State& state) 
-{
-}
-
-void AI::aiChoixPaysAttaquant(state::State& state)
-{
-}
-
-void AI::aiChoixPaysAttaque(state::State& state) 
-{
-}
-
-void AI::aiDesAttaquant(state::State& state)
-{
-}
-
-void AI::aiDesAttaque(state::State& state) 
-{
-}
-
-void AI::aiDefausser(state::State& state) 
-{
-}
-
-void AI::aiEchange(state::State& state) 
-{
-}
-
-void AI::aiPlacementArmees(state::State& state) 
-{
-}
-
-void AI::aiDeplacerArmees(state::State& state) 
-{
-}
-
-	
-
-void AI::aiRemplirCommandes(state::State& state, sf::RenderWindow& window){
+void AI::aiRemplirCommandes(state::State& state){
   state::StepId etape = state.getStepId();
   switch (etape) {
     case state::DISTRIBUTION_s :
-      engine::TourDeJeu::pushCommande(new engine::Distribution(this->getIdJoueur()));
+      engine::TourDeJeu::pushCommande(new engine::Distribution(this->idJoueurAI));
       break;
     case state::REPARTITION_ARMEES_s :
       this->aiRepartitionArmees(state);
@@ -78,7 +40,7 @@ void AI::aiRemplirCommandes(state::State& state, sf::RenderWindow& window){
       this->aiDefausser(state);
       break;
     case state::PIOCHER_s :
-      engine::TourDeJeu::pushCommande(new engine::Piocher(this->getIdJoueur()));
+      engine::TourDeJeu::pushCommande(new engine::Piocher(this->idJoueurAI));
       break;
     case state::ECHANGE_s :
       this->aiEchange(state);
@@ -91,5 +53,3 @@ void AI::aiRemplirCommandes(state::State& state, sf::RenderWindow& window){
       break;
   }
 }
-
-

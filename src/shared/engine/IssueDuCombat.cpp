@@ -4,7 +4,7 @@
 
 namespace engine {
 
-IssueDuCombat::IssueDuCombat (int idJoueur, int victoire) : Commande(idJoueur), victoire(victoire){
+IssueDuCombat::IssueDuCombat (int idJoueurCommande, int victoire) : Commande(idJoueurCommande), victoire(victoire){
 } //undos
 
 IssueDuCombat::~IssueDuCombat (){

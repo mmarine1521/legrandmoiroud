@@ -25,7 +25,7 @@ namespace engine {
     int nbDes;
     // Operations
   public:
-    Des (int idJoueur, int nbDes);
+    Des (int idJoueurCommande, int nbDes);
     virtual ~Des ();
     int getNbDes ();
     static std::vector<int> lancerDes (int nbDes);

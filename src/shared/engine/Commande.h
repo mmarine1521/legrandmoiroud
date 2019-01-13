@@ -20,13 +20,13 @@ namespace engine {
     // Associations
     engine::IdCommande idCommande;
     // Attributes
-  private:
-    int idJoueur;
+  protected:
+    int idJoueurCommande;
     // Operations
   public:
-    Commande (int idJoueur);
+    Commande (int idJoueurCommande);
     virtual ~Commande ();
-    int getIdJoueur ();
+    int getIdJoueurCommande ();
     virtual IdCommande const getIdCommande ();
     virtual bool verif (state::State& state);
     virtual void exec (state::State& state);
@@ -38,6 +38,7 @@ namespace engine {
     virtual int getNbDes ();
     // Setters and Getters
     void setIdCommande(IdCommande idCommande);
+    void setIdJoueurCommande(int idJoueurCommande);
   };
 
 };

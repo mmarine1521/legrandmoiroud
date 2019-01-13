@@ -2,7 +2,7 @@
 
 namespace engine {
 
-DeplacerArmees::DeplacerArmees (int idJoueur, std::string paysDepart, std::string paysArrivee, int nbArmees) : Commande(idJoueur), paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
+DeplacerArmees::DeplacerArmees (int idJoueurCommande, std::string paysDepart, std::string paysArrivee, int nbArmees) : Commande(idJoueurCommande), paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
 }
 
 DeplacerArmees::~DeplacerArmees (){
@@ -13,7 +13,7 @@ IdCommande const DeplacerArmees::getIdCommande (){
 }
 
 bool DeplacerArmees::verif (state::State& state){
-	int idJoueur = state.getIdJoueur();
+	int idJoueur = this->idJoueurCommande;
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_depart = 0;

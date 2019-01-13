@@ -2,7 +2,7 @@
 
 namespace engine {
 
-PlacementArmees::PlacementArmees (int idJoueur, std::string pays, int nbArmees) : Commande(idJoueur), pays(pays), nbArmees(nbArmees){
+PlacementArmees::PlacementArmees (int idJoueurCommande, std::string pays, int nbArmees) : Commande(idJoueurCommande), pays(pays), nbArmees(nbArmees){
 }
 
 PlacementArmees::~PlacementArmees (){
@@ -21,7 +21,7 @@ void PlacementArmees::setNbArmees (int nbArmees){
 }
 
 bool PlacementArmees::verif(state::State& state){
-	int idJoueur = this->getIdJoueur();
+	int idJoueur = this->idJoueurCommande;
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
@@ -56,7 +56,7 @@ void PlacementArmees::exec (state::State& state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() + this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
-			state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) - this->nbArmees);
+			state.setArmeesRepartition(this->idJoueurCommande, state.getArmeesRepartition(this->idJoueurCommande) - this->nbArmees);
 			break;
 		}
 	}
@@ -71,7 +71,7 @@ void PlacementArmees::undo (state::State& state){
 		ptr_armee = listeArmee[i].get();
 		if(ptr_armee->getPays() == this->pays){ //on cherche le pays choisi dans la liste
 			ptr_armee->setNombre(ptr_armee->getNombre() - this->nbArmees); //on place dans le territoire le nombre d'armée précédent + le nouveau nombre.
-			state.setArmeesRepartition(this->getIdJoueur(), state.getArmeesRepartition(this->getIdJoueur()) + this->nbArmees);
+			state.setArmeesRepartition(this->idJoueurCommande, state.getArmeesRepartition(this->idJoueurCommande) + this->nbArmees);
 			break;
 		}
 	}

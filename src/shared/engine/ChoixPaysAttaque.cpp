@@ -4,7 +4,7 @@
 
 namespace engine {
 
-ChoixPaysAttaque::ChoixPaysAttaque (int idJoueur, std::string pays) : ChoixPays(idJoueur, pays){
+ChoixPaysAttaque::ChoixPaysAttaque (int idJoueurCommande, std::string pays) : ChoixPays(idJoueurCommande, pays){
 }
 
 ChoixPaysAttaque::~ChoixPaysAttaque (){
@@ -36,8 +36,8 @@ bool ChoixPaysAttaque::verif (state::State& state){
   bool ok = false;
 
   std::string paysAttaquant = state.getPaysAttaquant();
-  std::string paysAttaque = state.getPaysAttaque();
-  int idJoueur = state.getIdJoueur();
+  std::string paysAttaque = this->pays;
+  int idJoueur = this->idJoueurCommande;
 
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();

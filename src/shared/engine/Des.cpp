@@ -6,7 +6,7 @@
 
 namespace engine {
 
-Des::Des (int idJoueur, int nbDes) : Commande(idJoueur), nbDes(nbDes){
+Des::Des (int idJoueurCommande, int nbDes) : Commande(idJoueurCommande), nbDes(nbDes){
 }
 
 Des::~Des (){

@@ -2,11 +2,10 @@
 
 namespace engine {
 
-Cartes::Cartes(int idJoueur) : Commande(idJoueur){
+Cartes::Cartes(int idJoueurCommande) : Commande(idJoueurCommande){
 }
 
-
-Cartes::Cartes(int idJoueur, int numeroCarte) : Commande(idJoueur), numeroCarte(numeroCarte){
+Cartes::Cartes(int idJoueurCommande, int numeroCarte) : Commande(idJoueurCommande), numeroCarte(numeroCarte){
 }
 
 int Cartes::getNumeroCarte (){

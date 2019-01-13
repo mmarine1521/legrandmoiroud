@@ -109,7 +109,7 @@ void TourDeJeu::run (state::State& state){
     int joueur = state.getIdJoueur();
 
     if(c->getIdCommande() == UNDO_c){
-      if(c->getIdJoueur() == joueur){
+      if(c->getIdJoueurCommande() == joueur){
         Commande* commande_undo = undos.back();
         undos.pop_back();
         commande_undo->undo(state);
@@ -124,18 +124,18 @@ void TourDeJeu::run (state::State& state){
           if(c->getIdCommande() == DISTRIBUTION_c){
             c->exec(state);
             undos.push_back(c);
+            placementJoueur3(state);
             state.setStepId(state::REPARTITION_ARMEES_s);
             steps.push_back(state::REPARTITION_ARMEES_s);
             //ai::HeuristicAI intelligence = ai::HeuristicAI(3);
             //intelligence.aiRepartitionArmees(state);
-            placementJoueur3(state);
             std::cout << "Vous pouvez maintenant positionner vos armées." << std::endl;
           }
           break;
 
         case state::REPARTITION_ARMEES_s :
           if(c->getIdCommande() == PLACER_ARMEES_c){
-            if(c->getIdJoueur() == 1){
+            if(c->getIdJoueurCommande() == 1){
               if (state.getArmeesRepartition(1) != 0){
                 if(c->verif(state)){
                   c->exec(state);
@@ -143,7 +143,7 @@ void TourDeJeu::run (state::State& state){
                 }
               }
             }
-            if(c->getIdJoueur() == 2){
+            if(c->getIdJoueurCommande() == 2){
               if (state.getArmeesRepartition(2) != 0){
                 if(c->verif(state)){
                   c->exec(state);
@@ -151,7 +151,6 @@ void TourDeJeu::run (state::State& state){
                 }
               }
             }
-            //joueur 3
             if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
               state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
               steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
@@ -162,9 +161,9 @@ void TourDeJeu::run (state::State& state){
 
         case state::CHOIX_PAYS_ATTAQUANT_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUANT_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
-                Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueur(), state.getPaysAttaquant());
+                Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueurCommande(), state.getPaysAttaquant());
                 undos.push_back(c_avant);
                 c->exec(state);
                 state.clearBlackList();
@@ -178,7 +177,7 @@ void TourDeJeu::run (state::State& state){
             }
           }
           if(c->getIdCommande() == PASSER_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               state.clearBlackList();
               state.setStepId(state::DEPLACER_ARMEES_s);
               steps.push_back(state::DEPLACER_ARMEES_s);
@@ -189,9 +188,9 @@ void TourDeJeu::run (state::State& state){
 
         case state::CHOIX_PAYS_ATTAQUE_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
-                Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueur(), state.getPaysAttaque());
+                Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueurCommande(), state.getPaysAttaque());
                 undos.push_back(c_avant);
                 c->exec(state);
                 state.setStepId(state::NB_DES_ATTAQUANT_s);
@@ -204,9 +203,9 @@ void TourDeJeu::run (state::State& state){
 
         case state::NB_DES_ATTAQUANT_s :
           if(c->getIdCommande() == NB_DES_ATTAQUANT_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
-                Commande* c_avant = new DesAttaquant(c->getIdJoueur(), state.getNbDesAttaquant(), state.getDesRouges());
+                Commande* c_avant = new DesAttaquant(c->getIdJoueurCommande(), state.getNbDesAttaquant(), state.getDesRouges());
                 undos.push_back(c_avant);
                 c->exec(state);
                 state.setStepId(state::NB_DES_ATTAQUE_s);
@@ -219,13 +218,13 @@ void TourDeJeu::run (state::State& state){
 
         case state::NB_DES_ATTAQUE_s :
           if(c->getIdCommande() == NB_DES_ATTAQUE_c){
-            if(c->getIdJoueur() != joueur){
+            if(c->getIdJoueurCommande() != joueur){
               if(c->verif(state)){
-                Commande* c_avant = new DesAttaque(c->getIdJoueur(), state.getNbDesAttaque(), state.getDesBleus());
+                Commande* c_avant = new DesAttaque(c->getIdJoueurCommande(), state.getNbDesAttaque(), state.getDesBleus());
                 undos.push_back(c_avant);
                 c->exec(state);
                 //Issue du combat
-                Commande* c_suivant = new IssueDuCombat(c->getIdJoueur(), state.getVictoire());
+                Commande* c_suivant = new IssueDuCombat(c->getIdJoueurCommande(), state.getVictoire());
                 undos.push_back(c_suivant);
                 c_suivant->exec(state);
                 if (state.getVictoire() == 0){
@@ -255,7 +254,7 @@ void TourDeJeu::run (state::State& state){
 
         case state::DEFAUSSER_s :
           if(c->getIdCommande() == DEFAUSSER_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
               undos.push_back(c);
               state.setStepId(state::PIOCHER_s);
@@ -267,9 +266,9 @@ void TourDeJeu::run (state::State& state){
 
         case state::PIOCHER_s :
           if(c->getIdCommande() == PIOCHER_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
-              Commande* c_avant = new Piocher(c->getIdJoueur(), c->getNumeroCarte());
+              Commande* c_avant = new Piocher(c->getIdJoueurCommande(), c->getNumeroCarte());
               undos.push_back(c_avant);
 
               if(IssueDuCombat::nbCartesJoueur(state) >= 3){
@@ -293,14 +292,14 @@ void TourDeJeu::run (state::State& state){
 
         case state::ECHANGE_s :
           if(c->getIdCommande() == PASSER_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               state.setStepId(state::DEPLACER_ARMEES_s);
               steps.push_back(state::DEPLACER_ARMEES_s);
               std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
             }
           }
           if(c->getIdCommande() == ECHANGE_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
@@ -325,7 +324,7 @@ void TourDeJeu::run (state::State& state){
 
         case state::PLACER_NOUVELLES_ARMEES_s :
           if(c->getIdCommande() == PLACER_ARMEES_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
@@ -341,7 +340,7 @@ void TourDeJeu::run (state::State& state){
 
         case state::DEPLACER_ARMEES_s :
           if(c->getIdCommande() == DEPLACER_ARMEES_c){
-            if(c->getIdJoueur() == joueur){
+            if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
                 undos.push_back(c);
@@ -349,8 +348,8 @@ void TourDeJeu::run (state::State& state){
             }
           }
           if(c->getIdCommande() == PASSER_c){
-            if(c->getIdJoueur() == joueur){
-              Commande* fin = new FinTour(c->getIdJoueur());
+            if(c->getIdJoueurCommande() == joueur){
+              Commande* fin = new FinTour(c->getIdJoueurCommande());
               fin->exec(state);
               undos.push_back(fin);
               state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);

@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Defausser::Defausser (int idJoueur, int numeroCarte) : Cartes(idJoueur, numeroCarte){
+Defausser::Defausser (int idJoueurCommande, int numeroCarte) : Cartes(idJoueurCommande, numeroCarte){
 }
 
 Defausser::~Defausser (){
@@ -41,7 +41,7 @@ void Defausser::undo (state::State& state){
   for(size_t i=0; i<listeDefausse.size(); i++){
     ptr_carte = listeDefausse[i].get();
     if (ptr_carte->getNumero() == this->numeroCarte){
-      ptr_carte->setIdJoueur(state.getIdJoueur());
+      ptr_carte->setIdJoueur(this->idJoueurCommande);
       listeEnjeu.push_back(ptr_carte->clone());
       listeDefausse.erase(listeDefausse.begin() + i);
       ok = true;
@@ -55,7 +55,7 @@ void Defausser::undo (state::State& state){
     for(size_t i=0; i<listePioche.size(); i++){
       ptr_carte = listePioche[i].get();
       if (ptr_carte->getNumero() == this->numeroCarte){
-        ptr_carte->setIdJoueur(state.getIdJoueur());
+        ptr_carte->setIdJoueur(this->idJoueurCommande);
         listeEnjeu.push_back(ptr_carte->clone());
         listePioche.erase(listePioche.begin() + i);
       }

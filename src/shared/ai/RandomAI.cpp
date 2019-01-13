@@ -6,7 +6,7 @@
 
 namespace ai{
 
-RandomAI::RandomAI(int idJoueur) : AI(idJoueur){
+RandomAI::RandomAI(int idJoueurAI) : AI(idJoueurAI){
 }
 
 void RandomAI::aiRepartitionArmees (state::State& state){
@@ -17,7 +17,7 @@ void RandomAI::aiRepartitionArmees (state::State& state){
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur() == state.getIdJoueur()){
+		if(ptr_armee->getIdJoueur() == this->idJoueurAI){
       listeArmeeJoueur.push_back(ptr_armee);
 		}
 	}
@@ -26,7 +26,7 @@ void RandomAI::aiRepartitionArmees (state::State& state){
 	std::cout<< "nombreArmees rand : " << nombreArmees << std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
-  engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
+  engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, ptr_armee->getPays(), nombreArmees));
 }
 
 void RandomAI::aiChoixPaysAttaquant (state::State& state){
@@ -38,7 +38,7 @@ void RandomAI::aiChoixPaysAttaquant (state::State& state){
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur() == state.getIdJoueur()){ //le choix ne se fait que sur les pays du joueur "idJoueur"
+		if(ptr_armee->getIdJoueur() == this->idJoueurAI){ //le choix ne se fait que sur les pays du joueur "idJoueur"
 			std::vector<std::string>::iterator result = find(blackList.begin(), blackList.end(), ptr_armee->getPays()); // renvoie le dernier element si faux
 			if (result == blackList.end()){
 				if(ptr_armee->getNombre() > 1){ //nombre d'armées > 1 sinon impossible d'attaquer
@@ -51,12 +51,12 @@ void RandomAI::aiChoixPaysAttaquant (state::State& state){
   std::string pays;
 	if (listeArmeeJoueur.size() == 0){
 		std::cout << "Problème : Le joueur ne peut engagé aucun de vos territoires dans un combat." << std::endl;
-		engine::TourDeJeu::pushCommande(new engine::Passer(this->getIdJoueur()));
+		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
 	}
 	else{
 		int armeeAleatoire = rand() % listeArmeeJoueur.size();
 		ptr_armee = listeArmeeJoueur[armeeAleatoire]; // on choisit un pays aléatoirement
-    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->getIdJoueur(), ptr_armee->getPays()));
+    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, ptr_armee->getPays()));
 	}
 }
 
@@ -68,7 +68,7 @@ void RandomAI::aiChoixPaysAttaque (state::State& state){
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur() != state.getIdJoueur()){
+		if(ptr_armee->getIdJoueur() != this->idJoueurAI){
 			if (engine::ChoixPaysAttaque::estFrontalier(ptr_armee->getPays(), state.getPaysAttaquant(), state)){
 				listeArmeeJoueur.push_back(ptr_armee); //on vérifie que le pays est bien frontalier de pays attaquant.
 			}
@@ -77,15 +77,15 @@ void RandomAI::aiChoixPaysAttaque (state::State& state){
 
 	int armeeAleatoire = rand() % listeArmeeJoueur.size();
 	ptr_armee = listeArmeeJoueur[armeeAleatoire];
-	engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->getIdJoueur(), ptr_armee->getPays()));
+	engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->idJoueurAI, ptr_armee->getPays()));
 }
 
 void RandomAI::aiDesAttaquant (state::State& state){
-  engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->getIdJoueur(), rand() % 3 + 1));
+  engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, rand() % 3 + 1));
 }
 
 void RandomAI::aiDesAttaque (state::State& state){
-  engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->getIdJoueur(), rand() % 2 + 1));
+  engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->idJoueurAI, rand() % 2 + 1));
 }
 
 void RandomAI::aiDefausser (state::State& state){
@@ -96,20 +96,20 @@ void RandomAI::aiDefausser (state::State& state){
   std::vector<state::Element*> listeCarteJoueur;
   for(size_t i=0; i<listeEnjeu.size(); i++){
     ptr_carte = listeEnjeu[i].get();
-    if(ptr_carte->getIdJoueur() == state.getIdJoueur()){
+    if(ptr_carte->getIdJoueur() == this->idJoueurAI){
       listeCarteJoueur.push_back(ptr_carte);
     }
   }
 
   int positionCarte = rand() % listeCarteJoueur.size();
   ptr_carte = listeCarteJoueur[positionCarte];
-  engine::TourDeJeu::pushCommande(new engine::Defausser(this->getIdJoueur(), ptr_carte->getNumero()));
+  engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
 }
 
 void RandomAI::aiEchange (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
-    engine::TourDeJeu::pushCommande(new engine::Passer(this->getIdJoueur()));
+    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
   }
   else{
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
@@ -119,14 +119,14 @@ void RandomAI::aiEchange (state::State& state){
 
     for(size_t i=0; i<listeEnjeu.size(); i++){
       ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getIdJoueur() == state.getIdJoueur()){
+      if (ptr_carte->getIdJoueur() == this->idJoueurAI){
         listeCarteJoueur.push_back(ptr_carte);
       }
     }
 
     int positionCarte = rand() % listeCarteJoueur.size();
     ptr_carte = listeCarteJoueur[positionCarte];
-    engine::TourDeJeu::pushCommande(new engine::EchangeCartes(this->getIdJoueur(), ptr_carte->getNumero()));
+    engine::TourDeJeu::pushCommande(new engine::EchangeCartes(this->idJoueurAI, ptr_carte->getNumero()));
   }
 }
 
@@ -138,22 +138,22 @@ void RandomAI::aiPlacementArmees (state::State& state){
 	std::vector<state::Element*> listeArmeeJoueur;
 	for(size_t i=0; i<listeArmee.size(); i++){
 		ptr_armee = listeArmee[i].get();
-		if(ptr_armee->getIdJoueur() == state.getIdJoueur()){
+		if(ptr_armee->getIdJoueur() == this->idJoueurAI){
       listeArmeeJoueur.push_back(ptr_armee);
 		}
 	}
 	int numeroPays = rand() % listeArmeeJoueur.size();
-	int nombreArmees = rand() % (state.getArmeesRepartition(this->getIdJoueur())) + 1;
+	int nombreArmees = rand() % (state.getArmeesRepartition(this->idJoueurAI)) + 1;
 	std::cout<< "nombreArmees rand" << nombreArmees << std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
-  engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->getIdJoueur(), ptr_armee->getPays(), nombreArmees));
+  engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, ptr_armee->getPays(), nombreArmees));
 }
 
 void RandomAI::aiDeplacerArmees (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
-    engine::TourDeJeu::pushCommande(new engine::Passer(state.getIdJoueur()));
+    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
@@ -163,7 +163,7 @@ void RandomAI::aiDeplacerArmees (state::State& state){
     std::vector<state::Element*> listeArmeeJoueur;
     for(size_t i=0; i<listeArmee.size(); i++){
       ptr_armee = listeArmee[i].get();
-      if(ptr_armee->getIdJoueur() != state.getIdJoueur()){
+      if(ptr_armee->getIdJoueur() != this->idJoueurAI){
         listeArmeeJoueur.push_back(ptr_armee);
       }
     }
@@ -207,7 +207,7 @@ void RandomAI::aiDeplacerArmees (state::State& state){
     }
 
     int nombreArmees = rand() % ptr_armee->getNombre();
-    engine::TourDeJeu::pushCommande(new engine::DeplacerArmees(this->getIdJoueur(), listePays1[numeroPays], listePays2[numeroPays], nombreArmees));
+    engine::TourDeJeu::pushCommande(new engine::DeplacerArmees(this->idJoueurAI, listePays1[numeroPays], listePays2[numeroPays], nombreArmees));
   }
 }
 

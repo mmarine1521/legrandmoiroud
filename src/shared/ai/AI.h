@@ -2,7 +2,6 @@
 #ifndef AI__AI__H
 #define AI__AI__H
 
-#include <SFML/Graphics.hpp>
 
 namespace state {
   class State;
@@ -55,23 +54,24 @@ namespace ai {
   /// class AI - 
   class AI {
     // Attributes
-  private:
-    int idJoueur;
+  protected:
+    int idJoueurAI;
     // Operations
   public:
-    AI (int idJoueur);
-    int getIdJoueur ();
-    void aiRemplirCommandes (state::State& state, sf::RenderWindow& window);
-    virtual void aiRepartitionArmees (state::State& state);
-    virtual void aiChoixPaysAttaquant (state::State& state);
-    virtual void aiChoixPaysAttaque (state::State& state);
-    virtual void aiDesAttaquant (state::State& state);
-    virtual void aiDesAttaque (state::State& state);
-    virtual void aiDefausser (state::State& state);
-    virtual void aiEchange (state::State& state);
-    virtual void aiPlacementArmees (state::State& state);
-    virtual void aiDeplacerArmees (state::State& state);
+    AI (int idJoueurAI);
+    int getIdJoueurAI ();
+    void aiRemplirCommandes (state::State& state);
+    virtual void aiRepartitionArmees (state::State& state) = 0;
+    virtual void aiChoixPaysAttaquant (state::State& state) = 0;
+    virtual void aiChoixPaysAttaque (state::State& state) = 0;
+    virtual void aiDesAttaquant (state::State& state) = 0;
+    virtual void aiDesAttaque (state::State& state) = 0;
+    virtual void aiDefausser (state::State& state) = 0;
+    virtual void aiEchange (state::State& state) = 0;
+    virtual void aiPlacementArmees (state::State& state) = 0;
+    virtual void aiDeplacerArmees (state::State& state) = 0;
     // Setters and Getters
+    void setIdJoueurAI(int idJoueurAI);
   };
 
 };

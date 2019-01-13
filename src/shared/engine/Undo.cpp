@@ -2,7 +2,7 @@
 
 namespace engine {
 
-Undo::Undo(int idJoueur) : Commande(idJoueur){
+Undo::Undo(int idJoueurCommande) : Commande(idJoueurCommande){
 }
 
 Undo::~Undo (){

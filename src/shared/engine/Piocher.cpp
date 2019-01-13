@@ -3,10 +3,10 @@
 
 namespace engine {
 
-Piocher::Piocher(int idJoueur) : Cartes(idJoueur){
+Piocher::Piocher(int idJoueurCommande) : Cartes(idJoueurCommande){
 } //commandes
 
-Piocher::Piocher (int idJoueur, int numeroCarte) : Cartes(idJoueur, numeroCarte){
+Piocher::Piocher (int idJoueurCommande, int numeroCarte) : Cartes(idJoueurCommande, numeroCarte){
 } //undos
 
 Piocher::~Piocher (){
@@ -17,7 +17,7 @@ IdCommande const Piocher::getIdCommande (){
 }
 
 void Piocher::exec (state::State& state){
-  int idJoueur = state.getIdJoueur();
+  int idJoueur = this->idJoueurCommande;
   state::ElementTab& tabPioche = state.getCartePiocheTab();
   std::vector<std::shared_ptr<state::Element>> listePioche = tabPioche.getElementList();
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();

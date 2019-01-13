@@ -15,7 +15,7 @@ namespace engine {
   class Passer : public engine::Commande {
     // Operations
   public:
-    Passer (int idJoueur);
+    Passer (int idJoueurCommande);
     virtual ~Passer ();
     IdCommande const getIdCommande ();
     // Setters and Getters

@@ -18,7 +18,7 @@ namespace engine {
   class Defausser : public engine::Cartes {
     // Operations
   public:
-    Defausser (int idJoueur, int numeroCarte);
+    Defausser (int idJoueurCommande, int numeroCarte);
     virtual ~Defausser ();
     IdCommande const getIdCommande ();
     void exec (state::State& state);

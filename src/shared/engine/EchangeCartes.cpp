@@ -2,7 +2,7 @@
 
 namespace engine {
 
-EchangeCartes::EchangeCartes (int idJoueur, int numeroCarte) : Commande(idJoueur), numeroCarte(numeroCarte){
+EchangeCartes::EchangeCartes (int idJoueurCommande, int numeroCarte) : Commande(idJoueurCommande), numeroCarte(numeroCarte){
 }
 
 EchangeCartes::~EchangeCartes (){
@@ -13,7 +13,7 @@ IdCommande const EchangeCartes::getIdCommande (){
 }
 
 bool EchangeCartes::verif(state::State& state){// verifie que le joueur possède la carte
-  int idJoueur = state.getIdJoueur();
+  int idJoueur = this->idJoueurCommande;
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -68,14 +68,14 @@ void EchangeCartes::exec (state::State& state){
       break;
     }
   }
-  Commande* defausse = new Defausser(state.getIdJoueur(), numeroCarte);
+  Commande* defausse = new Defausser(this->idJoueurCommande, numeroCarte);
   defausse->exec(state);
   state.setNbCartes(state.getNbCartes() - 1);
 }
 
 void EchangeCartes::undo (state::State& state){
   state.deleteTypeCarte();
-  Commande* defausse = new Defausser(state.getIdJoueur(), numeroCarte);
+  Commande* defausse = new Defausser(this->idJoueurCommande, numeroCarte);
   defausse->undo(state);
 }
 
