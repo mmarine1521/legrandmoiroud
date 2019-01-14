@@ -138,6 +138,35 @@ int main(int argc,char* argv[]){
 			window.setActive() ;
 			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 			
+			
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				CtrlAI3.aiRemplirCommandes(&currentState) ;
+				CtrlAI4.aiRemplirCommandes(&currentState) ;
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+				
+				sf::Event event;
+				while (window.pollEvent(event)){
+					
+				}
+			}
+		}
+		else if (strcmp(argv[1],"deep_ai")==0){
+		}
+		
+		else if (strcmp(argv[1],"thread")==0){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			
 			std::thread th_ai3(run_ai, std::ref(CtrlAI3), &currentState, 3);
 			std::thread th_ai4(run_ai, std::ref(CtrlAI4), &currentState, 4);
 			std::thread th_tdj(run_tourdejeu, &currentState);
@@ -159,8 +188,8 @@ int main(int argc,char* argv[]){
 					
 				}
 			}
-		}
-		else if (strcmp(argv[1],"deep_ai")==0){
+			
+			
 		}
 	}
 }
