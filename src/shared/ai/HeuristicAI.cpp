@@ -72,9 +72,11 @@ void HeuristicAI::aiRepartitionArmees (state::State& state){
     }
   }
 
-  while(state.getArmeesRepartition(this->idJoueurAI) != 0){
+  int ok = 28;
+  while(ok != 0){
     nbFrontaliers[paysMini] += 1;
-    state.setArmeesRepartition(this->idJoueurAI, state.getArmeesRepartition(this->idJoueurAI) - 1);
+    ok -= 1;
+    engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
     mini = 100;
     for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
       if (it->second < mini){
@@ -82,10 +84,6 @@ void HeuristicAI::aiRepartitionArmees (state::State& state){
         paysMini = it->first;
       }
     }
-  }
-
-  for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
-    engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, it->first, it->second));
   }
 }
 
@@ -112,7 +110,7 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
 
   if (nbArmee.size() == 0){
     std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
-		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
   }
 
   int maxi = 0;
@@ -407,7 +405,7 @@ void HeuristicAI::aiEchange (state::State& state){
       }
     }
     if (comptTANK < 3 && comptCANON < 3 && comptSOLDAT < 3){
-      engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+      engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
     }
     else{
       //5 cartes max
@@ -574,7 +572,7 @@ void HeuristicAI::aiDeplacerArmees (state::State& state){
       }
     }
   }
-  engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+  engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 1));
 }
 
 }

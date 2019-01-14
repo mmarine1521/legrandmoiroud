@@ -24,6 +24,8 @@ namespace render {
   public:
     Controller ();
     void  Handle (state::State& state, sf::RenderWindow& window);
+    void HandlePasser (sf::Event event);
+    void HandleFin (sf::Event event);
     void  HandleDistribution (sf::Event event );
     void  HandleChoixPaysAttaquant (sf::Event event , sf::RenderWindow& window);
     void  HandleChoixPaysAttaque (sf::Event event , sf::RenderWindow& window);

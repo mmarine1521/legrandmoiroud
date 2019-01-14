@@ -41,7 +41,6 @@ int main(int argc,char* argv[]){
 
 	State currentState = state::State() ;
 	currentState.setStepId(state::DISTRIBUTION_s);
-	//steps.push_back(state::DISTRIBUTION_s);
 	currentState.setArmeeTab(tabArmee);
 	currentState.setCartePiocheTab(tabCartePioche);
 	currentState.setCarteEnjeuTab(tabCarteEnjeu);
@@ -81,7 +80,7 @@ int main(int argc,char* argv[]){
 				//std::cout << "state : " << currentState.getStepId() << std::endl;
 				controller.Handle(currentState, window) ;
 				TourDeJeu::run(currentState) ;
-
+				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
 				/*
 				sf::Event event;
@@ -110,7 +109,7 @@ int main(int argc,char* argv[]){
 				CtrlAI.aiRemplirCommandes(currentState) ;
 				CtrlAI2.aiRemplirCommandes(currentState) ;
 				TourDeJeu::run(currentState) ;
-
+				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
 			}
 		}
@@ -130,7 +129,7 @@ int main(int argc,char* argv[]){
 				CtrlAI3.aiRemplirCommandes(currentState) ;
 				CtrlAI4.aiRemplirCommandes(currentState) ;
 				TourDeJeu::run(currentState) ;
-
+				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
 			}
 		}

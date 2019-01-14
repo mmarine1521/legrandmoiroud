@@ -33,9 +33,9 @@ namespace engine {
     virtual void undo (state::State& state);
     virtual int getNumeroCarte ();
     virtual int getNbArmees ();
-    virtual void setNbArmees (int nbArmees);
     virtual std::string getPays ();
     virtual int getNbDes ();
+    virtual bool getFin ();
     // Setters and Getters
     void setIdCommande(IdCommande idCommande);
     void setIdJoueurCommande(int idJoueurCommande);

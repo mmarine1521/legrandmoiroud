@@ -17,6 +17,25 @@ Controller::Controller()
 	pays_depart ="not selected" ;
 	pays_arrivee = "not selected" ;
 }
+
+void  Controller::HandlePasser (sf::Event event )
+{
+	if(event.key.code == sf::Keyboard::N)
+		{
+			Passer* Commande = new Passer(1, 0);
+			std::cout << "pushing Passer" << std::endl;
+			TourDeJeu::pushCommande(Commande) ;
+		}
+}
+void  Controller::HandleFin (sf::Event event )
+{
+	if(event.key.code == sf::Keyboard::N)
+		{
+			Passer* Commande = new Passer(1, 1);
+			std::cout << "pushing Fin" << std::endl;
+			TourDeJeu::pushCommande(Commande) ;
+		}
+}
 void  Controller::HandleDistribution (sf::Event event )
 {
 	if(event.key.code == sf::Keyboard::D)

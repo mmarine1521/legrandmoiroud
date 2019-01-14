@@ -16,38 +16,6 @@ void ElementTab::addElement (std::shared_ptr<Element> element){
 	elementList.push_back(element->clone());
 }
 
-Position ElementTab::getElementPosition (std::shared_ptr<Element> element) const{
-	for(size_t i=0; i<elementList.size(); i++){
-		if(elementList[i]==element){
-      Element* e = elementList[i].get();
-			return e->getPosition();
-		}
-	}
-  Position pos(-1, -1);
-  return pos;
-}
-
-void ElementTab::setElementPosition (Position position, std::shared_ptr<Element> element){
-	for(size_t i=0; i<elementList.size(); i++){
-		if(elementList[i]==element){
-      Element* e = elementList[i].get();
-			return e->setPosition(position);
-		}
-	}
-}
-
-Element* ElementTab::getLocatedElement (Position position) const{
-  Element* e = 0;
-	for(size_t i=0; i<elementList.size(); i++){
-    e = elementList[i].get();
-		if(e->getPosition() == position){
-			return e;
-		}
-	}
-  e = 0;
-  return e;
-}
-
 void ElementTab::melange (){
   srand (time(NULL));
   int longueur = elementList.size();

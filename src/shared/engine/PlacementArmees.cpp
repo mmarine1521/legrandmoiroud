@@ -12,12 +12,12 @@ IdCommande const PlacementArmees::getIdCommande (){
 	return PLACER_ARMEES_c;
 }
 
-int PlacementArmees::getNbArmees (){
-	return this->nbArmees;
+std::string PlacementArmees::getPays(){
+	return this->pays;
 }
 
-void PlacementArmees::setNbArmees (int nbArmees){
-	this->nbArmees = nbArmees;
+int PlacementArmees::getNbArmees (){
+	return this->nbArmees;
 }
 
 bool PlacementArmees::verif(state::State& state){

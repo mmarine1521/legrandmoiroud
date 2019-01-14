@@ -13,11 +13,16 @@ namespace engine {
 
   /// class Passer - 
   class Passer : public engine::Commande {
+    // Attributes
+  private:
+    /// 	
+    bool fin;
     // Operations
   public:
-    Passer (int idJoueurCommande);
+    Passer (int idJoueurCommande, bool fin);
     virtual ~Passer ();
     IdCommande const getIdCommande ();
+    bool getFin ();
     // Setters and Getters
   };
 

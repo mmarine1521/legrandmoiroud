@@ -123,6 +123,7 @@ void TourDeJeu::run (state::State& state){
         case state::DISTRIBUTION_s :
           if(c->getIdCommande() == DISTRIBUTION_c){
             c->exec(state);
+            steps.push_back(state::DISTRIBUTION_s);
             undos.push_back(c);
             placementJoueur3(state);
             state.setStepId(state::REPARTITION_ARMEES_s);
@@ -139,6 +140,7 @@ void TourDeJeu::run (state::State& state){
               if (state.getArmeesRepartition(1) != 0){
                 if(c->verif(state)){
                   c->exec(state);
+                  std::cout << "Le joueur " << c->getIdJoueurCommande() << " a placé " << c->getNbArmees() << " armée sur le pays " << c->getPays() << std::endl;
                   undos.push_back(c);
                 }
               }
@@ -179,11 +181,13 @@ void TourDeJeu::run (state::State& state){
           }
           if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueurCommande() == joueur){
-              state.clearBlackList();
-              std::cout << "Vous passez votre tour." << std::endl;
-              state.setStepId(state::DEPLACER_ARMEES_s);
-              steps.push_back(state::DEPLACER_ARMEES_s);
-              std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+              if (c->getFin() == 0){
+                state.clearBlackList();
+                std::cout << "Vous passez votre tour." << std::endl;
+                state.setStepId(state::DEPLACER_ARMEES_s);
+                steps.push_back(state::DEPLACER_ARMEES_s);
+                std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+              }
             }
           }
           break;
@@ -233,11 +237,22 @@ void TourDeJeu::run (state::State& state){
                 undos.push_back(c_suivant);
                 c_suivant->exec(state);
                 if (state.getVictoire() == 0){
-                  state.setStepId(state::ECHANGE_s);
-                  steps.push_back(state::ECHANGE_s);
-                  state.setNbCartes(3);
-                  state.clearTypeCarte();
-                  std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
+                  if(IssueDuCombat::nbCartesJoueur(state) >= 3){
+                    std::cout << "Vous possédez " << IssueDuCombat::nbCartesJoueur(state) << " cartes." << std::endl;
+                    state.setStepId(state::ECHANGE_s);
+                    steps.push_back(state::ECHANGE_s);
+                    state.setNbCartes(3);
+                    state.clearTypeCarte();
+                    std::cout << "Vous pouvez maintenant échanger des cartes contre des armées." << std::endl;
+                    std::cout << "3 soldats = 3 armées" << std::endl;
+                    std::cout << "3 tanks = 5 armées" << std::endl;
+                    std::cout << "3 canons = 8 armées" << std::endl;
+                  }
+                  else{
+                    state.setStepId(state::DEPLACER_ARMEES_s);
+                    steps.push_back(state::DEPLACER_ARMEES_s);
+                    std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+                  }
                 }
                 else{
                   std::cout << "Votre victoire vous rapporte une nouvelle carte." << std::endl;
@@ -299,9 +314,11 @@ void TourDeJeu::run (state::State& state){
         case state::ECHANGE_s :
           if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueurCommande() == joueur){
-              state.setStepId(state::DEPLACER_ARMEES_s);
-              steps.push_back(state::DEPLACER_ARMEES_s);
-              std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+              if (c->getFin() == 0){
+                state.setStepId(state::DEPLACER_ARMEES_s);
+                steps.push_back(state::DEPLACER_ARMEES_s);
+                std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+              }
             }
           }
           if(c->getIdCommande() == ECHANGE_c){
@@ -355,14 +372,16 @@ void TourDeJeu::run (state::State& state){
           }
           if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueurCommande() == joueur){
-              Commande* fin = new FinTour(c->getIdJoueurCommande());
-              fin->exec(state);
-              undos.push_back(fin);
-              state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
-              steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
-              std::cout << "Fin du tour. Début du tour " << state.getTourId() << "." << std::endl;
-              std::cout << std::endl;
-              std::cout << "C'est au joueur " << joueur << " de jouer." << std::endl;
+              if (c->getFin() == 1){
+                Commande* fin = new FinTour(c->getIdJoueurCommande());
+                fin->exec(state);
+                undos.push_back(fin);
+                state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
+                steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
+                std::cout << "Fin du tour. Début du tour " << state.getTourId() << "." << std::endl;
+                std::cout << std::endl;
+                std::cout << "C'est au joueur " << state.getIdJoueur() << " de jouer." << std::endl;
+              }
             }
           }
           break;

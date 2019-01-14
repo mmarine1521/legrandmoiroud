@@ -28,9 +28,6 @@ int Commande::getNbArmees (){
   return -1;
 }
 
-void Commande::setNbArmees (int nbArmees){
-}
-
 std::string Commande::getPays(){
   return "#pays";
 }
@@ -43,6 +40,10 @@ void Commande::exec(state::State& state){
 }
 
 void Commande::undo(state::State& state){
+}
+
+bool Commande::getFin(){
+  return 1;
 }
 
 }

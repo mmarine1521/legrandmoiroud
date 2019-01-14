@@ -51,7 +51,7 @@ void RandomAI::aiChoixPaysAttaquant (state::State& state){
   std::string pays;
 	if (listeArmeeJoueur.size() == 0){
 		std::cout << "Problème : Le joueur ne peut engagé aucun de vos territoires dans un combat." << std::endl;
-		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
 	}
 	else{
 		int armeeAleatoire = rand() % listeArmeeJoueur.size();
@@ -109,7 +109,7 @@ void RandomAI::aiDefausser (state::State& state){
 void RandomAI::aiEchange (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
-    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
   }
   else{
     state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
@@ -153,7 +153,7 @@ void RandomAI::aiPlacementArmees (state::State& state){
 void RandomAI::aiDeplacerArmees (state::State& state){
   int decision = rand() % 2;
   if (decision == 0){
-    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI));
+    engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 1));
   }
   else{
     state::ElementTab& tabArmee = state.getArmeeTab();
