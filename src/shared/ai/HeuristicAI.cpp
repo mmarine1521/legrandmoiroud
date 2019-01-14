@@ -112,62 +112,63 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
     std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
 		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
   }
-
-  int maxi = 0;
-  std::list<std::string> armeeMaxi;
-  for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
-    if (it->second > maxi){
-      armeeMaxi.clear();
-      maxi = it->second;
-      armeeMaxi.push_back(it->first);
-    }
-    else if (it->second == maxi){
-      armeeMaxi.push_back(it->first);
-    }
-  }
-
-  if (armeeMaxi.size() == 1){
-    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, armeeMaxi.front()));
-  }
   else{
-    state::ElementTab& tabPays = state.getPaysTab();
-    std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
-    state::Element* ptr_pays = 0;
-    std::vector<state::Element*> listePaysArmeeMaxi;
-
-    for (std::string armee : armeeMaxi) {
-      for(size_t i=0; i<listePays.size(); i++){
-        ptr_pays = listePays[i].get();
-        if (ptr_pays->getPays() == armee){
-          listePaysArmeeMaxi.push_back(ptr_pays); // remplit la liste des pays ayant le plus d'armees
-        }
+    int maxi = 0;
+    std::list<std::string> armeeMaxi;
+    for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
+      if (it->second > maxi){
+        armeeMaxi.clear();
+        maxi = it->second;
+        armeeMaxi.push_back(it->first);
+      }
+      else if (it->second == maxi){
+        armeeMaxi.push_back(it->first);
       }
     }
 
-    std::map<std::string, int> nbFrontaliers;
-    int compt;
-    for(size_t i=0; i<listePaysArmeeMaxi.size(); i++){
-      ptr_pays = listePaysArmeeMaxi[i];
-      compt = 0;
-      for(size_t j=0; j<listePaysJoueur.size(); j++){
-        if (ptr_pays->getPays() != listePaysJoueur[j]){
-          if (engine::ChoixPaysAttaque::estFrontalier(ptr_pays->getPays(), listePaysJoueur[j], state)){
-            compt ++;
+    if (armeeMaxi.size() == 1){
+      engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, armeeMaxi.front()));
+    }
+    else{
+      state::ElementTab& tabPays = state.getPaysTab();
+      std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
+      state::Element* ptr_pays = 0;
+      std::vector<state::Element*> listePaysArmeeMaxi;
+
+      for (std::string armee : armeeMaxi) {
+        for(size_t i=0; i<listePays.size(); i++){
+          ptr_pays = listePays[i].get();
+          if (ptr_pays->getPays() == armee){
+            listePaysArmeeMaxi.push_back(ptr_pays); // remplit la liste des pays ayant le plus d'armees
           }
         }
       }
-      nbFrontaliers[ptr_pays->getPays()] = compt;
-    }
 
-    maxi = 0;
-    std::string paysOpti;
-    for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
-      if (it->second > maxi){
-        maxi = it->second;
-        paysOpti = it->first;
+      std::map<std::string, int> nbFrontaliers;
+      int compt;
+      for(size_t i=0; i<listePaysArmeeMaxi.size(); i++){
+        ptr_pays = listePaysArmeeMaxi[i];
+        compt = 0;
+        for(size_t j=0; j<listePaysJoueur.size(); j++){
+          if (ptr_pays->getPays() != listePaysJoueur[j]){
+            if (engine::ChoixPaysAttaque::estFrontalier(ptr_pays->getPays(), listePaysJoueur[j], state)){
+              compt ++;
+            }
+          }
+        }
+        nbFrontaliers[ptr_pays->getPays()] = compt;
       }
+
+      maxi = 0;
+      std::string paysOpti;
+      for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+        if (it->second > maxi){
+          maxi = it->second;
+          paysOpti = it->first;
+        }
+      }
+      engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysOpti));
     }
-    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysOpti));
   }
 }
 
