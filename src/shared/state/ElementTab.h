@@ -7,7 +7,6 @@
 
 namespace state {
   class Element;
-  class Position;
   class Continent;
   class Pays;
   class Carte;
@@ -15,7 +14,6 @@ namespace state {
 }
 
 #include "Element.h"
-#include "Position.h"
 #include "Continent.h"
 #include "Pays.h"
 #include "Carte.h"
@@ -35,9 +33,6 @@ namespace state {
     ~ElementTab ();
     std::vector<std::shared_ptr<Element>> getElementList () const;
     void addElement (std::shared_ptr<Element> element);
-    Position getElementPosition (std::shared_ptr<Element> element) const;
-    void setElementPosition (Position position, std::shared_ptr<Element> element);
-    Element* getLocatedElement (Position position) const;
     void melange ();
     void remplirArmeeTab ();
     void remplirCartePiocheTab ();

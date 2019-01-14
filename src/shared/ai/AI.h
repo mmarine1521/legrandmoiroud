@@ -60,7 +60,7 @@ namespace ai {
   public:
     AI (int idJoueurAI);
     int getIdJoueurAI ();
-    void aiRemplirCommandes (state::State& state);
+    void aiRemplirCommandes (state::State* state);
     virtual void aiRepartitionArmees (state::State& state) = 0;
     virtual void aiChoixPaysAttaquant (state::State& state) = 0;
     virtual void aiChoixPaysAttaque (state::State& state) = 0;
