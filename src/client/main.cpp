@@ -73,13 +73,16 @@ int main(int argc,char* argv[]){
 	HeuristicAI CtrlAI4 = HeuristicAI(2) ;
 
 	if (argc > 1){ // vérifie s'il y a un argument
-		if  (strcmp(argv[1],"hello") == 0) {   // vérification que l'argument est le bon
+		string av(argv[1]);
+		if (av == "hello") {   // vérification que l'argument est le bon
 	  	cout << "Bonjour le monde !" << endl;
 	  }
-	  else if (strcmp(argv[1],"state") == 0){
+		else if (av == "state")
+		{
 	  	//Test_Unitaire();
 	 	}
-		else if (strcmp(argv[1],"engine") == 0){
+		else if (av == "engine")
+		{
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 			while (window.isOpen()){
@@ -103,10 +106,11 @@ int main(int argc,char* argv[]){
 				*/
 	    }
 		}
-		else if (strcmp(argv[1],"render") == 0){
+		else if (av=="render")
+		{
 			//rendus aleatoires
 		}
-		else if (strcmp(argv[1],"random_ai") == 0){
+		else if (av=="random_ai"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setKeyRepeatEnabled(false) ;
 			while (window.isOpen()){
@@ -129,7 +133,7 @@ int main(int argc,char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[1],"heuristic_ai") == 0){
+		else if (av=="heuristic_ai") {
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -153,10 +157,10 @@ int main(int argc,char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[1],"deep_ai") == 0){
+		else if (av=="deep_ai"){
 
 		}
-		else if (strcmp(argv[1],"rollback") == 0){
+		else if (av=="rollback"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -189,7 +193,7 @@ int main(int argc,char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[1],"thread") == 0){
+		else if (av=="thread"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -215,10 +219,10 @@ int main(int argc,char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[1],"record") == 0){//server
+		else if (av=="record"){//server
 
 		}
-		else if (strcmp(argv[1],"play") == 0){
+		else if (av=="play"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -249,10 +253,10 @@ int main(int argc,char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[1],"listen") == 0){//server
+		else if (av=="listen"){//server
 
 		}
-		else if (strcmp(argv[1],"network") == 0){
+		else if (av=="network"){
 
 		}
 	}
