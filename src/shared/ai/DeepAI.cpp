@@ -51,39 +51,41 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
     for (size_t i=0; i<2; i++){
       if(paysAttaquants[i] != "NOPAYS"){
         for (size_t j=0; j<2; j++){
-          //mini tour de jeu => executes
-          commandes.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysAttaquants[i]));
-          undos.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, stateFictif.getPaysAttaquant()));
-          commandes.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, paysAttaques[j + 2*i]));
-          undos.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, stateFictif.getPaysAttaque()));
-          //intelligence.aiDesAttaquant(state);
-          //...
+          if (paysAttaques[j + 2*i] != "NOPAYS"){
+            //mini tour de jeu => executes
+            commandes.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysAttaquants[i]));
+            undos.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, stateFictif.getPaysAttaquant()));
+            commandes.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, paysAttaques[j + 2*i]));
+            undos.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, stateFictif.getPaysAttaque()));
+            //intelligence.aiDesAttaquant(state);
+            //...
 
-          while(!commandes.empty()){//faire for
-            engine::Commande* c = commandes.front();
-            commandes.pop_front();
-            c->exec(state);
-          }
-
-          int eval = evalState(stateFictif, profondeur - 1, - minMax);
-          if (minMax == 1){
-            if(eval > value){
-              value = eval;
-              commandesAExecuter = commandes;
+            while(!commandes.empty()){//faire for
+              engine::Commande* c = commandes.front();
+              commandes.pop_front();
+              c->exec(state);
             }
-          }
-          else{
-            if(eval < value){
-              value = eval;
-              commandesAExecuter = commandes;
-            }
-          }
 
-          while(!undos.empty()){//faire for
-            engine::Commande* commande_undo = undos.back();
-            undos.pop_back();
-            commande_undo->undo(state);
-            delete(commande_undo);
+            int eval = evalState(stateFictif, profondeur - 1, - minMax);
+            if (minMax == 1){
+              if(eval > value){
+                value = eval;
+                commandesAExecuter = commandes;
+              }
+            }
+            else{
+              if(eval < value){
+                value = eval;
+                commandesAExecuter = commandes;
+              }
+            }
+
+            while(!undos.empty()){//faire for
+              engine::Commande* commande_undo = undos.back();
+              undos.pop_back();
+              commande_undo->undo(state);
+              delete(commande_undo);
+            }
           }
         }
       }
@@ -254,7 +256,6 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
   }
 }
 
-//changer pour que chaque pays attaquant aient ses deux pays attaqués
 void DeepAI::aiChoixPaysAttaque (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
@@ -301,50 +302,55 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
 
     if (armeeMini.size() == 1){
       paysAttaques[0 + 2*p] = armeeMini.front();
-      int mini = 100;
-      std::list<std::string> armeeMini; //liste des pays ayant le moins d'armées
-      for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
-        if (it->first != paysAttaques[0]){
-          if (it->second < mini){
-            armeeMini.clear();
-            mini = it->second;
-            armeeMini.push_back(it->first);
-          }
-          else if (it->second == mini){
-            armeeMini.push_back(it->first);
-          }
-        }
-      }
-      if (armeeMini.size() == 1){
-        paysAttaques[1 + 2*p] = armeeMini.front();
+      if(nbArmee.size() == 1){
+        paysAttaques[1 + 2*p] = "NOPAYS";
       }
       else{
-        std::map<std::string, int> nbFrontaliers;
-        int compt;
-        for(std::string armee : armeeMini){
-          compt = 0;
-          for(size_t j=0; j<listePaysJoueurAdversaire.size(); j++){
-            if (armee != listePaysJoueurAdversaire[j]){
-              if (engine::ChoixPaysAttaque::estFrontalier(armee, listePaysJoueurAdversaire[j], state)){
-                compt ++; // On compte combien de pays frontaliers adversaires compte le pays qu'on veut attaquer
-              }
+        int mini = 100;
+        std::list<std::string> armeeMini; //liste des pays ayant le moins d'armées
+        for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
+          if (it->first != paysAttaques[0]){
+            if (it->second < mini){
+              armeeMini.clear();
+              mini = it->second;
+              armeeMini.push_back(it->first);
+            }
+            else if (it->second == mini){
+              armeeMini.push_back(it->first);
             }
           }
-          nbFrontaliers[armee] = compt;
         }
-
-        int maxi = 0;
-        std::string paysOpti;
-        for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
-          if (it->second > maxi){
-            maxi = it->second;
-            paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
+        if (armeeMini.size() == 1){
+          paysAttaques[1 + 2*p] = armeeMini.front();
+        }
+        else{
+          std::map<std::string, int> nbFrontaliers;
+          int compt;
+          for(std::string armee : armeeMini){
+            compt = 0;
+            for(size_t j=0; j<listePaysJoueurAdversaire.size(); j++){
+              if (armee != listePaysJoueurAdversaire[j]){
+                if (engine::ChoixPaysAttaque::estFrontalier(armee, listePaysJoueurAdversaire[j], state)){
+                  compt ++; // On compte combien de pays frontaliers adversaires compte le pays qu'on veut attaquer
+                }
+              }
+            }
+            nbFrontaliers[armee] = compt;
           }
+
+          int maxi = 0;
+          std::string paysOpti;
+          for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
+            if (it->second > maxi){
+              maxi = it->second;
+              paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
+            }
+          }
+          paysAttaques[1 + 2*p] = paysOpti;
         }
-        paysAttaques[1 + 2*p] = paysOpti;
       }
     }
-    else{
+    else{//armeeMini.size() > 1
       std::map<std::string, int> nbFrontaliers;
       int compt;
       for(std::string armee : armeeMini){
