@@ -3,6 +3,9 @@
 #define AI__HEURISTICAI__H
 
 
+namespace engine {
+  class Commande;
+};
 namespace state {
   class State;
 };
@@ -19,15 +22,15 @@ namespace ai {
     // Operations
   public:
     HeuristicAI (int idJoueur);
-    void aiRepartitionArmees (state::State& state);
-    void aiChoixPaysAttaquant (state::State& state);
-    void aiChoixPaysAttaque (state::State& state);
-    void aiDesAttaquant (state::State& state);
-    void aiDesAttaque (state::State& state);
-    void aiDefausser (state::State& state);
-    void aiEchange (state::State& state);
-    void aiPlacementArmees (state::State& state);
-    void aiDeplacerArmees (state::State& state);
+    engine::Commande* aiRepartitionArmees (state::State& state);
+    engine::Commande* aiChoixPaysAttaquant (state::State& state);
+    engine::Commande* aiChoixPaysAttaque (state::State& state);
+    engine::Commande* aiDesAttaquant (state::State& state);
+    engine::Commande* aiDesAttaque (state::State& state);
+    engine::Commande* aiDefausser (state::State& state);
+    engine::Commande* aiEchange (state::State& state);
+    engine::Commande* aiPlacementArmees (state::State& state);
+    engine::Commande* aiDeplacerArmees (state::State& state);
     // Setters and Getters
   };
 

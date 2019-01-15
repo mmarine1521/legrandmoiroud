@@ -3,6 +3,9 @@
 #define AI__AI__H
 
 
+namespace engine {
+  class Commande;
+};
 namespace state {
   class State;
 };
@@ -27,7 +30,6 @@ namespace engine {
   class Piocher;
   class Passer;
   class Distribution;
-  class Commande;
 }
 
 #include "engine/TourDeJeu.h"
@@ -60,16 +62,16 @@ namespace ai {
   public:
     AI (int idJoueurAI);
     int getIdJoueurAI ();
-    void aiRemplirCommandes (state::State* state);
-    virtual void aiRepartitionArmees (state::State& state) = 0;
-    virtual void aiChoixPaysAttaquant (state::State& state) = 0;
-    virtual void aiChoixPaysAttaque (state::State& state) = 0;
-    virtual void aiDesAttaquant (state::State& state) = 0;
-    virtual void aiDesAttaque (state::State& state) = 0;
-    virtual void aiDefausser (state::State& state) = 0;
-    virtual void aiEchange (state::State& state) = 0;
-    virtual void aiPlacementArmees (state::State& state) = 0;
-    virtual void aiDeplacerArmees (state::State& state) = 0;
+    engine::Commande* aiRemplirCommandes (state::State* state);
+    virtual engine::Commande* aiRepartitionArmees (state::State& state) = 0;
+    virtual engine::Commande* aiChoixPaysAttaquant (state::State& state) = 0;
+    virtual engine::Commande* aiChoixPaysAttaque (state::State& state) = 0;
+    virtual engine::Commande* aiDesAttaquant (state::State& state) = 0;
+    virtual engine::Commande* aiDesAttaque (state::State& state) = 0;
+    virtual engine::Commande* aiDefausser (state::State& state) = 0;
+    virtual engine::Commande* aiEchange (state::State& state) = 0;
+    virtual engine::Commande* aiPlacementArmees (state::State& state) = 0;
+    virtual engine::Commande* aiDeplacerArmees (state::State& state) = 0;
     // Setters and Getters
     void setIdJoueurAI(int idJoueurAI);
   };

@@ -22,4 +22,5 @@
 #include "engine/ChoixPaysAttaquant.h"
 #include "engine/TourDeJeu.h"
 #include "engine/Undo.h"
+#include "engine/CommandeComposite.h"
 #endif

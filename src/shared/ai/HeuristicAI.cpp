@@ -9,7 +9,7 @@ HeuristicAI::HeuristicAI(int idJoueurAI) : AI(idJoueurAI){
 }
 
 
-void HeuristicAI::aiRepartitionArmees (state::State& state){
+engine::Commande* HeuristicAI::aiRepartitionArmees (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -73,10 +73,11 @@ void HeuristicAI::aiRepartitionArmees (state::State& state){
   }
 
   int ok = 28;
+  engine::CommandeComposite* comp = engine::CommandeComposite(this->idJoueurAI);
   while(ok != 0){
     nbFrontaliers[paysMini] += 1;
     ok -= 1;
-    engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
+    comp->pushCommandeComposite(new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
     mini = 100;
     for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
       if (it->second < mini){
@@ -85,9 +86,10 @@ void HeuristicAI::aiRepartitionArmees (state::State& state){
       }
     }
   }
+  return (comp);
 }
 
-void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
+engine::Commande* HeuristicAI::aiChoixPaysAttaquant (state::State& state){
   std::vector<std::string> blackList = state.getBlackList();
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -110,7 +112,7 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
 
   if (nbArmee.size() == 0){
     std::cout << "Problème : Vous ne pouvez engagé aucun de vos territoires dans un combat." << std::endl;
-		engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
+    return (new engine::Passer(this->idJoueurAI, 0));
   }
   else{
     int maxi = 0;
@@ -127,7 +129,7 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
     }
 
     if (armeeMaxi.size() == 1){
-      engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, armeeMaxi.front()));
+      return (new engine::ChoixPaysAttaquant(this->idJoueurAI, armeeMaxi.front()));
     }
     else{
       state::ElementTab& tabPays = state.getPaysTab();
@@ -167,12 +169,12 @@ void HeuristicAI::aiChoixPaysAttaquant (state::State& state){
           paysOpti = it->first;
         }
       }
-      engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysOpti));
+      return (new engine::ChoixPaysAttaquant(this->idJoueurAI, paysOpti));
     }
   }
 }
 
-void HeuristicAI::aiChoixPaysAttaque (state::State& state){
+engine::Commande* HeuristicAI::aiChoixPaysAttaque (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;
@@ -216,7 +218,7 @@ void HeuristicAI::aiChoixPaysAttaque (state::State& state){
   }
 
   if (armeeMini.size() == 1){
-    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->idJoueurAI, armeeMini.front()));
+    return (new engine::ChoixPaysAttaque(this->idJoueurAI, armeeMini.front()));
   }
   else{
     std::map<std::string, int> nbFrontaliers;
@@ -241,11 +243,11 @@ void HeuristicAI::aiChoixPaysAttaque (state::State& state){
         paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
       }
     }
-    engine::TourDeJeu::pushCommande(new engine::ChoixPaysAttaque(this->idJoueurAI, paysOpti));
+    return (new engine::ChoixPaysAttaque(this->idJoueurAI, paysOpti));
   }
 }
 
-void HeuristicAI::aiDesAttaquant (state::State& state){
+engine::Commande* HeuristicAI::aiDesAttaquant (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -263,30 +265,30 @@ void HeuristicAI::aiDesAttaquant (state::State& state){
   }
 
   if (nbArmeeAttaquant >= 4){
-    engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 3));
+    return (new engine::DesAttaquant(this->idJoueurAI, 3));
   }
   else if (nbArmeeAttaquant == 3){
     if (nbArmeeAttaque <=2){
-      engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 3));
+      return (new engine::DesAttaquant(this->idJoueurAI, 3));
     }
     else{
-      engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 2));
+      return (new engine::DesAttaquant(this->idJoueurAI, 2));
     }
   }
   else if (nbArmeeAttaquant == 2){
     if (nbArmeeAttaque >= 2){
-      engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 1));
+      return (new engine::DesAttaquant(this->idJoueurAI, 1));
     }
     else{
-      engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 2));
+      return (new engine::DesAttaquant(this->idJoueurAI, 2));
     }
   }
   else{
-    engine::TourDeJeu::pushCommande(new engine::DesAttaquant(this->idJoueurAI, 0));
+    return (new engine::DesAttaquant(this->idJoueurAI, 0));
   }
 }
 
-void HeuristicAI::aiDesAttaque (state::State& state){
+engine::Commande* HeuristicAI::aiDesAttaque (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -301,14 +303,14 @@ void HeuristicAI::aiDesAttaque (state::State& state){
   }
 
   if (nbArmee > 2){
-    engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->idJoueurAI, 2));
+    return (new engine::DesAttaque(this->idJoueurAI, 2));
   }
   else{
-    engine::TourDeJeu::pushCommande(new engine::DesAttaque(this->idJoueurAI, 1));
+    return (new engine::DesAttaque(this->idJoueurAI, 1));
   }
 }
 
-void HeuristicAI::aiDefausser (state::State& state){
+engine::Commande* HeuristicAI::aiDefausser (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -338,7 +340,7 @@ void HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 3){
-        engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
@@ -348,7 +350,7 @@ void HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 1){
-        engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
@@ -358,7 +360,7 @@ void HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 2){
-        engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
@@ -368,7 +370,7 @@ void HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 3){
-        engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
@@ -378,14 +380,14 @@ void HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 1){
-        engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
   }
 }
 
-void HeuristicAI::aiEchange (state::State& state){
+engine::Commande* HeuristicAI::aiEchange (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
   state::Element* ptr_carte = 0;
@@ -406,7 +408,7 @@ void HeuristicAI::aiEchange (state::State& state){
       }
     }
     if (comptTANK < 3 && comptCANON < 3 && comptSOLDAT < 3){
-      engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 0));
+      return (new engine::Passer(this->idJoueurAI, 0));
     }
     else{
       //5 cartes max
@@ -415,8 +417,8 @@ void HeuristicAI::aiEchange (state::State& state){
           ptr_carte = listeEnjeu[i].get();
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 1){
-              engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
               state.setTypeCarte(state::TANK);
+              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
             }
           }
         }
@@ -427,8 +429,8 @@ void HeuristicAI::aiEchange (state::State& state){
           ptr_carte = listeEnjeu[i].get();
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 2){
-              engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
               state.setTypeCarte(state::CANON);
+              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
             }
           }
         }
@@ -439,8 +441,8 @@ void HeuristicAI::aiEchange (state::State& state){
           ptr_carte = listeEnjeu[i].get();
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 3){
-              engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
               state.setTypeCarte(state::SOLDAT);
+              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
             }
           }
         }
@@ -453,15 +455,15 @@ void HeuristicAI::aiEchange (state::State& state){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getIdJoueur() == this->idJoueurAI){
         if (ptr_carte->getCarteForce() == force){
-          engine::TourDeJeu::pushCommande(new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
           state.setTypeCarte(force);
+          return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         }
       }
     }
   }
 }
 
-void HeuristicAI::aiPlacementArmees (state::State& state){
+engine::Commande* HeuristicAI::aiPlacementArmees (state::State& state){
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
   state::Element* ptr_armee = 0;
@@ -484,12 +486,12 @@ void HeuristicAI::aiPlacementArmees (state::State& state){
       }
     }
 
-    engine::TourDeJeu::pushCommande(new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
     state.setArmeesRepartition(this->idJoueurAI, state.getArmeesRepartition(this->idJoueurAI) - 1);
+    return (new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
   }
 }
 
-void HeuristicAI::aiDeplacerArmees (state::State& state){
+engine::Commande* HeuristicAI::aiDeplacerArmees (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;
@@ -530,9 +532,9 @@ void HeuristicAI::aiDeplacerArmees (state::State& state){
     }
   }
 
+  engine::CommandeComposite* comp = new CommandeComposite(this->idJoueurAI);
   if (ADeplacer.size() != 0){
     for(size_t i=0; i<ADeplacer.size(); i++){
-      std::string pays = ADeplacer[i];
       for(size_t j=0; j<listePays.size(); i++){
         ptr_pays = listePays[j].get();
         if (ptr_pays->getPays() == ADeplacer[i]){
@@ -569,11 +571,12 @@ void HeuristicAI::aiDeplacerArmees (state::State& state){
             paysMini = it->first;
           }
         }
-        engine::TourDeJeu::pushCommande(new engine::DeplacerArmees(this->idJoueurAI, ADeplacer[i], paysMini, 1));
+        comp->push_back(new engine::DeplacerArmees(this->idJoueurAI, ADeplacer[i], paysMini, 1));
       }
     }
   }
-  engine::TourDeJeu::pushCommande(new engine::Passer(this->idJoueurAI, 1));
+  comp->push_back(new engine::Passer(this->idJoueurAI, 1));
+  return (comp);
 }
 
 }

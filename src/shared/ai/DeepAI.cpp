@@ -94,12 +94,7 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
   return value;
 }
 
-void DeepAI::aiRepartitionArmees (state::State& state){
-  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiRepartitionArmees(state);
-}
-
-void DeepAI::aiChoixPaysAttaquant (state::State& state){
+void DeepAI::selectPaysAttaquants (state::State& state){
   std::vector<std::string> blackList = state.getBlackList();
   state::ElementTab& tabArmee = state.getArmeeTab();
   std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
@@ -256,7 +251,7 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
   }
 }
 
-void DeepAI::aiChoixPaysAttaque (state::State& state){
+void DeepAI::selectPaysAttaques (state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
   state::Element* ptr_pays = 0;
@@ -389,34 +384,47 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
   }
 }
 
-void DeepAI::aiDesAttaquant (state::State& state){
+engine::Commande* DeepAI::aiRepartitionArmees (state::State& state){
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiDesAttaquant(state);
+  return intelligence.aiRepartitionArmees(state);
 }
 
-void DeepAI::aiDesAttaque (state::State& state){
-  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiDesAttaque(state);
+engine::Commande* DeepAI::aiChoixPaysAttaquant (state:State& state){
+  
 }
 
-void DeepAI::aiDefausser (state::State& state){
-  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiDefausser(state);
+engine::Commande* DeepAI::aiChoixPaysAttaque (state:State& state){
+
 }
 
-void DeepAI::aiEchange (state::State& state){
+engine::Commande* DeepAI::aiDesAttaquant (state::State& state){
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiEchange(state);
+  return intelligence.aiDesAttaquant(state);
 }
 
-void DeepAI::aiPlacementArmees (state::State& state){// a coder
+engine::Commande* DeepAI::aiDesAttaque (state::State& state){
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiPlacementArmees(state);
+  return intelligence.aiDesAttaque(state);
 }
 
-void DeepAI::aiDeplacerArmees (state::State& state){ // a coder
+engine::Commande* DeepAI::aiDefausser (state::State& state){
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
-  intelligence.aiDeplacerArmees(state);
+  return intelligence.aiDefausser(state);
+}
+
+engine::Commande* DeepAI::aiEchange (state::State& state){
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  return intelligence.aiEchange(state);
+}
+
+engine::Commande* DeepAI::aiPlacementArmees (state::State& state){// a coder
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  return intelligence.aiPlacementArmees(state);
+}
+
+engine::Commande* DeepAI::aiDeplacerArmees (state::State& state){ // a coder
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  return intelligence.aiDeplacerArmees(state);
 }
 
 void DeepAI::initializePays(){
