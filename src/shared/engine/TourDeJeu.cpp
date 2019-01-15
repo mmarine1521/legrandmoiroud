@@ -168,6 +168,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueurCommande(), state.getPaysAttaquant());
                 undos.push_back(c_avant);
                 c->exec(state);
+                delete(c);
                 state.clearBlackList();
                 std::cout << "Le pays attaquant est " << state.getPaysAttaquant() << std::endl;
                 state.setStepId(state::CHOIX_PAYS_ATTAQUE_s);
@@ -199,6 +200,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueurCommande(), state.getPaysAttaque());
                 undos.push_back(c_avant);
                 c->exec(state);
+                delete(c);
                 std::cout << "Le pays attaqué est " << state.getPaysAttaque() << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUANT_s);
                 steps.push_back(state::NB_DES_ATTAQUANT_s);
@@ -215,6 +217,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new DesAttaquant(c->getIdJoueurCommande(), state.getNbDesAttaquant(), state.getDesRouges());
                 undos.push_back(c_avant);
                 c->exec(state);
+                delete(c);
                 std::cout << "Vous lancez " << state.getNbDesAttaquant() << " dé(s)" << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUE_s);
                 steps.push_back(state::NB_DES_ATTAQUE_s);
@@ -231,6 +234,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new DesAttaque(c->getIdJoueurCommande(), state.getNbDesAttaque(), state.getDesBleus());
                 undos.push_back(c_avant);
                 c->exec(state);
+                delete(c);
                 std::cout << "La défense lance " << state.getNbDesAttaque() << " dé(s)" << std::endl;
                 //Issue du combat
                 Commande* c_suivant = new IssueDuCombat(c->getIdJoueurCommande(), state.getVictoire());
@@ -288,6 +292,7 @@ void TourDeJeu::run (state::State& state){
           if(c->getIdCommande() == PIOCHER_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
+              delete(c);
               Commande* c_avant = new Piocher(c->getIdJoueurCommande(), c->getNumeroCarte());
               undos.push_back(c_avant);
 
@@ -376,6 +381,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* fin = new FinTour(c->getIdJoueurCommande());
                 fin->exec(state);
                 undos.push_back(fin);
+                delete(c);
                 state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
                 steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
                 std::cout << "Fin du tour. Début du tour " << state.getTourId() << "." << std::endl;
@@ -387,7 +393,6 @@ void TourDeJeu::run (state::State& state){
           break;
       }
     }
-    delete(c);
   }
 }
 
