@@ -8,12 +8,11 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 #include <chrono>
-#include <thread>
 #include <time.h>
 #include <memory>
-
+#include <fstream>
 #include <thread>
 #include <mutex>
 
@@ -26,7 +25,7 @@ using namespace ai;
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
 
-void run_ai(ai::HeuristicAI& ctrl, state::State* s, int n){ 
+void run_ai(ai::HeuristicAI& ctrl, state::State* s, int n){
 	while(1) {
 		std::this_thread::sleep_for (std::chrono::seconds(1));
 		std::cout << "run_ai " << n << " !!!" << std::endl;
@@ -92,7 +91,6 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheChoixNbrArmees(currentState, window) ;
 				Affichage::AfficheNombre(currentState, window) ;
 
-				//std::cout << "state : " << currentState.getStepId() << std::endl;
 				controller.Handle(currentState, window) ;
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
@@ -103,14 +101,14 @@ int main(int argc,char* argv[]){
 					Affichage::PaysClic(window, event);
 	      }
 				*/
-
 	    }
 		}
 		else if (strcmp(argv[1],"render") == 0){
+			//rendus aleatoires
 		}
 		else if (strcmp(argv[1],"random_ai") == 0){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			window.setKeyRepeatEnabled(false) ;
 			while (window.isOpen()){
 				window.setVerticalSyncEnabled(true);
 				window.setActive() ;
@@ -120,13 +118,12 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheChoixNbrArmees(currentState, window) ;
 				Affichage::AfficheNombre(currentState, window) ;
 
-				//std::cout << "state : " << currentState.getStepId() << std::endl;
 				CtrlAI.aiRemplirCommandes(&currentState) ;
 				CtrlAI2.aiRemplirCommandes(&currentState) ;
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
-				
+
 				sf::Event event;
 				while (window.pollEvent(event)){
 				}
@@ -136,9 +133,8 @@ int main(int argc,char* argv[]){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
-			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
-			
-			
+			window.setKeyRepeatEnabled(false) ;
+
 			while (window.isOpen()){
 				window.clear();
 
@@ -151,26 +147,58 @@ int main(int argc,char* argv[]){
 				CtrlAI4.aiRemplirCommandes(&currentState) ;
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
-				
+
 				sf::Event event;
 				while (window.pollEvent(event)){
-					
 				}
 			}
 		}
-		else if (strcmp(argv[1],"deep_ai")==0){
+		else if (strcmp(argv[1],"deep_ai") == 0){
+
 		}
-		
-		else if (strcmp(argv[1],"thread")==0){
+		else if (strcmp(argv[1],"rollback") == 0){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
-			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
-			
+			window.setKeyRepeatEnabled(false) ;
+
+			int compteur = 0;
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				if (compteur < 60){
+					CtrlAI3.aiRemplirCommandes(&currentState) ;
+					CtrlAI4.aiRemplirCommandes(&currentState) ;
+				}
+				else{
+					while(TourDeJeu::getSizeUndos() != 0){
+						TourDeJeu::pushCommande(new Undo(currentState.getIdJoueur()));
+					}
+				}
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+				compteur ++;
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+				}
+			}
+		}
+		else if (strcmp(argv[1],"thread") == 0){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ;
+
 			std::thread th_ai3(run_ai, std::ref(CtrlAI3), &currentState, 3);
 			std::thread th_ai4(run_ai, std::ref(CtrlAI4), &currentState, 4);
 			std::thread th_tdj(run_tourdejeu, &currentState);
-			
+
 			while (window.isOpen()){
 				window.clear();
 
@@ -180,16 +208,52 @@ int main(int argc,char* argv[]){
 				window.display() ;
 
 				//std::cout << "state : " << currentState.getStepId() << std::endl;
-				
 				//std::this_thread::sleep_for (std::chrono::seconds(1));
 				//window.display() ;
 				sf::Event event;
 				while (window.pollEvent(event)){
-					
 				}
 			}
-			
-			
+		}
+		else if (strcmp(argv[1],"record") == 0){//server
+
+		}
+		else if (strcmp(argv[1],"play") == 0){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ;
+
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				std::string line;
+				ifstream myfile ("replay.txt");
+  			if (myfile.is_open()){
+    			while (getline (myfile,line)){
+						engine::Commande* com = (engine::Commande*) line;
+	      		engine::TourDeJeu::pushCommande(com);
+    			}
+    			myfile.close();
+  			}
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+				}
+			}
+		}
+		else if (strcmp(argv[1],"listen") == 0){//server
+
+		}
+		else if (strcmp(argv[1],"network") == 0){
+
 		}
 	}
 }

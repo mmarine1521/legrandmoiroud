@@ -54,6 +54,7 @@ namespace engine {
   public:
     TourDeJeu ();
     virtual ~TourDeJeu ();
+    static int getSizeUndos ();
     static void pushCommande (Commande* commande);
     static void placementJoueur3 (state::State& state);
     static void run (state::State& state);

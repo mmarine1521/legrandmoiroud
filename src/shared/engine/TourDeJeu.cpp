@@ -17,6 +17,10 @@ TourDeJeu::TourDeJeu(){
 TourDeJeu::~TourDeJeu (){
 }
 
+int tourDeJeu::getSizeUndos(){
+  return this->undos.size();
+}
+
 void TourDeJeu::pushCommande (Commande* commande){
   commandes.push_back(commande);
 }
