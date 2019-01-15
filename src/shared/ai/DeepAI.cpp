@@ -1,11 +1,67 @@
 #include "DeepAI.h"
 
 #include <algorithm>    // std::find
+#include <map>
 
 namespace ai{
 
 DeepAI::DeepAI(int idJoueurAI) : AI(idJoueurAI){
 }
+
+int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copie de state
+  // copie de state
+  state::State stateFictif = state::State();
+  stateFictif.setCartePiocheTab(state.getCartePiocheTab());
+  stateFictif.setCarteEnjeuTab(state.getCarteEnjeuTab());
+  stateFictif.setCarteDefausseTab(state.getCarteDefausseTab());
+  stateFictif.setPaysTab(state.getPaysTab());
+  stateFictif.setContinentTab(state.getContinentTab());
+  stateFictif.setTourId(state.getTourId());
+  stateFictif.setIdJoueur(state.getIdJoueur());
+  stateFictif.setStepId(state.getStepId());
+  stateFictif.setArmeesRepartition(1, state.getArmeesRepartition(1));
+  stateFictif.setArmeesRepartition(2, state.getArmeesRepartition(2));
+
+  if (profondeur == 0){
+    state::ElementTab& tabArmee = stateFictif.getArmeeTab();
+    std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+    state::Element* ptr_armee = 0;
+
+    int nbPaysJoueur = 0;
+    int nbArmeesJoueur = 0;
+    for(size_t i=0; i<listeArmee.size(); i++){
+      ptr_armee = listeArmee[i].get();
+      if (ptr_armee->getIdJoueur() == this->idJoueurAI){
+        nbPaysJoueur += 1;
+        nbArmeesJoueur += ptr_armee->getNombre();
+      }
+    }
+    return (3 * nbPaysJoueur + nbArmeesJoueur);
+  }
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  int value = - minMax * 99999;
+  for (size_t i=0; i<2; i++){
+    for (size_t j=0; j<2; j++){
+      //mini tour de jeu => executes
+      commandes.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, paysAttaquants[i]));
+      undos.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, stateFictif.getPaysAttaquant()));
+      commandes.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, paysAttaques[j]));
+
+      int eval = evalState(stateFictif, profondeur - 1, - minMax);
+      if (minMax == 1){
+        if(eval > value){
+          value = eval;
+        }
+      }
+      else{
+        if(eval < value){
+          value = eval;
+        }
+      }
+      //exec undos
+    }
+  }
+} //2listes de commandes : une pour le tour de jeu (qui bouge tout le tps) et une pour ce qu'on veut exécuter au final (qui change quand value change)
 
 void DeepAI::aiRepartitionArmees (state::State& state){
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
@@ -52,10 +108,10 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
     }
 
     if (armeeMaxi.size() == 1){
-      paysAttaquant1 = armeeMaxi.front();
+      paysAttaquants[0] = armeeMaxi.front();
       maxi = 0;
       for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
-        if (it->first != paysAttaquant1){
+        if (it->first != paysAttaquants[0]){
           if (it->second > maxi){
             armeeMaxi.clear();
             maxi = it->second;
@@ -67,7 +123,7 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
         }
       }
       if (armeeMaxi.size() == 1){
-        paysAttaquant2 = armeeMaxi.front();
+        paysAttaquants[1] = armeeMaxi.front();
       }
       else{
         state::ElementTab& tabPays = state.getPaysTab();
@@ -107,7 +163,7 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
             paysOpti = it->first;
           }
         }
-        paysAttaquant2 = paysOpti;
+        paysAttaquants[1] = paysOpti;
       }
     }
     else{
@@ -148,7 +204,7 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
           paysOpti = it->first;
         }
       }
-      paysAttaquant1 = paysOpti;
+      paysAttaquants[0] = paysOpti;
 
       maxi = 0;
       for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
@@ -159,7 +215,7 @@ void DeepAI::aiChoixPaysAttaquant (state::State& state){
           }
         }
       }
-      paysAttaquant2 = paysOpti;
+      paysAttaquants[1] = paysOpti;
     }
   }
 }
@@ -208,11 +264,11 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
   }
 
   if (armeeMini.size() == 1){
-    paysAttaque1 = armeeMini.front();
+    paysAttaques[0] = armeeMini.front();
     int mini = 100;
     std::list<std::string> armeeMini; //liste des pays ayant le moins d'armées
     for (std::map<std::string, int>::iterator it = nbArmee.begin(); it != nbArmee.end(); ++it){
-      if (it->first != paysAttaque1){
+      if (it->first != paysAttaques[0]){
         if (it->second < mini){
           armeeMini.clear();
           mini = it->second;
@@ -224,7 +280,7 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
       }
     }
     if (armeeMini.size() == 1){
-      paysAttaque2 = armeeMini.front();
+      paysAttaques[1] = armeeMini.front();
     }
     else{
       std::map<std::string, int> nbFrontaliers;
@@ -249,7 +305,7 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
           paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
         }
       }
-      paysAttaque2 = paysOpti;
+      paysAttaques[1] = paysOpti;
     }
   }
   else{
@@ -275,18 +331,18 @@ void DeepAI::aiChoixPaysAttaque (state::State& state){
         paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
       }
     }
-    paysAttaque1 = paysOpti;
+    paysAttaques[0] = paysOpti;
 
     maxi = 0;
     for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
-      if (it->first != paysAttaque1){
+      if (it->first != paysAttaques[0]){
         if (it->second > maxi){
           maxi = it->second;
           paysOpti = it->first; // on choisit le pays avec le plus de frontaliers ennemis
         }
       }
     }
-    paysAttaque2 = paysOpti;
+    paysAttaques[1] = paysOpti;
   }
 }
 
@@ -318,6 +374,13 @@ void DeepAI::aiPlacementArmees (state::State& state){// a coder
 void DeepAI::aiDeplacerArmees (state::State& state){ // a coder
   HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
   intelligence.aiDeplacerArmees(state);
+}
+
+void DeepAI::initializePays(){
+  paysAttaquants.push_back("#PAYS");
+  paysAttaquants.push_back("#PAYS");
+  paysAttaques.push_back("#PAYS");
+  paysAttaques.push_back("#PAYS");
 }
 
 }

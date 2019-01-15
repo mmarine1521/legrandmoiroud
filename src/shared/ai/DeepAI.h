@@ -2,8 +2,13 @@
 #ifndef AI__DEEPAI__H
 #define AI__DEEPAI__H
 
+#include <list>
 #include <string>
+#include <vector>
 
+namespace engine {
+  class Commande;
+};
 namespace state {
   class State;
 };
@@ -22,10 +27,12 @@ namespace ai {
     // Associations
     // Attributes
   public:
-    std::string paysAttaquant1;
-    std::string paysAttaquant2;
-    std::string paysAttaque1;
-    std::string paysAttaque2;
+    std::list<engine::Commande*> commandes;
+    std::list<engine::Commande*> commandesAExecuter;
+    std::list<engine::Commande*> undos;
+  private:
+    std::vector<std::string> paysAttaquants;
+    std::vector<std::string> paysAttaques;
     // Operations
   public:
     DeepAI (int idJoueur);
@@ -39,7 +46,7 @@ namespace ai {
     void aiEchange (state::State& state);
     void aiPlacementArmees (state::State& state);
     void aiDeplacerArmees (state::State& state);
-    void initializeEtatsPossibles (state::State& state);
+    void initializePays ();
     // Setters and Getters
   };
 
