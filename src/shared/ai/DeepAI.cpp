@@ -64,7 +64,11 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
             engine::IssueDuCombat* issue = new engine::IssueDuCombat(this->idJoueurAI, stateFictif.getVictoire());
             commandes.push_back(issue);
             undos.push_back(issue);
-            //defausse
+            if(engine::IssueDuCombat::nbCartesJoueur(stateFictif) == 5){
+              engine::Commande* defausse = intelligence.aiDefausser(stateFictif);
+              commandes.push_back(defausse);
+              undos.push_back(defausse);
+            }
             engine::Piocher* pioche = new engine::Piocher(this->idJoueurAI);
             commandes.push_back(pioche);
             undos.push_back(pioche);
@@ -88,7 +92,9 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
               engine::Commande* c = commandes.front();
               commandes.pop_front();
               c->exec(stateFictif);
-              delete(c);
+              if (c->getIdCommande() == engine::CHOIX_PAYS_ATTAQUANT_c || c->getIdCommande() == engine::CHOIX_PAYS_ATTAQUE_c || c->getIdCommande() == engine::NB_DES_ATTAQUANT_c || c->getIdCommande() == engine::NB_DES_ATTAQUE_c){
+                delete(c);
+              }
             }
 
             int eval = evalState(stateFictif, profondeur - 1, - minMax);

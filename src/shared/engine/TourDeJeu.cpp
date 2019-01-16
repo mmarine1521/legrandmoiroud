@@ -132,8 +132,6 @@ void TourDeJeu::run (state::State& state){
             placementJoueur3(state);
             state.setStepId(state::REPARTITION_ARMEES_s);
             steps.push_back(state::REPARTITION_ARMEES_s);
-            //ai::HeuristicAI intelligence = ai::HeuristicAI(3);
-            //intelligence.aiRepartitionArmees(state);
             std::cout << "Vous pouvez maintenant positionner vos armées." << std::endl;
           }
           break;

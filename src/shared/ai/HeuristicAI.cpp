@@ -311,82 +311,84 @@ engine::Commande* HeuristicAI::aiDesAttaque (state::State& state){
 }
 
 engine::Commande* HeuristicAI::aiDefausser (state::State& state){
-  state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
-  std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
-  state::Element* ptr_carte = 0;
-  std::vector<state::Element*> listeJoueur;
+  if (state.getVictoire() != 0){
+    state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
+    std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();
+    state::Element* ptr_carte = 0;
+    std::vector<state::Element*> listeJoueur;
 
-  for(size_t i=0; i<listeEnjeu.size(); i++){
-    ptr_carte = listeEnjeu[i].get();
-    if (ptr_carte->getIdJoueur() == this->idJoueurAI){
-      listeJoueur.push_back(ptr_carte);
-    }
-  }
-
-  int comptTANK = 0;
-  int comptCANON = 0;
-  int comptSOLDAT = 0;
-  for(size_t i=0; i<listeJoueur.size(); i++){
-    ptr_carte = listeEnjeu[i].get();
-    switch (ptr_carte->getCarteForce()) {
-      case 0 : break; //NONIDENTIFIE
-      case 1 : comptTANK +=1; break; //TANK
-      case 2 : comptCANON +=1; break; //CANON
-      case 3 : comptSOLDAT +=1; break; //SOLDAT
-    }
-  }
-
-  if (comptSOLDAT == 1 || comptSOLDAT == 4 || comptSOLDAT == 5){
-    for(size_t i=0; i<listeJoueur.size(); i++){
+    for(size_t i=0; i<listeEnjeu.size(); i++){
       ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getCarteForce() == 3){
-        break;
+      if (ptr_carte->getIdJoueur() == this->idJoueurAI){
+        listeJoueur.push_back(ptr_carte);
       }
     }
-    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
-  }
 
-  else if (comptTANK == 1 || comptTANK == 4 || comptTANK == 5){
+    int comptTANK = 0;
+    int comptCANON = 0;
+    int comptSOLDAT = 0;
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getCarteForce() == 1){
-        break;
+      switch (ptr_carte->getCarteForce()) {
+        case 0 : break; //NONIDENTIFIE
+        case 1 : comptTANK +=1; break; //TANK
+        case 2 : comptCANON +=1; break; //CANON
+        case 3 : comptSOLDAT +=1; break; //SOLDAT
       }
     }
-    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
-  }
 
-  else if (comptCANON == 1 || comptCANON == 2 || comptCANON == 5){
-    for(size_t i=0; i<listeJoueur.size(); i++){
-      ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getCarteForce() == 2){
-        break;
+    if (comptSOLDAT == 1 || comptSOLDAT == 4 || comptSOLDAT == 5){
+      for(size_t i=0; i<listeJoueur.size(); i++){
+        ptr_carte = listeEnjeu[i].get();
+        if (ptr_carte->getCarteForce() == 3){
+          break;
+        }
       }
+      return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
     }
-    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
-  }
 
-  else if (comptSOLDAT == 2){
-    for(size_t i=0; i<listeJoueur.size(); i++){
-      ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getCarteForce() == 3){
-        break;
+    else if (comptTANK == 1 || comptTANK == 4 || comptTANK == 5){
+      for(size_t i=0; i<listeJoueur.size(); i++){
+        ptr_carte = listeEnjeu[i].get();
+        if (ptr_carte->getCarteForce() == 1){
+          break;
+        }
       }
+      return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
     }
-    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
-  }
 
-  else if (comptTANK == 2){
-    for(size_t i=0; i<listeJoueur.size(); i++){
-      ptr_carte = listeEnjeu[i].get();
-      if (ptr_carte->getCarteForce() == 1){
-        break;
+    else if (comptCANON == 1 || comptCANON == 2 || comptCANON == 5){
+      for(size_t i=0; i<listeJoueur.size(); i++){
+        ptr_carte = listeEnjeu[i].get();
+        if (ptr_carte->getCarteForce() == 2){
+          break;
+        }
       }
+      return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
     }
-    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
-  }
-  else{
-    return (new engine::Passer(this->idJoueurAI, 0));
+
+    else if (comptSOLDAT == 2){
+      for(size_t i=0; i<listeJoueur.size(); i++){
+        ptr_carte = listeEnjeu[i].get();
+        if (ptr_carte->getCarteForce() == 3){
+          break;
+        }
+      }
+      return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+    }
+
+    else if (comptTANK == 2){
+      for(size_t i=0; i<listeJoueur.size(); i++){
+        ptr_carte = listeEnjeu[i].get();
+        if (ptr_carte->getCarteForce() == 1){
+          break;
+        }
+      }
+      return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+    }
+    else{
+      return (new engine::Passer(this->idJoueurAI, 0));
+    }
   }
 }
 
