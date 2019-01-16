@@ -73,7 +73,7 @@ engine::Commande* HeuristicAI::aiRepartitionArmees (state::State& state){
   }
 
   int ok = 28;
-  engine::CommandeComposite* comp = engine::CommandeComposite(this->idJoueurAI);
+  engine::CommandeComposite* comp = new engine::CommandeComposite(this->idJoueurAI);
   while(ok != 0){
     nbFrontaliers[paysMini] += 1;
     ok -= 1;
@@ -340,50 +340,53 @@ engine::Commande* HeuristicAI::aiDefausser (state::State& state){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 3){
-        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
   }
 
   else if (comptTANK == 1 || comptTANK == 4 || comptTANK == 5){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 1){
-        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
   }
 
   else if (comptCANON == 1 || comptCANON == 2 || comptCANON == 5){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 2){
-        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
   }
 
   else if (comptSOLDAT == 2){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 3){
-        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
   }
 
   else if (comptTANK == 2){
     for(size_t i=0; i<listeJoueur.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getCarteForce() == 1){
-        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
         break;
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+  }
+  else{
+    return (new engine::Passer(this->idJoueurAI, 0));
   }
 }
 
@@ -418,10 +421,11 @@ engine::Commande* HeuristicAI::aiEchange (state::State& state){
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 1){
               state.setTypeCarte(state::TANK);
-              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+              break;
             }
           }
         }
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
       }
 
       else if (comptCANON >= 3){
@@ -430,10 +434,11 @@ engine::Commande* HeuristicAI::aiEchange (state::State& state){
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 2){
               state.setTypeCarte(state::CANON);
-              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+              break;
             }
           }
         }
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
       }
 
       else{ // if (comptSOLDAT >= 3)
@@ -442,24 +447,26 @@ engine::Commande* HeuristicAI::aiEchange (state::State& state){
           if (ptr_carte->getIdJoueur() == this->idJoueurAI){
             if (ptr_carte->getCarteForce() == 3){
               state.setTypeCarte(state::SOLDAT);
-              return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+              break;
             }
           }
         }
+        return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
       }
     }
   }
-  else{
+  else{//deja des cartes defaussées
     state::CarteForce force = state.getTypeCartes()[0];
     for(size_t i=0; i<listeEnjeu.size(); i++){
       ptr_carte = listeEnjeu[i].get();
       if (ptr_carte->getIdJoueur() == this->idJoueurAI){
         if (ptr_carte->getCarteForce() == force){
           state.setTypeCarte(force);
-          return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
+          break;
         }
       }
     }
+    return (new engine::Defausser(this->idJoueurAI, ptr_carte->getNumero()));
   }
 }
 
@@ -476,6 +483,7 @@ engine::Commande* HeuristicAI::aiPlacementArmees (state::State& state){
     }
   }
 
+  engine::CommandeComposite* comp = new engine::CommandeComposite(this->idJoueurAI);
   while(state.getArmeesRepartition(this->idJoueurAI) != 0){
     int mini = 100;
     std::string paysMini;
@@ -485,10 +493,10 @@ engine::Commande* HeuristicAI::aiPlacementArmees (state::State& state){
         paysMini = it->first;
       }
     }
-
     state.setArmeesRepartition(this->idJoueurAI, state.getArmeesRepartition(this->idJoueurAI) - 1);
-    return (new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
+    comp->pushCommandeComposite(new engine::PlacementArmees(this->idJoueurAI, paysMini, 1));
   }
+  return (comp);
 }
 
 engine::Commande* HeuristicAI::aiDeplacerArmees (state::State& state){
@@ -532,7 +540,7 @@ engine::Commande* HeuristicAI::aiDeplacerArmees (state::State& state){
     }
   }
 
-  engine::CommandeComposite* comp = new CommandeComposite(this->idJoueurAI);
+  engine::CommandeComposite* comp = new engine::CommandeComposite(this->idJoueurAI);
   if (ADeplacer.size() != 0){
     for(size_t i=0; i<ADeplacer.size(); i++){
       for(size_t j=0; j<listePays.size(); i++){
@@ -571,11 +579,11 @@ engine::Commande* HeuristicAI::aiDeplacerArmees (state::State& state){
             paysMini = it->first;
           }
         }
-        comp->push_back(new engine::DeplacerArmees(this->idJoueurAI, ADeplacer[i], paysMini, 1));
+        comp->pushCommandeComposite(new engine::DeplacerArmees(this->idJoueurAI, ADeplacer[i], paysMini, 1));
       }
     }
   }
-  comp->push_back(new engine::Passer(this->idJoueurAI, 1));
+  comp->pushCommandeComposite(new engine::Passer(this->idJoueurAI, 1));
   return (comp);
 }
 

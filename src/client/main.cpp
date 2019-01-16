@@ -222,7 +222,7 @@ int main(int argc,char* argv[]){
 		else if (av=="record"){//server
 
 		}
-		else if (av=="play"){
+		else if (av=="play"){/*
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -251,7 +251,7 @@ int main(int argc,char* argv[]){
 				sf::Event event;
 				while (window.pollEvent(event)){
 				}
-			}
+			}*/
 		}
 		else if (av=="listen"){//server
 

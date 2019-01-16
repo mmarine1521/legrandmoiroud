@@ -23,7 +23,6 @@ namespace engine {
     // Operations
   public:
     Piocher (int idJoueurCommande);
-    Piocher (int idJoueurCommande, int numeroCarte);
     virtual ~Piocher ();
     IdCommande const getIdCommande ();
     void exec (state::State& state);

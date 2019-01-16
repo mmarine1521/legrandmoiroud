@@ -1,5 +1,5 @@
-
 #include "AI.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <string>
@@ -22,34 +22,34 @@ void AI::aiRemplirCommandes(state::State* state) {
       engine::TourDeJeu::pushCommande(new engine::Distribution(this->idJoueurAI));
       break;
     case state::REPARTITION_ARMEES_s :
-      this->aiRepartitionArmees(*state);
+      engine::TourDeJeu::pushCommande(this->aiRepartitionArmees(*state));
       break;
     case state::CHOIX_PAYS_ATTAQUANT_s :
-      this->aiChoixPaysAttaquant(*state);
+      engine::TourDeJeu::pushCommande(this->aiChoixPaysAttaquant(*state));
       break;
     case state::CHOIX_PAYS_ATTAQUE_s :
-      this->aiChoixPaysAttaque(*state);
+      engine::TourDeJeu::pushCommande(this->aiChoixPaysAttaque(*state));
       break;
     case state::NB_DES_ATTAQUANT_s :
-      this->aiDesAttaquant(*state);
+      engine::TourDeJeu::pushCommande(this->aiDesAttaquant(*state));
       break;
     case state::NB_DES_ATTAQUE_s :
-      this->aiDesAttaque(*state);
+      engine::TourDeJeu::pushCommande(this->aiDesAttaque(*state));
       break;
     case state::DEFAUSSER_s :
-      this->aiDefausser(*state);
+      engine::TourDeJeu::pushCommande(this->aiDefausser(*state));
       break;
     case state::PIOCHER_s :
       engine::TourDeJeu::pushCommande(new engine::Piocher(this->idJoueurAI));
       break;
     case state::ECHANGE_s :
-      this->aiEchange(*state);
+      engine::TourDeJeu::pushCommande(this->aiEchange(*state));
       break;
     case state::PLACER_NOUVELLES_ARMEES_s :
-      this->aiPlacementArmees(*state);
+      engine::TourDeJeu::pushCommande(this->aiPlacementArmees(*state));
       break;
     case state::DEPLACER_ARMEES_s :
-      this->aiDeplacerArmees(*state);
+      engine::TourDeJeu::pushCommande(this->aiDeplacerArmees(*state));
       break;
   }
 }

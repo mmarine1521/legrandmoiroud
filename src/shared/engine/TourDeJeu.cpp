@@ -17,8 +17,8 @@ TourDeJeu::TourDeJeu(){
 TourDeJeu::~TourDeJeu (){
 }
 
-int tourDeJeu::getSizeUndos(){
-  return this->undos.size();
+int TourDeJeu::getSizeUndos(){
+  return undos.size();
 }
 
 void TourDeJeu::pushCommande (Commande* commande){
@@ -191,6 +191,7 @@ void TourDeJeu::run (state::State& state){
                 std::cout << "Vous passez votre tour." << std::endl;
                 state.setStepId(state::DEPLACER_ARMEES_s);
                 steps.push_back(state::DEPLACER_ARMEES_s);
+                delete(c);
                 std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
               }
             }
@@ -296,9 +297,7 @@ void TourDeJeu::run (state::State& state){
           if(c->getIdCommande() == PIOCHER_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
-              delete(c);
-              Commande* c_avant = new Piocher(c->getIdJoueurCommande(), c->getNumeroCarte());
-              undos.push_back(c_avant);
+              undos.push_back(c);
 
               if(IssueDuCombat::nbCartesJoueur(state) >= 3){
                 std::cout << "Vous possédez " << IssueDuCombat::nbCartesJoueur(state) << " cartes." << std::endl;
@@ -326,6 +325,7 @@ void TourDeJeu::run (state::State& state){
               if (c->getFin() == 0){
                 state.setStepId(state::DEPLACER_ARMEES_s);
                 steps.push_back(state::DEPLACER_ARMEES_s);
+                delete(c);
                 std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
               }
             }

@@ -39,13 +39,13 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
     return (3 * nbPaysJoueur + nbArmeesJoueur);
   }
 
-  //HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
   int value = - minMax * 99999;
   if (paysAttaquants[0] == "NOPAYS"){
     value = 0;
     commandesAExecuter.clear();
     commandesAExecuter.push_back(new engine::Passer(this->idJoueurAI, 0));
-    //intelligence.aiDeplacerArmees(state);
+    commandesAExecuter.push_back(intelligence.aiDeplacerArmees(state));
   }
   else{
     for (size_t i=0; i<2; i++){
@@ -57,13 +57,38 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
             undos.push_back(new engine::ChoixPaysAttaquant(this->idJoueurAI, stateFictif.getPaysAttaquant()));
             commandes.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, paysAttaques[j + 2*i]));
             undos.push_back(new engine::ChoixPaysAttaque(this->idJoueurAI, stateFictif.getPaysAttaque()));
-            //intelligence.aiDesAttaquant(state);
-            //...
+            commandes.push_back(intelligence.aiDesAttaquant(stateFictif));
+            undos.push_back(new engine::DesAttaquant(this->idJoueurAI, stateFictif.getNbDesAttaquant(), stateFictif.getDesRouges()));
+            commandes.push_back(intelligence.aiDesAttaque(stateFictif));
+            undos.push_back(new engine::DesAttaque(this->idJoueurAI, stateFictif.getNbDesAttaque(), stateFictif.getDesBleus()));
+            engine::IssueDuCombat* issue = new engine::IssueDuCombat(this->idJoueurAI, stateFictif.getVictoire());
+            commandes.push_back(issue);
+            undos.push_back(issue);
+            //defausse
+            engine::Piocher* pioche = new engine::Piocher(this->idJoueurAI);
+            commandes.push_back(pioche);
+            undos.push_back(pioche);
+            if(engine::IssueDuCombat::nbCartesJoueur(stateFictif) >= 3){
+              engine::Commande* echange = intelligence.aiEchange(stateFictif);
+              commandes.push_back(echange);
+              undos.push_back(echange);
+            }
+            engine::Commande* placement = intelligence.aiPlacementArmees(stateFictif);
+            commandes.push_back(placement);
+            undos.push_back(placement);
+            engine::Commande* deplacement = intelligence.aiDeplacerArmees(stateFictif);
+            commandes.push_back(deplacement);
+            undos.push_back(deplacement);
+            engine::Passer* passe = new engine::Passer(this->idJoueurAI, 1);
+            commandes.push_back(passe);
+
+            //joueur
 
             while(!commandes.empty()){//faire for
               engine::Commande* c = commandes.front();
               commandes.pop_front();
-              c->exec(state);
+              c->exec(stateFictif);
+              delete(c);
             }
 
             int eval = evalState(stateFictif, profondeur - 1, - minMax);
@@ -80,10 +105,10 @@ int DeepAI::evalState (state::State& state, int profondeur, int minMax){ // copi
               }
             }
 
-            while(!undos.empty()){//faire for
+            while(!undos.empty()){
               engine::Commande* commande_undo = undos.back();
               undos.pop_back();
-              commande_undo->undo(state);
+              commande_undo->undo(stateFictif);
               delete(commande_undo);
             }
           }
@@ -389,12 +414,14 @@ engine::Commande* DeepAI::aiRepartitionArmees (state::State& state){
   return intelligence.aiRepartitionArmees(state);
 }
 
-engine::Commande* DeepAI::aiChoixPaysAttaquant (state:State& state){
-  
+engine::Commande* DeepAI::aiChoixPaysAttaquant (state::State& state){
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  return intelligence.aiChoixPaysAttaquant(state);
 }
 
-engine::Commande* DeepAI::aiChoixPaysAttaque (state:State& state){
-
+engine::Commande* DeepAI::aiChoixPaysAttaque (state::State& state){
+  HeuristicAI intelligence = HeuristicAI(this->idJoueurAI);
+  return intelligence.aiChoixPaysAttaque(state);
 }
 
 engine::Commande* DeepAI::aiDesAttaquant (state::State& state){

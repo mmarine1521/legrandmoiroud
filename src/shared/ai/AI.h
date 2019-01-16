@@ -3,13 +3,12 @@
 #define AI__AI__H
 
 
-namespace engine {
-  class Commande;
-};
 namespace state {
   class State;
 };
 namespace engine {
+  class Commande;
+  class CommandeComposite;
   class TourDeJeu;
   class DeplacerArmees;
   class EchangeCartes;
@@ -32,6 +31,7 @@ namespace engine {
   class Distribution;
 }
 
+#include "engine/CommandeComposite.h"
 #include "engine/TourDeJeu.h"
 #include "engine/DeplacerArmees.h"
 #include "engine/EchangeCartes.h"
@@ -62,7 +62,7 @@ namespace ai {
   public:
     AI (int idJoueurAI);
     int getIdJoueurAI ();
-    engine::Commande* aiRemplirCommandes (state::State* state);
+    void aiRemplirCommandes (state::State* state);
     virtual engine::Commande* aiRepartitionArmees (state::State& state) = 0;
     virtual engine::Commande* aiChoixPaysAttaquant (state::State& state) = 0;
     virtual engine::Commande* aiChoixPaysAttaque (state::State& state) = 0;
