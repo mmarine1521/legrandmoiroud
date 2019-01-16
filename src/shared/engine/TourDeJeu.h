@@ -63,7 +63,7 @@ namespace engine {
     static void pushCommande (Commande* commande);
     static void placementJoueur3 (state::State& state);
     static void run (state::State& state);
-    void pushCommandeFichier (std::string fichier);
+    static void pushCommandeFichier (std::string fichier);
     // Setters and Getters
   };
 

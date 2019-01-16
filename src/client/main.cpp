@@ -242,7 +242,7 @@ int main(int argc,char* argv[]){
 		else if (av=="record"){//server
 
 		}
-		else if (av=="play"){/*
+		else if (av=="play"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -256,22 +256,14 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheNombre(currentState, window) ;
 				window.display() ;
 
-				std::string line;
-				ifstream myfile ("replay.txt");
-  			if (myfile.is_open()){
-    			while (getline (myfile,line)){
-						engine::Commande* com = (engine::Commande*) line;
-	      		engine::TourDeJeu::pushCommande(com);
-    			}
-    			myfile.close();
-  			}
+				TourDeJeu::pushCommandeFichier("replay.txt");
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
 
 				sf::Event event;
 				while (window.pollEvent(event)){
 				}
-			}*/
+			}
 		}
 		else if (av=="listen"){//server
 
