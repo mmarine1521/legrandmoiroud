@@ -3,6 +3,7 @@
 #define ENGINE__TOURDEJEU__H
 
 #include <list>
+#include <string>
 
 namespace engine {
   class Commande;
@@ -11,6 +12,8 @@ namespace state {
   class State;
 };
 namespace engine {
+  class Undo;
+  class CommandeComposite;
   class Passer;
   class FinTour;
   class Defausser;
@@ -26,6 +29,8 @@ namespace engine {
   class IssueDuCombat;
 }
 
+#include "Undo.h"
+#include "CommandeComposite.h"
 #include "Passer.h"
 #include "FinTour.h"
 #include "Defausser.h"
@@ -58,6 +63,7 @@ namespace engine {
     static void pushCommande (Commande* commande);
     static void placementJoueur3 (state::State& state);
     static void run (state::State& state);
+    void pushCommandeFichier (std::string fichier);
     // Setters and Getters
   };
 

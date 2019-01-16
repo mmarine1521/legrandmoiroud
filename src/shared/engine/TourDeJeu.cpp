@@ -4,6 +4,9 @@
 #include <iostream>
 #include <map>
 #include <algorithm>    // std::find
+#include <fstream>
+#include <stdio.h>
+#include <string.h>
 
 namespace engine {
 
@@ -395,6 +398,187 @@ void TourDeJeu::run (state::State& state){
           break;
       }
     }
+  }
+}
+
+void TourDeJeu::pushCommandeFichier(std::string fichier){
+  std::string line;
+  std::ifstream myfile (fichier, std::ios::in);
+  if (myfile.is_open()){
+    while(getline (myfile,line)) {
+      char* ligne = (char*) line.c_str();
+      strcpy(ligne, ligne + 12);
+      std::string nomCommande;
+      size_t i = 0;
+      while(ligne[i] != '('){
+        nomCommande.push_back(ligne[i]);
+        i++;
+      }
+      i++;
+      std::list<char*> parametres;
+      char* parametre = " ";
+      while (ligne[i] != '\0'){
+        if (ligne[i] != ',' && ligne[i != ')']){
+          parametre += ligne[i];
+          i ++;
+        }
+        else{
+          parametres.push_back(parametre);
+          parametre = " ";
+          i += 2;
+        }
+      }
+
+      if (nomCommande == "Commande"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);//prend en compte l'espace au debut
+        int para1 = (int) parametre1[0];
+        pushCommande(new Commande(para1));
+      }
+      else if (nomCommande == "CommandeComposite"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        pushCommande(new CommandeComposite(para1));
+      }
+      else if (nomCommande == "Undo"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        pushCommande(new Undo(para1));
+      }
+      else if (nomCommande == "Distribution"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        pushCommande(new Distribution(para1));
+      }
+      else if (nomCommande == "PlacementArmees"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//std::string pays
+        strcpy(parametre2, parametre2 + 12);
+        std::string para2(parametre2);
+        parametres.pop_front();
+        char* parametre3 = parametres.front();//int nbArmees
+        strcpy(parametre3, parametre3 + 3);
+        int para3 = (int) parametre3[0];
+        pushCommande(new PlacementArmees(para1, para2, para3));
+      }
+      else if (nomCommande == "ChoixPaysAttaquant"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//std::string pays
+        strcpy(parametre2, parametre2 + 12);
+        std::string para2(parametre2);
+        pushCommande(new ChoixPaysAttaquant(para1, para2));
+      }
+      else if (nomCommande == "ChoixPaysAttaque"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//std::string pays
+        strcpy(parametre2, parametre2 + 12);
+        std::string para2(parametre2);
+        pushCommande(new ChoixPaysAttaque(para1, para2));
+      }
+      else if (nomCommande == "DesAttaquant"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//int nbDes
+        strcpy(parametre2, parametre2 + 5);
+        int para2 = (int) parametre2[0];
+        pushCommande(new DesAttaquant(para1, para2));
+      }
+      else if (nomCommande == "DesAttaque"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//int nbDes
+        strcpy(parametre2, parametre2 + 5);
+        int para2 = (int) parametre2[0];
+        pushCommande(new DesAttaque(para1, para2));
+      }
+      else if (nomCommande == "IssueDuCombat"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//int victoire
+        strcpy(parametre2, parametre2 + 5);
+        std::string param2(parametre2);
+        pushCommande(new IssueDuCombat(para1, std::stoi(param2)));
+      }
+      else if (nomCommande == "Defausser"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//int numeroCarte
+        strcpy(parametre2, parametre2 + 5);
+        int para2 = (int) parametre2[0];
+        pushCommande(new Defausser(para1, para2));
+      }
+      else if (nomCommande == "Piocher"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        pushCommande(new Piocher(para1));
+      }
+      else if (nomCommande == "EchangeCartes"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//int numeroCarte
+        strcpy(parametre2, parametre2 + 5);
+        int para2 = (int) parametre2[0];
+        pushCommande(new EchangeCartes(para1, para2));
+      }
+      else if (nomCommande == "DeplacerArmees"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//std::string paysDepart
+        strcpy(parametre2, parametre2 + 12);
+        std::string para2(parametre2);
+        parametres.pop_front();
+        char* parametre3 = parametres.front();//std::string paysArrivee
+        strcpy(parametre3, parametre3 + 12);
+        std::string para3(parametre3);
+        parametres.pop_front();
+        char* parametre4 = parametres.front();//int nbArmees
+        strcpy(parametre4, parametre4 + 3);
+        int para4 = (int) parametre4[0];
+        pushCommande(new DeplacerArmees(para1, para2, para3, para4));
+      }
+      else if (nomCommande == "FinTour"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        pushCommande(new FinTour(para1));
+      }
+      else if (nomCommande == "Passer"){
+        char* parametre1 = parametres.front();//int idJoueurCommande
+        strcpy(parametre1, parametre1 + 5);
+        int para1 = (int) parametre1[0];
+        parametres.pop_front();
+        char* parametre2 = parametres.front();//bool fin
+        strcpy(parametre2, parametre2 + 6);
+        bool para2 = (bool) parametre2[0];
+        pushCommande(new Piocher(para1));
+      }
+    }
+    myfile.close();
   }
 }
 

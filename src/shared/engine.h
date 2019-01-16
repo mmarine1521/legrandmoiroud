@@ -14,6 +14,8 @@
 #include "engine/Defausser.h"
 #include "engine/EchangeCartes.h"
 #include "engine/PlacementArmees.h"
+#include "engine/Undo.h"
+#include "engine/CommandeComposite.h"
 #include "engine/Passer.h"
 #include "engine/FinTour.h"
 #include "engine/DesAttaquant.h"
@@ -21,6 +23,4 @@
 #include "engine/DeplacerArmees.h"
 #include "engine/ChoixPaysAttaquant.h"
 #include "engine/TourDeJeu.h"
-#include "engine/Undo.h"
-#include "engine/CommandeComposite.h"
 #endif
