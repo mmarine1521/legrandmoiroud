@@ -67,22 +67,22 @@ int main(int argc,char* argv[]){
 	currentState.initializeArmeesRepartition();
 
 	Controller controller = Controller() ;
-	RandomAI CtrlAI = RandomAI(1) ;
-	RandomAI CtrlAI2 = RandomAI(2) ;
-	HeuristicAI CtrlAI3 = HeuristicAI(1) ;
-	HeuristicAI CtrlAI4 = HeuristicAI(2) ;
+	RandomAI CtrlRandomAI1 = RandomAI(1) ;
+	RandomAI CtrlRandomAI2 = RandomAI(2) ;
+	HeuristicAI CtrlHeuristicAI1 = HeuristicAI(1) ;
+	HeuristicAI CtrlHeuristicAI2 = HeuristicAI(2) ;
+	DeepAI CtrlDeepAI1 = DeepAI(1);
+	DeepAI CtrlDeepAI2 = DeepAI(2);
 
 	if (argc > 1){ // vérifie s'il y a un argument
 		string av(argv[1]);
 		if (av == "hello") {   // vérification que l'argument est le bon
 	  	cout << "Bonjour le monde !" << endl;
 	  }
-		else if (av == "state")
-		{
+		else if (av == "state"){
 	  	//Test_Unitaire();
 	 	}
-		else if (av == "engine")
-		{
+		else if (av == "engine"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
 			while (window.isOpen()){
@@ -106,8 +106,7 @@ int main(int argc,char* argv[]){
 				*/
 	    }
 		}
-		else if (av=="render")
-		{
+		else if (av=="render"){
 			//rendus aleatoires
 		}
 		else if (av=="random_ai"){
@@ -122,8 +121,8 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheChoixNbrArmees(currentState, window) ;
 				Affichage::AfficheNombre(currentState, window) ;
 
-				CtrlAI.aiRemplirCommandes(&currentState) ;
-				CtrlAI2.aiRemplirCommandes(&currentState) ;
+				CtrlRandomAI1.aiRemplirCommandes(&currentState) ;
+				CtrlRandomAI2.aiRemplirCommandes(&currentState) ;
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
@@ -147,8 +146,8 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheNombre(currentState, window) ;
 				window.display() ;
 
-				CtrlAI3.aiRemplirCommandes(&currentState) ;
-				CtrlAI4.aiRemplirCommandes(&currentState) ;
+				CtrlHeuristicAI1.aiRemplirCommandes(&currentState) ;
+				CtrlHeuristicAI2.aiRemplirCommandes(&currentState) ;
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
 
@@ -158,7 +157,28 @@ int main(int argc,char* argv[]){
 			}
 		}
 		else if (av=="deep_ai"){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ;
 
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				CtrlDeepAI1.aiRemplirCommandes(&currentState) ;
+				CtrlDeepAI2.aiRemplirCommandes(&currentState) ;
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+				}
+			}
 		}
 		else if (av=="rollback"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
@@ -176,8 +196,8 @@ int main(int argc,char* argv[]){
 				window.display() ;
 
 				if (compteur < 60){
-					CtrlAI3.aiRemplirCommandes(&currentState) ;
-					CtrlAI4.aiRemplirCommandes(&currentState) ;
+					CtrlHeuristicAI1.aiRemplirCommandes(&currentState) ;
+					CtrlHeuristicAI2.aiRemplirCommandes(&currentState) ;
 				}
 				else{
 					while(TourDeJeu::getSizeUndos() != 0){
@@ -199,8 +219,8 @@ int main(int argc,char* argv[]){
 			window.setActive() ;
 			window.setKeyRepeatEnabled(false) ;
 
-			std::thread th_ai3(run_ai, std::ref(CtrlAI3), &currentState, 3);
-			std::thread th_ai4(run_ai, std::ref(CtrlAI4), &currentState, 4);
+			std::thread th_ai3(run_ai, std::ref(CtrlHeuristicAI1), &currentState, 3);
+			std::thread th_ai4(run_ai, std::ref(CtrlHeuristicAI2), &currentState, 4);
 			std::thread th_tdj(run_tourdejeu, &currentState);
 
 			while (window.isOpen()){
