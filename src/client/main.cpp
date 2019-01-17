@@ -195,7 +195,7 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheNombre(currentState, window) ;
 				window.display() ;
 
-				if (compteur < 60){
+				if (compteur < 20){
 					CtrlHeuristicAI1.aiRemplirCommandes(&currentState) ;
 					CtrlHeuristicAI2.aiRemplirCommandes(&currentState) ;
 				}

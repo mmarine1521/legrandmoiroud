@@ -19,7 +19,7 @@ IdCommande const DesAttaquant::getIdCommande (){
 }
 
 void DesAttaquant::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::out);
+  std::ofstream fichier("replay.txt", std::ios::app);
   if(fichier){
     fichier << "{" << std::endl;
     fichier << "\"nomCommande\" : \"DesAttaquant\"," << std::endl;

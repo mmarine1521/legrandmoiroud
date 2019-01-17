@@ -15,7 +15,7 @@ IdCommande const PlacementArmees::getIdCommande (){
 }
 
 void PlacementArmees::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::out);
+  std::ofstream fichier("replay.txt", std::ios::app);
   if(fichier){
     fichier << "{" << std::endl;
     fichier << "\"nomCommande\" : \"PlacementArmees\"," << std::endl;

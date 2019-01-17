@@ -15,7 +15,7 @@ IdCommande const Distribution::getIdCommande (){
 }
 
 void Distribution::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::out);
+  std::ofstream fichier("replay.txt", std::ios::app);
   if(fichier){
     fichier << "{" << std::endl;
     fichier << "\"nomCommande\" : \"Distribution\"," << std::endl;

@@ -16,7 +16,7 @@ IdCommande const ChoixPaysAttaquant::getIdCommande (){
 }
 
 void ChoixPaysAttaquant::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::out);
+  std::ofstream fichier("replay.txt", std::ios::app);
   if(fichier){
     fichier << "{" << std::endl;
     fichier << "\"nomCommande\" : \"ChoixPaysAttaquant\"," << std::endl;

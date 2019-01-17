@@ -15,7 +15,7 @@ IdCommande const Undo::getIdCommande (){
 }
 
 void Undo::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::out);
+  std::ofstream fichier("replay.txt", std::ios::app);
   if(fichier){
     fichier << "{" << std::endl;
     fichier << "\"nomCommande\" : \"Undo\"," << std::endl;
