@@ -2303,7 +2303,7 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 													}
 								if(event.mouseButton.x>(166*fa_x) && event.mouseButton.x <(251*fa_x) && event.mouseButton.y >(200*fa_y) && event.mouseButton.y<(226*fa_y))
 													{
-														pays_clic = "Territoire Du Nord-Ouest";
+														pays_clic = "Territoires Du Nord-Ouest";
 														std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 													}
 								if(event.mouseButton.x>(257*fa_x) && event.mouseButton.x <(315*fa_x) && event.mouseButton.y >(268*fa_y) && event.mouseButton.y<(294*fa_y))
