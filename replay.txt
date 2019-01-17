@@ -1,4 +1,5 @@
 {
-"nomCommande" : "CommandeComposite",
-"idJoueurCommande" : 2
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Moyen-Orient
 }

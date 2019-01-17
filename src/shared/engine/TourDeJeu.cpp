@@ -130,11 +130,6 @@ void TourDeJeu::run (state::State& state){
     else{
       switch (etape) {
         case state::DISTRIBUTION_s :
-          if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
-            state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
-            steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
-            std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
-          }
           if(c->getIdCommande() == DISTRIBUTION_c){
             c->exec(state);
             c->writeToJson();
@@ -182,6 +177,11 @@ void TourDeJeu::run (state::State& state){
               undos.push_back(c);
               state.setArmeesRepartition(2, 0);
             }
+          }
+          if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
+            state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
+            steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
+            std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
           }
           break;
 
