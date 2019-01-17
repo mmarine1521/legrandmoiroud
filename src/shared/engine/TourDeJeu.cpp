@@ -154,7 +154,7 @@ void TourDeJeu::run (state::State& state){
                 }
               }
             }
-            if(c->getIdJoueurCommande() == 2){
+            else if(c->getIdJoueurCommande() == 2){
               if (state.getArmeesRepartition(2) != 0){
                 if(c->verif(state)){
                   c->exec(state);
@@ -164,14 +164,14 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
-          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+          else if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
             if(c->getIdJoueurCommande() == 1){
               c->exec(state);
               c->writeToJson();
               undos.push_back(c);
               state.setArmeesRepartition(1, 0);
             }
-            if(c->getIdJoueurCommande() == 2){
+            else if(c->getIdJoueurCommande() == 2){
               c->exec(state);
               c->writeToJson();
               undos.push_back(c);
@@ -205,7 +205,7 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
-          if(c->getIdCommande() == PASSER_c){
+          else if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueurCommande() == joueur){
               if (c->getFin() == 0){
                 state.clearBlackList();
@@ -222,15 +222,11 @@ void TourDeJeu::run (state::State& state){
         case state::CHOIX_PAYS_ATTAQUE_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
             if(c->getIdJoueurCommande() == joueur){
-              std::cout << "1" << std::endl;
               if(c->verif(state)){
-                std::cout << "2" << std::endl;
                 Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueurCommande(), state.getPaysAttaque());
                 undos.push_back(c_avant);
-                std::cout << "3" << std::endl;
                 c->exec(state);
                 c->writeToJson();
-                std::cout << "4" << std::endl;
                 delete(c);
                 std::cout << "Le pays attaqué est " << state.getPaysAttaque() << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUANT_s);
@@ -361,7 +357,7 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
-          if(c->getIdCommande() == ECHANGE_c){
+          else if(c->getIdCommande() == ECHANGE_c){
             if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
@@ -401,7 +397,7 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
-          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+          else if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
               c->writeToJson();
@@ -424,7 +420,7 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
-          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+          else if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
               c->writeToJson();
@@ -441,7 +437,7 @@ void TourDeJeu::run (state::State& state){
               std::cout << "C'est au joueur " << state.getIdJoueur() << " de jouer." << std::endl;
             }
           }
-          if(c->getIdCommande() == PASSER_c){
+          else if(c->getIdCommande() == PASSER_c){
             if(c->getIdJoueurCommande() == joueur){
               if (c->getFin() == 1){
                 Commande* fin = new FinTour(c->getIdJoueurCommande());

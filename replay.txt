@@ -1,5 +1,5 @@
 {
 "nomCommande" : "ChoixPaysAttaquant",
 "idJoueurCommande" : 1,
-"pays" : Ukraine
+"pays" : Afrique Du Nord
 }
