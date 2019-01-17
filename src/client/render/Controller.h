@@ -24,19 +24,19 @@ namespace render {
   public:
     Controller ();
     void  Handle (state::State& state, sf::RenderWindow& window);
-    void HandleUndo (sf::Event event);
-    void  HandleDistribution (sf::Event event );
-    void  HandlePlacerArmees (sf::Event event , sf::RenderWindow& window);
-    void  HandleChoixPaysAttaquant (sf::Event event , sf::RenderWindow& window);
-    void  HandleChoixPaysAttaque (sf::Event event , sf::RenderWindow& window);
-    void HandleNbDesAttaquant (sf::Event event, sf::RenderWindow& window);
-    void HandleNbDesAttaque (sf::Event event, sf::RenderWindow& window);
-     void HandleDefausser (sf::Event event );
-    void  HandlePiocher (sf::Event event );
-    void  HandleEchange (sf::Event event );
-    void HandleDeplacerArmees (sf::Event event , sf::RenderWindow& window);
-    void HandleFin (sf::Event event);
-    void HandlePasser (sf::Event event);
+    void HandlePasser (state::State& state, sf::Event event);
+    void HandleFin (state::State& state, sf::Event event);
+    void  HandleDistribution (state::State& state, sf::Event event );
+    void  HandleChoixPaysAttaquant (state::State& state, sf::Event event , sf::RenderWindow& window);
+    void  HandleChoixPaysAttaque (state::State& state, sf::Event event , sf::RenderWindow& window);
+    void HandleNbDesAttaquant (state::State& state, sf::Event event, sf::RenderWindow& window);
+    void HandleNbDesAttaque (state::State& state, sf::Event event, sf::RenderWindow& window);
+     void HandleDefausser (state::State& state, sf::Event event );
+    void  HandlePiocher (state::State& state, sf::Event event );
+    void  HandleEchange (state::State& state, sf::Event event );
+    void  HandlePlacerArmees (state::State& state, sf::Event event , sf::RenderWindow& window);
+    void HandleDeplacerArmees (state::State& state, sf::Event event , sf::RenderWindow& window);
+    void HandleUndo (state::State& state, sf::Event event);
     // Setters and Getters
   };
 
