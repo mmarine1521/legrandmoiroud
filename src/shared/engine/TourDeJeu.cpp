@@ -222,11 +222,15 @@ void TourDeJeu::run (state::State& state){
         case state::CHOIX_PAYS_ATTAQUE_s :
           if(c->getIdCommande() == CHOIX_PAYS_ATTAQUE_c){
             if(c->getIdJoueurCommande() == joueur){
+              std::cout << "1" << std::endl;
               if(c->verif(state)){
+                std::cout << "2" << std::endl;
                 Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueurCommande(), state.getPaysAttaque());
                 undos.push_back(c_avant);
+                std::cout << "3" << std::endl;
                 c->exec(state);
                 c->writeToJson();
+                std::cout << "4" << std::endl;
                 delete(c);
                 std::cout << "Le pays attaqué est " << state.getPaysAttaque() << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUANT_s);

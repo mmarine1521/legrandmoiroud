@@ -104,9 +104,16 @@ void  Controller::HandlePlacerArmees (state::State& state, sf::Event event,sf::R
 		int armees_select =0 ;
 		armees_select = Affichage::NombreClic(window, event) ;
 		if(armees_select > 0) {
-			std::cout<< "commande push : " << pays_select << std::endl ;
-			std::cout<< "commande push : "<<armees_select<<std::endl ;
-			TourDeJeu::pushCommande(new PlacementArmees(state.getIdJoueur(), pays_select, armees_select));
+			PlacementArmees* Commande;
+			if (state.getArmeesRepartition(1) != 0){
+				Commande = new PlacementArmees(1, pays_select, armees_select);
+				std::cout << "Le joueur 1 a " << state.getArmeesRepartition(1) << " armées à placer. Il en place " << armees_select << " sur " << pays_select << std::endl;
+			}
+			else{
+				Commande = new PlacementArmees(2, pays_select, armees_select);
+				std::cout << "Le joueur 2 a " << state.getArmeesRepartition(2) << " armées à placer. Il en place " << armees_select << " sur " << pays_select << std::endl;
+			}
+			TourDeJeu::pushCommande(Commande) ;
 			pays_select = "not selected" ;
 		}
 	}
