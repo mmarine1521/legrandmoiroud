@@ -31,6 +31,10 @@ std::string PlacementArmees::getPays(){
 	return this->pays;
 }
 
+void PlacementArmees::setPays(std::string pays){
+	this->pays = pays;
+}
+
 int PlacementArmees::getNbArmees (){
 	return this->nbArmees;
 }

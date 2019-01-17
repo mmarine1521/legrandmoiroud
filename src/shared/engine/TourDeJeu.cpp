@@ -91,9 +91,11 @@ void TourDeJeu::placementJoueur3 (state::State& state){
     }
   }
 
+  PlacementArmees* placer = new PlacementArmees(3, paysMini, 1);
   while(state.getArmeesRepartition(3) != 0){
     nbFrontaliers[paysMini] += 1;
     state.setArmeesRepartition(3, state.getArmeesRepartition(3) - 1);
+    placer->exec(state);
     mini = 100;
     for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
       if (it->second < mini){
@@ -101,11 +103,9 @@ void TourDeJeu::placementJoueur3 (state::State& state){
         paysMini = it->first;
       }
     }
+    placer->setPays(paysMini);
   }
-
-  for (std::map<std::string, int>::iterator it = nbFrontaliers.begin(); it != nbFrontaliers.end(); ++it){
-    TourDeJeu::pushCommande(new PlacementArmees(3, it->first, it->second));
-  }
+  delete(placer);
 }
 
 void TourDeJeu::run (state::State& state){

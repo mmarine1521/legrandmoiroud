@@ -28,6 +28,7 @@ namespace engine {
     IdCommande const getIdCommande ();
     void writeToJson ();
     std::string getPays ();
+    void setPays (std::string pays);
     int getNbArmees ();
     bool verif (state::State& state);
     void exec (state::State& state);
