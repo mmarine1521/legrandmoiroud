@@ -1,4 +1,5 @@
 {
-"nomCommande" : "Distribution",
-"idJoueurCommande" : 1
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Moyen-Orient
 }
