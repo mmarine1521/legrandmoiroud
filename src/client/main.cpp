@@ -96,7 +96,7 @@ int main(int argc,char* argv[]){
 
 				controller.Handle(currentState, window) ;
 				TourDeJeu::run(currentState) ;
-				std::this_thread::sleep_for (std::chrono::seconds(1));
+				//std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
 				/*
 				sf::Event event;
