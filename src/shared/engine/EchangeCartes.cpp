@@ -1,5 +1,7 @@
 #include "EchangeCartes.h"
 
+#include <fstream>
+
 namespace engine {
 
 EchangeCartes::EchangeCartes (int idJoueurCommande, int numeroCarte) : Commande(idJoueurCommande), numeroCarte(numeroCarte){
@@ -10,6 +12,18 @@ EchangeCartes::~EchangeCartes (){
 
 IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGE_c;
+}
+
+void EchangeCartes::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"EchangeCartes\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"numeroCarte\" : " << this->numeroCarte << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 bool EchangeCartes::verif(state::State& state){// verifie que le joueur possède la carte

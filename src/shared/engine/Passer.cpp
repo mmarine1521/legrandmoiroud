@@ -8,10 +8,6 @@ Passer::Passer(int idJoueurCommande, bool fin) : Commande(idJoueurCommande), fin
 Passer::~Passer (){
 }
 
-IdCommande const Passer::getIdCommande (){
-  return PASSER_c;
-}
-
 bool Passer::getFin(){
   return this->fin;
 }

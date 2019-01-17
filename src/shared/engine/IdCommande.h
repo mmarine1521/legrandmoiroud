@@ -7,7 +7,8 @@ namespace engine {
 
   enum IdCommande {
     COMMANDE_c     = 0,
-    DISTRIBUTION_c     = 1,
+    COMMANDE_COMPOSITE_c     = 1,
+    DISTRIBUTION_c     = 2,
     CHOIX_PAYS_ATTAQUANT_c     = 3,
     CHOIX_PAYS_ATTAQUE_c     = 4,
     NB_DES_ATTAQUANT_c     = 5,
@@ -18,7 +19,9 @@ namespace engine {
     PLACER_ARMEES_c     = 10,
     DEPLACER_ARMEES_c     = 11,
     PASSER_c     = 12,
-    UNDO_c     = 13
+    UNDO_c     = 13,
+    FIN_c     = 14,
+    ISSUE_COMBAT_c     = 15
   };
 
 };

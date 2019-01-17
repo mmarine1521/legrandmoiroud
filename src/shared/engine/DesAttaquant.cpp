@@ -1,6 +1,7 @@
 #include "DesAttaquant.h"
 
 #include <iostream>
+#include <fstream>
 
 namespace engine {
 
@@ -15,6 +16,18 @@ DesAttaquant::~DesAttaquant (){
 
 IdCommande const DesAttaquant::getIdCommande (){
 	return NB_DES_ATTAQUANT_c;
+}
+
+void DesAttaquant::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"DesAttaquant\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"nbDes\" : " << this->nbDes << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 bool DesAttaquant::verif (state::State& state){

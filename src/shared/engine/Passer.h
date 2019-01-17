@@ -21,7 +21,6 @@ namespace engine {
   public:
     Passer (int idJoueurCommande, bool fin);
     virtual ~Passer ();
-    IdCommande const getIdCommande ();
     bool getFin ();
     // Setters and Getters
   };

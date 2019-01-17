@@ -1,5 +1,7 @@
 #include "Defausser.h"
 
+#include <fstream>
+
 namespace engine {
 
 Defausser::Defausser (int idJoueurCommande, int numeroCarte) : Cartes(idJoueurCommande, numeroCarte){
@@ -10,6 +12,18 @@ Defausser::~Defausser (){
 
 IdCommande const Defausser::getIdCommande (){
   return DEFAUSSER_c;
+}
+
+void Defausser::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"Defausser\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"numeroCarte\" : " << this->numeroCarte << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 void Defausser::exec (state::State& state){

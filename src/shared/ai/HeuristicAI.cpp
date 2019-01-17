@@ -253,14 +253,11 @@ engine::Commande* HeuristicAI::aiDesAttaquant (state::State& state){
   state::Element* ptr_armee = 0;
 
   int nbArmeeAttaquant = 0;
-  int nbArmeeAttaque = 0;
   for(size_t i=0; i<listeArmee.size(); i++){
     ptr_armee = listeArmee[i].get();
     if (ptr_armee->getPays() == state.getPaysAttaquant()){
       nbArmeeAttaquant = ptr_armee->getNombre();
-    }
-    if (ptr_armee->getPays() == state.getPaysAttaque()){
-      nbArmeeAttaque = ptr_armee->getNombre();
+      break;
     }
   }
 
@@ -268,20 +265,10 @@ engine::Commande* HeuristicAI::aiDesAttaquant (state::State& state){
     return (new engine::DesAttaquant(this->idJoueurAI, 3));
   }
   else if (nbArmeeAttaquant == 3){
-    if (nbArmeeAttaque <=2){
-      return (new engine::DesAttaquant(this->idJoueurAI, 3));
-    }
-    else{
-      return (new engine::DesAttaquant(this->idJoueurAI, 2));
-    }
+    return (new engine::DesAttaquant(this->idJoueurAI, 2));
   }
   else if (nbArmeeAttaquant == 2){
-    if (nbArmeeAttaque >= 2){
-      return (new engine::DesAttaquant(this->idJoueurAI, 1));
-    }
-    else{
-      return (new engine::DesAttaquant(this->idJoueurAI, 2));
-    }
+    return (new engine::DesAttaquant(this->idJoueurAI, 1));
   }
   else{
     return (new engine::DesAttaquant(this->idJoueurAI, 0));

@@ -1,6 +1,7 @@
 #include "IssueDuCombat.h"
 
 #include <algorithm>    // std::max
+#include <fstream>
 
 namespace engine {
 
@@ -8,6 +9,22 @@ IssueDuCombat::IssueDuCombat (int idJoueurCommande, int victoire) : Commande(idJ
 } //undos
 
 IssueDuCombat::~IssueDuCombat (){
+}
+
+IdCommande const IssueDuCombat::getIdCommande(){
+  return ISSUE_COMBAT_c;
+}
+
+void IssueDuCombat::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"IssueDuCombat\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"victoire\" : " << this->victoire << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 int IssueDuCombat::nbCartesJoueur (state::State& state){

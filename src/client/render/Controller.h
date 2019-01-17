@@ -24,9 +24,9 @@ namespace render {
   public:
     Controller ();
     void  Handle (state::State& state, sf::RenderWindow& window);
-    void HandlePasser (sf::Event event);
-    void HandleFin (sf::Event event);
+    void HandleUndo (sf::Event event);
     void  HandleDistribution (sf::Event event );
+    void  HandlePlacerArmees (sf::Event event , sf::RenderWindow& window);
     void  HandleChoixPaysAttaquant (sf::Event event , sf::RenderWindow& window);
     void  HandleChoixPaysAttaque (sf::Event event , sf::RenderWindow& window);
     void HandleNbDesAttaquant (sf::Event event, sf::RenderWindow& window);
@@ -34,8 +34,9 @@ namespace render {
      void HandleDefausser (sf::Event event );
     void  HandlePiocher (sf::Event event );
     void  HandleEchange (sf::Event event );
-    void  HandlePlacerArmees (sf::Event event , sf::RenderWindow& window);
     void HandleDeplacerArmees (sf::Event event , sf::RenderWindow& window);
+    void HandleFin (sf::Event event);
+    void HandlePasser (sf::Event event);
     // Setters and Getters
   };
 

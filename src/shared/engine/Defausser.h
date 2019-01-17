@@ -21,6 +21,7 @@ namespace engine {
     Defausser (int idJoueurCommande, int numeroCarte);
     virtual ~Defausser ();
     IdCommande const getIdCommande ();
+    void writeToJson ();
     void exec (state::State& state);
     void undo (state::State& state);
     // Setters and Getters

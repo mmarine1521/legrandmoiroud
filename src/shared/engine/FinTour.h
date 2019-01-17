@@ -20,6 +20,8 @@ namespace engine {
   public:
     FinTour (int idJoueurCommande);
     virtual ~FinTour ();
+    IdCommande const getIdCommande ();
+    void writeToJson ();
     void exec (state::State& state);
     void undo (state::State& state);
     // Setters and Getters

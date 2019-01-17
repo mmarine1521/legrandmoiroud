@@ -1,5 +1,7 @@
 #include "DeplacerArmees.h"
 
+#include <fstream>
+
 namespace engine {
 
 DeplacerArmees::DeplacerArmees (int idJoueurCommande, std::string paysDepart, std::string paysArrivee, int nbArmees) : Commande(idJoueurCommande), paysDepart(paysDepart), paysArrivee(paysArrivee), nbArmees(nbArmees){
@@ -10,6 +12,20 @@ DeplacerArmees::~DeplacerArmees (){
 
 IdCommande const DeplacerArmees::getIdCommande (){
 	return DEPLACER_ARMEES_c;
+}
+
+void DeplacerArmees::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"DeplacerArmees\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"paysDepart\" : " << this->paysDepart << "," << std::endl;
+		fichier << "\"paysArrivee\" : " << this->paysArrivee << "," << std::endl;
+		fichier << "\"nbArmees\" : " << this->nbArmees << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 bool DeplacerArmees::verif (state::State& state){

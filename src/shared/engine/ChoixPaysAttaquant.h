@@ -22,6 +22,7 @@ namespace engine {
     ChoixPaysAttaquant (int idJoueurCommande, std::string pays);
     virtual ~ChoixPaysAttaquant ();
     IdCommande const getIdCommande ();
+    void writeToJson ();
     bool verif (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);

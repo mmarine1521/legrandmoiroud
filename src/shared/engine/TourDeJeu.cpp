@@ -123,6 +123,8 @@ void TourDeJeu::run (state::State& state){
         delete(commande_undo);
         steps.pop_back();
         state.setStepId(steps.back());
+        c->writeToJson();
+        delete(c);
       }
     }
     else{
@@ -130,6 +132,7 @@ void TourDeJeu::run (state::State& state){
         case state::DISTRIBUTION_s :
           if(c->getIdCommande() == DISTRIBUTION_c){
             c->exec(state);
+            c->writeToJson();
             steps.push_back(state::DISTRIBUTION_s);
             undos.push_back(c);
             placementJoueur3(state);
@@ -145,6 +148,7 @@ void TourDeJeu::run (state::State& state){
               if (state.getArmeesRepartition(1) != 0){
                 if(c->verif(state)){
                   c->exec(state);
+                  c->writeToJson();
                   std::cout << "Le joueur " << c->getIdJoueurCommande() << " a placé " << c->getNbArmees() << " armée sur le pays " << c->getPays() << std::endl;
                   undos.push_back(c);
                 }
@@ -154,6 +158,7 @@ void TourDeJeu::run (state::State& state){
               if (state.getArmeesRepartition(2) != 0){
                 if(c->verif(state)){
                   c->exec(state);
+                  c->writeToJson();
                   undos.push_back(c);
                 }
               }
@@ -173,6 +178,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new ChoixPaysAttaquant(c->getIdJoueurCommande(), state.getPaysAttaquant());
                 undos.push_back(c_avant);
                 c->exec(state);
+                c->writeToJson();
                 delete(c);
                 state.clearBlackList();
                 std::cout << "Le pays attaquant est " << state.getPaysAttaquant() << std::endl;
@@ -206,6 +212,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new ChoixPaysAttaque(c->getIdJoueurCommande(), state.getPaysAttaque());
                 undos.push_back(c_avant);
                 c->exec(state);
+                c->writeToJson();
                 delete(c);
                 std::cout << "Le pays attaqué est " << state.getPaysAttaque() << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUANT_s);
@@ -223,6 +230,7 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new DesAttaquant(c->getIdJoueurCommande(), state.getNbDesAttaquant(), state.getDesRouges());
                 undos.push_back(c_avant);
                 c->exec(state);
+                c->writeToJson();
                 delete(c);
                 std::cout << "Vous lancez " << state.getNbDesAttaquant() << " dé(s)" << std::endl;
                 state.setStepId(state::NB_DES_ATTAQUE_s);
@@ -240,12 +248,14 @@ void TourDeJeu::run (state::State& state){
                 Commande* c_avant = new DesAttaque(c->getIdJoueurCommande(), state.getNbDesAttaque(), state.getDesBleus());
                 undos.push_back(c_avant);
                 c->exec(state);
+                c->writeToJson();
                 delete(c);
                 std::cout << "La défense lance " << state.getNbDesAttaque() << " dé(s)" << std::endl;
                 //Issue du combat
                 Commande* c_suivant = new IssueDuCombat(c->getIdJoueurCommande(), state.getVictoire());
                 undos.push_back(c_suivant);
                 c_suivant->exec(state);
+                c_suivant->writeToJson();
                 if (state.getVictoire() == 0){
                   if(IssueDuCombat::nbCartesJoueur(state) >= 3){
                     std::cout << "Vous possédez " << IssueDuCombat::nbCartesJoueur(state) << " cartes." << std::endl;
@@ -286,6 +296,7 @@ void TourDeJeu::run (state::State& state){
           if(c->getIdCommande() == DEFAUSSER_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
+              c->writeToJson();
               undos.push_back(c);
               state.setStepId(state::PIOCHER_s);
               steps.push_back(state::PIOCHER_s);
@@ -298,6 +309,7 @@ void TourDeJeu::run (state::State& state){
           if(c->getIdCommande() == PIOCHER_c){
             if(c->getIdJoueurCommande() == joueur){
               c->exec(state);
+              c->writeToJson();
               undos.push_back(c);
 
               if(IssueDuCombat::nbCartesJoueur(state) >= 3){
@@ -335,6 +347,7 @@ void TourDeJeu::run (state::State& state){
             if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
+                c->writeToJson();
                 undos.push_back(c);
 
                 if (state.getNbCartes() == 0){
@@ -360,6 +373,7 @@ void TourDeJeu::run (state::State& state){
             if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
+                c->writeToJson();
                 undos.push_back(c);
                 if (state.getArmeesRepartition(joueur) == 0){
                   state.setStepId(state::DEPLACER_ARMEES_s);
@@ -376,6 +390,7 @@ void TourDeJeu::run (state::State& state){
             if(c->getIdJoueurCommande() == joueur){
               if(c->verif(state)){
                 c->exec(state);
+                c->writeToJson();
                 undos.push_back(c);
               }
             }
@@ -385,6 +400,7 @@ void TourDeJeu::run (state::State& state){
               if (c->getFin() == 1){
                 Commande* fin = new FinTour(c->getIdJoueurCommande());
                 fin->exec(state);
+                fin->writeToJson();
                 undos.push_back(fin);
                 delete(c);
                 state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);

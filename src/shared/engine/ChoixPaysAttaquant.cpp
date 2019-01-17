@@ -1,6 +1,7 @@
 #include "ChoixPaysAttaquant.h"
 
 #include <iostream>
+#include <fstream>
 
 namespace engine {
 
@@ -12,6 +13,18 @@ ChoixPaysAttaquant::~ChoixPaysAttaquant (){
 
 IdCommande const ChoixPaysAttaquant::getIdCommande (){
   return CHOIX_PAYS_ATTAQUANT_c;
+}
+
+void ChoixPaysAttaquant::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::out);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"ChoixPaysAttaquant\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"pays\" : " << this->pays << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
 }
 
 bool ChoixPaysAttaquant::verif (state::State& state){
