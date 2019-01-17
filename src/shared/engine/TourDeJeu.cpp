@@ -130,6 +130,11 @@ void TourDeJeu::run (state::State& state){
     else{
       switch (etape) {
         case state::DISTRIBUTION_s :
+          if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
+            state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
+            steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
+            std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
+          }
           if(c->getIdCommande() == DISTRIBUTION_c){
             c->exec(state);
             c->writeToJson();
@@ -163,10 +168,19 @@ void TourDeJeu::run (state::State& state){
                 }
               }
             }
-            if (state.getArmeesRepartition(1) == 0 && state.getArmeesRepartition(2) == 0){
-              state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
-              steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
-              std::cout << "Veuillez choisir votre pays attaquant." << std::endl;
+          }
+          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+            if(c->getIdJoueurCommande() == 1){
+              c->exec(state);
+              c->writeToJson();
+              undos.push_back(c);
+              state.setArmeesRepartition(1, 0);
+            }
+            if(c->getIdJoueurCommande() == 2){
+              c->exec(state);
+              c->writeToJson();
+              undos.push_back(c);
+              state.setArmeesRepartition(2, 0);
             }
           }
           break;
@@ -383,6 +397,17 @@ void TourDeJeu::run (state::State& state){
               }
             }
           }
+          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+            if(c->getIdJoueurCommande() == joueur){
+              c->exec(state);
+              c->writeToJson();
+              undos.push_back(c);
+              state.setArmeesRepartition(joueur, 0);
+              state.setStepId(state::DEPLACER_ARMEES_s);
+              steps.push_back(state::DEPLACER_ARMEES_s);
+              std::cout << "Vous pouvez maintenant déplacer des armées." << std::endl;
+            }
+          }
           break;
 
         case state::DEPLACER_ARMEES_s :
@@ -393,6 +418,23 @@ void TourDeJeu::run (state::State& state){
                 c->writeToJson();
                 undos.push_back(c);
               }
+            }
+          }
+          if(c->getIdCommande() == COMMANDE_COMPOSITE_c){
+            if(c->getIdJoueurCommande() == joueur){
+              c->exec(state);
+              c->writeToJson();
+              undos.push_back(c);
+              Commande* fin = new FinTour(c->getIdJoueurCommande());
+              fin->exec(state);
+              fin->writeToJson();
+              undos.push_back(fin);
+              delete(c);
+              state.setStepId(state::CHOIX_PAYS_ATTAQUANT_s);
+              steps.push_back(state::CHOIX_PAYS_ATTAQUANT_s);
+              std::cout << "Fin du tour. Début du tour " << state.getTourId() << "." << std::endl;
+              std::cout << std::endl;
+              std::cout << "C'est au joueur " << state.getIdJoueur() << " de jouer." << std::endl;
             }
           }
           if(c->getIdCommande() == PASSER_c){

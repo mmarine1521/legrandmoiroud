@@ -1,4 +1,4 @@
 {
-"nomCommande" : "Distribution",
-"idJoueurCommande" : 1
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
 }
