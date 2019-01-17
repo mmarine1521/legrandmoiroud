@@ -103,7 +103,7 @@ void ElementTab::remplirArmeeTab (){
   elementList.push_back(armeeBresil->clone());
   Armee* armeePerou = new Armee("Pérou");
   elementList.push_back(armeePerou->clone());
-  Armee* armeeVenezuela = new Armee("Venezuela");
+  Armee* armeeVenezuela = new Armee("Vénézuela");
   elementList.push_back(armeeVenezuela->clone());
 
   //EUROPE
@@ -348,7 +348,7 @@ void ElementTab::remplirPaysTab (){
   std::vector<std::string> FrontaliersAmeriqueCentrale(3); //303 : 304, 309, 404
   FrontaliersAmeriqueCentrale[0] = "Etats De L'Est";
   FrontaliersAmeriqueCentrale[1] = "Etats De L'Ouest";
-  FrontaliersAmeriqueCentrale[2] = "Venezuela";
+  FrontaliersAmeriqueCentrale[2] = "Vénézuela";
 
   std::vector<std::string> FrontaliersEtatsDeLEst(4); //304 : 303, 307, 308, 309
   FrontaliersEtatsDeLEst[0] = "Amérique Centrale";
@@ -395,12 +395,12 @@ void ElementTab::remplirPaysTab (){
   FrontaliersBresil[0] = "Afrique Du Nord";
   FrontaliersBresil[1] = "Argentine";
   FrontaliersBresil[2] = "Pérou";
-  FrontaliersBresil[3] = "Venezuela";
+  FrontaliersBresil[3] = "Vénézuela";
 
   std::vector<std::string> FrontaliersPerou(3); //403 : 401, 402, 404
   FrontaliersPerou[0] = "Argentine";
   FrontaliersPerou[1] = "Brésil";
-  FrontaliersPerou[2] = "Venezuela";
+  FrontaliersPerou[2] = "Vénézuela";
 
   std::vector<std::string> FrontaliersVenezuela(3); //404 : 303, 402, 403
   FrontaliersVenezuela[0] = "Amérique Centrale";
@@ -538,7 +538,7 @@ void ElementTab::remplirPaysTab (){
   elementList.push_back(Bresil->clone());
   Pays* Perou = new Pays("Pérou", 403, AMERIQUE_SUD, FrontaliersPerou);
   elementList.push_back(Perou->clone());
-  Pays* Venezuela = new Pays("Venezuela", 404, AMERIQUE_SUD, FrontaliersVenezuela);
+  Pays* Venezuela = new Pays("Vénézuela", 404, AMERIQUE_SUD, FrontaliersVenezuela);
   elementList.push_back(Venezuela->clone());
 
   //EUROPE
@@ -616,7 +616,7 @@ void ElementTab::remplirContinentTab (){
   PaysAmeriqueDuSud[0] = "Argentine" ;
   PaysAmeriqueDuSud[1] = "Brésil" ;
   PaysAmeriqueDuSud[2] = "Pérou";
-  PaysAmeriqueDuSud[3] = "Venezuela" ;
+  PaysAmeriqueDuSud[3] = "Vénézuela" ;
   Continent* AmeriqueDuSud = new Continent("Amérique Du Sud", AMERIQUE_SUD, NOIR, PaysAmeriqueDuSud);
   elementList.push_back(AmeriqueDuSud->clone());
 
