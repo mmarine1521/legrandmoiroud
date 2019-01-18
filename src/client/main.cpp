@@ -129,6 +129,10 @@ int main(int argc,char* argv[]){
 
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
@@ -153,6 +157,10 @@ int main(int argc,char* argv[]){
 
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
@@ -177,6 +185,10 @@ int main(int argc,char* argv[]){
 
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
@@ -210,6 +222,10 @@ int main(int argc,char* argv[]){
 
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
@@ -236,6 +252,10 @@ int main(int argc,char* argv[]){
 				//window.display() ;
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
@@ -262,6 +282,10 @@ int main(int argc,char* argv[]){
 
 				sf::Event event;
 				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
 				}
 			}
 		}
