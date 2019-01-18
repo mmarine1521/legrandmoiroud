@@ -64,7 +64,7 @@ namespace state {
     int getArmeesRepartition (int idJoueur);
     std::vector<std::string> getBlackList ();
     std::vector<CarteForce> getTypeCartes ();
-    int getNbArmees (int idJoueur);
+    int getNbPays (int idJoueur);
     void setArmeeTab (ElementTab armee);
     void setCartePiocheTab (ElementTab cartePioche);
     void setCarteEnjeuTab (ElementTab carteEnjeu);

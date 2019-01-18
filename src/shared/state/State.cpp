@@ -95,7 +95,7 @@ std::vector<CarteForce> State::getTypeCartes (){
   return this->typeCartes;
 }
 
-int State::getNbArmees(int idJoueur){
+int State::getNbPays(int idJoueur){
   state::ElementTab& tabArmee = this->getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
 	state::Element* ptr_armee = 0;
