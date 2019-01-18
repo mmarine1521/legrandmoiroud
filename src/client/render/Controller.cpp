@@ -66,6 +66,9 @@ void  Controller::Handle (state::State& state, sf::RenderWindow& window)
 			default:
 				break;
 		}
+		if (event.type == sf::Event::Closed){
+                window.close();
+			}
 	}
 }
 
