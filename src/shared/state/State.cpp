@@ -95,6 +95,21 @@ std::vector<CarteForce> State::getTypeCartes (){
   return this->typeCartes;
 }
 
+int State::getNbArmees(int idJoueur){
+  state::ElementTab& tabArmee = this->getArmeeTab();
+	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+	state::Element* ptr_armee = 0;
+
+  int count = 0;
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_armee = listeArmee[i].get();
+  	if(ptr_armee->getIdJoueur() == idJoueur){
+			count ++;
+  	}
+  }
+  return count;
+}
+
 void State::setArmeeTab (ElementTab armee){
 	this->armeeTab = armee ;
 }
