@@ -460,7 +460,7 @@ void TourDeJeu::run (state::State& state){
 }
 
 void TourDeJeu::pushCommandeFichier(std::string fichier){
-  std::string line;
+  /*std::string line;
   std::ifstream myfile (fichier, std::ios::in);
   if (myfile.is_open()){
     while(getline (myfile,line)) {
@@ -637,7 +637,7 @@ void TourDeJeu::pushCommandeFichier(std::string fichier){
       }
     }
     myfile.close();
-  }
+  }*/
 }
 
 }
