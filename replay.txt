@@ -443,3 +443,6069 @@
 "idJoueurCommande" : 2,
 "nbDes" : 3
 }
+{
+"nomCommande" : "Distribution",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Québec,
+"nbArmees" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Etats De L'Est,
+"nbArmees" : 5
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Oural,
+"nbArmees" : 5
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Mongolie,
+"nbArmees" : 8
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Chine,
+"nbArmees" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Siam,
+"nbArmees" : 4
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "PlacementArmees",
+"idJoueurCommande" : 1,
+"pays" : Yakoutie,
+"nbArmees" : 2
+}

@@ -66,7 +66,8 @@ int main(int argc,char* argv[]){
 	currentState.setNbCartes(3);
 	currentState.initializeArmeesRepartition();
 
-	Controller controller = Controller() ;
+	//Controller controller0 = Controller(0) ;
+	Controller controller1 = Controller(1) ;
 	RandomAI CtrlRandomAI1 = RandomAI(1) ;
 	RandomAI CtrlRandomAI2 = RandomAI(2) ;
 	HeuristicAI CtrlHeuristicAI1 = HeuristicAI(1) ;
@@ -94,7 +95,9 @@ int main(int argc,char* argv[]){
 				Affichage::AfficheChoixNbrArmees(currentState, window) ;
 				Affichage::AfficheNombre(currentState, window) ;
 
-				controller.Handle(currentState, window) ;
+				//controller0.Handle(currentState, window) ;
+				controller1.Handle(currentState, window) ;
+				CtrlHeuristicAI2.aiRemplirCommandes(&currentState) ;
 				TourDeJeu::run(currentState) ;
 				//std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;

@@ -20,9 +20,11 @@ namespace render {
     std::string pays_arrivee;
     sf::RenderWindow* window;
     int armees_select;
+  private:
+    int idJoueur;
     // Operations
   public:
-    Controller ();
+    Controller (int idJoueur);
     void  Handle (state::State& state, sf::RenderWindow& window);
     void HandlePasser (state::State& state, sf::Event event);
     void HandleFin (state::State& state, sf::Event event);
