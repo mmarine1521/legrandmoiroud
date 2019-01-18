@@ -110,6 +110,7 @@ void  Controller::HandlePlacerArmees (state::State& state, sf::Event event,sf::R
 	//std::string pays_select ;
 	//std::cout<< pays_select << std::endl ;
 	//std::cout<< armees_select<<std::endl ;
+	
 	if(pays_select == "not selected")
 	{
 		pays_select = Affichage::PaysClic(window, event);
@@ -147,66 +148,82 @@ void  Controller::HandlePlacerArmees (state::State& state, sf::Event event,sf::R
 void  Controller::HandleChoixPaysAttaquant(state::State& state, sf::Event event, sf::RenderWindow& window)
 {
 			//std::string pays_select ;
-			std::cout<< "ok HandleChoixPays"<<std::endl ;
+			 if (event.type == sf::Event::MouseButtonPressed)
+			{
+				if(event.mouseButton.button ==sf::Mouse::Left)
+				{
+					std::cout<< "ok HandleChoixPays"<<std::endl ;
 
-			pays_select = Affichage::PaysClic(window, event) ;
+					pays_select = Affichage::PaysClic(window, event) ;
 
-			ChoixPaysAttaquant* Commande;
-			if (this->idJoueur != 0){
-				Commande = new ChoixPaysAttaquant(this->idJoueur, pays_select);
-			}
-			else{
-				Commande = new ChoixPaysAttaquant(state.getIdJoueur(), pays_select);
-			}
-			TourDeJeu::pushCommande(Commande);
-}
+					ChoixPaysAttaquant* Commande;
+					if (this->idJoueur != 0){
+						Commande = new ChoixPaysAttaquant(this->idJoueur, pays_select);
+					}
+					else{
+						Commande = new ChoixPaysAttaquant(state.getIdJoueur(), pays_select);
+					}
+					TourDeJeu::pushCommande(Commande);
+}}}
 
 void  Controller::HandleChoixPaysAttaque(state::State& state, sf::Event event, sf::RenderWindow& window)
 {
-			//std::string pays_select ;
-			std::cout<< "ok HandleChoixPays"<<std::endl ;
+			
+			 if (event.type == sf::Event::MouseButtonPressed)
+			{
+				if(event.mouseButton.button ==sf::Mouse::Left)
+				{//std::string pays_select ;
+					std::cout<< "ok HandleChoixPays"<<std::endl ;
 
-			pays_select = Affichage::PaysClic(window, event) ;
+					pays_select = Affichage::PaysClic(window, event) ;
 
-			ChoixPaysAttaque* Commande;
-			if (this->idJoueur != 0){
-				Commande = new ChoixPaysAttaque(this->idJoueur, pays_select);
-			}
-			else{
-				Commande = new ChoixPaysAttaque(state.getIdJoueur(), pays_select);
-			}
-			TourDeJeu::pushCommande(Commande);
-}
+					ChoixPaysAttaque* Commande;
+					if (this->idJoueur != 0){
+						Commande = new ChoixPaysAttaque(this->idJoueur, pays_select);
+					}
+					else{
+						Commande = new ChoixPaysAttaque(state.getIdJoueur(), pays_select);
+					}
+					TourDeJeu::pushCommande(Commande);
+}}}
 
 void Controller::HandleNbDesAttaquant(state::State& state, sf::Event event, sf::RenderWindow& window)
 {
-	int nombreDesSelect ;
-	nombreDesSelect = Affichage::NombreClic(window, event) ;
+	 if (event.type == sf::Event::MouseButtonPressed)
+	{
+		if(event.mouseButton.button ==sf::Mouse::Right)
+		{
+			int nombreDesSelect ;
+			nombreDesSelect = Affichage::NombreClic(window, event) ;
 
-	DesAttaquant* Commande;
-	if (this->idJoueur != 0){
-		Commande = new DesAttaquant(this->idJoueur, nombreDesSelect);
-	}
-	else{
-		Commande = new DesAttaquant(state.getIdJoueur(), nombreDesSelect);
-	}
-	TourDeJeu::pushCommande(Commande);
-}
+			DesAttaquant* Commande;
+			if (this->idJoueur != 0){
+				Commande = new DesAttaquant(this->idJoueur, nombreDesSelect);
+			}
+			else{
+				Commande = new DesAttaquant(state.getIdJoueur(), nombreDesSelect);
+			}
+			TourDeJeu::pushCommande(Commande);
+}}}
 
 void Controller::HandleNbDesAttaque(state::State& state, sf::Event event, sf::RenderWindow& window)
 {
-	int nombreDesSelect ;
-	nombreDesSelect = Affichage::NombreClic(window, event) ;
+	 if (event.type == sf::Event::MouseButtonPressed)
+	{
+		if(event.mouseButton.button ==sf::Mouse::Right)
+		{
+			int nombreDesSelect ;
+			nombreDesSelect = Affichage::NombreClic(window, event) ;
 
-	DesAttaque* Commande;
-	if (this->idJoueur != 0){
-		Commande = new DesAttaque(this->idJoueur, nombreDesSelect);
-	}
-	else{
-		Commande = new DesAttaque(state.getIdJoueur(), nombreDesSelect);
-	}
-	TourDeJeu::pushCommande(Commande);
-}
+			DesAttaque* Commande;
+			if (this->idJoueur != 0){
+				Commande = new DesAttaque(this->idJoueur, nombreDesSelect);
+			}
+			else{
+				Commande = new DesAttaque(state.getIdJoueur(), nombreDesSelect);
+			}
+			TourDeJeu::pushCommande(Commande);
+}}}
 
 void Controller::HandleDefausser (state::State& state, sf::Event event )
 {///////////////////////////////////////////////////////////////////////
@@ -235,31 +252,35 @@ void Controller::HandleDeplacerArmees (state::State& state, sf::Event event, sf:
 {
 	//std::string pays_depart;
 	//std::string pays_arrivee;
-	int armees_select ;
-	if(pays_depart == "not selected")
+	 if (event.type == sf::Event::MouseButtonPressed)
 	{
-		pays_depart = Affichage::PaysClic(window, event);
-		cout << "pays depart: " << pays_depart << endl;
-	}
-	if (pays_arrivee == "not selected")
-	{
-		pays_arrivee = Affichage::PaysClic(window, event);
-	}
-	else {
-		armees_select = Affichage::NombreClic(window, event) ;
+		if(event.mouseButton.button ==sf::Mouse::Left)
+		{
+			int armees_select ;
+			if(pays_depart == "not selected")
+			{
+				pays_depart = Affichage::PaysClic(window, event);
+				cout << "pays depart: " << pays_depart << endl;
+			}
+			if (pays_arrivee == "not selected")
+			{
+				pays_arrivee = Affichage::PaysClic(window, event);
+			}
+			else {
+				armees_select = Affichage::NombreClic(window, event) ;
 
-		DeplacerArmees* Commande;
-		if (this->idJoueur != 0){
-			Commande = new DeplacerArmees(this->idJoueur, pays_depart, pays_arrivee, armees_select);
-		}
-		else{
-			Commande = new DeplacerArmees(state.getIdJoueur(), pays_depart, pays_arrivee, armees_select);
-		}
-		TourDeJeu::pushCommande(Commande);
+				DeplacerArmees* Commande;
+				if (this->idJoueur != 0){
+					Commande = new DeplacerArmees(this->idJoueur, pays_depart, pays_arrivee, armees_select);
+				}
+				else{
+					Commande = new DeplacerArmees(state.getIdJoueur(), pays_depart, pays_arrivee, armees_select);
+				}
+				TourDeJeu::pushCommande(Commande);
 
-		pays_depart = "not selected";
-		pays_arrivee = "not selected";
-	}
+				pays_depart = "not selected";
+				pays_arrivee = "not selected";
+	}}}
 }
 
 void  Controller::HandleFin (state::State& state, sf::Event event )

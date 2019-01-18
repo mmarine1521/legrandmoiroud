@@ -2264,17 +2264,17 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event)
 							std::cout << "Bouton pressé " << event.type << std::endl ;
 							if(event.mouseButton.button ==sf::Mouse::Right)
 							{
-								std::cout << "Bouton droit pressé" <<std::endl ;
-								std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
-								std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
+								//std::cout << "Bouton droit pressé" <<std::endl ;
+								//std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
+								//std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
 
 
 							}
 							if(event.mouseButton.button ==sf::Mouse::Left)
 							{
-								std::cout << "Bouton gauche pressé" <<std::endl ;
-								std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
-								std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
+								//std::cout << "Bouton gauche pressé" <<std::endl ;
+								//std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
+								//std::cout << "Position souris y: " << event.mouseButton.y << std::endl;
 								if(event.mouseButton.x>(72*fa_x) && event.mouseButton.x <(134*fa_x) && event.mouseButton.y >(187*fa_y) && event.mouseButton.y<(230*fa_y))
 													{
 														pays_clic = "Alaska";
