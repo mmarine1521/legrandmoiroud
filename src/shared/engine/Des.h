@@ -6,15 +6,9 @@
 
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Element;
-  class Armee;
 }
 
 #include "Commande.h"
-#include "state/Element.h"
-#include "state/Armee.h"
 
 namespace engine {
 

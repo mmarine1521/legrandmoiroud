@@ -6,10 +6,8 @@
 
 namespace state {
   class State;
-  class ElementTab;
 }
 
-#include "state/ElementTab.h"
 #include "state/State.h"
 #include "IdCommande.h"
 

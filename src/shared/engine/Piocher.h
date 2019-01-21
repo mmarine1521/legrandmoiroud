@@ -8,13 +8,9 @@ namespace state {
 };
 namespace engine {
   class Cartes;
-};
-namespace state {
-  class Carte;
 }
 
 #include "Cartes.h"
-#include "state/Carte.h"
 
 namespace engine {
 

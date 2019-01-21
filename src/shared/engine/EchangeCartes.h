@@ -8,16 +8,10 @@ namespace state {
 };
 namespace engine {
   class Commande;
-};
-namespace state {
-  class Carte;
-};
-namespace engine {
   class Defausser;
 }
 
 #include "Commande.h"
-#include "state/Carte.h"
 #include "Defausser.h"
 
 namespace engine {
