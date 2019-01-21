@@ -1,11 +1,13 @@
 \section{Règles de changement d'états et moteur du jeu}
 
 \subsection{Changements extérieurs}
-Parmi les changements extérieurs, nous allons créer une "Touche A" pour annuler et revenir au début du tour. Le joueur pourra utiliser cette touche, avant d'avoir lancé les dés, s'il veut finalement choisir d'attaquer un autre pays.
-
-Pour lancer le jeu (étape 2 de l'initialsation), le joueur doit appuyer sur la barre d'espace.
-
-%Pour arrêter le jeu définitivement, le joueur pourra également taper sur une touche.
+\begin{itemize}
+    \item Touche D : le joueur demande la distribution des pays parmi les joueurs à l'initialisation du jeu (distribution)
+    \item Touche P : le joueur pioche une carte (piocher)
+    \item Touche N : le joueur passe l'action (next)
+    \item Touche E : le joueur indique que c'est la fin du déplacement de ses armées et donc la fin du tour de jeu (end)
+    \item Touche U : le joueur annule la dernière action réalisée (undo)
+\end{itemize}
 
 \subsection{Changements autonomes}
 
@@ -14,17 +16,17 @@ Le jeu de déroule en deux temps : l'initialisation puis le jeu en lui-même.
 \vspace{0.3cm}
 L'initialisation comporte les étapes suivantes : 
 \begin{enumerate}
-    \item Création de tous les contients, pays, cartes et arméées
+    \item Création de tous les contients, pays, cartes et armées
     \item Attribution aléatoire des territoires aux joueurs 
-    \item Chaque joueur choisit combien d'armées il souhaite placer sur chaque territoire qui lui est attribué. Il faut qu'il y ait au moins une armée sur chaqu'un de ses territoires et que la somme des armées souhaitées sur chaque territoire soit égal au nombre total d'armées en sa possession. Si ce n'est pas le cas, on informe le joueur qu'il y a une erreur et on repasse dans cette étape.
-    \item Gestion des cartes. Pour cela, nous créons trois listes :  l’une avec les cartes dans un ordre aléatoire (pioche) et deux vides au début (enjeu et défausse). Quand quelqu’un pioche une carte, on lui donne le premier élément de la liste Pioche et on supprime l’élément de la liste. On place alors cet élément dans la liste Enjeu. Lorsque le joueur souhaite échanger des cartes contre des armées en formant des combinaisons, il défausse la carte. Celle-ci est alors retirée de la liste Enjeu et est placée dans la liste Defausse. Quand la pioche est vide, la liste Pioche reçoit la liste Défausse où on a mélangé les éléments aléatoirement. La liste Défausse est remise à vide.
+    \item Chaque joueur choisit combien d'armées il souhaite placer sur chaque territoire qui lui est attribué. Il faut qu'il y ait au moins une armée sur chaqu'un de ses territoires et que la somme des armées souhaitées sur chaque territoire soit égal au nombre total d'armées en sa possession. Tant que ce n'est pas le cas, on reste dans cet état. Si jamais le joueur demande à placer plus d'armées qu'il n'en possède, seules les armées restantes sont placées et un message en informe le joueur.
+    \item Gestion des cartes. Pour cela, nous créons trois listes :  l’une avec les cartes dans un ordre aléatoire (pioche) et deux vides au début (enjeu et défausse). Quand quelqu’un pioche une carte, on lui donne le premier élément de la liste Pioche et on supprime l’élément de la liste. On place alors cet élément dans la liste Enjeu. Lorsque le joueur souhaite échanger des cartes contre des armées ou qu'il possède déjà 5 cartes et doit piocher, il défausse la carte. Celle-ci est alors retirée de la liste Enjeu et est placée dans la liste Defausse. Quand la pioche est vide, la liste Pioche reçoit la liste Défausse où on a mélangé les éléments aléatoirement. La liste Défausse est alors remise à vide.
 \end{enumerate}
 
 \vspace{0.3cm}
 Le jeu à proprement parler peut alors commencer. Les joueurs jouent chacun leur tour selon l'ordre suivant des actions :
 \begin{enumerate}
     %etape 1
-    \item Le joueur choisit avec quel pays il souhaite attaquer. On doit alors vérifier que ce pays appartient bien au joueur et qu'il a au moins un pays frontalier qui n'appartient pas au joueur. Sinon, un message informe le joueur que ce pays ne peut attaquer et qu'il doit en choisir un autre (on repasse dans l'étape 1).
+    \item Le joueur choisit avec quel pays il souhaite attaquer. On doit alors vérifier que ce pays appartient bien au joueur, qu'il a au moins un pays frontalier qui n'appartient pas au joueur et qu'il possède au moins 2 armées. Sinon, un message informe le joueur que ce pays ne peut attaquer et qu'il doit en choisir un autre (on repasse dans l'étape 1).
     \vspace{0.2cm}
     %etape 2
     \item Le joueur choisit un pays qu'il souhaite attaquer. Il faut alors vérifier si ce mouvement est légal, c'est-à-dire que le pays qu'il souhaite attaquer appartienne bien à l'adversaire et soit frontalier au territoire choisi précédemment (à l'étape 1). Si c'est bien le cas, on passe à l'étape 3. Sinon, on affiche un message informant le joueur que ce choix n'est pas possible et qu'il doit choisir un autre pays (on repasse dans l'étape 2).
@@ -55,20 +57,20 @@ Le jeu à proprement parler peut alors commencer. Les joueurs jouent chacun leur
         \item Si le dé rouge est strictement plus grand que le dé bleu, le défenseur perd une armée sur le territoire attaqué, c'est-à-dire que l'objet armée rattaché à ce pays voit son attribut nombre prendre -1.
         \item Si le dé rouge est plus petit ou égal au dé bleu, le joueur perd une armée sur le territoire avec lequel il a choisi d'attaquer, de la même manière qu'évoquer précédemment.
     \end{itemize}
-    S'il ne reste plus d'armée sur l'un des territoires, ce territoire revient à l'ennemi qui place alors directement dessus une armée.
+    S'il ne reste plus d'armée sur l'un des territoires, ce territoire revient à l'ennemi qui place alors directement dessus une armée (l'armée qui a remporter le combat).
     \vspace{0.2cm}
     %etape 8
-    \item Le joueur pioche une carte s'il a conquis le territoire ennemi et reçoit autant d'armées qu'il a de multiples de trois territoires. (Par exemple, si le joueur possède 13 territoires, il recevra 4 nouvelles armées : 13 = 4x3 + 1.)
+    \item Le joueur pioche une carte s'il a conquis le territoire ennemi. Il doit d'abord défausser une carte de son choix s'il possède déjà 5 cartes (nombre maximum de cartes autorisé).
     \vspace{0.2cm}
     %etape 9
-    \item On demande au joueur s'il souhaite échanger certaines de ses cartes contre des armées supplémentaires (o/n). S'il répond oui, il indique le numéro des cartes qu'il souhaite donner. On vérifie alors à quelle catégorie chaque carte correspond (soldat, canon ou tank). Si la combinaison des cartes est bonne, ces cartes sont placées dans la défausse et le joueur reçoit le nombre d'armées correspondant à la combinaison de cartes exécutée. Sinon, un message informe le joueur que cette combinaison de cartes n'existe pas et on repasse dans l'étape 9.
+    \item Le joueur peut maintenant décider d'échanger des cartes contre des armées. Il indique le numéro des cartes qu'il souhaite donner. On vérifie alors à quelle force chaque carte correspond (SOLDAT, CANON ou TANK). Si la combinaison des cartes est bonne, ces cartes sont placées dans la défausse et le joueur reçoit le nombre d'armées correspondant à la combinaison de cartes exécutée. Sinon, un message informe le joueur que cette combinaison de cartes n'existe pas.
     \vspace{0.2cm}
     %etape 10
     \item Le joueur peut maintenant placer ses nouvelles armées et choisir de déplacer certaines armées existantes, seulement d'un pays frontalier à un autre.
     
-    Pour ce qui est de placer les nouvelles armées, un message rappellera au joueur le nombre d'armées qu'il a remporté sur ce tour. Tant que le nombre d'armées qu'il a placé ne correpond pas au nombre d'armées remportées, le programme lui demande ou il souhaite placer ses armées et combien. S'il dépasse ce nombre, seulement le nombre restant d'armées sera attribué au territoire et un message en informera le joueur.
+    Pour ce qui est de placer les nouvelles armées, un message rappellera au joueur le nombre d'armées qu'il a remporté sur ce tour. Tant que le nombre d'armées qu'il a placé ne correpond pas au nombre d'armées remportées, le programme lui demande où il souhaite placer ses armées et combien. S'il dépasse ce nombre, seulement le nombre restant d'armées sera attribué au territoire et un message en informera le joueur.
     
-    En ce qui concerne le déplacement des armées, nous vérifions que les deux pays sont bien frontaliers et qu'il reste au moins une armée sur chaque territoire.
+    En ce qui concerne le déplacement des armées, nous vérifions que les deux pays appartiennent au joueur et sont bien frontaliers, et qu'il reste au moins une armée sur chaque territoire.
     
 \end{enumerate}
 \vspace{0.2cm}
@@ -86,64 +88,50 @@ A la suite de toutes ces étapes (que vous pouvez retrouver figure \ref{fig:tour
 \subsection{Conception logiciel}
 Le diagramme des classes pour le moteur du jeu est présenté en figure \ref{fig:moteur}. Il comporte un grand type de classe : les classes héritières de Commande.
 
-Tout d'abord, les classes Commande comporte un type de commande avec IdCommande afin d'identifier précisément la classe d’une instance. Les 8 sous classes de Commande gèrent chacune des étapes du jeu mentionnées au dessus :
+Tout d'abord, les classes Commande comporte un type de commande avec IdCommande afin d'identifier précisément la classe d’une instance. Les sous-classes de Commande gèrent chacune des étapes du jeu mentionnées au dessus :
 \begin{itemize}
-    \item \textbf{AttributionTerritoires} correpond aux étapes 2 et 3 de l'initialisation du jeu.
+    \item \textbf{CommandeComposite} est une commande spéciale puisqu'elle consiste en une liste de Commande*. Elle sera utile pour la DeepAI.
+    
+    \item \textbf{Undo} permet d'annuler la dernière action effectuée.
+
+    \item \textbf{Distribution} attribut des territoires aux joueurs.
+    
+    \item \textit{PlacementArmees} permet aux joueurs de placer leurs armées, que ce soit lors de l'initialisation ou à la fin de leur tour de jeu lorsqu'ils ont échangé des cartes contre des armées.
+    
+    \item \textbf{ChoixPays} possède deux classes filles :
     \begin{itemize}
-        \item \textit{distribution} attribut des territoires aux joueurs (étape 2 de l'initialisation);
-        \item \textit{repartitionArmees} permet aux joueurs de placer leurs armées (étape 3 de l'initialisation).
+        \item \textbf{ChoixPaysAttaquant} permet au joueur de choisir le pays avec lequel il souhaite attaquer.
+        \item \textbf{ChoixPaysAttaque} permet au joueur de choisir le pays qu'il souhaite attaquer.
     \end{itemize}
     
-    \item \textbf{GestionCartes} correspond à l'étape 4 de l'initialisation. Elle s'occupe de la gestion des trois listes de cartes (la pioche, les cartes en jeu et la défausse).
+    \item \textbf{Des} possède deux classes filles :
     \begin{itemize}
-        \item \textit{piocher} s'occupe de remplir la pioche avec la défausse lorsqu'elle est vide et de retourner la carte piochée;
-        \item \textit{defausser} retire la carte défaussée de la liste Enjeu pour la placer dans la liste Defausse.
+        \item \textbf{DesAttaquant} permet au joueur de choisir le nombre d'armées avec lequel il souhaite attaquer.
+        \item \textbf{DesAttaque} permet à l'adversaire de choisir le nombre d'armées avec lequel qu'il souhaite défendre.
     \end{itemize}
     
-    \item \textbf{ChoixPays} correspond aux étapes 1 et 2 du jeu à proprement parler. 
+    \item \textbf{IssueDuCombat} compare les résultats des dés et annonce s'il y a eu victoire.
+    
+    \item \textbf{Cartes} possède deux classes filles :
     \begin{itemize}
-        \item \textit{choixPaysAttaquant} demande au joueur avec quel pays il souhaite attaquer (début de l'étape 1);
-        \item \textit{verifPaysAttaquant} vérifie que le pays choisi pour attaquer est possible (fin de l'étape 1);
-        \item \textit{choixPaysAttaque} demande au joueur quel pays il souhaite attaquer (début de l'étape 2);
-        \item \textit{verifPaysAttaque} vérifie que le pays choisi à attaquer est possible (fin de l'étape 2).
+        \item \textit{Defausser} retire la carte défaussée de la liste Enjeu pour la placer dans la liste Defausse.
+        \item \textit{Piocher} s'occupe de remplir la pioche avec la défausse lorsqu'elle est vide et de retourner la carte piochée.
     \end{itemize}
     
-    \item \textbf{Combat} correspond aux étapes 3 à 6 du jeu. 
-    \begin{itemize}
-        \item \textit{nbDesLances} demande au joueur combien de dés il souhaite lancer (début des étapes 3 et 4);
-        \item \textit{verifNbAttaques} vérifie que le joueur peut attaquer avec le nombre de dés qu'il a choisi (fin de l'étape 3);
-        \item \textit{verifNbDefenses} vérifie que le joueur peut défendre avec le nombre de dés qu'il a choisi (fin de l'étape 4);
-        \item \textit{lancerDes} effectue le lancer de dés (étapes 5 et 6).
-    \end{itemize}
+    \item \textbf{EchangeCartes} vérifie que la combiniason de cartes proposée par le joueur est bonne et lui donne le nombre de nouvelles armées qu'il reçoit.
     
-    \item \textbf{IssueDuCombat} correspond à l'étape 7 du jeu. 
-    \begin{itemize}
-        \item \textit{victoire} compare les résultats des dés et annonce s'il y a eu victoire.
-    \end{itemize}
+    \item \textit{DeplacerArmees} permet au joueur de déplacer stratégiquement ses armées.
     
-    \item \textbf{GainCombat} correspond à l'étape 8 du jeu. 
-    \begin{itemize}
-        \item \textit{gainCartes} donne une carte au joueur s'il a remporté une victoire durant ce tour;
-        \item \textit{gainArmees} donne de nouvelles armées au joueur.
-    \end{itemize}
+    \item \textit{FinTour} met fin au tour de jeu et passe au suivant.
     
-    \item \textbf{EchangeCartes} correspond à l'étape 9 du jeu. 
-    \begin{itemize}
-        \item \textit{echange} vérifie que la combiniason de cartes proposée par le joueur est bonne et lui retourne le nombre de nouvelles armées qu'il reçoit.
-    \end{itemize}
-    
-    \item \textbf{PlacementArmees} correspond à l'étape 10 du jeu. 
-    \begin{itemize}
-        \item \textit{placerNouvellesArmees} permet au joueur de placer les nouvelles armées qu'il a reçu pendant ce tour;
-        \item \textit{deplacerArmees} permet au joueur de déplacer stratégiquement ses armées.
-    \end{itemize}
+    \item \textit{Passer} permet au joueur de passer une (EchangerCartes, DeplacerArmees) ou des étapes (ChoixPaysAttaquant, ce qui le mène directement à DeplacerArmees).
 \end{itemize}
 
-\begin{landscape}
+%%\begin{landscape}
     \begin{figure}[!htbp]
         \centering
         \includegraphics[width=17cm]{Images/engine.png}
         \caption{Diagramme du moteur du jeu}
         \label{fig:moteur}
     \end{figure}
-\end{landscape}
+%%\end{landscape}

@@ -6,7 +6,7 @@ Pour jouer au RISK, il est nécessaire de disposer d'un plateau de jeu. Ce plate
 
 \begin{itemize}
     \item D'élements fixes. La carte du jeu est en effet composé des différents continents et pays du monde. 
-    \item D'élements mobiles. Certains éléments sont en mouvement sur la carte. Les armées se déplacent sur les pays. Les cartes devront également s'afficher ou non selon les joueurs et l'avancée dans la partie.
+    \item D'élements mobiles. Certains éléments sont en mouvement sur la carte. Les armées sont modifiées au gré des combats. Les cartes devront également s'afficher ou non selon les joueurs et l'avancée dans la partie.
     \newline
 \end{itemize}
 
@@ -36,11 +36,10 @@ Les continents sont donc :
 
 \subsubsection{Les éléments mobiles}
 
-D'autres éléments ont vocation à se déplacer sur la carte du jeu. C'est notamment le cas des \textbf{armées}. 
+D'autres éléments ont vocation à apparaître ou disparître à l'écran. C'est notamment le cas des \textbf{armées}. 
 \newline 
 
-Au début du jeu, lorsque les territoires sont attribués à chaque joueur, le joueur déploie ses armées sur les pays qui lui sont dévolus. Sur chacun des pays occupés, un pion "armée" de la couleur du joueur viendra alors s'installer, accompagné du nombre d'armée que le joueur a décidé de positionner à cet endroit. Le nombre d'armée sur chacun des territoires est donc amené à évoluer en fonction des attaques ou défenses de chacun des joueurs. De plus, chaque joueur a la possibilité de déplacer ses armées d'un pays frontaliers à l'autre à la fin de chacun de ses tours. Enfin, les armées peuvent aussi être modifiées si le joueur remporte un territoire. 
-
+Au début du jeu, lorsque les territoires sont attribués à chaque joueur, le joueur déploie ses armées sur les pays qui lui sont dévolus. Sur chacun des pays occupés, un pion "armée" de la couleur du joueur viendra alors s'installer, accompagné du nombre d'armées que le joueur a décidé de positionner à cet endroit. Le nombre d'armées sur chacun des territoires est donc amené à évoluer en fonction des attaques ou défenses de chacun des joueurs. De plus, chaque joueur a la possibilité de déplacer ses armées d'un pays frontaliers à l'autre à la fin de chacun de ses tours. Enfin, les armées peuvent aussi changer de couleur si le joueur remporte un territoire. 
 
 \vspace{0.8cm}
 Les \textbf{cartes} seront également assujetties à des modifications dans leur affichage. En effet, elles ne seront affichées au joueur que si elles sont en jeu. Les cartes peuvent être dans trois états différents :
@@ -48,8 +47,9 @@ Les \textbf{cartes} seront également assujetties à des modifications dans leur
 
 \begin{itemize}
     \item PIOCHE : Au début du jeu, les cartes sont toutes placées dans la pioche où elles ne sont pas visibles aux joueurs.
-    \item ENJEU : Dans certaines conditions, notamment le gain d'un territoire, le joueur pioche la première carte de la fosse. Chaque carte dispose d'une force : TANK, CANON ou SOLDAT. Ces cartes sont alors affichées.
-    \item DEFAUSSE :  Quand il a entre 3 et 5 cartes, le joueur peut essayer de réaliser une combinaison qui peut lui donner un avantage en remportant des armées supplémentaires. Il défausse alors les cartes qui ne lui sont donc plus affichées.
+    \item ENJEU : Lors du gain d'un territoire, le joueur pioche la première carte de la fosse. Chaque carte dispose d'une force : TANK, CANON ou SOLDAT. Ces cartes sont alors affichées.
+    \item DEFAUSSE :  Quand il a entre 3 et 5 cartes, le joueur peut essayer de réaliser une combinaison qui peut lui donner un avantage en remportant des armées supplémentaires. Il défausse alors les cartes qui ne lui sont donc plus affichées. 
+    Il défausse également une cartes lorsqu'il en a déjà 5 et qu'il doit piocher.
 \end{itemize}
 
 \subsection{Conception logiciel}
@@ -57,7 +57,7 @@ Le diagramme des classes pour les états est présenté sur la page suivante (fi
 Tout d'abord, un groupe de classe qui concerne uniquement \textbf{les éléments} (en orange, jaune et beige). Elles permettent de décrire le fonctionnement des éléments qui composent notre jeu. 
 \newline 
 \newline 
-Par ailleurs, nous pouvons distinguer un groupe \textbf{conteneurs} (en vert). Celui-ci explicitera sert à avoir tous les éléments du jeu dans un seul objet State que l'ont pourra ensuite utiliser dans le moteur du jeu.
+Par ailleurs, nous pouvons distinguer un groupe \textbf{conteneurs} (en vert). Celui-ci explicite tous les éléments du jeu dans un seul objet State que l'ont pourra ensuite utiliser dans le moteur du jeu.
 
 \newpage
 

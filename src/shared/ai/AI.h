@@ -19,11 +19,6 @@ namespace engine {
   class ChoixPaysAttaque;
   class ChoixPaysAttaquant;
   class PlacementArmees;
-};
-namespace state {
-  class Carte;
-};
-namespace engine {
   class FinTour;
   class Undo;
   class Piocher;
@@ -42,7 +37,6 @@ namespace engine {
 #include "engine/ChoixPaysAttaque.h"
 #include "engine/ChoixPaysAttaquant.h"
 #include "engine/PlacementArmees.h"
-#include "state/Carte.h"
 #include "engine/FinTour.h"
 #include "engine/Undo.h"
 #include "engine/Piocher.h"

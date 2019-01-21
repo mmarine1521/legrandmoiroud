@@ -7,7 +7,45 @@
 
 namespace state {
   class State;
+};
+namespace engine {
+  class CommandeComposite;
+  class TourDeJeu;
+  class DeplacerArmees;
+  class EchangeCartes;
+  class Defausser;
+  class IssueDuCombat;
+  class DesAttaque;
+  class DesAttaquant;
+  class ChoixPaysAttaque;
+  class ChoixPaysAttaquant;
+  class PlacementArmees;
+  class FinTour;
+  class Undo;
+  class Piocher;
+  class Passer;
+  class Distribution;
+  class Commande;
 }
+
+#include "engine/CommandeComposite.h"
+#include "engine/TourDeJeu.h"
+#include "engine/DeplacerArmees.h"
+#include "engine/EchangeCartes.h"
+#include "engine/Defausser.h"
+#include "engine/IssueDuCombat.h"
+#include "engine/DesAttaque.h"
+#include "engine/DesAttaquant.h"
+#include "engine/ChoixPaysAttaque.h"
+#include "engine/ChoixPaysAttaquant.h"
+#include "engine/PlacementArmees.h"
+#include "engine/FinTour.h"
+#include "engine/Undo.h"
+#include "engine/Piocher.h"
+#include "engine/Passer.h"
+#include "engine/Distribution.h"
+#include "engine/Commande.h"
+#include "state/State.h"
 
 namespace render {
 

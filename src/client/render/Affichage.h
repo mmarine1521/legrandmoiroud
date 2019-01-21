@@ -16,20 +16,14 @@ namespace sf {
   class Drawable;
   class Texture;
   class VertexArray;
-};
-namespace state {
-  class ElementTab;
 }
 
 #include "Controller.h"
-#include "state/ElementTab.h"
-#include "state/State.h"
 
 namespace render {
 
   /// class Affichage - 
-  class Affichage : public render::Controller, public sf::Transformable, public sf::Drawable {
-    // Associations
+  class Affichage : public render::Controller {
     // Attributes
   public:
     sf::RenderWindow* window;
