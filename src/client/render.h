@@ -3,4 +3,5 @@
 #define __RENDER__H
 
 #include "render/Affichage.h"
+#include "render/Controller.h"
 #endif

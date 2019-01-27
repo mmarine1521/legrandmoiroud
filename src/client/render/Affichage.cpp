@@ -2157,7 +2157,6 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event){
 	}
 
 	if (event.type == sf::Event::MouseButtonPressed){
-		std::cout << "Bouton pressé " << event.type << std::endl ;
 		if(event.mouseButton.button ==sf::Mouse::Left){
 			//std::cout << "Bouton gauche pressé" <<std::endl ;
 			//std::cout << "Position souris x: " << event.mouseButton.x << std::endl;
@@ -2296,7 +2295,7 @@ std::string Affichage::PaysClic(sf::RenderWindow& window, sf::Event event){
 			}
 		}
 	}
-	std::cout << "Vous êtes en :" << pays_clic << std::endl ;
+	//std::cout << "Vous êtes en :" << pays_clic << std::endl ;
 	return pays_clic ;
 }
 
@@ -2346,6 +2345,6 @@ int Affichage::NombreClic(sf::RenderWindow& window, sf::Event event){
 			}
 		}
 	}
-	std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
+	//std::cout << "Nombre d'armées choisies :" << nombreArmees << std::endl ;
 	return nombreArmees ;
 }

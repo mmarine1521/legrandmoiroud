@@ -1,11 +1,17 @@
 #include "state.h"
 #include "render.h"
+#include "engine.h"
 
 #include <iostream>
+#include <chrono>
 
 using namespace std;
 using namespace state;
 using namespace render;
+using namespace engine;
+
+std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
+std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
 
 int main(int argc,char* argv[]){
 	srand (time(0)); //initialisation une fois pour toute du srand
@@ -32,6 +38,8 @@ int main(int argc,char* argv[]){
 	currentState.setIdJoueur(1);
 	currentState.setNbCartes(3);
 	currentState.initializeArmeesRepartition();
+
+	Controller controller0 = Controller(0);
 
 	if (argc > 1){ // vérifie s'il y a un argument
 		string av(argv[1]);
@@ -63,6 +71,31 @@ int main(int argc,char* argv[]){
 					}
 				}
 			}
+		}
+		else if (av == "engine"){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			while (window.isOpen()){
+				window.setVerticalSyncEnabled(true);
+				window.setActive() ;
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+
+				controller0.Handle(currentState, window); // deux joueurs réels
+				TourDeJeu::run(currentState);
+				window.display() ;
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
+				}
+	    }
 		}
 	}
 }
