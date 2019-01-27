@@ -28,7 +28,6 @@ namespace state {
     Element ();
     virtual ~Element ();
     virtual TypeId const getTypeId () = 0;
-    virtual bool const isStatic () = 0;
     Position getPosition ();
     void setPosition (Position position);
     virtual std::shared_ptr<Element> clone () = 0;

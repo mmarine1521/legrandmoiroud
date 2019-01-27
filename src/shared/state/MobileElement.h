@@ -17,8 +17,6 @@ namespace state {
   public:
     MobileElement ();
     virtual ~MobileElement ();
-    bool const isStatic ();
-    virtual bool const isCarte () = 0;
     // Setters and Getters
   };
 

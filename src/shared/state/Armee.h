@@ -24,7 +24,6 @@ namespace state {
   public:
     Armee (std::string pays);
     virtual ~Armee ();
-    bool const isCarte ();
     TypeId const getTypeId ();
     virtual int getIdJoueur ();
     virtual void setIdJoueur (int idJoueur);

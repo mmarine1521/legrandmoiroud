@@ -17,7 +17,6 @@ namespace state {
   public:
     StaticElement ();
     virtual ~StaticElement ();
-    bool const isStatic ();
     // Setters and Getters
   };
 

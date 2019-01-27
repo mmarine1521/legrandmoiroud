@@ -10,10 +10,6 @@ Armee::Armee (std::string pays) : pays (pays){
 Armee::~Armee (){
 }
 
-bool const Armee::isCarte (){
-  return false;
-}
-
 TypeId const Armee::getTypeId (){
   return ARMEE;
 }

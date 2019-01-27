@@ -8,9 +8,6 @@
 namespace state {
   class State;
 };
-namespace render {
-  class Controller;
-};
 namespace sf {
   class Transformable;
   class Drawable;
@@ -18,12 +15,12 @@ namespace sf {
   class VertexArray;
 }
 
-#include "Controller.h"
+#include "state/State.h"
 
 namespace render {
 
   /// class Affichage - 
-  class Affichage : public render::Controller {
+  class Affichage {
     // Attributes
   public:
     sf::RenderWindow* window;
