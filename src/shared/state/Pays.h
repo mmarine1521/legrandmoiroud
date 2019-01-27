@@ -11,7 +11,6 @@ namespace state {
   class StaticElement;
 }
 
-#include "ContinentId.h"
 #include "StaticElement.h"
 
 namespace state {
@@ -21,17 +20,13 @@ namespace state {
     // Attributes
   private:
     std::string nomPays;
-    int paysId;
-    ContinentId continentId;
     std::vector<std::string> paysFrontaliers;
     // Operations
   public:
-    Pays (std::string nomPays, int paysId, ContinentId continentId, std::vector<std::string> paysFrontaliers);
+    Pays (std::string nomPays, std::vector<std::string> paysFrontaliers);
     virtual ~Pays ();
     TypeId const getTypeId ();
     virtual std::string getPays ();
-    int const getPaysId ();
-    ContinentId const getContinentId ();
     std::vector<std::string> const getPaysFrontaliers ();
     void setPaysFrontaliers (std::vector<std::string> paysFrontaliers);
     friend std::ostream& operator<< (std::ostream& flux, Pays const& pays);

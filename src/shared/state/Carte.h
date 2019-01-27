@@ -25,7 +25,6 @@ namespace state {
   public:
     Carte (int numero, CarteForce carteForce);
     virtual ~Carte ();
-    bool const isCarte ();
     TypeId const getTypeId ();
     virtual CarteForce getCarteForce () const;
     int getIdJoueur ();

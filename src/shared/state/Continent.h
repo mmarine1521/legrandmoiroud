@@ -10,34 +10,25 @@ namespace state {
   class StaticElement;
 }
 
-#include "ContinentId.h"
-#include "CouleurId.h"
 #include "StaticElement.h"
 
 namespace state {
 
   /// class Continent - 
   class Continent : public state::StaticElement {
-    // Associations
-    state::ContinentId continentId;
-    state::CouleurId couleurId;
     // Attributes
   private:
     std::string nomContinent;
     std::vector<std::string> const listePays;
     // Operations
   public:
-    Continent (std::string nomContinent, ContinentId continentId, CouleurId couleurId, std::vector<std::string> listePays);
+    Continent (std::string nomContinent, std::vector<std::string> listePays);
     virtual ~Continent ();
     TypeId const getTypeId ();
     std::string const getNomContinent ();
-    ContinentId const getContinentId ();
-    CouleurId const getCouleurId ();
     std::vector<std::string> const getListePays ();
     virtual std::shared_ptr<Element> clone ();
     // Setters and Getters
-    void setContinentId(ContinentId continentId);
-    void setCouleurId(CouleurId couleurId);
   };
 
 };
