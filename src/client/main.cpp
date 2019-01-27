@@ -42,9 +42,12 @@ int main(int argc,char* argv[]){
 	currentState.setNbCartes(3);
 	currentState.initializeArmeesRepartition();
 
-	Controller controller0 = Controller(0);
+	//Controller controller0 = Controller(0); //pour deux joueurs reels
+	Controller controller1 = Controller(1);
 	RandomAI CtrlRandomAI1 = RandomAI(1);
 	RandomAI CtrlRandomAI2 = RandomAI(2);
+	HeuristicAI CtrlHeuristicAI1 = HeuristicAI(1);
+	HeuristicAI CtrlHeuristicAI2 = HeuristicAI(2);
 
 	if (argc > 1){ // vérifie s'il y a un argument
 		string av(argv[1]);
@@ -56,17 +59,17 @@ int main(int argc,char* argv[]){
 	 	}
 		else if (av=="render"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-			window.setKeyRepeatEnabled(false) ;
+			window.setKeyRepeatEnabled(false);
 			while (window.isOpen()){
 				window.setVerticalSyncEnabled(true);
 				window.setActive() ;
 				window.clear();
 
-				Affichage::AfficheMap(currentState,window) ;
-				Affichage::AfficheChoixNbrArmees(currentState, window) ;
-				Affichage::AfficheNombre(currentState, window) ;
+				Affichage::AfficheMap(currentState,window);
+				Affichage::AfficheChoixNbrArmees(currentState, window);
+				Affichage::AfficheNombre(currentState, window);
 
-				window.display() ;
+				window.display();
 
 				sf::Event event;
 				while (window.pollEvent(event)){
@@ -79,19 +82,21 @@ int main(int argc,char* argv[]){
 		}
 		else if (av == "engine"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-			window.setKeyRepeatEnabled(false) ; //annule la répétition des clics
+			window.setKeyRepeatEnabled(false); //annule la répétition des clics
 			while (window.isOpen()){
 				window.setVerticalSyncEnabled(true);
-				window.setActive() ;
+				window.setActive();
 				window.clear();
 
-				Affichage::AfficheMap(currentState,window) ;
-				Affichage::AfficheChoixNbrArmees(currentState, window) ;
-				Affichage::AfficheNombre(currentState, window) ;
+				Affichage::AfficheMap(currentState,window);
+				Affichage::AfficheChoixNbrArmees(currentState, window);
+				Affichage::AfficheNombre(currentState, window);
 
-				controller0.Handle(currentState, window); // deux joueurs réels
+				//controller0.Handle(currentState, window); // deux joueurs reels
+				controller1.Handle(currentState, window); //un joueur reel
+				CtrlHeuristicAI2.aiRemplirCommandes(&currentState); // une heuristic IA
 				TourDeJeu::run(currentState);
-				window.display() ;
+				window.display();
 
 				sf::Event event;
 				while (window.pollEvent(event)){
@@ -104,21 +109,49 @@ int main(int argc,char* argv[]){
 		}
 		else if (av=="random_ai"){
 			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
-			window.setKeyRepeatEnabled(false) ;
+			window.setKeyRepeatEnabled(false);
 			while (window.isOpen()){
 				window.setVerticalSyncEnabled(true);
-				window.setActive() ;
+				window.setActive();
 				window.clear();
 
-				Affichage::AfficheMap(currentState,window) ;
-				Affichage::AfficheChoixNbrArmees(currentState, window) ;
-				Affichage::AfficheNombre(currentState, window) ;
+				Affichage::AfficheMap(currentState,window);
+				Affichage::AfficheChoixNbrArmees(currentState, window);
+				Affichage::AfficheNombre(currentState, window);
 
-				CtrlRandomAI1.aiRemplirCommandes(&currentState) ;
-				CtrlRandomAI2.aiRemplirCommandes(&currentState) ;
+				CtrlRandomAI1.aiRemplirCommandes(&currentState);
+				CtrlRandomAI2.aiRemplirCommandes(&currentState);
 				TourDeJeu::run(currentState) ;
 				std::this_thread::sleep_for (std::chrono::seconds(1));
 				window.display() ;
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
+				}
+			}
+		}
+		else if (av=="heuristic_ai") {
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive();
+			window.setKeyRepeatEnabled(false);
+
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window);
+				Affichage::AfficheChoixNbrArmees(currentState, window);
+				Affichage::AfficheNombre(currentState, window);
+				window.display();
+
+				CtrlHeuristicAI1.aiRemplirCommandes(&currentState);
+				CtrlHeuristicAI2.aiRemplirCommandes(&currentState);
+				TourDeJeu::run(currentState);
+				std::this_thread::sleep_for (std::chrono::seconds(1));
 
 				sf::Event event;
 				while (window.pollEvent(event)){
