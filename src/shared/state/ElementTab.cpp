@@ -472,99 +472,99 @@ void ElementTab::remplirPaysTab (){
   FrontaliersAustralieOccidentale[2] = "Nouvelle-Guinée";
 
   //AFRIQUE
-  Pays* Congo = new Pays("Congo", 101, AFRIQUE, FrontaliersCongo);
+  Pays* Congo = new Pays("Congo", FrontaliersCongo);
   elementList.push_back(Congo->clone());
-  Pays* AfriqueDeLEst = new Pays("Afrique De L'Est", 102, AFRIQUE, FrontaliersAfriqueDeLEst);
+  Pays* AfriqueDeLEst = new Pays("Afrique De L'Est", FrontaliersAfriqueDeLEst);
   elementList.push_back(AfriqueDeLEst->clone());
-  Pays* Egypte = new Pays("Egypte", 103, AFRIQUE, FrontaliersEgypte);
+  Pays* Egypte = new Pays("Egypte", FrontaliersEgypte);
   elementList.push_back(Egypte->clone());
-  Pays* Madagascar = new Pays("Madagascar", 104, AFRIQUE, FrontaliersMadagascar);
+  Pays* Madagascar = new Pays("Madagascar", FrontaliersMadagascar);
   elementList.push_back(Madagascar->clone());
-  Pays* AfriqueDuNord = new Pays("Afrique Du Nord", 105, AFRIQUE, FrontaliersAfriqueDuNord);
+  Pays* AfriqueDuNord = new Pays("Afrique Du Nord", FrontaliersAfriqueDuNord);
   elementList.push_back(AfriqueDuNord->clone());
-  Pays* AfriqueDuSud = new Pays("Afrique Du Sud", 106, AFRIQUE, FrontaliersAfriqueDuSud);
+  Pays* AfriqueDuSud = new Pays("Afrique Du Sud", FrontaliersAfriqueDuSud);
   elementList.push_back(AfriqueDuSud->clone());
 
   //ASIE
-  Pays* Afghanistan = new Pays("Afghanistan", 201, ASIE, FrontaliersAfghanistan);
+  Pays* Afghanistan = new Pays("Afghanistan", FrontaliersAfghanistan);
   elementList.push_back(Afghanistan->clone());
-  Pays* Chine = new Pays("Chine", 202, ASIE, FrontaliersChine);
+  Pays* Chine = new Pays("Chine", FrontaliersChine);
   elementList.push_back(Chine->clone());
-  Pays* Inde = new Pays("Inde", 203, ASIE, FrontaliersInde);
+  Pays* Inde = new Pays("Inde", FrontaliersInde);
   elementList.push_back(Inde->clone());
-  Pays* Tchita = new Pays("Tchita", 204, ASIE, FrontaliersTchita);
+  Pays* Tchita = new Pays("Tchita", FrontaliersTchita);
   elementList.push_back(Tchita->clone());
-  Pays* Japon = new Pays("Japon", 205, ASIE, FrontaliersJapon);
+  Pays* Japon = new Pays("Japon", FrontaliersJapon);
   elementList.push_back(Japon->clone());
-  Pays* Kamtchatka = new Pays("Kamtchatka", 206, ASIE, FrontaliersKamtchatka);
+  Pays* Kamtchatka = new Pays("Kamtchatka", FrontaliersKamtchatka);
   elementList.push_back(Kamtchatka->clone());
-  Pays* MoyenOrient = new Pays("Moyen-Orient", 207, ASIE, FrontaliersMoyenOrient);
+  Pays* MoyenOrient = new Pays("Moyen-Orient", FrontaliersMoyenOrient);
   elementList.push_back(MoyenOrient->clone());
-  Pays* Mongolie = new Pays("Mongolie", 208, ASIE, FrontaliersMongolie);
+  Pays* Mongolie = new Pays("Mongolie", FrontaliersMongolie);
   elementList.push_back(Mongolie->clone());
-  Pays* Siam = new Pays("Siam", 209, ASIE, FrontaliersSiam);
+  Pays* Siam = new Pays("Siam", FrontaliersSiam);
   elementList.push_back(Siam->clone());
-  Pays* Siberie = new Pays("Sibérie", 210, ASIE, FrontaliersSiberie);
+  Pays* Siberie = new Pays("Sibérie", FrontaliersSiberie);
   elementList.push_back(Siberie->clone());
-  Pays* Oural = new Pays("Oural", 211, ASIE, FrontaliersOural);
+  Pays* Oural = new Pays("Oural", FrontaliersOural);
   elementList.push_back(Oural->clone());
-  Pays* Yakoutie = new Pays("Yakoutie", 212, ASIE, FrontaliersYakoutie);
+  Pays* Yakoutie = new Pays("Yakoutie", FrontaliersYakoutie);
   elementList.push_back(Yakoutie->clone());
 
   //AMERIQUE DU NORD
-  Pays* Alaska = new Pays("Alaska", 301, AMERIQUE_NORD, FrontaliersAlaska);
+  Pays* Alaska = new Pays("Alaska", FrontaliersAlaska);
   elementList.push_back(Alaska->clone());
-  Pays* Alberta = new Pays("Alberta", 302, AMERIQUE_NORD, FrontaliersAlberta);
+  Pays* Alberta = new Pays("Alberta", FrontaliersAlberta);
   elementList.push_back(Alberta->clone());
-  Pays* AmeriqueCentrale = new Pays("Amérique Centrale", 303, AMERIQUE_NORD, FrontaliersAmeriqueCentrale);
+  Pays* AmeriqueCentrale = new Pays("Amérique Centrale", FrontaliersAmeriqueCentrale);
   elementList.push_back(AmeriqueCentrale->clone());
-  Pays* EtatsDeLEst = new Pays("Etats De L'Est", 304, AMERIQUE_NORD, FrontaliersEtatsDeLEst);
+  Pays* EtatsDeLEst = new Pays("Etats De L'Est", FrontaliersEtatsDeLEst);
   elementList.push_back(EtatsDeLEst->clone());
-  Pays* Groenland = new Pays("Groenland", 305, AMERIQUE_NORD, FrontaliersGroenland);
+  Pays* Groenland = new Pays("Groenland", FrontaliersGroenland);
   elementList.push_back(Groenland->clone());
-  Pays* TerritoiresDuNordOuest = new Pays("Territoires Du Nord-Ouest", 306, AMERIQUE_NORD, FrontaliersTerritoiresDuNordOuest);
+  Pays* TerritoiresDuNordOuest = new Pays("Territoires Du Nord-Ouest", FrontaliersTerritoiresDuNordOuest);
   elementList.push_back(TerritoiresDuNordOuest->clone());
-  Pays* Ontario = new Pays("Ontario", 307, AMERIQUE_NORD, FrontaliersOntario);
+  Pays* Ontario = new Pays("Ontario", FrontaliersOntario);
   elementList.push_back(Ontario->clone());
-  Pays* Quebec = new Pays("Québec", 308, AMERIQUE_NORD, FrontaliersQuebec);
+  Pays* Quebec = new Pays("Québec", FrontaliersQuebec);
   elementList.push_back(Quebec->clone());
-  Pays* EtatsDeLOuest = new Pays("Etats De L'Ouest", 309, AMERIQUE_NORD, FrontaliersEtatsDeLOuest);
+  Pays* EtatsDeLOuest = new Pays("Etats De L'Ouest", FrontaliersEtatsDeLOuest);
   elementList.push_back(EtatsDeLOuest->clone());
 
   //AMERIQUE DU SUD
-  Pays* Argentine = new Pays("Argentine", 401, AMERIQUE_SUD, FrontaliersArgentine);
+  Pays* Argentine = new Pays("Argentine", FrontaliersArgentine);
   elementList.push_back(Argentine->clone());
-  Pays* Bresil = new Pays("Brésil", 402, AMERIQUE_SUD, FrontaliersBresil);
+  Pays* Bresil = new Pays("Brésil", FrontaliersBresil);
   elementList.push_back(Bresil->clone());
-  Pays* Perou = new Pays("Pérou", 403, AMERIQUE_SUD, FrontaliersPerou);
+  Pays* Perou = new Pays("Pérou", FrontaliersPerou);
   elementList.push_back(Perou->clone());
-  Pays* Venezuela = new Pays("Vénézuela", 404, AMERIQUE_SUD, FrontaliersVenezuela);
+  Pays* Venezuela = new Pays("Vénézuela", FrontaliersVenezuela);
   elementList.push_back(Venezuela->clone());
 
   //EUROPE
-  Pays* GrandeBretagne = new Pays("Grande Bretagne", 501, EUROPE, FrontaliersGrandeBretagne);
+  Pays* GrandeBretagne = new Pays("Grande Bretagne", FrontaliersGrandeBretagne);
   elementList.push_back(GrandeBretagne->clone());
-  Pays* Islande = new Pays("Islande", 502, EUROPE, FrontaliersIslande);
+  Pays* Islande = new Pays("Islande", FrontaliersIslande);
   elementList.push_back(Islande->clone());
-  Pays* EuropeDuNord = new Pays("Europe Du Nord", 503,EUROPE, FrontaliersEuropeDuNord);
+  Pays* EuropeDuNord = new Pays("Europe Du Nord", FrontaliersEuropeDuNord);
   elementList.push_back(EuropeDuNord->clone());
-  Pays* Scandinavie = new Pays("Scandinavie", 504, EUROPE, FrontaliersScandinavie);
+  Pays* Scandinavie = new Pays("Scandinavie", FrontaliersScandinavie);
   elementList.push_back(Scandinavie->clone());
-  Pays* EuropeDuSud = new Pays("Europe Du Sud", 505, EUROPE, FrontaliersEuropeDuSud);
+  Pays* EuropeDuSud = new Pays("Europe Du Sud", FrontaliersEuropeDuSud);
   elementList.push_back(EuropeDuSud->clone());
-  Pays* Ukraine = new Pays("Ukraine", 506, EUROPE, FrontaliersUkraine);
+  Pays* Ukraine = new Pays("Ukraine", FrontaliersUkraine);
   elementList.push_back(Ukraine->clone());
-  Pays* EuropeOccidentale = new Pays("Europe Occidentale", 507, EUROPE, FrontaliersEuropeOccidentale);
+  Pays* EuropeOccidentale = new Pays("Europe Occidentale", FrontaliersEuropeOccidentale);
   elementList.push_back(EuropeOccidentale->clone());
 
   //OCEANIE
-  Pays* AustralieOrientale = new Pays("Australie Orientale", 601, OCEANIE, FrontaliersAustralieOrientale);
+  Pays* AustralieOrientale = new Pays("Australie Orientale", FrontaliersAustralieOrientale);
   elementList.push_back(AustralieOrientale->clone());
-  Pays* Indonesie = new Pays("Indonésie", 602, OCEANIE, FrontaliersIndonesie);
+  Pays* Indonesie = new Pays("Indonésie", FrontaliersIndonesie);
   elementList.push_back(Indonesie->clone());
-  Pays* NouvelleGuinee = new Pays("Nouvelle-Guinée", 603, OCEANIE, FrontaliersNouvelleGuinee);
+  Pays* NouvelleGuinee = new Pays("Nouvelle-Guinée", FrontaliersNouvelleGuinee);
   elementList.push_back(NouvelleGuinee->clone());
-  Pays* AustralieOccidentale = new Pays("Australie Occidentale", 604, OCEANIE, FrontaliersAustralieOccidentale);
+  Pays* AustralieOccidentale = new Pays("Australie Occidentale", FrontaliersAustralieOccidentale);
   elementList.push_back(AustralieOccidentale->clone());
 }
 
@@ -577,7 +577,7 @@ void ElementTab::remplirContinentTab (){
   PaysAfrique[3] = "Madagascar" ;
   PaysAfrique[4] = "Afrique Du Nord" ;
   PaysAfrique[5] = "Afrique Du Sud" ;
-  Continent* Afrique = new Continent("Afrique", AFRIQUE, MARRON, PaysAfrique);
+  Continent* Afrique = new Continent("Afrique", PaysAfrique);
   elementList.push_back(Afrique->clone());
 
   //ASIE
@@ -594,7 +594,7 @@ void ElementTab::remplirContinentTab (){
   PaysAsie[9] = "Sibérie" ;
   PaysAsie[10] = "Oural" ;
   PaysAsie[11] = "Yakoutie" ;
-  Continent* Asie = new Continent("Asie", ASIE, ROUGE, PaysAsie);
+  Continent* Asie = new Continent("Asie", PaysAsie);
   elementList.push_back(Asie->clone());
 
   //AMERIQUE DU NORD
@@ -608,7 +608,7 @@ void ElementTab::remplirContinentTab (){
   PaysAmeriqueDuNord[6] = "Ontario" ;
   PaysAmeriqueDuNord[7] = "Québec" ;
   PaysAmeriqueDuNord[8] = "Etats De L'Ouest" ;
-  Continent* AmeriqueDuNord = new Continent("Amérique Du Nord", AMERIQUE_NORD, JAUNE, PaysAmeriqueDuNord);
+  Continent* AmeriqueDuNord = new Continent("Amérique Du Nord", PaysAmeriqueDuNord);
   elementList.push_back(AmeriqueDuNord->clone());
 
   //AMERIQUE DU SUD
@@ -617,7 +617,7 @@ void ElementTab::remplirContinentTab (){
   PaysAmeriqueDuSud[1] = "Brésil" ;
   PaysAmeriqueDuSud[2] = "Pérou";
   PaysAmeriqueDuSud[3] = "Vénézuela" ;
-  Continent* AmeriqueDuSud = new Continent("Amérique Du Sud", AMERIQUE_SUD, NOIR, PaysAmeriqueDuSud);
+  Continent* AmeriqueDuSud = new Continent("Amérique Du Sud", PaysAmeriqueDuSud);
   elementList.push_back(AmeriqueDuSud->clone());
 
   //EUROPE
@@ -629,7 +629,7 @@ void ElementTab::remplirContinentTab (){
   PaysEurope[4] = "Europe Du Sud" ;
   PaysEurope[5] = "Ukraine" ;
   PaysEurope[6] = "Europe Occidentale" ;
-  Continent* Europe = new Continent("Europe", EUROPE, VERT, PaysEurope);
+  Continent* Europe = new Continent("Europe", PaysEurope);
   elementList.push_back(Europe->clone());
 
   //OCEANIE
@@ -638,7 +638,7 @@ void ElementTab::remplirContinentTab (){
   PaysOceanie[1] = "Indonésie" ;
   PaysOceanie[2] = "Nouvelle-Guinée" ;
   PaysOceanie[3] = "Australie Occidentale" ;
-  Continent* Oceanie = new Continent("Océanie", OCEANIE, VERT_FONCE, PaysOceanie);
+  Continent* Oceanie = new Continent("Océanie", PaysOceanie);
   elementList.push_back(Oceanie->clone());
 }
 

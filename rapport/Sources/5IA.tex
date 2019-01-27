@@ -3,7 +3,7 @@
 \subsection{Stratégies}
 
 \subsubsection{RandomAI}
-Cette stratégie consiste en un joueur qui a chaque étape du jeu aurait le choix entre plusieurs options et en choisit une de manière aléatoire.
+Cette stratégie consiste en un joueur qui, à chaque étape du jeu, aurait le choix entre plusieurs options et en choisit une de manière aléatoire.
 
 \subsubsection{HeuristicAI}
 Dans l'intelligence heuristique, l'IA devra avoir un meilleur comportement qu'avec les commandes générées par le hasard. Ainsi, les choix faits par l'IA seront davantage réfléchis et permettront d'avancer d'une meilleure manière vers la fin du jeu et la défaite ou la victoire de l'un des deux joueurs. 
@@ -38,13 +38,14 @@ Pour chaque fonction, il est clair que de nombreuses stratégies existent pour j
     Le joueur compte combien de cartes de chaque "force" (TANK, CANON ou SOLDAT) il possède et décide de la meilleure carte à défausser en fonction de s'il possède déjà trois cartes de même force (qu'il pourrait ainsi échanger contre des armées) et du gain que rapporte chaque combinaison de cartes (les soldats rapportant moins que les canons ou les tanks, ils seront les premiers à être défaussés). Ainsi, selon les cartes que le joueur possède, il défaussera une carte selon ce tableau :
     \begin{figure}[!htbp]
         \centering
-        \includegraphics[width=8cm]{Images/defausse.png}
+        \includegraphics[width=7cm]{Images/defausse.png}
         \caption{Carte défaussée en fonction de la main du joueur}
         \label{fig:defausse}
     \end{figure}
     
     \item \textbf{aiEchange.}
     Dès que le joueur a trois cartes de même "force", il décide automatiquement de les échanger contre des armées.
+    \newline
     
     \item \textbf{aiPlacerNouvellesArmees.}
     Lorsque le joueur doit placer de nouvelles armées à la fin de son tour, il choisit de les placer sur ses territoires possédant le moins d'armées.
@@ -52,22 +53,20 @@ Pour chaque fonction, il est clair que de nombreuses stratégies existent pour j
     
     \item \textbf{aiDéplacerArmees.}
     Plusieurs déplacements sont très intéressants à effectuer. Si le joueur possède un territoire entièrement entouré par des territoires amis, alors on ne peut laisser qu'une unique armée dessus (il ne peut êter attaqué) et ainsi renforcer les défenses alentours. 
-    \newline
-    
 \end{itemize}
 
 \subsubsection{DeepAI}
 Cette intelligence reprend certaines fonctions de l'intelligence heuristique. Nous donnons deux options de pays attaquant avec chacun deux options de pays attaqué (choisis selon les critères de l'heuristique). Chaque option est essayée et retire un certain nombre de points, calculés en fonction du nombre d'armées et de terrains controllés à l'issue de plusieurs tours de jeu potentiels. Ces points sont déterminés par l'algorithme du min/max basé sur le fait que le joueur veut maximiser ses gains alors que son adversaire va tenter de les minimiser. 
+\newline
 
-\newpage
 \subsection{Conception logiciel}
 Le diagramme des classes pour l’intelligence artificielle est présenté en figure \ref{fig:ai}.
 
-\textbf{Les Classes AI} : Les classes héritières de AI implémente plusieurs stratégies d'intelligence artificielle.
+\textbf{Les Classes AI} : Les classes héritières de AI implémentent plusieurs stratégies d'intelligence artificielle.
 \begin{itemize}
     \item RamdomAI : Intelligence aléatoire
     \item HeuristicAI : Intelligence heuristique
-    \item DeepAI : Intelligence approfondi
+    \item DeepAI : Intelligence approfondie
 \end{itemize}
 
 \begin{landscape}

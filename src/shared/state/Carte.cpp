@@ -8,10 +8,6 @@ Carte::Carte (int numero , CarteForce carteForce) : carteForce(carteForce), nume
 Carte::~Carte (){
 }
 
-bool const Carte::isCarte (){
-  return true;
-}
-
 TypeId const Carte::getTypeId (){
   return CARTE;
 }

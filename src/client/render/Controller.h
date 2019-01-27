@@ -8,6 +8,9 @@
 namespace state {
   class State;
 };
+namespace render {
+  class Affichage;
+};
 namespace engine {
   class CommandeComposite;
   class TourDeJeu;
@@ -28,6 +31,7 @@ namespace engine {
   class Commande;
 }
 
+#include "Affichage.h"
 #include "engine/CommandeComposite.h"
 #include "engine/TourDeJeu.h"
 #include "engine/DeplacerArmees.h"
@@ -45,7 +49,6 @@ namespace engine {
 #include "engine/Passer.h"
 #include "engine/Distribution.h"
 #include "engine/Commande.h"
-#include "state/State.h"
 
 namespace render {
 

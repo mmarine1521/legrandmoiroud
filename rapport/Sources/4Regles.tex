@@ -91,12 +91,8 @@ Le diagramme des classes pour le moteur du jeu est présenté en figure \ref{fig
 Tout d'abord, les classes Commande comporte un type de commande avec IdCommande afin d'identifier précisément la classe d’une instance. Les sous-classes de Commande gèrent chacune des étapes du jeu mentionnées au dessus :
 \begin{itemize}
     \item \textbf{CommandeComposite} est une commande spéciale puisqu'elle consiste en une liste de Commande*. Elle sera utile pour la DeepAI.
-    
-    \item \textbf{Undo} permet d'annuler la dernière action effectuée.
 
     \item \textbf{Distribution} attribut des territoires aux joueurs.
-    
-    \item \textit{PlacementArmees} permet aux joueurs de placer leurs armées, que ce soit lors de l'initialisation ou à la fin de leur tour de jeu lorsqu'ils ont échangé des cartes contre des armées.
     
     \item \textbf{ChoixPays} possède deux classes filles :
     \begin{itemize}
@@ -114,17 +110,23 @@ Tout d'abord, les classes Commande comporte un type de commande avec IdCommande 
     
     \item \textbf{Cartes} possède deux classes filles :
     \begin{itemize}
-        \item \textit{Defausser} retire la carte défaussée de la liste Enjeu pour la placer dans la liste Defausse.
-        \item \textit{Piocher} s'occupe de remplir la pioche avec la défausse lorsqu'elle est vide et de retourner la carte piochée.
+        \item \textbf{Defausser} retire la carte défaussée de la liste Enjeu pour la placer dans la liste Defausse.
+        \item \textbf{Piocher} s'occupe de remplir la pioche avec la défausse lorsqu'elle est vide et de retourner la carte piochée.
     \end{itemize}
     
     \item \textbf{EchangeCartes} vérifie que la combiniason de cartes proposée par le joueur est bonne et lui donne le nombre de nouvelles armées qu'il reçoit.
     
-    \item \textit{DeplacerArmees} permet au joueur de déplacer stratégiquement ses armées.
+    \item \textbf{PlacementArmees} permet aux joueurs de placer leurs armées, que ce soit lors de l'initialisation ou à la fin de leur tour de jeu lorsqu'ils ont échangé des cartes contre des armées.
     
-    \item \textit{FinTour} met fin au tour de jeu et passe au suivant.
+    \item \textbf{DeplacerArmees} permet au joueur de déplacer stratégiquement ses armées.
     
-    \item \textit{Passer} permet au joueur de passer une (EchangerCartes, DeplacerArmees) ou des étapes (ChoixPaysAttaquant, ce qui le mène directement à DeplacerArmees).
+    \item \textbf{Passer} permet au joueur de passer une (EchangerCartes, DeplacerArmees) ou des étapes (ChoixPaysAttaquant, ce qui le mène directement à DeplacerArmees).
+    
+    \item \textbf{FinTour} met fin au tour de jeu et passe au suivant.
+    
+    \item \textbf{Undo} permet d'annuler la dernière action effectuée.
+    
+    \item \textbf{TourDeJeu} organise le jeu en permettant l'exécution d'une commande au moment où elle doit l'être.
 \end{itemize}
 
 %%\begin{landscape}
