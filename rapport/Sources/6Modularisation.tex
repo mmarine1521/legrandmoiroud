@@ -1,0 +1,23 @@
+\section{Modularisation}
+
+\subsection{Serveur}
+
+Pour jouer en réseau, nous allons mettre en place un serveur dont les classes sont présentées sur le schéma suivant. 
+
+\begin{itemize}
+    \item \textbf{Classe User et UserDB.}
+    Ces deux classes permettent de simuler une petite base de données des joueurs qui seront en jeu sur le réseau. Dans un cas plus concret, ces classes feraient le lien avec une base de données SQL ou noSQL par exemple. Les méthodes comprises dans cette classe sont assez explicites et permettent des actions de base. 
+    \newline 
+    
+    \item \textbf{Classe AbstractService}
+    Cette classe abstraite gère la totalité du service REST du projet.
+    
+     \item \textbf{Classe Version Service et UserService}
+     
+     \item \textbf{Classe ServicesManager}. Il s'agit du gestionnaire de service, c'est à dire qu'il sélectionne le bon service et la bonne opération, exécute en fonction de l'URL et de la méthode HTTP. 
+     
+     \item \textbf{Classe ServicesException}
+     Comme son nom l'indique, il gère les cas d'exceptions qui peuvent survenir afin de pouvoir interrompre l'exécution du service. 
+     
+     
+\end{itemize} 

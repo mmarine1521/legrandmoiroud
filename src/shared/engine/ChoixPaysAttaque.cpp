@@ -1,0 +1,95 @@
+#include "ChoixPaysAttaque.h"
+
+#include <iostream>
+#include <fstream>
+
+namespace engine {
+
+ChoixPaysAttaque::ChoixPaysAttaque (int idJoueurCommande, std::string pays) : ChoixPays(idJoueurCommande, pays){
+}
+
+ChoixPaysAttaque::~ChoixPaysAttaque (){
+}
+
+IdCommande const ChoixPaysAttaque::getIdCommande (){
+  return CHOIX_PAYS_ATTAQUE_c;
+}
+
+void ChoixPaysAttaque::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"ChoixPaysAttaque\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"pays\" : " << this->pays << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
+bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state::State& state){
+  state::ElementTab& tabPays = state.getPaysTab();
+  std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();
+  state::Element* ePays = 0;
+  for(size_t i=0; i<listePays.size(); i++){
+    ePays = listePays[i].get();
+    if(ePays->getPays() == pays1){
+      std::vector<std::string> listePaysFontaliers = ePays->getPaysFrontaliers();
+      for(size_t i=0; i<listePaysFontaliers.size(); i++){
+        if(listePaysFontaliers[i] == pays2){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+bool ChoixPaysAttaque::verif (state::State& state){
+  bool ok = false;
+
+  std::string paysAttaquant = state.getPaysAttaquant();
+  std::string paysAttaque = this->pays;
+  int idJoueur = this->idJoueurCommande;
+
+  state::ElementTab& tabArmee = state.getArmeeTab();
+  std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
+  state::Element* ptr_attaque = 0;
+  state::Element* ptr_attaquant = 0;
+
+  //On récupère le pays attaqué.
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_attaque = listeArmee[i].get();
+    if(ptr_attaque->getPays() == paysAttaque){
+      break;
+    }
+  }
+  //On récupère le pays attaquant.
+  for(size_t i=0; i<listeArmee.size(); i++){
+    ptr_attaquant = listeArmee[i].get();
+    if(ptr_attaquant->getPays() == paysAttaquant){
+      break;
+    }
+  }
+
+  if (ptr_attaque->getIdJoueur() != idJoueur){
+    ok = estFrontalier(paysAttaque, paysAttaquant, state);
+    if (!ok){
+      std::cout << "Problème : Ce territoire n'est pas un frontalier." << std::endl;
+    }
+  }
+  else{
+    std::cout << "Problème : Ce territoire vous appartient." << std::endl;
+  }
+  return ok;
+}
+
+void ChoixPaysAttaque::exec (state::State& state){
+  state.setPaysAttaque(this->pays);
+}
+
+void ChoixPaysAttaque::undo (state::State& state){
+  state.setPaysAttaque(this->pays);
+}
+
+}
