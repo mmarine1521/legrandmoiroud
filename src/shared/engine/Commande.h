@@ -26,7 +26,6 @@ namespace engine {
     virtual ~Commande ();
     int getIdJoueurCommande ();
     virtual IdCommande const getIdCommande ();
-    virtual void writeToJson ();
     virtual bool verif (state::State& state);
     virtual void exec (state::State& state);
     virtual void undo (state::State& state);

@@ -14,20 +14,6 @@ IdCommande const DeplacerArmees::getIdCommande (){
 	return DEPLACER_ARMEES_c;
 }
 
-void DeplacerArmees::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"DeplacerArmees\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
-    fichier << "\"paysDepart\" : " << this->paysDepart << "," << std::endl;
-		fichier << "\"paysArrivee\" : " << this->paysArrivee << "," << std::endl;
-		fichier << "\"nbArmees\" : " << this->nbArmees << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 bool DeplacerArmees::verif (state::State& state){
 	int idJoueur = this->idJoueurCommande;
 	state::ElementTab& tabArmee = state.getArmeeTab();

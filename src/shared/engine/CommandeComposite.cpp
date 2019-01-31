@@ -14,17 +14,6 @@ IdCommande const CommandeComposite::getIdCommande(){
   return COMMANDE_COMPOSITE_c;
 }
 
-void CommandeComposite::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"CommandeComposite\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 void CommandeComposite::pushCommandeComposite (Commande* commande){
   this->listeCommandes.push_back(commande);
 }

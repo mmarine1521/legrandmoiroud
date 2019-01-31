@@ -14,17 +14,6 @@ IdCommande const Piocher::getIdCommande (){
   return PIOCHER_c;
 }
 
-void Piocher::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"Piocher\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 void Piocher::exec (state::State& state){
   if (state.getVictoire() != 0){
     int idJoueur = this->idJoueurCommande;

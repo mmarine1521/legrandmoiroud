@@ -27,7 +27,6 @@ namespace engine {
     EchangeCartes (int idJoueurCommande, int numeroCarte);
     virtual ~EchangeCartes ();
     IdCommande const getIdCommande ();
-    void writeToJson ();
     bool verif (state::State& state);
     static int gain (state::State& state);
     void exec (state::State& state);

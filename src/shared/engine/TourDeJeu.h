@@ -3,7 +3,6 @@
 #define ENGINE__TOURDEJEU__H
 
 #include <list>
-#include <string>
 
 namespace engine {
   class Commande;
@@ -63,7 +62,6 @@ namespace engine {
     static void pushCommande (Commande* commande);
     static void placementJoueur3 (state::State& state);
     static void run (state::State& state);
-    static void pushCommandeFichier (std::string fichier);
     // Setters and Getters
   };
 

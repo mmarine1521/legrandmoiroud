@@ -26,7 +26,6 @@ namespace engine {
     DesAttaquant (int idJoueurCommande, int nbDes, std::vector<int> desRouges);
     virtual ~DesAttaquant ();
     IdCommande const getIdCommande ();
-    void writeToJson ();
     bool verif (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);

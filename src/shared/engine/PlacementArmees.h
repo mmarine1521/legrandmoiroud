@@ -26,7 +26,6 @@ namespace engine {
     PlacementArmees (int idJoueurCommande, std::string pays, int nbArmees);
     virtual ~PlacementArmees ();
     IdCommande const getIdCommande ();
-    void writeToJson ();
     std::string getPays ();
     void setPays (std::string pays);
     int getNbArmees ();

@@ -18,7 +18,6 @@ namespace engine {
     Undo (int idJoueurCommande);
     virtual ~Undo ();
     IdCommande const getIdCommande ();
-    void writeToJson ();
     // Setters and Getters
   };
 

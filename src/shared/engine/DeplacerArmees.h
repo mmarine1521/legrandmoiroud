@@ -30,7 +30,6 @@ namespace engine {
     DeplacerArmees (int idJoueurCommande, std::string paysDepart, std::string paysArrivee, int nbArmees);
     virtual ~DeplacerArmees ();
     IdCommande const getIdCommande ();
-    void writeToJson ();
     bool verif (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);

@@ -14,18 +14,6 @@ IdCommande const Defausser::getIdCommande (){
   return DEFAUSSER_c;
 }
 
-void Defausser::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"Defausser\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
-    fichier << "\"numeroCarte\" : " << this->numeroCarte << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 void Defausser::exec (state::State& state){
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();
   std::vector<std::shared_ptr<state::Element>> listeEnjeu = tabEnjeu.getElementList();

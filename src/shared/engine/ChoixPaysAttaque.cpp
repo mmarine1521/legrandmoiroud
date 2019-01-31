@@ -15,18 +15,6 @@ IdCommande const ChoixPaysAttaque::getIdCommande (){
   return CHOIX_PAYS_ATTAQUE_c;
 }
 
-void ChoixPaysAttaque::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"ChoixPaysAttaque\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
-    fichier << "\"pays\" : " << this->pays << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 bool ChoixPaysAttaque::estFrontalier(std::string pays1, std::string pays2, state::State& state){
   state::ElementTab& tabPays = state.getPaysTab();
   std::vector<std::shared_ptr<state::Element>> listePays = tabPays.getElementList();

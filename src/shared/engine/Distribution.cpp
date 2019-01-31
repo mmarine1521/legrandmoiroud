@@ -14,17 +14,6 @@ IdCommande const Distribution::getIdCommande (){
 	return DISTRIBUTION_c;
 }
 
-void Distribution::writeToJson(){
-  std::ofstream fichier("replay.txt", std::ios::app);
-  if(fichier){
-    fichier << "{" << std::endl;
-    fichier << "\"nomCommande\" : \"Distribution\"," << std::endl;
-    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << std::endl;
-    fichier << "}" << std::endl;
-    fichier.close();
-  }
-}
-
 void Distribution::exec (state::State& state){
 	state::ElementTab& tabArmee = state.getArmeeTab();
 	std::vector<std::shared_ptr<state::Element>> listeArmee = tabArmee.getElementList();
