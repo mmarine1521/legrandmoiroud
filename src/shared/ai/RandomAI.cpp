@@ -23,6 +23,7 @@ engine::Commande* RandomAI::aiRepartitionArmees (state::State& state){
 	}
 	int numeroPays = rand() % listeArmeeJoueur.size();
 	int nombreArmees = rand() % 4 + 1;
+	std::cout<< "nombreArmees rand : " << nombreArmees << std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
   return (new engine::PlacementArmees(this->idJoueurAI, ptr_armee->getPays(), nombreArmees));
@@ -143,6 +144,7 @@ engine::Commande* RandomAI::aiPlacementArmees (state::State& state){
 	}
 	int numeroPays = rand() % listeArmeeJoueur.size();
 	int nombreArmees = rand() % (state.getArmeesRepartition(this->idJoueurAI)) + 1;
+	std::cout<< "nombreArmees rand" << nombreArmees << std::endl ;
 	ptr_armee = listeArmeeJoueur[numeroPays];
 
   return (new engine::PlacementArmees(this->idJoueurAI, ptr_armee->getPays(), nombreArmees));
