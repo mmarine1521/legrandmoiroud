@@ -1,0 +1,322 @@
+{
+"nomCommande" : "Distribution",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Etats De L'Est
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Québec
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 2
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "Distribution",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Groenland
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Islande
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "Distribution",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Brésil
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Pérou
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 2,
+"pays" : Afghanistan
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 2,
+"pays" : Oural
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 2,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 1,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 1,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Groenland
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Islande
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 2,
+"pays" : Afghanistan
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 2,
+"pays" : Oural
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 2,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 1,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 1,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Ontario
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Etats De L'Ouest
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 2,
+"pays" : Europe Du Nord
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 2,
+"pays" : Scandinavie
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 2,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 1,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 1,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 2
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 1,
+"pays" : Québec
+}
+{
+"nomCommande" : "ChoixPaysAttaque",
+"idJoueurCommande" : 1,
+"pays" : Etats De L'Est
+}
+{
+"nomCommande" : "DesAttaquant",
+"idJoueurCommande" : 1,
+"nbDes" : 3
+}
+{
+"nomCommande" : "DesAttaque",
+"idJoueurCommande" : 2,
+"nbDes" : 1
+}
+{
+"nomCommande" : "IssueDuCombat",
+"idJoueurCommande" : 2,
+"victoire" : 0
+}
+{
+"nomCommande" : "CommandeComposite",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "FinTour",
+"idJoueurCommande" : 1
+}
+{
+"nomCommande" : "ChoixPaysAttaquant",
+"idJoueurCommande" : 2,
+"pays" : Ukraine
+}
