@@ -14,6 +14,17 @@ IdCommande const FinTour::getIdCommande(){
   return FIN_c;
 }
 
+void FinTour::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"FinTour\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 void FinTour::exec(state::State& state){
   if (state.getIdJoueur() == 1){
     state.setIdJoueur(2);

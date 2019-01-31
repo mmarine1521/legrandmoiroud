@@ -14,6 +14,19 @@ IdCommande const PlacementArmees::getIdCommande (){
 	return PLACER_ARMEES_c;
 }
 
+void PlacementArmees::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"PlacementArmees\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"pays\" : " << this->pays << "," << std::endl;
+		fichier << "\"nbArmees\" : " << this->nbArmees << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 std::string PlacementArmees::getPays(){
 	return this->pays;
 }

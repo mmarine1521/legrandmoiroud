@@ -21,6 +21,7 @@ namespace engine {
     Piocher (int idJoueurCommande);
     virtual ~Piocher ();
     IdCommande const getIdCommande ();
+    void writeToJson ();
     void exec (state::State& state);
     void undo (state::State& state);
     // Setters and Getters

@@ -14,6 +14,18 @@ IdCommande const EchangeCartes::getIdCommande (){
   return ECHANGE_c;
 }
 
+void EchangeCartes::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"EchangeCartes\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"numeroCarte\" : " << this->numeroCarte << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 bool EchangeCartes::verif(state::State& state){// verifie que le joueur possède la carte
   int idJoueur = this->idJoueurCommande;
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();

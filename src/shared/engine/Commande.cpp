@@ -18,6 +18,17 @@ IdCommande const Commande::getIdCommande (){
   return COMMANDE_c;
 }
 
+void Commande::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"Commande\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 bool Commande::verif (state::State& state){
   return 0;
 }

@@ -15,6 +15,18 @@ IdCommande const IssueDuCombat::getIdCommande(){
   return ISSUE_COMBAT_c;
 }
 
+void IssueDuCombat::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"IssueDuCombat\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"victoire\" : " << this->victoire << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 int IssueDuCombat::nbCartesJoueur (state::State& state){
   int idJoueur = state.getIdJoueur();
   state::ElementTab& tabEnjeu = state.getCarteEnjeuTab();

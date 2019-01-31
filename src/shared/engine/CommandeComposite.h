@@ -26,6 +26,7 @@ namespace engine {
     CommandeComposite (int idJoueurCommande);
     virtual ~CommandeComposite ();
     IdCommande const getIdCommande ();
+    void writeToJson ();
     void pushCommandeComposite (Commande* commande);
     void exec (state::State& state);
     void undo (state::State& state);

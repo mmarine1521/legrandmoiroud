@@ -20,6 +20,18 @@ IdCommande const DesAttaque::getIdCommande (){
 	return NB_DES_ATTAQUE_c;
 }
 
+void DesAttaque::writeToJson(){
+  std::ofstream fichier("replay.txt", std::ios::app);
+  if(fichier){
+    fichier << "{" << std::endl;
+    fichier << "\"nomCommande\" : \"DesAttaque\"," << std::endl;
+    fichier << "\"idJoueurCommande\" : " << this->idJoueurCommande << "," << std::endl;
+    fichier << "\"nbDes\" : " << this->nbDes << std::endl;
+    fichier << "}" << std::endl;
+    fichier.close();
+  }
+}
+
 bool DesAttaque::verif (state::State& state){
   if (nbDes < 1 || nbDes > 2){
     std::cout << "Problème : Vous ne pouvez lancer que 1 ou 2 dés." << std::endl;

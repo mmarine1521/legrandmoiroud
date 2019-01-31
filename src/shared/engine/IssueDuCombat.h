@@ -24,6 +24,7 @@ namespace engine {
     IssueDuCombat (int idJoueurCommande, int victoire);
     virtual ~IssueDuCombat ();
     IdCommande const getIdCommande ();
+    void writeToJson ();
     static int nbCartesJoueur (state::State& state);
     void exec (state::State& state);
     void undo (state::State& state);
