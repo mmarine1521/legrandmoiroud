@@ -55,15 +55,18 @@ Pour chaque fonction, il est clair que de nombreuses stratégies existent pour j
     Plusieurs déplacements sont très intéressants à effectuer. Si le joueur possède un territoire entièrement entouré par des territoires amis, alors on ne peut laisser qu'une unique armée dessus (il ne peut êter attaqué) et ainsi renforcer les défenses alentours. 
 \end{itemize}
 
-\newpage
+\subsubsection{DeepAI}
+Cette intelligence reprend certaines fonctions de l'intelligence heuristique. Nous donnons deux options de pays attaquant avec chacun deux options de pays attaqué (choisis selon les critères de l'heuristique). Chaque option est essayée et retire un certain nombre de points, calculés en fonction du nombre d'armées et de terrains controllés à l'issue de plusieurs tours de jeu potentiels. Ces points sont déterminés par l'algorithme du min/max basé sur le fait que le joueur veut maximiser ses gains alors que son adversaire va tenter de les minimiser. 
+\newline
+
 \subsection{Conception logiciel}
 Le diagramme des classes pour l’intelligence artificielle est présenté en figure \ref{fig:ai}.
 
-\textbf{Les Classes AI} : Les classes héritières de AI implémente plusieurs stratégies d'intelligence artificielle.
+\textbf{Les Classes AI} : Les classes héritières de AI implémentent plusieurs stratégies d'intelligence artificielle.
 \begin{itemize}
     \item RamdomAI : Intelligence aléatoire
     \item HeuristicAI : Intelligence heuristique
-    %\item DeepAI : Intelligence approfondie
+    \item DeepAI : Intelligence approfondie
 \end{itemize}
 
 \begin{landscape}

@@ -48,6 +48,8 @@ int main(int argc,char* argv[]){
 	RandomAI CtrlRandomAI2 = RandomAI(2);
 	HeuristicAI CtrlHeuristicAI1 = HeuristicAI(1);
 	HeuristicAI CtrlHeuristicAI2 = HeuristicAI(2);
+	DeepAI CtrlDeepAI1 = DeepAI(1);
+	DeepAI CtrlDeepAI2 = DeepAI(2);
 
 	if (argc > 1){ // vérifie s'il y a un argument
 		string av(argv[1]);
@@ -152,6 +154,71 @@ int main(int argc,char* argv[]){
 				CtrlHeuristicAI2.aiRemplirCommandes(&currentState);
 				TourDeJeu::run(currentState);
 				std::this_thread::sleep_for (std::chrono::seconds(1));
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
+				}
+			}
+		}
+		else if (av=="deep_ai"){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ;
+
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				CtrlDeepAI1.aiRemplirCommandes(&currentState) ;
+				CtrlDeepAI2.aiRemplirCommandes(&currentState) ;
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
+				}
+			}
+		}
+		else if (av=="rollback"){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setVerticalSyncEnabled(true);
+			window.setActive() ;
+			window.setKeyRepeatEnabled(false) ;
+
+			int compteur = 0;
+			while (window.isOpen()){
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+				window.display() ;
+
+				if (compteur < 20){
+					CtrlHeuristicAI1.aiRemplirCommandes(&currentState) ;
+					CtrlHeuristicAI2.aiRemplirCommandes(&currentState) ;
+				}
+				else{
+					while(TourDeJeu::getSizeUndos() != 0){
+						TourDeJeu::pushCommande(new Undo(currentState.getIdJoueur()));
+					}
+				}
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+				compteur ++;
 
 				sf::Event event;
 				while (window.pollEvent(event)){
