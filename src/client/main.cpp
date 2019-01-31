@@ -1,14 +1,17 @@
 #include "state.h"
 #include "render.h"
 #include "engine.h"
+#include "ai.h"
 
 #include <iostream>
 #include <chrono>
+#include <thread>
 
 using namespace std;
 using namespace state;
 using namespace render;
 using namespace engine;
+using namespace ai;
 
 std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
 std::chrono::system_clock::time_point b = std::chrono::system_clock::now();
@@ -40,6 +43,8 @@ int main(int argc,char* argv[]){
 	currentState.initializeArmeesRepartition();
 
 	Controller controller0 = Controller(0);
+	RandomAI CtrlRandomAI1 = RandomAI(1);
+	RandomAI CtrlRandomAI2 = RandomAI(2);
 
 	if (argc > 1){ // vérifie s'il y a un argument
 		string av(argv[1]);
@@ -96,6 +101,33 @@ int main(int argc,char* argv[]){
 					}
 				}
 	    }
+		}
+		else if (av=="random_ai"){
+			sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
+			window.setKeyRepeatEnabled(false) ;
+			while (window.isOpen()){
+				window.setVerticalSyncEnabled(true);
+				window.setActive() ;
+				window.clear();
+
+				Affichage::AfficheMap(currentState,window) ;
+				Affichage::AfficheChoixNbrArmees(currentState, window) ;
+				Affichage::AfficheNombre(currentState, window) ;
+
+				CtrlRandomAI1.aiRemplirCommandes(&currentState) ;
+				CtrlRandomAI2.aiRemplirCommandes(&currentState) ;
+				TourDeJeu::run(currentState) ;
+				std::this_thread::sleep_for (std::chrono::seconds(1));
+				window.display() ;
+
+				sf::Event event;
+				while (window.pollEvent(event)){
+					if (event.type == sf::Event::Closed)
+					{
+						window.close();
+					}
+				}
+			}
 		}
 	}
 }
