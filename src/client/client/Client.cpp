@@ -11,7 +11,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Network.hpp>
 #include <thread>
-#include <json/json.h> 
+#include <json/json.h>
 
 
 using namespace ai;
@@ -22,7 +22,7 @@ using namespace engine;
 using namespace client;
 
 
-/*Client::Client() 
+/*Client::Client()
 {
 }*/
 
@@ -76,7 +76,7 @@ sf::Http::Request sendDelete(std::string uri){
 }
 
 
-void Client::run() 
+void Client::run()
 {
 	ElementTab tabArmee = ElementTab() ;
 	tabArmee.ElementTab::remplirArmeeTab() ;
@@ -102,11 +102,6 @@ void Client::run()
 	currentState.setNbCartes(3);
 	currentState.initializeArmeesRepartition();
 
-	//Controller controller = Controller() ;
-	RandomAI CtrlAI = RandomAI(1) ;
-	RandomAI CtrlAI2 = RandomAI(2) ;
-	HeuristicAI CtrlAI3 = HeuristicAI(1) ;
-	HeuristicAI CtrlAI4 = HeuristicAI(2) ;
 	sf::RenderWindow window(sf::VideoMode(1280,720),"RISK", sf::Style::Close | sf::Style::Resize);
 			window.setVerticalSyncEnabled(true);
 			window.setActive() ;
@@ -131,14 +126,14 @@ void Client::run()
 			}
 }
 
-void Client::connect() 
+void Client::connect()
 {
-		sf::Http http; 
-		http.setHost("http://localhost", 8080) ; 
-		Json::Value body ; 
-		Json::Reader reader ; 
-		
-		sf::Http::Request request = sendGet("/user/"); 
+		sf::Http http;
+		http.setHost("http://localhost", 8080) ;
+		Json::Value body ;
+		Json::Reader reader ;
+
+		sf::Http::Request request = sendGet("/user/");
 		http.setHost("http://localhost",8080);
 
 	  sf::Http::Response response = http.sendRequest(request);
@@ -175,5 +170,3 @@ void Client::connect()
 	  std::cout << "status: " << response.getStatus() << std::endl;
 	  std::cout << "body: " << response.getBody() << std::endl;
 }
-
-

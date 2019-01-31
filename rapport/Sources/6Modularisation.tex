@@ -4,18 +4,17 @@
 
 L'un des objectifs principaux est de pouvoir fonctionner sur plusieurs threads et donc d'exploiter au mieux les ressources des machines en notre possession. 
 Notre objectif ici est de placer le moteur de jeu sur un thread, puis le moteur de rendu sur un autre
-thread. Le moteur de rendu est nécessairement sur le thread principal (contraire matérielle), et le moteur
-du jeu est sur un thread secondaire. Nous avons deux type d’information qui transite d’un module à l’autre :
+thread. Le moteur de rendu est nécessairement sur le thread principal (contrainte matérielle), et le moteur
+du jeu est sur un thread secondaire. Nous avons deux types d’information qui transitent d’un module à l’autre :
 les commandes et les notifications de rendu.
 
 \subsection{La classe Client}
 
-La classe Client contient les informations pour faire fonctionner le jeu : Mo-
-teur de jeu (avec état intégré) et rendu.
+La classe Client contient les informations pour faire fonctionner le jeu : Moteur de jeu (avec état intégré) et rendu.
 
 \subsection{Serveur}
 
-Pour jouer en réseau, nous allons mettre en place un serveur dont les classes sont présentées sur le schéma suivant. Ce dernier ne fonctionne pas mais nous avons commencé à coder les différentes classes de cette partie. 
+Pour jouer en réseau, nous allons mettre en place un serveur dont les classes sont présentées sur le schéma suivant. Ce dernier ne fonctionne pas encore mais nous avons commencé à coder les différentes classes de cette partie. 
 Nous utilisons Json pour toutes les commandes qui vont transiter via le serveur. 
 
 \begin{itemize}
